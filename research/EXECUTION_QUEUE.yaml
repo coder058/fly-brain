@@ -1,0 +1,5 @@
+version: 1
+queue:
+  - {id: CIRCUIT-MINE-003, status: NEXT, reason: "Control annotation alignment for exact node degree pairs."}
+  - {id: PRIOR-ART-001, status: AFTER_CIRCUIT_MINE_003, reason: "Novelty requires primary-literature review against the surviving structural mechanism."}
+  - {id: FOLLOW-UP-UNSET, status: WAITING_FOR_ADVERSARIAL_REVIEW, reason: "Choose one falsifiable task only after degree control and prior art."}

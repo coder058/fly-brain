@@ -1,0 +1,1 @@
+{"analysis_id": "CIRCUIT-MINE-002", "delta_observed_minus_null_mean": 0.37801622582652705, "groups": 27, "null_mean": 0.34353722462804637, "null_sd": 0.0012592194546512873, "observed_same_superclass_edge_fraction": 0.7215534504545734, "output": "/home/ubuntu/fly-lab/research/annotation_block_summary.json", "runtime_seconds": 10.171, "status": "MEASURED_STRUCTURAL_BLOCK_ANALYSIS"}

@@ -1,0 +1,1 @@
+{"analysis_id": "CIRCUIT-MINE-001", "largest_strong_component": 163397, "n_edges": 25563197, "n_neurons": 165122, "output": "/home/ubuntu/fly-lab/research/circuit_mining_summary.json", "reciprocal_directed_edges": 7639973, "reciprocal_pairs": 3819936, "runtime_seconds": 3.354, "status": "MEASURED_STRUCTURAL_INVENTORY", "strong_component_count": 1721}

@@ -1,0 +1,13 @@
+version: 1
+nodes:
+  - {id: E0, type: data, status: frozen}
+  - {id: CIRCUIT-MINE-001, type: analysis, status: measured_structural_inventory}
+  - {id: CIRCUIT-MINE-002, type: analysis, status: measured_label_block_analysis}
+  - {id: CIRCUIT-MINE-003, type: analysis, status: preregistered_degree_conditioned_null}
+  - {id: H01-H20, type: hypothesis_space, status: updated_after_CIRCUIT_MINE_002}
+edges:
+  - [E0, CIRCUIT-MINE-001, supplies]
+  - [CIRCUIT-MINE-001, H01-H20, updates]
+  - [CIRCUIT-MINE-001, CIRCUIT-MINE-002, motivates]
+  - [CIRCUIT-MINE-002, CIRCUIT-MINE-003, adversarially_tests]
+  - [CIRCUIT-MINE-003, H05-H07_H10-H12_H17-H20, updates]

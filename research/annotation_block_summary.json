@@ -1,0 +1,320 @@
+{
+  "analysis_id": "CIRCUIT-MINE-002",
+  "annotation_alignment": {
+    "label_field": "superclass",
+    "observed_same_superclass_edge_fraction": 0.7215534504545734,
+    "permutation_null": {
+      "delta_observed_minus_null_mean": 0.37801622582652705,
+      "fractions": [
+        0.34346865926042036,
+        0.3441661072361176,
+        0.34185180359092016,
+        0.3446612722188074,
+        0.34461366471494154,
+        0.3422968183517891,
+        0.34098274171262694,
+        0.3447509323657757,
+        0.34499233409655294,
+        0.34231672978931393,
+        0.34307375560263453,
+        0.34329927512587727,
+        0.344899896519203,
+        0.3445147334271218,
+        0.34168711370490945,
+        0.34541215639029815,
+        0.34302430951809354,
+        0.34279933765717957,
+        0.3437195668444757,
+        0.34421328443386795
+      ],
+      "mean": 0.34353722462804637,
+      "n": 20,
+      "sd": 0.0012592194546512873
+    }
+  },
+  "graph": {
+    "n_edges": 25563197,
+    "n_neurons": 165122,
+    "superclass_count": 27
+  },
+  "groups": [
+    {
+      "included_in_stable_scc_report": false,
+      "internal_edges": 3,
+      "internal_fraction_of_source_edges": 0.75,
+      "largest_strong_component": 2,
+      "nodes": 47,
+      "source_edges": 4,
+      "strong_component_count": 46,
+      "superclass": "ENS"
+    },
+    {
+      "included_in_stable_scc_report": true,
+      "internal_edges": 59,
+      "internal_fraction_of_source_edges": 0.019673224408136045,
+      "largest_strong_component": 4,
+      "nodes": 516,
+      "source_edges": 2999,
+      "strong_component_count": 510,
+      "superclass": "UNANNOTATED"
+    },
+    {
+      "included_in_stable_scc_report": true,
+      "internal_edges": 110502,
+      "internal_fraction_of_source_edges": 0.1456632037679291,
+      "largest_strong_component": 1846,
+      "nodes": 1846,
+      "source_edges": 758613,
+      "strong_component_count": 1,
+      "superclass": "ascending_neuron"
+    },
+    {
+      "included_in_stable_scc_report": false,
+      "internal_edges": 4,
+      "internal_fraction_of_source_edges": 0.07407407407407407,
+      "largest_strong_component": 2,
+      "nodes": 4,
+      "source_edges": 54,
+      "strong_component_count": 2,
+      "superclass": "cb_efferent"
+    },
+    {
+      "included_in_stable_scc_report": false,
+      "internal_edges": 314,
+      "internal_fraction_of_source_edges": 0.2571662571662572,
+      "largest_strong_component": 56,
+      "nodes": 72,
+      "source_edges": 1221,
+      "strong_component_count": 17,
+      "superclass": "cb_endocrine"
+    },
+    {
+      "included_in_stable_scc_report": true,
+      "internal_edges": 6814804,
+      "internal_fraction_of_source_edges": 0.9057073698259065,
+      "largest_strong_component": 32159,
+      "nodes": 32160,
+      "source_edges": 7524289,
+      "strong_component_count": 2,
+      "superclass": "cb_intrinsic"
+    },
+    {
+      "included_in_stable_scc_report": true,
+      "internal_edges": 985,
+      "internal_fraction_of_source_edges": 0.1061880120741699,
+      "largest_strong_component": 99,
+      "nodes": 107,
+      "source_edges": 9276,
+      "strong_component_count": 9,
+      "superclass": "cb_motor"
+    },
+    {
+      "included_in_stable_scc_report": true,
+      "internal_edges": 96092,
+      "internal_fraction_of_source_edges": 0.24870718437957792,
+      "largest_strong_component": 4528,
+      "nodes": 4868,
+      "source_edges": 386366,
+      "strong_component_count": 279,
+      "superclass": "cb_sensory"
+    },
+    {
+      "included_in_stable_scc_report": false,
+      "internal_edges": 0,
+      "internal_fraction_of_source_edges": 0.0,
+      "largest_strong_component": 1,
+      "nodes": 5,
+      "source_edges": 141,
+      "strong_component_count": 5,
+      "superclass": "cb_sensory_tbc"
+    },
+    {
+      "included_in_stable_scc_report": true,
+      "internal_edges": 75273,
+      "internal_fraction_of_source_edges": 0.12186782069776139,
+      "largest_strong_component": 1314,
+      "nodes": 1314,
+      "source_edges": 617661,
+      "strong_component_count": 1,
+      "superclass": "descending_neuron"
+    },
+    {
+      "included_in_stable_scc_report": false,
+      "internal_edges": 8,
+      "internal_fraction_of_source_edges": 0.002471424158171146,
+      "largest_strong_component": 2,
+      "nodes": 8,
+      "source_edges": 3237,
+      "strong_component_count": 6,
+      "superclass": "efferent_ascending"
+    },
+    {
+      "included_in_stable_scc_report": false,
+      "internal_edges": 6,
+      "internal_fraction_of_source_edges": 0.026785714285714284,
+      "largest_strong_component": 2,
+      "nodes": 4,
+      "source_edges": 224,
+      "strong_component_count": 2,
+      "superclass": "efferent_descending"
+    },
+    {
+      "included_in_stable_scc_report": true,
+      "internal_edges": 8799262,
+      "internal_fraction_of_source_edges": 0.8102592955125366,
+      "largest_strong_component": 88531,
+      "nodes": 89390,
+      "source_edges": 10859810,
+      "strong_component_count": 860,
+      "superclass": "ol_intrinsic"
+    },
+    {
+      "included_in_stable_scc_report": true,
+      "internal_edges": 2822,
+      "internal_fraction_of_source_edges": 0.042415042159529855,
+      "largest_strong_component": 4,
+      "nodes": 4114,
+      "source_edges": 66533,
+      "strong_component_count": 2870,
+      "superclass": "ol_sensory"
+    },
+    {
+      "included_in_stable_scc_report": true,
+      "internal_edges": 5807,
+      "internal_fraction_of_source_edges": 0.07631952476080328,
+      "largest_strong_component": 203,
+      "nodes": 537,
+      "source_edges": 76088,
+      "strong_component_count": 11,
+      "superclass": "sensory_ascending"
+    },
+    {
+      "included_in_stable_scc_report": false,
+      "internal_edges": 0,
+      "internal_fraction_of_source_edges": 0.0,
+      "largest_strong_component": 1,
+      "nodes": 2,
+      "source_edges": 62,
+      "strong_component_count": 2,
+      "superclass": "sensory_ascending_tbc"
+    },
+    {
+      "included_in_stable_scc_report": false,
+      "internal_edges": 20,
+      "internal_fraction_of_source_edges": 0.005878894767783657,
+      "largest_strong_component": 6,
+      "nodes": 12,
+      "source_edges": 3402,
+      "strong_component_count": 4,
+      "superclass": "sensory_descending"
+    },
+    {
+      "included_in_stable_scc_report": true,
+      "internal_edges": 11629,
+      "internal_fraction_of_source_edges": 0.02170310289611102,
+      "largest_strong_component": 546,
+      "nodes": 563,
+      "source_edges": 535822,
+      "strong_component_count": 18,
+      "superclass": "visual_centrifugal"
+    },
+    {
+      "included_in_stable_scc_report": true,
+      "internal_edges": 551099,
+      "internal_fraction_of_source_edges": 0.33111209645827777,
+      "largest_strong_component": 9154,
+      "nodes": 9201,
+      "source_edges": 1664388,
+      "strong_component_count": 48,
+      "superclass": "visual_projection"
+    },
+    {
+      "included_in_stable_scc_report": false,
+      "internal_edges": 0,
+      "internal_fraction_of_source_edges": 0.0,
+      "largest_strong_component": 1,
+      "nodes": 2,
+      "source_edges": 87,
+      "strong_component_count": 2,
+      "superclass": "visual_projection_tbc"
+    },
+    {
+      "included_in_stable_scc_report": false,
+      "internal_edges": 225,
+      "internal_fraction_of_source_edges": 0.16853932584269662,
+      "largest_strong_component": 28,
+      "nodes": 94,
+      "source_edges": 1335,
+      "strong_component_count": 48,
+      "superclass": "vnc_efferent"
+    },
+    {
+      "included_in_stable_scc_report": false,
+      "internal_edges": 42,
+      "internal_fraction_of_source_edges": 0.1414141414141414,
+      "largest_strong_component": 12,
+      "nodes": 22,
+      "source_edges": 297,
+      "strong_component_count": 9,
+      "superclass": "vnc_endocrine"
+    },
+    {
+      "included_in_stable_scc_report": true,
+      "internal_edges": 1831323,
+      "internal_fraction_of_source_edges": 0.7627140668229587,
+      "largest_strong_component": 13141,
+      "nodes": 13151,
+      "source_edges": 2401061,
+      "strong_component_count": 11,
+      "superclass": "vnc_intrinsic"
+    },
+    {
+      "included_in_stable_scc_report": true,
+      "internal_edges": 2424,
+      "internal_fraction_of_source_edges": 0.1779866363169102,
+      "largest_strong_component": 387,
+      "nodes": 708,
+      "source_edges": 13619,
+      "strong_component_count": 216,
+      "superclass": "vnc_motor"
+    },
+    {
+      "included_in_stable_scc_report": true,
+      "internal_edges": 142510,
+      "internal_fraction_of_source_edges": 0.2239673863504207,
+      "largest_strong_component": 5811,
+      "nodes": 6365,
+      "source_edges": 636298,
+      "strong_component_count": 429,
+      "superclass": "vnc_sensory"
+    },
+    {
+      "included_in_stable_scc_report": false,
+      "internal_edges": 0,
+      "internal_fraction_of_source_edges": 0.0,
+      "largest_strong_component": 1,
+      "nodes": 9,
+      "source_edges": 255,
+      "strong_component_count": 9,
+      "superclass": "vnc_sensory_tbc"
+    },
+    {
+      "included_in_stable_scc_report": false,
+      "internal_edges": 0,
+      "internal_fraction_of_source_edges": 0.0,
+      "largest_strong_component": 1,
+      "nodes": 1,
+      "source_edges": 55,
+      "strong_component_count": 1,
+      "superclass": "vnc_tbc"
+    }
+  ],
+  "interpretation": {
+    "decision": "PENDING_ADVERSARIAL_REVIEW",
+    "measured": "Superclass-label alignment with graph edges and within-group connectivity.",
+    "not_measured": "No biological function, task performance, memory, routing benefit, novelty or ML transfer."
+  },
+  "read_only": true,
+  "runtime_seconds": 10.171,
+  "status": "MEASURED_STRUCTURAL_BLOCK_ANALYSIS"
+}

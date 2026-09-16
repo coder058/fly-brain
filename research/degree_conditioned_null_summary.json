@@ -1,0 +1,240 @@
+{
+  "analysis_id": "CIRCUIT-MINE-003",
+  "annotation_alignment": {
+    "delta_observed_minus_null_mean": 0.21244786988106368,
+    "label_field": "superclass",
+    "null_fractions": [
+      0.5073383818150758,
+      0.5095659592186377,
+      0.5094684753241153,
+      0.5079400280019749,
+      0.5097963294653638,
+      0.5084190760647035,
+      0.5096554628906549,
+      0.5104758219404247,
+      0.5096214295887952,
+      0.5098045444002954,
+      0.508983442094508,
+      0.509904375419084,
+      0.5106483355739895,
+      0.5079043908318666,
+      0.5096085204053311,
+      0.5072536506290665,
+      0.5090127420290975,
+      0.5094480553429995,
+      0.508450253698706,
+      0.508812336735503
+    ],
+    "null_mean": 0.5091055805735097,
+    "null_sd": 0.0009599352346649315,
+    "observed_same_superclass_edge_fraction": 0.7215534504545734
+  },
+  "graph": {
+    "n_edges": 25563197,
+    "n_neurons": 165122
+  },
+  "groups": [
+    {
+      "nodes": 47,
+      "observed_internal_edges": 3,
+      "observed_internal_fraction": 0.75,
+      "source_edges": 4,
+      "superclass": "ENS"
+    },
+    {
+      "nodes": 516,
+      "observed_internal_edges": 59,
+      "observed_internal_fraction": 0.019673224408136045,
+      "source_edges": 2999,
+      "superclass": "UNANNOTATED"
+    },
+    {
+      "nodes": 1846,
+      "observed_internal_edges": 110502,
+      "observed_internal_fraction": 0.1456632037679291,
+      "source_edges": 758613,
+      "superclass": "ascending_neuron"
+    },
+    {
+      "nodes": 4,
+      "observed_internal_edges": 4,
+      "observed_internal_fraction": 0.07407407407407407,
+      "source_edges": 54,
+      "superclass": "cb_efferent"
+    },
+    {
+      "nodes": 72,
+      "observed_internal_edges": 314,
+      "observed_internal_fraction": 0.2571662571662572,
+      "source_edges": 1221,
+      "superclass": "cb_endocrine"
+    },
+    {
+      "nodes": 32160,
+      "observed_internal_edges": 6814804,
+      "observed_internal_fraction": 0.9057073698259065,
+      "source_edges": 7524289,
+      "superclass": "cb_intrinsic"
+    },
+    {
+      "nodes": 107,
+      "observed_internal_edges": 985,
+      "observed_internal_fraction": 0.1061880120741699,
+      "source_edges": 9276,
+      "superclass": "cb_motor"
+    },
+    {
+      "nodes": 4868,
+      "observed_internal_edges": 96092,
+      "observed_internal_fraction": 0.24870718437957792,
+      "source_edges": 386366,
+      "superclass": "cb_sensory"
+    },
+    {
+      "nodes": 5,
+      "observed_internal_edges": 0,
+      "observed_internal_fraction": 0.0,
+      "source_edges": 141,
+      "superclass": "cb_sensory_tbc"
+    },
+    {
+      "nodes": 1314,
+      "observed_internal_edges": 75273,
+      "observed_internal_fraction": 0.12186782069776139,
+      "source_edges": 617661,
+      "superclass": "descending_neuron"
+    },
+    {
+      "nodes": 8,
+      "observed_internal_edges": 8,
+      "observed_internal_fraction": 0.002471424158171146,
+      "source_edges": 3237,
+      "superclass": "efferent_ascending"
+    },
+    {
+      "nodes": 4,
+      "observed_internal_edges": 6,
+      "observed_internal_fraction": 0.026785714285714284,
+      "source_edges": 224,
+      "superclass": "efferent_descending"
+    },
+    {
+      "nodes": 89390,
+      "observed_internal_edges": 8799262,
+      "observed_internal_fraction": 0.8102592955125366,
+      "source_edges": 10859810,
+      "superclass": "ol_intrinsic"
+    },
+    {
+      "nodes": 4114,
+      "observed_internal_edges": 2822,
+      "observed_internal_fraction": 0.042415042159529855,
+      "source_edges": 66533,
+      "superclass": "ol_sensory"
+    },
+    {
+      "nodes": 537,
+      "observed_internal_edges": 5807,
+      "observed_internal_fraction": 0.07631952476080328,
+      "source_edges": 76088,
+      "superclass": "sensory_ascending"
+    },
+    {
+      "nodes": 2,
+      "observed_internal_edges": 0,
+      "observed_internal_fraction": 0.0,
+      "source_edges": 62,
+      "superclass": "sensory_ascending_tbc"
+    },
+    {
+      "nodes": 12,
+      "observed_internal_edges": 20,
+      "observed_internal_fraction": 0.005878894767783657,
+      "source_edges": 3402,
+      "superclass": "sensory_descending"
+    },
+    {
+      "nodes": 563,
+      "observed_internal_edges": 11629,
+      "observed_internal_fraction": 0.02170310289611102,
+      "source_edges": 535822,
+      "superclass": "visual_centrifugal"
+    },
+    {
+      "nodes": 9201,
+      "observed_internal_edges": 551099,
+      "observed_internal_fraction": 0.33111209645827777,
+      "source_edges": 1664388,
+      "superclass": "visual_projection"
+    },
+    {
+      "nodes": 2,
+      "observed_internal_edges": 0,
+      "observed_internal_fraction": 0.0,
+      "source_edges": 87,
+      "superclass": "visual_projection_tbc"
+    },
+    {
+      "nodes": 94,
+      "observed_internal_edges": 225,
+      "observed_internal_fraction": 0.16853932584269662,
+      "source_edges": 1335,
+      "superclass": "vnc_efferent"
+    },
+    {
+      "nodes": 22,
+      "observed_internal_edges": 42,
+      "observed_internal_fraction": 0.1414141414141414,
+      "source_edges": 297,
+      "superclass": "vnc_endocrine"
+    },
+    {
+      "nodes": 13151,
+      "observed_internal_edges": 1831323,
+      "observed_internal_fraction": 0.7627140668229587,
+      "source_edges": 2401061,
+      "superclass": "vnc_intrinsic"
+    },
+    {
+      "nodes": 708,
+      "observed_internal_edges": 2424,
+      "observed_internal_fraction": 0.1779866363169102,
+      "source_edges": 13619,
+      "superclass": "vnc_motor"
+    },
+    {
+      "nodes": 6365,
+      "observed_internal_edges": 142510,
+      "observed_internal_fraction": 0.2239673863504207,
+      "source_edges": 636298,
+      "superclass": "vnc_sensory"
+    },
+    {
+      "nodes": 9,
+      "observed_internal_edges": 0,
+      "observed_internal_fraction": 0.0,
+      "source_edges": 255,
+      "superclass": "vnc_sensory_tbc"
+    },
+    {
+      "nodes": 1,
+      "observed_internal_edges": 0,
+      "observed_internal_fraction": 0.0,
+      "source_edges": 55,
+      "superclass": "vnc_tbc"
+    }
+  ],
+  "interpretation": {
+    "decision": "PENDING_PRIOR_ART_AND_TASK_DESIGN",
+    "measured": "Superclass-label alignment after preserving exact node degree pairs and label counts.",
+    "not_measured": "No biological function, task performance, routing benefit, memory or ML transfer."
+  },
+  "read_only": true,
+  "runtime_seconds": 12.604,
+  "status": "MEASURED_DEGREE_CONDITIONED_NULL",
+  "strata": {
+    "count": 62911,
+    "definition": "exact (in_degree, out_degree) pair",
+    "label_permutations_within_strata": 20
+  }
+}

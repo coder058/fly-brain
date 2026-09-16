@@ -1,0 +1,1 @@
+{"analysis_id": "CIRCUIT-MINE-003", "degree_pair_strata": 62911, "delta": 0.21244786988106368, "null_mean": 0.5091055805735097, "null_sd": 0.0009599352346649315, "observed": 0.7215534504545734, "output": "/home/ubuntu/fly-lab/research/degree_conditioned_null_summary.json", "runtime_seconds": 12.604, "status": "MEASURED_DEGREE_CONDITIONED_NULL"}

@@ -1,0 +1,525 @@
+{
+  "analysis_id": "CIRCUIT-MINE-001",
+  "components": {
+    "largest_weak_component_size": 164581,
+    "strong_component_count": 1721,
+    "strong_component_top_sizes": [
+      163397,
+      2,
+      2,
+      2,
+      2,
+      2,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "strong_components_gt_one": 6,
+    "strongest_component_size": 163397,
+    "weak_component_count": 539,
+    "weakest_component_count": 535
+  },
+  "graph": {
+    "in_degree": {
+      "max": 11526.0,
+      "mean": 154.8139981347125,
+      "median": 100.0,
+      "min": 0.0,
+      "p90": 320.0,
+      "p99": 861.0
+    },
+    "n_edges_csr": 25563197,
+    "n_edges_metadata": 25563197,
+    "n_neurons": 165122,
+    "out_degree": {
+      "max": 11203.0,
+      "mean": 154.8139981347125,
+      "median": 113.0,
+      "min": 0.0,
+      "p90": 286.0,
+      "p99": 797.0
+    },
+    "reciprocal_degree": {
+      "max": 8854.0,
+      "mean": 46.26865590290815,
+      "median": 28.0,
+      "min": 0.0,
+      "p90": 99.0,
+      "p99": 286.0
+    },
+    "reciprocal_directed_edges": 7639973,
+    "reciprocal_edge_fraction_of_csr": 0.2988661003551316,
+    "reciprocal_pairs_excluding_self_loops": 3819936,
+    "self_loops": 101
+  },
+  "interpretation": {
+    "follow_up_rule": "A follow-up requires a mechanism-matched null, positive control, independent train/test data and valid seeded replication.",
+    "measured": "Graph connectivity, reciprocity, degree distributions and annotation composition only.",
+    "not_measured": "No task performance, memory, biological function, novelty or ML transfer."
+  },
+  "largest_strong_component_annotations": {
+    "class": [
+      {
+        "count": 139216,
+        "value": "UNANNOTATED"
+      },
+      {
+        "count": 4064,
+        "value": "Kenyon_Cell"
+      },
+      {
+        "count": 4008,
+        "value": "visual"
+      },
+      {
+        "count": 2950,
+        "value": "CX"
+      },
+      {
+        "count": 2639,
+        "value": "olfactory"
+      },
+      {
+        "count": 2554,
+        "value": "mechanosensory_tactile"
+      },
+      {
+        "count": 1611,
+        "value": "mechanosensory"
+      },
+      {
+        "count": 1590,
+        "value": "unknown_sensory"
+      },
+      {
+        "count": 1454,
+        "value": "mechanosensory_proprioceptive"
+      },
+      {
+        "count": 1427,
+        "value": "gustatory"
+      },
+      {
+        "count": 686,
+        "value": "ALPN"
+      },
+      {
+        "count": 420,
+        "value": "ALLN"
+      },
+      {
+        "count": 340,
+        "value": "DAN"
+      },
+      {
+        "count": 116,
+        "value": "ol_bilateral"
+      },
+      {
+        "count": 97,
+        "value": "MBON"
+      },
+      {
+        "count": 66,
+        "value": "hygrosensory"
+      },
+      {
+        "count": 58,
+        "value": "chemosensory"
+      },
+      {
+        "count": 27,
+        "value": "SEZPN"
+      },
+      {
+        "count": 25,
+        "value": "thermosensory"
+      },
+      {
+        "count": 24,
+        "value": "ALIN"
+      }
+    ],
+    "node_count": 163397,
+    "superclass": [
+      {
+        "count": 88547,
+        "value": "ol_intrinsic"
+      },
+      {
+        "count": 32159,
+        "value": "cb_intrinsic"
+      },
+      {
+        "count": 13143,
+        "value": "vnc_intrinsic"
+      },
+      {
+        "count": 9200,
+        "value": "visual_projection"
+      },
+      {
+        "count": 6281,
+        "value": "vnc_sensory"
+      },
+      {
+        "count": 4710,
+        "value": "cb_sensory"
+      },
+      {
+        "count": 4015,
+        "value": "ol_sensory"
+      },
+      {
+        "count": 1846,
+        "value": "ascending_neuron"
+      },
+      {
+        "count": 1314,
+        "value": "descending_neuron"
+      },
+      {
+        "count": 674,
+        "value": "vnc_motor"
+      },
+      {
+        "count": 559,
+        "value": "visual_centrifugal"
+      },
+      {
+        "count": 533,
+        "value": "sensory_ascending"
+      },
+      {
+        "count": 105,
+        "value": "cb_motor"
+      },
+      {
+        "count": 97,
+        "value": "UNANNOTATED"
+      },
+      {
+        "count": 89,
+        "value": "vnc_efferent"
+      },
+      {
+        "count": 63,
+        "value": "cb_endocrine"
+      },
+      {
+        "count": 22,
+        "value": "vnc_endocrine"
+      },
+      {
+        "count": 12,
+        "value": "sensory_descending"
+      },
+      {
+        "count": 8,
+        "value": "efferent_ascending"
+      },
+      {
+        "count": 4,
+        "value": "efferent_descending"
+      }
+    ],
+    "type": [
+      {
+        "count": 2054,
+        "value": "Tm3"
+      },
+      {
+        "count": 2001,
+        "value": "UNANNOTATED"
+      },
+      {
+        "count": 1940,
+        "value": "T3"
+      },
+      {
+        "count": 1871,
+        "value": "T2a"
+      },
+      {
+        "count": 1787,
+        "value": "L5"
+      },
+      {
+        "count": 1779,
+        "value": "L2"
+      },
+      {
+        "count": 1779,
+        "value": "C3"
+      },
+      {
+        "count": 1778,
+        "value": "T4c"
+      },
+      {
+        "count": 1777,
+        "value": "Tm1"
+      },
+      {
+        "count": 1776,
+        "value": "L1"
+      },
+      {
+        "count": 1775,
+        "value": "Mi9"
+      },
+      {
+        "count": 1773,
+        "value": "Mi1"
+      },
+      {
+        "count": 1772,
+        "value": "L3"
+      },
+      {
+        "count": 1772,
+        "value": "Mi4"
+      },
+      {
+        "count": 1771,
+        "value": "Tm9"
+      },
+      {
+        "count": 1769,
+        "value": "L4"
+      },
+      {
+        "count": 1766,
+        "value": "Tm2"
+      },
+      {
+        "count": 1762,
+        "value": "Tm20"
+      },
+      {
+        "count": 1745,
+        "value": "C2"
+      },
+      {
+        "count": 1720,
+        "value": "T5c"
+      }
+    ]
+  },
+  "read_only": true,
+  "runtime_seconds": 3.354,
+  "status": "MEASURED_STRUCTURAL_INVENTORY",
+  "top_reciprocal_degree_nodes": [
+    {
+      "body_id": 10009,
+      "class": null,
+      "in_degree": 11526,
+      "node_id": 5,
+      "out_degree": 9636,
+      "reciprocal_degree": 8854,
+      "superclass": "ol_intrinsic",
+      "type": "CT1"
+    },
+    {
+      "body_id": 10157,
+      "class": null,
+      "in_degree": 11220,
+      "node_id": 141,
+      "out_degree": 9406,
+      "reciprocal_degree": 8680,
+      "superclass": "ol_intrinsic",
+      "type": "CT1"
+    },
+    {
+      "body_id": 537032,
+      "class": null,
+      "in_degree": 4941,
+      "node_id": 135979,
+      "out_degree": 3969,
+      "reciprocal_degree": 3492,
+      "superclass": "ol_intrinsic",
+      "type": "LT33"
+    },
+    {
+      "body_id": 10051,
+      "class": null,
+      "in_degree": 6227,
+      "node_id": 42,
+      "out_degree": 7710,
+      "reciprocal_degree": 3454,
+      "superclass": "ol_intrinsic",
+      "type": "Li39"
+    },
+    {
+      "body_id": 10414,
+      "class": null,
+      "in_degree": 4813,
+      "node_id": 381,
+      "out_degree": 3732,
+      "reciprocal_degree": 3307,
+      "superclass": "ol_intrinsic",
+      "type": "LT33"
+    },
+    {
+      "body_id": 10611,
+      "class": null,
+      "in_degree": 5882,
+      "node_id": 569,
+      "out_degree": 7385,
+      "reciprocal_degree": 3270,
+      "superclass": "ol_intrinsic",
+      "type": "Li39"
+    },
+    {
+      "body_id": 10085,
+      "class": null,
+      "in_degree": 5708,
+      "node_id": 72,
+      "out_degree": 10539,
+      "reciprocal_degree": 3241,
+      "superclass": "ol_intrinsic",
+      "type": "Am1"
+    },
+    {
+      "body_id": 10093,
+      "class": null,
+      "in_degree": 5506,
+      "node_id": 80,
+      "out_degree": 11203,
+      "reciprocal_degree": 3213,
+      "superclass": "ol_intrinsic",
+      "type": "Am1"
+    },
+    {
+      "body_id": 10503,
+      "class": null,
+      "in_degree": 3568,
+      "node_id": 466,
+      "out_degree": 6127,
+      "reciprocal_degree": 3161,
+      "superclass": "ol_intrinsic",
+      "type": "LPi4b"
+    },
+    {
+      "body_id": 10452,
+      "class": null,
+      "in_degree": 3637,
+      "node_id": 416,
+      "out_degree": 5604,
+      "reciprocal_degree": 3056,
+      "superclass": "ol_intrinsic",
+      "type": "LPi4b"
+    },
+    {
+      "body_id": 10352,
+      "class": null,
+      "in_degree": 3797,
+      "node_id": 325,
+      "out_degree": 5464,
+      "reciprocal_degree": 2814,
+      "superclass": "ol_intrinsic",
+      "type": "Li32"
+    },
+    {
+      "body_id": 10977,
+      "class": null,
+      "in_degree": 3154,
+      "node_id": 904,
+      "out_degree": 2932,
+      "reciprocal_degree": 2740,
+      "superclass": "cb_intrinsic",
+      "type": "APL"
+    },
+    {
+      "body_id": 10540,
+      "class": null,
+      "in_degree": 3032,
+      "node_id": 502,
+      "out_degree": 2914,
+      "reciprocal_degree": 2676,
+      "superclass": "cb_intrinsic",
+      "type": "APL"
+    },
+    {
+      "body_id": 13612,
+      "class": null,
+      "in_degree": 3632,
+      "node_id": 3371,
+      "out_degree": 5155,
+      "reciprocal_degree": 2657,
+      "superclass": "ol_intrinsic",
+      "type": "Li32"
+    },
+    {
+      "body_id": 10072,
+      "class": null,
+      "in_degree": 4928,
+      "node_id": 59,
+      "out_degree": 10738,
+      "reciprocal_degree": 2633,
+      "superclass": "visual_centrifugal",
+      "type": "OA-AL2i1"
+    },
+    {
+      "body_id": 11327,
+      "class": "DAN",
+      "in_degree": 3568,
+      "node_id": 1235,
+      "out_degree": 2889,
+      "reciprocal_degree": 2560,
+      "superclass": "cb_intrinsic",
+      "type": "PPL101"
+    },
+    {
+      "body_id": 11900,
+      "class": "DAN",
+      "in_degree": 3711,
+      "node_id": 1774,
+      "out_degree": 2854,
+      "reciprocal_degree": 2539,
+      "superclass": "cb_intrinsic",
+      "type": "PPL101"
+    },
+    {
+      "body_id": 11734,
+      "class": null,
+      "in_degree": 2562,
+      "node_id": 1618,
+      "out_degree": 2537,
+      "reciprocal_degree": 2399,
+      "superclass": "cb_intrinsic",
+      "type": "DPM"
+    },
+    {
+      "body_id": 10515,
+      "class": "ALLN",
+      "in_degree": 2547,
+      "node_id": 478,
+      "out_degree": 2619,
+      "reciprocal_degree": 2379,
+      "superclass": "cb_intrinsic",
+      "type": "lLN2F_b"
+    },
+    {
+      "body_id": 12569,
+      "class": null,
+      "in_degree": 2381,
+      "node_id": 2403,
+      "out_degree": 2398,
+      "reciprocal_degree": 2276,
+      "superclass": "cb_intrinsic",
+      "type": "DPM"
+    }
+  ]
+}
