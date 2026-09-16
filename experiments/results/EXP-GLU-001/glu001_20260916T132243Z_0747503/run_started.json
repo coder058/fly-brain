@@ -1,0 +1,147 @@
+{
+  "arms": {
+    "glutamate_excitatory": {
+      "edges_excitatory": 6701,
+      "edges_inhibitory": 5938,
+      "edges_total": 23708,
+      "edges_zeroed": 11069,
+      "effective_nnz": 12639,
+      "fraction_zeroed": 0.46688881390248016,
+      "ops_proxy_inflation": 1.8757813118126434,
+      "policy": {
+        "excitatory": [
+          "acetylcholine",
+          "glutamate"
+        ],
+        "inhibitory": [
+          "gaba",
+          "histamine"
+        ]
+      },
+      "signed_weight_sum": -13326.0,
+      "spectrum": {
+        "dominant_eigenvalue_imag": 0.0,
+        "dominant_eigenvalue_real": -2131.6727886122026,
+        "nnz": 23708,
+        "rho_abs": 2183.0798606094963,
+        "rho_signed": 2131.6727886122026
+      },
+      "stored_nnz": 23708
+    },
+    "glutamate_inhibitory": {
+      "edges_excitatory": 3533,
+      "edges_inhibitory": 9106,
+      "edges_total": 23708,
+      "edges_zeroed": 11069,
+      "effective_nnz": 12639,
+      "fraction_zeroed": 0.46688881390248016,
+      "ops_proxy_inflation": 1.8757813118126434,
+      "policy": {
+        "excitatory": [
+          "acetylcholine"
+        ],
+        "inhibitory": [
+          "gaba",
+          "histamine",
+          "glutamate"
+        ]
+      },
+      "signed_weight_sum": -98396.0,
+      "spectrum": {
+        "dominant_eigenvalue_imag": 0.0,
+        "dominant_eigenvalue_real": -2132.057363441792,
+        "nnz": 23708,
+        "rho_abs": 2183.0798606094963,
+        "rho_signed": 2132.057363441792
+      },
+      "stored_nnz": 23708
+    },
+    "glutamate_unknown": {
+      "edges_excitatory": 3533,
+      "edges_inhibitory": 5938,
+      "edges_total": 23708,
+      "edges_zeroed": 14237,
+      "effective_nnz": 9471,
+      "fraction_zeroed": 0.6005145942297958,
+      "ops_proxy_inflation": 2.5032203568788933,
+      "policy": {
+        "excitatory": [
+          "acetylcholine"
+        ],
+        "inhibitory": [
+          "gaba",
+          "histamine"
+        ]
+      },
+      "signed_weight_sum": -55861.0,
+      "spectrum": {
+        "dominant_eigenvalue_imag": 0.0,
+        "dominant_eigenvalue_real": -2131.864051645932,
+        "nnz": 23708,
+        "rho_abs": 2182.860964717819,
+        "rho_signed": 2131.864051645932
+      },
+      "stored_nnz": 23708
+    }
+  },
+  "config_sha256": "ef2f8d0fd5ad5f1cde0177426fdec856f14ad2430121b7d44f4615c8be78a85f",
+  "experiment_id": "EXP-GLU-001",
+  "gain_bounds": [
+    0.05,
+    80.0
+  ],
+  "graph_meta": {
+    "filter": "status==Traced both ends",
+    "n_edges": 25563197,
+    "n_edges_csr_nnz": 25563197,
+    "n_neurons": 165122,
+    "seconds": 143.85,
+    "sign_counts": {
+      "E": 103718,
+      "I": 27965,
+      "U": 33439
+    },
+    "weight_sum": 124025046
+  },
+  "graph_sha256": {
+    "coo_signed.npz": "88289920f5ad069b8592168f9f9292dad49af8c6e29633ee8ad1e6176f2eccf5",
+    "csc_unsigned.npz": "1db82dc9ea509c4e14f173bcfbcbf8170830839718aee373e1ee609441d6aa4f",
+    "csr_unsigned.npz": "b6dbd38b2c7a2771ac61d04c84add24733164cbbd26872bd417a02de7afd7949"
+  },
+  "n_probes": 48,
+  "n_trials_per_class": 60,
+  "nt_column": "consensus_nt",
+  "nt_counts": {
+    "acetylcholine": 3533,
+    "dopamine": 2213,
+    "gaba": 5829,
+    "glutamate": 3168,
+    "histamine": 109,
+    "octopamine": 2953,
+    "serotonin": 690,
+    "unclear": 5213
+  },
+  "policies": [
+    "glutamate_unknown",
+    "glutamate_inhibitory",
+    "glutamate_excitatory"
+  ],
+  "protocol_sha256": "564f96e478aec5df668c09567221c7238142a3c9ffc071a20d5fa4a713f6a1a2",
+  "runner_sha256": "4e8a50130c8559322736c3536c3c8b58c454213eff044ac4ae8ede0598dc6c5f",
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+  ],
+  "started_utc": "2026-09-16T13:23:59.903365+00:00",
+  "target_rate": 0.002
+}

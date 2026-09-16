@@ -1,0 +1,107 @@
+{
+  "arms": [
+    "connectome",
+    "dp",
+    "weight_perm",
+    "er",
+    "ring"
+  ],
+  "by_delay": {
+    "10": {
+      "cells": 1,
+      "complete": false,
+      "expected_cells": 1
+    },
+    "100": {
+      "cells": 1,
+      "complete": false,
+      "expected_cells": 1
+    }
+  },
+  "cells_written": 2,
+  "complete_delays": [],
+  "delays": [
+    10,
+    100
+  ],
+  "expected_cells": 2,
+  "experiment_id": "EXP-MEM-002",
+  "missing_cells": [
+    {
+      "arm": "connectome",
+      "delay": 10,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 0,
+      "variant": "connectome-0"
+    },
+    {
+      "arm": "dp",
+      "delay": 10,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 0,
+      "variant": "dp-0"
+    },
+    {
+      "arm": "er",
+      "delay": 10,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 0,
+      "variant": "er-0"
+    },
+    {
+      "arm": "ring",
+      "delay": 10,
+      "reason": "feature/liveness guard failed in split(s): test; train/test realised rate outside preregistered tolerance",
+      "seed": 0,
+      "variant": "ring-0"
+    },
+    {
+      "arm": "weight_perm",
+      "delay": 10,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 0,
+      "variant": "weight_perm-0"
+    },
+    {
+      "arm": "connectome",
+      "delay": 100,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 0,
+      "variant": "connectome-0"
+    },
+    {
+      "arm": "dp",
+      "delay": 100,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 0,
+      "variant": "dp-0"
+    },
+    {
+      "arm": "er",
+      "delay": 100,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 0,
+      "variant": "er-0"
+    },
+    {
+      "arm": "ring",
+      "delay": 100,
+      "reason": "feature/liveness guard failed in split(s): train, test; train/test realised rate outside preregistered tolerance",
+      "seed": 0,
+      "variant": "ring-0"
+    },
+    {
+      "arm": "weight_perm",
+      "delay": 100,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 0,
+      "variant": "weight_perm-0"
+    }
+  ],
+  "n_seeds": 1,
+  "no_accuracy_or_auc_computed": true,
+  "protocol_sha256": "23fe208f7e627bf7102b2896fe240576578e30ca27016cb40ddfced7f71f6017",
+  "runner_sha256": "66def613a4e70521c85ffcdcb20239d3ed21b2b2be25ca94de38366a926afbff",
+  "scientific_result": false,
+  "status": "INSTRUMENT_INCOMPLETE"
+}

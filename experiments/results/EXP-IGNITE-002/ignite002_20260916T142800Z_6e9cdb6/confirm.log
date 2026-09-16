@@ -1,0 +1,26 @@
+{"stage": "confirm", "seed": 0, "pair_cells": 0, "tested_gains": 16}
+{"stage": "confirm", "seed": 1, "pair_cells": 0, "tested_gains": 16}
+{"stage": "confirm", "seed": 2, "pair_cells": 0, "tested_gains": 16}
+{"stage": "confirm", "seed": 3, "pair_cells": 0, "tested_gains": 16}
+{"stage": "confirm", "seed": 4, "pair_cells": 0, "tested_gains": 16}
+{"stage": "confirm", "seed": 5, "pair_cells": 0, "tested_gains": 16}
+{"stage": "confirm", "seed": 6, "pair_cells": 0, "tested_gains": 16}
+{"stage": "confirm", "seed": 7, "pair_cells": 0, "tested_gains": 16}
+{"stage": "confirm", "seed": 8, "pair_cells": 0, "tested_gains": 16}
+{"stage": "confirm", "seed": 9, "pair_cells": 0, "tested_gains": 16}
+{"stage": "confirm", "seed": 10, "pair_cells": 0, "tested_gains": 16}
+{"stage": "confirm", "seed": 11, "pair_cells": 0, "tested_gains": 16}
+{
+  "run_root": "/home/ubuntu/fly-lab/experiments/results/EXP-IGNITE-002/ignite002_20260916T142800Z_6e9cdb6",
+  "stage": "confirm",
+  "experiment_id": "EXP-IGNITE-002",
+  "status": "NO_COIGNITE",
+  "scientific_result": false,
+  "seeds_written": 12,
+  "expected_seeds": 12,
+  "pair_cells": [],
+  "pair_cell_count": 0,
+  "no_accuracy_or_auc_computed": true,
+  "protocol_sha256": "a48a6915e2502aec4ee4aea2123798e50f2cda4644763cd74da15181c28889dc",
+  "runner_sha256": "e616bcd5faedfc509781aa7504790f8d18a8a530b526242edb206fe55741401c"
+}

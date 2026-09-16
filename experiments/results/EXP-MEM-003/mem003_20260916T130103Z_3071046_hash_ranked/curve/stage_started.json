@@ -1,0 +1,404 @@
+{
+  "arms": [
+    "connectome",
+    "dp",
+    "weight_perm",
+    "er",
+    "ring"
+  ],
+  "config_sha256": "ef2f8d0fd5ad5f1cde0177426fdec856f14ad2430121b7d44f4615c8be78a85f",
+  "cue0": [
+    171,
+    106,
+    296,
+    152,
+    434,
+    289,
+    451,
+    281,
+    265,
+    149,
+    442,
+    372,
+    84,
+    417,
+    412,
+    212,
+    356,
+    163,
+    85,
+    205,
+    254,
+    122,
+    495,
+    300,
+    291
+  ],
+  "cue1": [
+    497,
+    71,
+    305,
+    139,
+    481,
+    358,
+    267,
+    373,
+    233,
+    166,
+    269,
+    74,
+    345,
+    374,
+    465,
+    393,
+    165,
+    326,
+    327,
+    338,
+    19,
+    1,
+    339,
+    55,
+    489
+  ],
+  "delays": [
+    10,
+    25,
+    50,
+    100,
+    250,
+    500
+  ],
+  "experiment_id": "EXP-MEM-003",
+  "graph_sha256": {
+    "coo_signed.npz": "88289920f5ad069b8592168f9f9292dad49af8c6e29633ee8ad1e6176f2eccf5",
+    "csc_unsigned.npz": "1db82dc9ea509c4e14f173bcfbcbf8170830839718aee373e1ee609441d6aa4f",
+    "csr_unsigned.npz": "b6dbd38b2c7a2771ac61d04c84add24733164cbbd26872bd417a02de7afd7949"
+  },
+  "input_ids": [
+    1,
+    19,
+    55,
+    71,
+    74,
+    84,
+    85,
+    106,
+    122,
+    139,
+    149,
+    152,
+    163,
+    165,
+    166,
+    171,
+    205,
+    212,
+    233,
+    254,
+    265,
+    267,
+    269,
+    281,
+    289,
+    291,
+    296,
+    300,
+    305,
+    326,
+    327,
+    338,
+    339,
+    345,
+    356,
+    358,
+    372,
+    373,
+    374,
+    393,
+    412,
+    417,
+    434,
+    442,
+    451,
+    465,
+    481,
+    489,
+    495,
+    497
+  ],
+  "input_map": {
+    "hash_ranked_top50": [
+      {
+        "local_node": 171,
+        "score": null
+      },
+      {
+        "local_node": 106,
+        "score": null
+      },
+      {
+        "local_node": 296,
+        "score": null
+      },
+      {
+        "local_node": 152,
+        "score": null
+      },
+      {
+        "local_node": 434,
+        "score": null
+      },
+      {
+        "local_node": 289,
+        "score": null
+      },
+      {
+        "local_node": 451,
+        "score": null
+      },
+      {
+        "local_node": 281,
+        "score": null
+      },
+      {
+        "local_node": 265,
+        "score": null
+      },
+      {
+        "local_node": 149,
+        "score": null
+      },
+      {
+        "local_node": 442,
+        "score": null
+      },
+      {
+        "local_node": 372,
+        "score": null
+      },
+      {
+        "local_node": 84,
+        "score": null
+      },
+      {
+        "local_node": 417,
+        "score": null
+      },
+      {
+        "local_node": 412,
+        "score": null
+      },
+      {
+        "local_node": 212,
+        "score": null
+      },
+      {
+        "local_node": 356,
+        "score": null
+      },
+      {
+        "local_node": 163,
+        "score": null
+      },
+      {
+        "local_node": 85,
+        "score": null
+      },
+      {
+        "local_node": 205,
+        "score": null
+      },
+      {
+        "local_node": 254,
+        "score": null
+      },
+      {
+        "local_node": 122,
+        "score": null
+      },
+      {
+        "local_node": 495,
+        "score": null
+      },
+      {
+        "local_node": 300,
+        "score": null
+      },
+      {
+        "local_node": 291,
+        "score": null
+      },
+      {
+        "local_node": 497,
+        "score": null
+      },
+      {
+        "local_node": 71,
+        "score": null
+      },
+      {
+        "local_node": 305,
+        "score": null
+      },
+      {
+        "local_node": 139,
+        "score": null
+      },
+      {
+        "local_node": 481,
+        "score": null
+      },
+      {
+        "local_node": 358,
+        "score": null
+      },
+      {
+        "local_node": 267,
+        "score": null
+      },
+      {
+        "local_node": 373,
+        "score": null
+      },
+      {
+        "local_node": 233,
+        "score": null
+      },
+      {
+        "local_node": 166,
+        "score": null
+      },
+      {
+        "local_node": 269,
+        "score": null
+      },
+      {
+        "local_node": 74,
+        "score": null
+      },
+      {
+        "local_node": 345,
+        "score": null
+      },
+      {
+        "local_node": 374,
+        "score": null
+      },
+      {
+        "local_node": 465,
+        "score": null
+      },
+      {
+        "local_node": 393,
+        "score": null
+      },
+      {
+        "local_node": 165,
+        "score": null
+      },
+      {
+        "local_node": 326,
+        "score": null
+      },
+      {
+        "local_node": 327,
+        "score": null
+      },
+      {
+        "local_node": 338,
+        "score": null
+      },
+      {
+        "local_node": 19,
+        "score": null
+      },
+      {
+        "local_node": 1,
+        "score": null
+      },
+      {
+        "local_node": 339,
+        "score": null
+      },
+      {
+        "local_node": 55,
+        "score": null
+      },
+      {
+        "local_node": 489,
+        "score": null
+      }
+    ],
+    "rule": "first 50 local nodes by deterministic protocol-hash rank; no graph metric"
+  },
+  "map_rule": "hash_ranked",
+  "probe_ids": [
+    8,
+    15,
+    32,
+    39,
+    43,
+    45,
+    49,
+    54,
+    56,
+    63,
+    75,
+    83,
+    97,
+    105,
+    127,
+    133,
+    142,
+    150,
+    157,
+    161,
+    177,
+    186,
+    193,
+    217,
+    244,
+    246,
+    249,
+    266,
+    273,
+    293,
+    307,
+    314,
+    322,
+    344,
+    349,
+    361,
+    367,
+    382,
+    389,
+    390,
+    395,
+    401,
+    405,
+    438,
+    450,
+    458,
+    482,
+    491
+  ],
+  "protocol_sha256": "9f7c318aeed27fd17abb582309524b073c880e706911bf7bf73a55fcc3201138",
+  "runner_sha256": "bb6ceff64d6a4809e4a5791bc5666fd7c2b10f3a9c8edd19015d2fe27fd6ccd9",
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+  ],
+  "stage": "curve",
+  "started_utc": "2026-09-16T13:01:10.887715+00:00"
+}

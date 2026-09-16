@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="280">
+<rect width="100%" height="100%" fill="white"/>
+<line x1="40" x2="600" y1="210.0" y2="210.0" stroke="#888"/>
+<line x1="40" x2="600" y1="190.0" y2="190.0" stroke="#c00" stroke-dasharray="4"/>
+<text x="40" y="18" font-size="12" font-family="sans-serif">per-seed Δacc (red=positive injection, gray=null perm 0)</text>
+<circle cx="56.3" cy="167.8" r="4" fill="#c0392b"/>
+<circle cx="103.0" cy="138.9" r="4" fill="#c0392b"/>
+<circle cx="149.7" cy="158.9" r="4" fill="#c0392b"/>
+<circle cx="196.3" cy="143.3" r="4" fill="#c0392b"/>
+<circle cx="243.0" cy="170.0" r="4" fill="#c0392b"/>
+<circle cx="289.7" cy="61.1" r="4" fill="#c0392b"/>
+<circle cx="336.3" cy="163.3" r="4" fill="#c0392b"/>
+<circle cx="383.0" cy="170.0" r="4" fill="#c0392b"/>
+<circle cx="429.7" cy="156.7" r="4" fill="#c0392b"/>
+<circle cx="476.3" cy="50.0" r="4" fill="#c0392b"/>
+<circle cx="523.0" cy="147.8" r="4" fill="#c0392b"/>
+<circle cx="569.7" cy="116.7" r="4" fill="#c0392b"/>
+<circle cx="65.7" cy="210.0" r="4" fill="#7f8c8d"/>
+<circle cx="112.3" cy="216.7" r="4" fill="#7f8c8d"/>
+<circle cx="159.0" cy="201.1" r="4" fill="#7f8c8d"/>
+<circle cx="205.7" cy="214.4" r="4" fill="#7f8c8d"/>
+<circle cx="252.3" cy="218.9" r="4" fill="#7f8c8d"/>
+<circle cx="299.0" cy="185.6" r="4" fill="#7f8c8d"/>
+<circle cx="345.7" cy="210.0" r="4" fill="#7f8c8d"/>
+<circle cx="392.3" cy="216.7" r="4" fill="#7f8c8d"/>
+<circle cx="439.0" cy="210.0" r="4" fill="#7f8c8d"/>
+<circle cx="485.7" cy="214.4" r="4" fill="#7f8c8d"/>
+<circle cx="532.3" cy="214.4" r="4" fill="#7f8c8d"/>
+<circle cx="579.0" cy="203.3" r="4" fill="#7f8c8d"/>
+</svg>

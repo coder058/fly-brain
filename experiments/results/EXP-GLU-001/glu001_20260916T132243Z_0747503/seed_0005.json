@@ -1,0 +1,135 @@
+{
+  "experiment_id": "EXP-GLU-001",
+  "n_probes": 48,
+  "n_trials_per_class": 60,
+  "policies": {
+    "glutamate_excitatory": {
+      "acc": 0.5111111111111111,
+      "alive": true,
+      "effective_nnz": 12639,
+      "gain": 7.5453125,
+      "gain_match": {
+        "converged": true,
+        "gain": 7.5453125,
+        "rate": 0.0019479166666666666
+      },
+      "rate_match": true,
+      "reason": null,
+      "seed": 5,
+      "selected_ridge": 0.0001,
+      "status": "LIVE",
+      "syn_scale": 0.021237722431815462,
+      "test_liveness": {
+        "alive": true,
+        "feature_std": 0.006685683969408274,
+        "non_input_active": true,
+        "non_input_spikes": 5291.0,
+        "probe_spikes": 198.0,
+        "unique_feature_rows": 40
+      },
+      "test_rate": 0.0020412808641975307,
+      "test_relative_rate_error": 0.020640432098765343,
+      "train_acc": 0.6476190476190476,
+      "train_liveness": {
+        "alive": true,
+        "feature_std": 0.006594604346901178,
+        "non_input_active": true,
+        "non_input_spikes": 12131.0,
+        "probe_spikes": 454.0,
+        "unique_feature_rows": 61
+      },
+      "train_rate": 0.002005787037037037,
+      "train_relative_rate_error": 0.0028935185185183926,
+      "train_test_gap": 0.13650793650793658,
+      "wall_seconds": 1.1192631519952556
+    },
+    "glutamate_inhibitory": {
+      "acc": null,
+      "alive": false,
+      "effective_nnz": 12639,
+      "gain": 12.542187499999999,
+      "gain_match": {
+        "converged": true,
+        "gain": 12.542187499999999,
+        "rate": 0.0019600694444444444
+      },
+      "rate_match": true,
+      "reason": "train/test liveness guard failed",
+      "seed": 5,
+      "selected_ridge": null,
+      "status": "MISSING",
+      "syn_scale": 0.035296013273544605,
+      "test_liveness": {
+        "alive": false,
+        "dead_reason": "dead reservoir for arm=glutamate_inhibitory_test_seed5: unique_feature_rows=2. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+        "feature_std": 0.00047543985419906676,
+        "non_input_active": true,
+        "non_input_spikes": 5190.0,
+        "probe_spikes": 1.0,
+        "unique_feature_rows": 2
+      },
+      "test_rate": 0.002002314814814815,
+      "test_relative_rate_error": 0.0011574074074074004,
+      "train_acc": null,
+      "train_liveness": {
+        "alive": false,
+        "dead_reason": "dead reservoir for arm=glutamate_inhibitory_train_seed5: unique_feature_rows=4. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+        "feature_std": 0.0006959495949558914,
+        "non_input_active": true,
+        "non_input_spikes": 11881.0,
+        "probe_spikes": 5.0,
+        "unique_feature_rows": 4
+      },
+      "train_rate": 0.001964451058201058,
+      "train_relative_rate_error": 0.017774470899471023,
+      "train_test_gap": null,
+      "wall_seconds": 1.6077455080085201
+    },
+    "glutamate_unknown": {
+      "acc": null,
+      "alive": false,
+      "effective_nnz": 9471,
+      "gain": 10.04375,
+      "gain_match": {
+        "converged": true,
+        "gain": 10.04375,
+        "rate": 0.0018541666666666667
+      },
+      "rate_match": true,
+      "reason": "train/test liveness guard failed",
+      "seed": 5,
+      "selected_ridge": null,
+      "status": "MISSING",
+      "syn_scale": 0.028267515441931484,
+      "test_liveness": {
+        "alive": false,
+        "dead_reason": "dead reservoir for arm=glutamate_unknown_test_seed5: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+        "feature_std": 0.0,
+        "non_input_active": true,
+        "non_input_spikes": 4831.0,
+        "probe_spikes": 0.0,
+        "unique_feature_rows": 1
+      },
+      "test_rate": 0.0018638117283950617,
+      "test_relative_rate_error": 0.06809413580246919,
+      "train_acc": null,
+      "train_liveness": {
+        "alive": false,
+        "dead_reason": "dead reservoir for arm=glutamate_unknown_train_seed5: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+        "feature_std": 0.0,
+        "non_input_active": true,
+        "non_input_spikes": 11188.0,
+        "probe_spikes": 0.0,
+        "unique_feature_rows": 1
+      },
+      "train_rate": 0.001849867724867725,
+      "train_relative_rate_error": 0.07506613756613756,
+      "train_test_gap": null,
+      "wall_seconds": 1.0955229190003593
+    }
+  },
+  "protocol_sha256": "564f96e478aec5df668c09567221c7238142a3c9ffc071a20d5fa4a713f6a1a2",
+  "runner_sha256": "4e8a50130c8559322736c3536c3c8b58c454213eff044ac4ae8ede0598dc6c5f",
+  "seed": 5,
+  "target_rate": 0.002
+}

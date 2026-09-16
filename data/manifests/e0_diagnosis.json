@@ -1,0 +1,23 @@
+{
+  "status": "explained",
+  "raw_edge_rows": 151856684,
+  "issue": "raw feather includes edges to bodies outside the curated annotation set",
+  "policy_proposed": "keep edge iff body_pre and body_post both have status==Traced in body-annotations",
+  "computed": {
+    "traced_bodies_in_ann": 165122,
+    "edges_both_traced": 25563197,
+    "weight_sum_both_traced": 124025046,
+    "unique_bodies_in_filtered_edges": 164587
+  },
+  "validation_targets": {
+    "neurons_approx": 166700,
+    "directed_connections_approx": 25582938,
+    "synaptic_contacts_approx": 124000000
+  },
+  "delta_vs_targets": {
+    "neurons": "164587–165122 vs ~166700 (~1%)",
+    "edges": "25563197 vs ~25582938 (~0.08%)",
+    "weight_sum": "124025046 vs ~124e6"
+  },
+  "next": "sparse layer builds CSR from this filtered signed graph; do not use unfiltered 151M rows"
+}

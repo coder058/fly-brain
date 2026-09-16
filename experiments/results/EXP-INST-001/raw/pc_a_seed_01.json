@@ -1,0 +1,17 @@
+{
+  "seed": 1,
+  "quiescent": {
+    "gain": 0.3,
+    "syn_scale": 0.0008443315128890549,
+    "acc": 0.2,
+    "pool_spikes": 0.0,
+    "alive": false
+  },
+  "ignited": {
+    "gain": 12.0,
+    "syn_scale": 0.033773260515562196,
+    "acc": 0.7444444444444445,
+    "pool_spikes": 12217.0,
+    "alive": true
+  }
+}

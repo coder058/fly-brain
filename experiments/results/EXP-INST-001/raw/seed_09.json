@@ -1,0 +1,155 @@
+{
+  "seed": 9,
+  "alive": true,
+  "liveness": {
+    "non_input_spikes": 306.0,
+    "probe_spikes": 0.0,
+    "feature_std": 0.0,
+    "unique_feature_rows": 1,
+    "alive": true,
+    "dead_reason": "dead reservoir for arm=connectome_signed: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation."
+  },
+  "probe_input_leak": false,
+  "n_features": 192,
+  "sigma_train": 1e-12,
+  "sigma_theory": 0.011169153951844339,
+  "realised_rate": 3.541666666666667e-05,
+  "pool_spikes": 306.0,
+  "acc_no_injection": 0.2,
+  "acc_positive": 1.0,
+  "acc_null_perm0": 0.2,
+  "acc_null_perm_b": 0.2222222222222222,
+  "diff_positive_vs_null0": 0.8,
+  "diff_null_pair": -0.0222222222222222,
+  "selected_ridge_no_injection": 0.0001,
+  "selected_ridge_positive": 0.0001,
+  "selected_ridge_null0": 0.01,
+  "null_perm_accs": [
+    0.2,
+    0.2,
+    0.2111111111111111,
+    0.18888888888888888,
+    0.2,
+    0.15555555555555556,
+    0.26666666666666666,
+    0.24444444444444444,
+    0.25555555555555554,
+    0.26666666666666666,
+    0.2,
+    0.23333333333333334,
+    0.2777777777777778,
+    0.15555555555555556,
+    0.2,
+    0.2222222222222222,
+    0.26666666666666666,
+    0.15555555555555556,
+    0.23333333333333334,
+    0.2222222222222222
+  ],
+  "null_perms": [
+    {
+      "perm": 0,
+      "acc": 0.2,
+      "selected_ridge": 0.01
+    },
+    {
+      "perm": 1,
+      "acc": 0.2,
+      "selected_ridge": 0.01
+    },
+    {
+      "perm": 2,
+      "acc": 0.2111111111111111,
+      "selected_ridge": 0.0001
+    },
+    {
+      "perm": 3,
+      "acc": 0.18888888888888888,
+      "selected_ridge": 0.0001
+    },
+    {
+      "perm": 4,
+      "acc": 0.2,
+      "selected_ridge": 0.0001
+    },
+    {
+      "perm": 5,
+      "acc": 0.15555555555555556,
+      "selected_ridge": 0.1
+    },
+    {
+      "perm": 6,
+      "acc": 0.26666666666666666,
+      "selected_ridge": 0.0001
+    },
+    {
+      "perm": 7,
+      "acc": 0.24444444444444444,
+      "selected_ridge": 1.0
+    },
+    {
+      "perm": 8,
+      "acc": 0.25555555555555554,
+      "selected_ridge": 0.01
+    },
+    {
+      "perm": 9,
+      "acc": 0.26666666666666666,
+      "selected_ridge": 0.0001
+    },
+    {
+      "perm": 10,
+      "acc": 0.2,
+      "selected_ridge": 0.1
+    },
+    {
+      "perm": 11,
+      "acc": 0.23333333333333334,
+      "selected_ridge": 0.0001
+    },
+    {
+      "perm": 12,
+      "acc": 0.2777777777777778,
+      "selected_ridge": 0.0001
+    },
+    {
+      "perm": 13,
+      "acc": 0.15555555555555556,
+      "selected_ridge": 1.0
+    },
+    {
+      "perm": 14,
+      "acc": 0.2,
+      "selected_ridge": 0.0001
+    },
+    {
+      "perm": 15,
+      "acc": 0.2222222222222222,
+      "selected_ridge": 0.0001
+    },
+    {
+      "perm": 16,
+      "acc": 0.26666666666666666,
+      "selected_ridge": 0.0001
+    },
+    {
+      "perm": 17,
+      "acc": 0.15555555555555556,
+      "selected_ridge": 0.0001
+    },
+    {
+      "perm": 18,
+      "acc": 0.23333333333333334,
+      "selected_ridge": 0.0001
+    },
+    {
+      "perm": 19,
+      "acc": 0.2222222222222222,
+      "selected_ridge": 0.0001
+    }
+  ],
+  "n_train": 210,
+  "n_test": 90,
+  "syn_scale": 0.033541289227515855,
+  "gain": 11.917578124999999
+}

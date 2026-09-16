@@ -1,0 +1,233 @@
+{
+  "provenance": {
+    "utc": "2026-09-15T12:14:00+00:00",
+    "git_rev": "25cf1bc",
+    "harness_sha256": "ef37f989c001ae6c",
+    "config_sha256": "ef2f8d0fd5ad5f1c"
+  },
+  "config": {
+    "task": "E1_reservoir_linear_readout",
+    "subgraph": {
+      "method": "top_out_degree",
+      "n": 500,
+      "rationale": "CPU-first lock; same selection rule as LIF smoke (top out-degree)"
+    },
+    "dynamics": {
+      "n_steps": 64,
+      "n_classes": 5,
+      "n_trials_per_class": 20,
+      "input_fraction": 0.1,
+      "I_amp": 6.0,
+      "lif": {
+        "dt": 1.0,
+        "tau_m": 6.0,
+        "v_th": 1.0,
+        "syn_scale": 0.002
+      },
+      "input_noise": 0.55
+    },
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "arms": [
+      "connectome_signed",
+      "connectome_abs",
+      "er_null",
+      "degree_shuffle",
+      "mlp"
+    ],
+    "note": "LSTM deferred until torch/GPU available; MLP is strong baseline for this turn",
+    "task_hardening": "temporal_holdout_noise055_5class_v6",
+    "harness_guards": {
+      "reject_dead_features": true,
+      "min_non_input_spikes": 1,
+      "on_dead": "raise",
+      "min_feature_std": 1e-06,
+      "min_unique_feature_rows": 10,
+      "bug_fixed": "E1 v2 features were all-zero: pulse width << tau_m so input neurons never reached v_th; all arms predicted one class \u2192 acc=3/18=0.1667"
+    }
+  },
+  "gains": [
+    0.3,
+    0.7,
+    1.0,
+    1.5,
+    3.0,
+    8.0,
+    20.0
+  ],
+  "seeds": [
+    0
+  ],
+  "n_probes": 48,
+  "spectra": {
+    "connectome_signed": {
+      "rho_signed": 2131.864051645932,
+      "rho_abs": 2182.860964717819,
+      "dominant_eigenvalue_real": -2131.864051645932,
+      "dominant_eigenvalue_imag": 0.0,
+      "nnz": 23708
+    }
+  },
+  "rows": [
+    {
+      "seed": 0,
+      "arm": "connectome_signed",
+      "gain": 0.3,
+      "syn_scale": 0.0008443315128890549,
+      "non_input_spikes": 0.0,
+      "probe_spikes": 0.0,
+      "non_input_rate": 0.0,
+      "alive": false,
+      "acc": 0.2
+    },
+    {
+      "seed": 0,
+      "arm": "connectome_signed",
+      "gain": 0.7,
+      "syn_scale": 0.0019701068634077946,
+      "non_input_spikes": 3.0,
+      "probe_spikes": 0.0,
+      "non_input_rate": 1.0416666666666667e-06,
+      "alive": true,
+      "acc": 0.2
+    },
+    {
+      "seed": 0,
+      "arm": "connectome_signed",
+      "gain": 1.0,
+      "syn_scale": 0.00281443837629685,
+      "non_input_spikes": 84.0,
+      "probe_spikes": 13.0,
+      "non_input_rate": 2.9166666666666666e-05,
+      "alive": true,
+      "acc": 0.26666666666666666
+    },
+    {
+      "seed": 0,
+      "arm": "connectome_signed",
+      "gain": 1.5,
+      "syn_scale": 0.0042216575644452746,
+      "non_input_spikes": 350.0,
+      "probe_spikes": 64.0,
+      "non_input_rate": 0.00012152777777777777,
+      "alive": true,
+      "acc": 0.36666666666666664
+    },
+    {
+      "seed": 0,
+      "arm": "connectome_signed",
+      "gain": 3.0,
+      "syn_scale": 0.008443315128890549,
+      "non_input_spikes": 1131.0,
+      "probe_spikes": 173.0,
+      "non_input_rate": 0.00039270833333333334,
+      "alive": true,
+      "acc": 0.6333333333333333
+    },
+    {
+      "seed": 0,
+      "arm": "connectome_signed",
+      "gain": 8.0,
+      "syn_scale": 0.0225155070103748,
+      "non_input_spikes": 3114.0,
+      "probe_spikes": 305.0,
+      "non_input_rate": 0.00108125,
+      "alive": true,
+      "acc": 0.7
+    },
+    {
+      "seed": 0,
+      "arm": "connectome_signed",
+      "gain": 20.0,
+      "syn_scale": 0.056288767525937,
+      "non_input_spikes": 8967.0,
+      "probe_spikes": 603.0,
+      "non_input_rate": 0.003113541666666667,
+      "alive": true,
+      "acc": 0.7
+    }
+  ],
+  "aggregate": [
+    {
+      "arm": "connectome_signed",
+      "gain": 0.3,
+      "syn_scale": 0.0008443315128890549,
+      "mean_acc": 0.2,
+      "ci95": 0.0,
+      "mean_non_input_spikes": 0.0,
+      "n_seeds": 1
+    },
+    {
+      "arm": "connectome_signed",
+      "gain": 0.7,
+      "syn_scale": 0.0019701068634077946,
+      "mean_acc": 0.2,
+      "ci95": 0.0,
+      "mean_non_input_spikes": 3.0,
+      "n_seeds": 1
+    },
+    {
+      "arm": "connectome_signed",
+      "gain": 1.0,
+      "syn_scale": 0.00281443837629685,
+      "mean_acc": 0.26666666666666666,
+      "ci95": 0.0,
+      "mean_non_input_spikes": 84.0,
+      "n_seeds": 1
+    },
+    {
+      "arm": "connectome_signed",
+      "gain": 1.5,
+      "syn_scale": 0.0042216575644452746,
+      "mean_acc": 0.36666666666666664,
+      "ci95": 0.0,
+      "mean_non_input_spikes": 350.0,
+      "n_seeds": 1
+    },
+    {
+      "arm": "connectome_signed",
+      "gain": 3.0,
+      "syn_scale": 0.008443315128890549,
+      "mean_acc": 0.6333333333333333,
+      "ci95": 0.0,
+      "mean_non_input_spikes": 1131.0,
+      "n_seeds": 1
+    },
+    {
+      "arm": "connectome_signed",
+      "gain": 8.0,
+      "syn_scale": 0.0225155070103748,
+      "mean_acc": 0.7,
+      "ci95": 0.0,
+      "mean_non_input_spikes": 3114.0,
+      "n_seeds": 1
+    },
+    {
+      "arm": "connectome_signed",
+      "gain": 20.0,
+      "syn_scale": 0.056288767525937,
+      "mean_acc": 0.7,
+      "ci95": 0.0,
+      "mean_non_input_spikes": 8967.0,
+      "n_seeds": 1
+    }
+  ],
+  "ignition": {
+    "connectome_signed": {
+      "first_live_gain": 0.7,
+      "syn_scale": 0.0019701068634077946
+    }
+  },
+  "first_decodable": {
+    "connectome_signed": {
+      "first_gain": 1.5,
+      "syn_scale": 0.0042216575644452746,
+      "mean_acc": 0.36666666666666664
+    }
+  }
+}

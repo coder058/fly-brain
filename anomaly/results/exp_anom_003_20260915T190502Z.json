@@ -1,0 +1,100 @@
+{
+  "exp": "EXP-ANOM-003",
+  "seed": 2,
+  "utc": "2026-09-15T19:04:54.952660+00:00",
+  "config": {
+    "n_normal": 400,
+    "n_anom": 20,
+    "T": 48,
+    "anom_kind": "drift",
+    "noise": 0.2,
+    "anom_strength": 0.5,
+    "n_nodes": 128,
+    "prevalence": 0.047619047619047616
+  },
+  "arms": {
+    "threshold": {
+      "auroc": 0.97125,
+      "auprc": 0.879913111173253,
+      "f1": 0.8780487799452706,
+      "fpr": 0.024999999999791665,
+      "fnr": 0.099999999995,
+      "threshold": 4.195525169372559
+    },
+    "pca": {
+      "auroc": 1.0,
+      "auprc": 1.0,
+      "f1": 0.99999999945,
+      "fpr": 0.0,
+      "fnr": 0.0,
+      "threshold": 0.07350579649209976
+    },
+    "isolation_forest": {
+      "auroc": 1.0,
+      "auprc": 1.0,
+      "f1": 0.99999999945,
+      "fpr": 0.0,
+      "fnr": 0.0,
+      "threshold": 0.49028199289636526
+    },
+    "ocsvm": {
+      "auroc": 1.0,
+      "auprc": 1.0,
+      "f1": 0.99999999945,
+      "fpr": 0.0,
+      "fnr": 0.0,
+      "threshold": 1.380088820185538
+    },
+    "mlp_recon": {
+      "auroc": 1.0,
+      "auprc": 1.0,
+      "f1": 0.99999999945,
+      "fpr": 0.0,
+      "fnr": 0.0,
+      "threshold": 1.9313793580457312
+    },
+    "fly_signed": {
+      "auroc": 0.5747916666666667,
+      "auprc": 0.1798539470639518,
+      "f1": 0.3294117643382699,
+      "fpr": 0.4249999999964583,
+      "fnr": 0.299999999985,
+      "threshold": 0.00028948657563887537,
+      "n_neurons": 128,
+      "nnz": 3020,
+      "syn_scale": 0.02110900585776091,
+      "non_input_mean_rate": 0.002328355796635151
+    },
+    "fly_er_null": {
+      "auroc": 0.4608333333333333,
+      "auprc": 0.12847273423115071,
+      "f1": 0.27419354811212276,
+      "fpr": 0.7249999999939584,
+      "fnr": 0.1499999999925,
+      "threshold": 0.4889032542705536,
+      "n_neurons": 128,
+      "nnz": 3020,
+      "syn_scale": 1.2699051941141863,
+      "non_input_mean_rate": 0.20690040290355682
+    },
+    "fly_abs": {
+      "auroc": 0.8845833333333334,
+      "auprc": 0.4305396688093042,
+      "f1": 0.66666666618775,
+      "fpr": 0.14999999999875,
+      "fnr": 0.0499999999975,
+      "threshold": 0.0608864352107048,
+      "n_neurons": 128,
+      "nnz": 3020,
+      "syn_scale": 0.021086028043344782,
+      "non_input_mean_rate": 0.06646911054849625
+    }
+  },
+  "claim_ready": false,
+  "note": "Ceiling AUROC\u22481.0 on all arms means task too easy \u2014 not a topology claim.",
+  "ceiling_like": false,
+  "seconds": 7.88,
+  "n_train_normal": 280,
+  "n_test": 140,
+  "n_test_anom": 20
+}

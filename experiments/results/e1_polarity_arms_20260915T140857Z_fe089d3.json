@@ -1,0 +1,396 @@
+{
+  "provenance": {
+    "utc": "2026-09-15T14:08:57+00:00",
+    "git_rev": "fe089d3",
+    "harness_sha256": "d6f741b55920e7a1",
+    "config_sha256": "ef2f8d0fd5ad5f1c"
+  },
+  "config": {
+    "task": "E1_reservoir_linear_readout",
+    "subgraph": {
+      "method": "top_out_degree",
+      "n": 500,
+      "rationale": "CPU-first lock; same selection rule as LIF smoke (top out-degree)"
+    },
+    "dynamics": {
+      "n_steps": 64,
+      "n_classes": 5,
+      "n_trials_per_class": 40,
+      "input_fraction": 0.1,
+      "I_amp": 6.0,
+      "lif": {
+        "dt": 1.0,
+        "tau_m": 6.0,
+        "v_th": 1.0,
+        "syn_scale": 0.002
+      },
+      "input_noise": 0.55
+    },
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "arms": [
+      "connectome_signed",
+      "connectome_abs",
+      "er_null",
+      "degree_shuffle",
+      "mlp"
+    ],
+    "note": "LSTM deferred until torch/GPU available; MLP is strong baseline for this turn",
+    "task_hardening": "temporal_holdout_noise055_5class_v6",
+    "harness_guards": {
+      "reject_dead_features": true,
+      "min_non_input_spikes": 1,
+      "on_dead": "raise",
+      "min_feature_std": 1e-06,
+      "min_unique_feature_rows": 10,
+      "bug_fixed": "E1 v2 features were all-zero: pulse width << tau_m so input neurons never reached v_th; all arms predicted one class \u2192 acc=3/18=0.1667"
+    }
+  },
+  "settings": {
+    "seeds": "0,1,2,3,4,5,6,7",
+    "policies": "glutamate_unknown,glutamate_inhibitory,glutamate_excitatory",
+    "n_trials": 40,
+    "n_probes": 48,
+    "target_rate": 0.002,
+    "prefix": "e1_polarity_arms"
+  },
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "n": 500,
+  "nt_column": "consensus_nt",
+  "presynaptic_nt_counts_in_subgraph": {
+    "acetylcholine": 3533,
+    "dopamine": 2213,
+    "gaba": 5829,
+    "glutamate": 3168,
+    "histamine": 109,
+    "octopamine": 2953,
+    "serotonin": 690,
+    "unclear": 5213
+  },
+  "graph_meta": {
+    "filter": "status==Traced both ends",
+    "n_neurons": 165122,
+    "n_edges": 25563197,
+    "n_edges_csr_nnz": 25563197,
+    "weight_sum": 124025046,
+    "sign_counts": {
+      "E": 103718,
+      "I": 27965,
+      "U": 33439
+    },
+    "seconds": 143.85
+  },
+  "arms": {
+    "glutamate_unknown": {
+      "policy": {
+        "excitatory": [
+          "acetylcholine"
+        ],
+        "inhibitory": [
+          "gaba",
+          "histamine"
+        ]
+      },
+      "edges_total": 23708,
+      "edges_excitatory": 3533,
+      "edges_inhibitory": 5938,
+      "edges_zeroed": 14237,
+      "fraction_zeroed": 0.6005145942297958,
+      "stored_nnz": 23708,
+      "effective_nnz": 9471,
+      "ops_proxy_inflation": 2.5032203568788933,
+      "signed_weight_sum": -55861.0,
+      "excitatory_weight": 84861.0,
+      "inhibitory_weight": -140722.0,
+      "spectrum": {
+        "rho_signed": 2131.864051645932,
+        "rho_abs": 2182.860964717819,
+        "dominant_eigenvalue_real": -2131.864051645932,
+        "dominant_eigenvalue_imag": 0.0,
+        "nnz": 23708
+      },
+      "matched_gain": {
+        "gain": 11.917578124999999,
+        "rate": 0.0019322916666666666,
+        "converged": true
+      },
+      "per_seed": [
+        {
+          "seed": 0,
+          "acc": 0.7833333333333333,
+          "train_test_gap": -0.011904761904761862,
+          "selected_ridge": 0.1,
+          "non_input_spikes": 11241.0
+        },
+        {
+          "seed": 1,
+          "acc": 0.6666666666666666,
+          "train_test_gap": 0.07619047619047625,
+          "selected_ridge": 0.0001,
+          "non_input_spikes": 8141.0
+        },
+        {
+          "seed": 2,
+          "acc": 0.6666666666666666,
+          "train_test_gap": 0.13333333333333341,
+          "selected_ridge": 1.0,
+          "non_input_spikes": 20755.0
+        },
+        {
+          "seed": 3,
+          "acc": 0.7,
+          "train_test_gap": -0.0071428571428571175,
+          "selected_ridge": 0.01,
+          "non_input_spikes": 6910.0
+        },
+        {
+          "seed": 4,
+          "acc": 0.75,
+          "train_test_gap": 0.09285714285714286,
+          "selected_ridge": 0.0001,
+          "non_input_spikes": 15026.0
+        },
+        {
+          "seed": 5,
+          "acc": 0.21666666666666667,
+          "train_test_gap": 0.01190476190476189,
+          "selected_ridge": 0.0001,
+          "non_input_spikes": 13492.0
+        },
+        {
+          "seed": 6,
+          "acc": 0.7666666666666667,
+          "train_test_gap": 0.11904761904761896,
+          "selected_ridge": 0.01,
+          "non_input_spikes": 18766.0
+        },
+        {
+          "seed": 7,
+          "acc": 0.8666666666666667,
+          "train_test_gap": 0.004761904761904745,
+          "selected_ridge": 0.1,
+          "non_input_spikes": 17774.0
+        }
+      ],
+      "mean_acc": 0.6770833333333333,
+      "ci95": 0.1369243759241656
+    },
+    "glutamate_inhibitory": {
+      "policy": {
+        "excitatory": [
+          "acetylcholine"
+        ],
+        "inhibitory": [
+          "gaba",
+          "histamine",
+          "glutamate"
+        ]
+      },
+      "edges_total": 23708,
+      "edges_excitatory": 3533,
+      "edges_inhibitory": 9106,
+      "edges_zeroed": 11069,
+      "fraction_zeroed": 0.46688881390248016,
+      "stored_nnz": 23708,
+      "effective_nnz": 12639,
+      "ops_proxy_inflation": 1.8757813118126434,
+      "signed_weight_sum": -98396.0,
+      "excitatory_weight": 84861.0,
+      "inhibitory_weight": -183257.0,
+      "spectrum": {
+        "rho_signed": 2132.057363441792,
+        "rho_abs": 2183.0798606094963,
+        "dominant_eigenvalue_real": -2132.057363441792,
+        "dominant_eigenvalue_imag": 0.0,
+        "nnz": 23708
+      },
+      "matched_gain": {
+        "gain": 15.040624999999999,
+        "rate": 0.0021944444444444446,
+        "converged": true
+      },
+      "per_seed": [
+        {
+          "seed": 0,
+          "acc": 0.6666666666666666,
+          "train_test_gap": 0.06904761904761914,
+          "selected_ridge": 0.0001,
+          "non_input_spikes": 12509.0
+        },
+        {
+          "seed": 1,
+          "acc": 0.7166666666666667,
+          "train_test_gap": 0.004761904761904745,
+          "selected_ridge": 0.01,
+          "non_input_spikes": 10108.0
+        },
+        {
+          "seed": 2,
+          "acc": 0.6833333333333333,
+          "train_test_gap": 0.13809523809523805,
+          "selected_ridge": 0.1,
+          "non_input_spikes": 27258.0
+        },
+        {
+          "seed": 3,
+          "acc": 0.8333333333333334,
+          "train_test_gap": 0.016666666666666607,
+          "selected_ridge": 0.01,
+          "non_input_spikes": 12655.0
+        },
+        {
+          "seed": 4,
+          "acc": 0.8166666666666667,
+          "train_test_gap": 0.02619047619047621,
+          "selected_ridge": 0.01,
+          "non_input_spikes": 16036.0
+        },
+        {
+          "seed": 5,
+          "acc": 0.21666666666666667,
+          "train_test_gap": 0.0976190476190476,
+          "selected_ridge": 0.0001,
+          "non_input_spikes": 14885.0
+        },
+        {
+          "seed": 6,
+          "acc": 0.75,
+          "train_test_gap": 0.09285714285714286,
+          "selected_ridge": 0.01,
+          "non_input_spikes": 12571.0
+        },
+        {
+          "seed": 7,
+          "acc": 0.7333333333333333,
+          "train_test_gap": 0.10952380952380958,
+          "selected_ridge": 0.1,
+          "non_input_spikes": 15384.0
+        }
+      ],
+      "mean_acc": 0.6770833333333333,
+      "ci95": 0.13510307279176806
+    },
+    "glutamate_excitatory": {
+      "policy": {
+        "excitatory": [
+          "acetylcholine",
+          "glutamate"
+        ],
+        "inhibitory": [
+          "gaba",
+          "histamine"
+        ]
+      },
+      "edges_total": 23708,
+      "edges_excitatory": 6701,
+      "edges_inhibitory": 5938,
+      "edges_zeroed": 11069,
+      "fraction_zeroed": 0.46688881390248016,
+      "stored_nnz": 23708,
+      "effective_nnz": 12639,
+      "ops_proxy_inflation": 1.8757813118126434,
+      "signed_weight_sum": -13326.0,
+      "excitatory_weight": 127396.0,
+      "inhibitory_weight": -140722.0,
+      "spectrum": {
+        "rho_signed": 2131.6727886122026,
+        "rho_abs": 2183.0798606094963,
+        "dominant_eigenvalue_real": -2131.6727886122026,
+        "dominant_eigenvalue_imag": 0.0,
+        "nnz": 23708
+      },
+      "matched_gain": {
+        "gain": 6.29609375,
+        "rate": 0.0020069444444444444,
+        "converged": true
+      },
+      "per_seed": [
+        {
+          "seed": 0,
+          "acc": 0.6833333333333333,
+          "train_test_gap": 0.1166666666666667,
+          "selected_ridge": 0.0001,
+          "non_input_spikes": 11532.0
+        },
+        {
+          "seed": 1,
+          "acc": 0.3,
+          "train_test_gap": 0.07857142857142857,
+          "selected_ridge": 0.0001,
+          "non_input_spikes": 5614.0
+        },
+        {
+          "seed": 2,
+          "acc": 0.7,
+          "train_test_gap": -0.04999999999999993,
+          "selected_ridge": 0.1,
+          "non_input_spikes": 9499.0
+        },
+        {
+          "seed": 3,
+          "acc": 0.31666666666666665,
+          "train_test_gap": 0.1261904761904762,
+          "selected_ridge": 0.1,
+          "non_input_spikes": 2637.0
+        },
+        {
+          "seed": 4,
+          "acc": 0.8166666666666667,
+          "train_test_gap": 0.04761904761904767,
+          "selected_ridge": 0.01,
+          "non_input_spikes": 12269.0
+        },
+        {
+          "seed": 5,
+          "acc": 0.5166666666666667,
+          "train_test_gap": 0.07619047619047614,
+          "selected_ridge": 0.1,
+          "non_input_spikes": 8774.0
+        },
+        {
+          "seed": 6,
+          "acc": 0.8666666666666667,
+          "train_test_gap": 0.04047619047619044,
+          "selected_ridge": 0.01,
+          "non_input_spikes": 22154.0
+        },
+        {
+          "seed": 7,
+          "acc": 0.8166666666666667,
+          "train_test_gap": -0.00952380952380949,
+          "selected_ridge": 0.1,
+          "non_input_spikes": 16941.0
+        }
+      ],
+      "mean_acc": 0.6270833333333333,
+      "ci95": 0.15568007169262937
+    }
+  },
+  "deltas_vs_reference": {
+    "glutamate_inhibitory_minus_glutamate_unknown": {
+      "mean_diff": 0.0,
+      "ci95_diff": 0.06234848300747451,
+      "ci_excludes_zero": false
+    },
+    "glutamate_excitatory_minus_glutamate_unknown": {
+      "mean_diff": -0.05,
+      "ci95_diff": 0.16133780985525026,
+      "ci_excludes_zero": false
+    }
+  },
+  "seconds": 99.44140887260437
+}

@@ -1,0 +1,454 @@
+{
+  "provenance": {
+    "utc": "2026-09-15T12:10:46+00:00",
+    "git_rev": "686e757",
+    "harness_sha256": "f4d6e24dc0f29953",
+    "config_sha256": "ef2f8d0fd5ad5f1c"
+  },
+  "config": {
+    "task": "E1_reservoir_linear_readout",
+    "subgraph": {
+      "method": "top_out_degree",
+      "n": 500,
+      "rationale": "CPU-first lock; same selection rule as LIF smoke (top out-degree)"
+    },
+    "dynamics": {
+      "n_steps": 64,
+      "n_classes": 5,
+      "n_trials_per_class": 20,
+      "input_fraction": 0.1,
+      "I_amp": 6.0,
+      "lif": {
+        "dt": 1.0,
+        "tau_m": 6.0,
+        "v_th": 1.0,
+        "syn_scale": 0.002
+      },
+      "input_noise": 0.55
+    },
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "arms": [
+      "connectome_signed",
+      "connectome_abs",
+      "er_null",
+      "degree_shuffle",
+      "mlp"
+    ],
+    "note": "LSTM deferred until torch/GPU available; MLP is strong baseline for this turn",
+    "task_hardening": "temporal_holdout_noise055_5class_v6",
+    "harness_guards": {
+      "reject_dead_features": true,
+      "min_non_input_spikes": 1,
+      "on_dead": "record",
+      "min_feature_std": 1e-06,
+      "min_unique_feature_rows": 10,
+      "bug_fixed": "E1 v2 features were all-zero: pulse width << tau_m so input neurons never reached v_th; all arms predicted one class \u2192 acc=3/18=0.1667"
+    }
+  },
+  "seeds": [
+    {
+      "seed": 0,
+      "n": 500,
+      "nnz": 23708,
+      "n_inputs": 50,
+      "chance": 0.2,
+      "arms": {
+        "connectome_signed": {
+          "acc": 0.2,
+          "seconds": 0.3567640781402588,
+          "ops_proxy": 303462400.0,
+          "readout_params": 965,
+          "liveness": {
+            "non_input_spikes": 5.0,
+            "probe_spikes": 0.0,
+            "feature_std": 0.0,
+            "unique_feature_rows": 1,
+            "alive": true,
+            "dead_reason": "dead reservoir for arm=connectome_signed: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation."
+          }
+        },
+        "connectome_abs": {
+          "acc": 0.2,
+          "seconds": 0.3886449337005615,
+          "ops_proxy": 303462400.0,
+          "readout_params": 965,
+          "liveness": {
+            "non_input_spikes": 40.0,
+            "probe_spikes": 4.0,
+            "feature_std": 0.0009020158904604614,
+            "unique_feature_rows": 3,
+            "alive": true,
+            "dead_reason": "dead reservoir for arm=connectome_abs: unique_feature_rows=3. Refusing to score \u2014 the readout would be decoding drive, not computation."
+          }
+        },
+        "er_null": {
+          "acc": 0.2,
+          "seconds": 0.38214683532714844,
+          "ops_proxy": 303462400.0,
+          "readout_params": 965,
+          "liveness": {
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "feature_std": 0.0,
+            "unique_feature_rows": 1,
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=er_null: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation."
+          }
+        },
+        "degree_shuffle": {
+          "acc": 0.2,
+          "seconds": 0.37544822692871094,
+          "ops_proxy": 279385600.0,
+          "readout_params": 965,
+          "liveness": {
+            "non_input_spikes": 7.0,
+            "probe_spikes": 0.0,
+            "feature_std": 0.0,
+            "unique_feature_rows": 1,
+            "alive": true,
+            "dead_reason": "dead reservoir for arm=degree_shuffle: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation."
+          }
+        },
+        "mlp": {
+          "acc": 0.2,
+          "params": 6341,
+          "note": "LSTM deferred (no torch)"
+        }
+      }
+    },
+    {
+      "seed": 1,
+      "n": 500,
+      "nnz": 23708,
+      "n_inputs": 50,
+      "chance": 0.2,
+      "arms": {
+        "connectome_signed": {
+          "acc": 0.2,
+          "seconds": 0.35654783248901367,
+          "ops_proxy": 303462400.0,
+          "readout_params": 965,
+          "liveness": {
+            "non_input_spikes": 62.0,
+            "probe_spikes": 0.0,
+            "feature_std": 0.0,
+            "unique_feature_rows": 1,
+            "alive": true,
+            "dead_reason": "dead reservoir for arm=connectome_signed: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation."
+          }
+        },
+        "connectome_abs": {
+          "acc": 0.2,
+          "seconds": 0.38835644721984863,
+          "ops_proxy": 303462400.0,
+          "readout_params": 965,
+          "liveness": {
+            "non_input_spikes": 469.0,
+            "probe_spikes": 0.0,
+            "feature_std": 0.0,
+            "unique_feature_rows": 1,
+            "alive": true,
+            "dead_reason": "dead reservoir for arm=connectome_abs: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation."
+          }
+        },
+        "er_null": {
+          "acc": 0.2,
+          "seconds": 0.3817324638366699,
+          "ops_proxy": 303462400.0,
+          "readout_params": 965,
+          "liveness": {
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "feature_std": 0.0,
+            "unique_feature_rows": 1,
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=er_null: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation."
+          }
+        },
+        "degree_shuffle": {
+          "acc": 0.2,
+          "seconds": 0.3745100498199463,
+          "ops_proxy": 278233600.0,
+          "readout_params": 965,
+          "liveness": {
+            "non_input_spikes": 75.0,
+            "probe_spikes": 5.0,
+            "feature_std": 0.0010084580862894654,
+            "unique_feature_rows": 4,
+            "alive": true,
+            "dead_reason": "dead reservoir for arm=degree_shuffle: unique_feature_rows=4. Refusing to score \u2014 the readout would be decoding drive, not computation."
+          }
+        },
+        "mlp": {
+          "acc": 0.2,
+          "params": 6341,
+          "note": "LSTM deferred (no torch)"
+        }
+      }
+    },
+    {
+      "seed": 2,
+      "n": 500,
+      "nnz": 23708,
+      "n_inputs": 50,
+      "chance": 0.2,
+      "arms": {
+        "connectome_signed": {
+          "acc": 0.2,
+          "seconds": 0.3563828468322754,
+          "ops_proxy": 303462400.0,
+          "readout_params": 965,
+          "liveness": {
+            "non_input_spikes": 1.0,
+            "probe_spikes": 0.0,
+            "feature_std": 0.0,
+            "unique_feature_rows": 1,
+            "alive": true,
+            "dead_reason": "dead reservoir for arm=connectome_signed: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation."
+          }
+        },
+        "connectome_abs": {
+          "acc": 0.7666666666666667,
+          "seconds": 0.3907766342163086,
+          "ops_proxy": 303462400.0,
+          "readout_params": 965,
+          "liveness": {
+            "non_input_spikes": 2714.0,
+            "probe_spikes": 1039.0,
+            "feature_std": 0.01841483823955059,
+            "unique_feature_rows": 99,
+            "alive": true
+          }
+        },
+        "er_null": {
+          "acc": 0.2,
+          "seconds": 0.38202762603759766,
+          "ops_proxy": 303462400.0,
+          "readout_params": 965,
+          "liveness": {
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "feature_std": 0.0,
+            "unique_feature_rows": 1,
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=er_null: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation."
+          }
+        },
+        "degree_shuffle": {
+          "acc": 0.2,
+          "seconds": 0.37500810623168945,
+          "ops_proxy": 278681600.0,
+          "readout_params": 965,
+          "liveness": {
+            "non_input_spikes": 4.0,
+            "probe_spikes": 4.0,
+            "feature_std": 0.0009020158904604614,
+            "unique_feature_rows": 3,
+            "alive": true,
+            "dead_reason": "dead reservoir for arm=degree_shuffle: unique_feature_rows=3. Refusing to score \u2014 the readout would be decoding drive, not computation."
+          }
+        },
+        "mlp": {
+          "acc": 0.2,
+          "params": 6341,
+          "note": "LSTM deferred (no torch)"
+        }
+      }
+    },
+    {
+      "seed": 3,
+      "n": 500,
+      "nnz": 23708,
+      "n_inputs": 50,
+      "chance": 0.2,
+      "arms": {
+        "connectome_signed": {
+          "acc": 0.2,
+          "seconds": 0.3569962978363037,
+          "ops_proxy": 303462400.0,
+          "readout_params": 965,
+          "liveness": {
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "feature_std": 0.0,
+            "unique_feature_rows": 1,
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=connectome_signed: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation."
+          }
+        },
+        "connectome_abs": {
+          "acc": 0.2,
+          "seconds": 0.3887042999267578,
+          "ops_proxy": 303462400.0,
+          "readout_params": 965,
+          "liveness": {
+            "non_input_spikes": 833.0,
+            "probe_spikes": 10.0,
+            "feature_std": 0.0014259894378483295,
+            "unique_feature_rows": 4,
+            "alive": true,
+            "dead_reason": "dead reservoir for arm=connectome_abs: unique_feature_rows=4. Refusing to score \u2014 the readout would be decoding drive, not computation."
+          }
+        },
+        "er_null": {
+          "acc": 0.2,
+          "seconds": 0.38300156593322754,
+          "ops_proxy": 303462400.0,
+          "readout_params": 965,
+          "liveness": {
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "feature_std": 0.0,
+            "unique_feature_rows": 1,
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=er_null: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation."
+          }
+        },
+        "degree_shuffle": {
+          "acc": 0.2,
+          "seconds": 0.3789386749267578,
+          "ops_proxy": 279155200.0,
+          "readout_params": 965,
+          "liveness": {
+            "non_input_spikes": 2.0,
+            "probe_spikes": 0.0,
+            "feature_std": 0.0,
+            "unique_feature_rows": 1,
+            "alive": true,
+            "dead_reason": "dead reservoir for arm=degree_shuffle: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation."
+          }
+        },
+        "mlp": {
+          "acc": 0.2,
+          "params": 6341,
+          "note": "LSTM deferred (no torch)"
+        }
+      }
+    },
+    {
+      "seed": 4,
+      "n": 500,
+      "nnz": 23708,
+      "n_inputs": 50,
+      "chance": 0.2,
+      "arms": {
+        "connectome_signed": {
+          "acc": 0.2,
+          "seconds": 0.3559305667877197,
+          "ops_proxy": 303462400.0,
+          "readout_params": 965,
+          "liveness": {
+            "non_input_spikes": 6.0,
+            "probe_spikes": 1.0,
+            "feature_std": 0.0004510431317612529,
+            "unique_feature_rows": 2,
+            "alive": true,
+            "dead_reason": "dead reservoir for arm=connectome_signed: unique_feature_rows=2. Refusing to score \u2014 the readout would be decoding drive, not computation."
+          }
+        },
+        "connectome_abs": {
+          "acc": 0.26666666666666666,
+          "seconds": 0.388653039932251,
+          "ops_proxy": 303462400.0,
+          "readout_params": 965,
+          "liveness": {
+            "non_input_spikes": 695.0,
+            "probe_spikes": 67.0,
+            "feature_std": 0.003740389831364155,
+            "unique_feature_rows": 18,
+            "alive": true
+          }
+        },
+        "er_null": {
+          "acc": 0.2,
+          "seconds": 0.381061315536499,
+          "ops_proxy": 303462400.0,
+          "readout_params": 965,
+          "liveness": {
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "feature_std": 0.0,
+            "unique_feature_rows": 1,
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=er_null: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation."
+          }
+        },
+        "degree_shuffle": {
+          "acc": 0.2,
+          "seconds": 0.3755161762237549,
+          "ops_proxy": 279065600.0,
+          "readout_params": 965,
+          "liveness": {
+            "non_input_spikes": 9.0,
+            "probe_spikes": 0.0,
+            "feature_std": 0.0,
+            "unique_feature_rows": 1,
+            "alive": true,
+            "dead_reason": "dead reservoir for arm=degree_shuffle: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation."
+          }
+        },
+        "mlp": {
+          "acc": 0.2,
+          "params": 6341,
+          "note": "LSTM deferred (no torch)"
+        }
+      }
+    }
+  ],
+  "aggregate": {
+    "connectome_signed": {
+      "mean_acc": 0.2,
+      "std": 0.0,
+      "ci95": 0.0,
+      "n": 5
+    },
+    "connectome_abs": {
+      "mean_acc": 0.32666666666666666,
+      "std": 0.24765567494675617,
+      "ci95": 0.21707977028425904,
+      "n": 5
+    },
+    "er_null": {
+      "mean_acc": 0.2,
+      "std": 0.0,
+      "ci95": 0.0,
+      "n": 5
+    },
+    "degree_shuffle": {
+      "mean_acc": 0.2,
+      "std": 0.0,
+      "ci95": 0.0,
+      "n": 5
+    },
+    "mlp": {
+      "mean_acc": 0.2,
+      "std": 0.0,
+      "ci95": 0.0,
+      "n": 5
+    }
+  },
+  "liveness": {
+    "connectome_signed": false,
+    "connectome_abs": true,
+    "er_null": false,
+    "degree_shuffle": true
+  },
+  "task_validity": {
+    "chance": 0.2,
+    "reservoirs_alive": false,
+    "nulls_near_chance": true,
+    "not_ceiling": true,
+    "valid_for_claims": false
+  },
+  "pass_e1_preliminary": {
+    "beats_both_nulls": false,
+    "vs_mlp": 0.0,
+    "blocked_by_invalid_task": true
+  }
+}

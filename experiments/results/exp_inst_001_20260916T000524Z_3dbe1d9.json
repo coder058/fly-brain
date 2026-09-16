@@ -1,0 +1,2544 @@
+{
+  "experiment_id": "EXP-INST-001",
+  "provenance": {
+    "utc": "2026-09-16T00:04:16+00:00",
+    "git_rev": "3dbe1d9",
+    "command": [
+      "/home/ubuntu/fly-lab/.venv/bin/python",
+      "/home/ubuntu/fly-lab/experiments/harness/exp_inst_001.py"
+    ],
+    "script": "/home/ubuntu/fly-lab/experiments/harness/exp_inst_001.py",
+    "script_sha256": "16b70e13aed3064d4380d4d3723bad8ed2ff697b0ebf2b176b30e81c348b803c",
+    "e1_config_sha256": "ef2f8d0fd5ad5f1cde0177426fdec856f14ad2430121b7d44f4615c8be78a85f",
+    "positive_control_sha256": "625f287947e010cfdb18dacfe1edcf2209ed560078573bc6c38d76d230e766b5",
+    "e1_reservoir_sha256": "d6f741b55920e7a1874cfaf4a32a7c5c0d3a0588130b5e1b61d96081b4f0067a",
+    "null_ensemble_sha256": "632b1968da44661838b4a70bc58a7334babcea2f710997d6611c7e506917ebca",
+    "min_effect_gate": 0.1,
+    "target_effect": 0.15,
+    "n_probes": 48,
+    "target_rate": 0.002,
+    "n_seeds": 12,
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "n_trials_per_class": 60,
+    "dataset": {
+      "source.lock.json": {
+        "path": "/home/ubuntu/fly-lab/data/manifests/source.lock.json",
+        "exists": true,
+        "sha256": "94ffb38cd1bd4ceb2789514661ffe0e18146881654da2f323026094b005728ec",
+        "bytes": 1360
+      },
+      "graph_meta.json": {
+        "path": "/home/ubuntu/fly-lab/data/derived/graph/graph_meta.json",
+        "exists": true,
+        "sha256": "7a50f8de7a67793253f498b69b595e3310b1bf5abc876a929c69a0bbe3704fb1",
+        "bytes": 240
+      },
+      "csr_unsigned.npz": {
+        "path": "/home/ubuntu/fly-lab/data/derived/graph/csr_unsigned.npz",
+        "exists": true,
+        "sha256": "b6dbd38b2c7a2771ac61d04c84add24733164cbbd26872bd417a02de7afd7949",
+        "bytes": 79567122
+      },
+      "csc_unsigned.npz": {
+        "path": "/home/ubuntu/fly-lab/data/derived/graph/csc_unsigned.npz",
+        "exists": true,
+        "sha256": "1db82dc9ea509c4e14f173bcfbcbf8170830839718aee373e1ee609441d6aa4f",
+        "bytes": 79524272
+      },
+      "coo_signed.npz": {
+        "path": "/home/ubuntu/fly-lab/data/derived/graph/coo_signed.npz",
+        "exists": true,
+        "sha256": "88289920f5ad069b8592168f9f9292dad49af8c6e29633ee8ad1e6176f2eccf5",
+        "bytes": 93769185
+      }
+    },
+    "env": {
+      "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+      "platform": "Linux-6.17.0-1019-aws-x86_64-with-glibc2.39",
+      "executable": "/home/ubuntu/fly-lab/.venv/bin/python",
+      "numpy": "2.5.3",
+      "nproc": 2,
+      "cwd": "/home/ubuntu/fly-lab",
+      "git_rev": "3dbe1d9",
+      "git_branch": "cursor/exp-inst-001-c6ad",
+      "utc": "2026-09-16T00:04:16+00:00"
+    },
+    "never_touch": "data/raw/",
+    "note": "Recorded before the scientific run. Smoke is not evidence.",
+    "run_utc": "2026-09-16T00:05:24+00:00"
+  },
+  "n": 500,
+  "nnz": 23708,
+  "rho_signed": 2131.864051645932,
+  "n_probes": 48,
+  "target_rate": 0.002,
+  "n_trials_per_class": 60,
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+  ],
+  "gain_match": {
+    "gain": 11.917578124999999,
+    "rate": 0.002,
+    "converged": true
+  },
+  "calibration": {
+    "ok": true,
+    "alpha_star": 1.302734375,
+    "target_effect": 0.15,
+    "calibrated_mean_delta": 0.15,
+    "calibrated_ci95": 0.04457477523616952,
+    "delta_at_0": 0.0,
+    "n_cal_seeds": 12,
+    "n_features": 192,
+    "n_classes": 5,
+    "n_trials_per_class": 60,
+    "feature_model": "isotropic_gaussian_N(0,1)",
+    "per_seed": [
+      {
+        "seed": 0,
+        "acc_pos": 0.4222222222222222,
+        "acc_null": 0.23333333333333334,
+        "diff": 0.18888888888888888
+      },
+      {
+        "seed": 1,
+        "acc_pos": 0.3,
+        "acc_null": 0.2222222222222222,
+        "diff": 0.07777777777777778
+      },
+      {
+        "seed": 2,
+        "acc_pos": 0.4222222222222222,
+        "acc_null": 0.2,
+        "diff": 0.2222222222222222
+      },
+      {
+        "seed": 3,
+        "acc_pos": 0.35555555555555557,
+        "acc_null": 0.17777777777777778,
+        "diff": 0.17777777777777778
+      },
+      {
+        "seed": 4,
+        "acc_pos": 0.25555555555555554,
+        "acc_null": 0.26666666666666666,
+        "diff": -0.011111111111111127
+      },
+      {
+        "seed": 5,
+        "acc_pos": 0.37777777777777777,
+        "acc_null": 0.17777777777777778,
+        "diff": 0.19999999999999998
+      },
+      {
+        "seed": 6,
+        "acc_pos": 0.45555555555555555,
+        "acc_null": 0.2111111111111111,
+        "diff": 0.24444444444444444
+      },
+      {
+        "seed": 7,
+        "acc_pos": 0.37777777777777777,
+        "acc_null": 0.3,
+        "diff": 0.07777777777777778
+      },
+      {
+        "seed": 8,
+        "acc_pos": 0.37777777777777777,
+        "acc_null": 0.2,
+        "diff": 0.17777777777777776
+      },
+      {
+        "seed": 9,
+        "acc_pos": 0.4222222222222222,
+        "acc_null": 0.2,
+        "diff": 0.2222222222222222
+      },
+      {
+        "seed": 10,
+        "acc_pos": 0.2777777777777778,
+        "acc_null": 0.2111111111111111,
+        "diff": 0.06666666666666668
+      },
+      {
+        "seed": 11,
+        "acc_pos": 0.3333333333333333,
+        "acc_null": 0.17777777777777778,
+        "diff": 0.15555555555555553
+      }
+    ],
+    "search": [
+      {
+        "amp": 0.0,
+        "mean_delta": 0.0
+      },
+      {
+        "amp": 8.0,
+        "mean_delta": 0.7046296296296296
+      },
+      {
+        "amp": 4.0,
+        "mean_delta": 0.7666666666666667
+      },
+      {
+        "amp": 2.0,
+        "mean_delta": 0.4018518518518519
+      },
+      {
+        "amp": 1.0,
+        "mean_delta": 0.06574074074074074
+      },
+      {
+        "amp": 1.5,
+        "mean_delta": 0.23148148148148148
+      },
+      {
+        "amp": 1.25,
+        "mean_delta": 0.12685185185185183
+      },
+      {
+        "amp": 1.375,
+        "mean_delta": 0.17407407407407408
+      },
+      {
+        "amp": 1.3125,
+        "mean_delta": 0.15555555555555553
+      },
+      {
+        "amp": 1.28125,
+        "mean_delta": 0.14351851851851852
+      },
+      {
+        "amp": 1.296875,
+        "mean_delta": 0.14537037037037034
+      },
+      {
+        "amp": 1.3046875,
+        "mean_delta": 0.15092592592592594
+      },
+      {
+        "amp": 1.30078125,
+        "mean_delta": 0.1481481481481481
+      },
+      {
+        "amp": 1.302734375,
+        "mean_delta": 0.15
+      },
+      {
+        "amp": 1.3017578125,
+        "mean_delta": 0.1481481481481481
+      },
+      {
+        "amp": 1.30224609375,
+        "mean_delta": 0.14907407407407408
+      },
+      {
+        "amp": 1.302490234375,
+        "mean_delta": 0.14907407407407408
+      },
+      {
+        "amp": 1.3026123046875,
+        "mean_delta": 0.14907407407407408
+      }
+    ],
+    "note": "alpha_star locked here; not retuned on reservoir data"
+  },
+  "rows": [
+    {
+      "seed": 0,
+      "alive": true,
+      "liveness": {
+        "non_input_spikes": 16712.0,
+        "probe_spikes": 2018.0,
+        "feature_std": 0.013514846563339233,
+        "unique_feature_rows": 163,
+        "alive": true
+      },
+      "probe_input_leak": false,
+      "n_features": 192,
+      "sigma_train": 0.0026501594558214167,
+      "sigma_theory": 0.011169153951844339,
+      "realised_rate": 0.0019342592592592593,
+      "pool_spikes": 16712.0,
+      "acc_no_injection": 0.7888888888888889,
+      "acc_positive": 1.0,
+      "acc_null_perm0": 0.7888888888888889,
+      "acc_null_perm_b": 0.7888888888888889,
+      "diff_positive_vs_null0": 0.21111111111111114,
+      "diff_null_pair": 0.0,
+      "selected_ridge_no_injection": 0.1,
+      "selected_ridge_positive": 0.0001,
+      "selected_ridge_null0": 0.1,
+      "null_perm_accs": [
+        0.7888888888888889,
+        0.7888888888888889,
+        0.7888888888888889,
+        0.7888888888888889,
+        0.7777777777777778,
+        0.7888888888888889,
+        0.7888888888888889,
+        0.7888888888888889,
+        0.7888888888888889,
+        0.7888888888888889,
+        0.7888888888888889,
+        0.7777777777777778,
+        0.7888888888888889,
+        0.7888888888888889,
+        0.7888888888888889,
+        0.7888888888888889,
+        0.7777777777777778,
+        0.7555555555555555,
+        0.7888888888888889,
+        0.7444444444444445
+      ],
+      "null_perms": [
+        {
+          "perm": 0,
+          "acc": 0.7888888888888889,
+          "selected_ridge": 0.1
+        },
+        {
+          "perm": 1,
+          "acc": 0.7888888888888889,
+          "selected_ridge": 0.1
+        },
+        {
+          "perm": 2,
+          "acc": 0.7888888888888889,
+          "selected_ridge": 0.1
+        },
+        {
+          "perm": 3,
+          "acc": 0.7888888888888889,
+          "selected_ridge": 0.1
+        },
+        {
+          "perm": 4,
+          "acc": 0.7777777777777778,
+          "selected_ridge": 0.1
+        },
+        {
+          "perm": 5,
+          "acc": 0.7888888888888889,
+          "selected_ridge": 0.1
+        },
+        {
+          "perm": 6,
+          "acc": 0.7888888888888889,
+          "selected_ridge": 0.1
+        },
+        {
+          "perm": 7,
+          "acc": 0.7888888888888889,
+          "selected_ridge": 0.1
+        },
+        {
+          "perm": 8,
+          "acc": 0.7888888888888889,
+          "selected_ridge": 0.1
+        },
+        {
+          "perm": 9,
+          "acc": 0.7888888888888889,
+          "selected_ridge": 0.1
+        },
+        {
+          "perm": 10,
+          "acc": 0.7888888888888889,
+          "selected_ridge": 0.1
+        },
+        {
+          "perm": 11,
+          "acc": 0.7777777777777778,
+          "selected_ridge": 0.1
+        },
+        {
+          "perm": 12,
+          "acc": 0.7888888888888889,
+          "selected_ridge": 0.1
+        },
+        {
+          "perm": 13,
+          "acc": 0.7888888888888889,
+          "selected_ridge": 0.1
+        },
+        {
+          "perm": 14,
+          "acc": 0.7888888888888889,
+          "selected_ridge": 0.1
+        },
+        {
+          "perm": 15,
+          "acc": 0.7888888888888889,
+          "selected_ridge": 0.1
+        },
+        {
+          "perm": 16,
+          "acc": 0.7777777777777778,
+          "selected_ridge": 0.1
+        },
+        {
+          "perm": 17,
+          "acc": 0.7555555555555555,
+          "selected_ridge": 0.01
+        },
+        {
+          "perm": 18,
+          "acc": 0.7888888888888889,
+          "selected_ridge": 0.1
+        },
+        {
+          "perm": 19,
+          "acc": 0.7444444444444445,
+          "selected_ridge": 0.0001
+        }
+      ],
+      "n_train": 210,
+      "n_test": 90,
+      "syn_scale": 0.033541289227515855,
+      "gain": 11.917578124999999
+    },
+    {
+      "seed": 1,
+      "alive": true,
+      "liveness": {
+        "non_input_spikes": 12126.0,
+        "probe_spikes": 837.0,
+        "feature_std": 0.008097398094832897,
+        "unique_feature_rows": 75,
+        "alive": true
+      },
+      "probe_input_leak": false,
+      "n_features": 192,
+      "sigma_train": 0.0015324344315289695,
+      "sigma_theory": 0.011169153951844339,
+      "realised_rate": 0.0014034722222222222,
+      "pool_spikes": 12126.0,
+      "acc_no_injection": 0.6666666666666666,
+      "acc_positive": 1.0,
+      "acc_null_perm0": 0.6444444444444445,
+      "acc_null_perm_b": 0.6777777777777778,
+      "diff_positive_vs_null0": 0.3555555555555555,
+      "diff_null_pair": -0.033333333333333326,
+      "selected_ridge_no_injection": 0.01,
+      "selected_ridge_positive": 0.0001,
+      "selected_ridge_null0": 0.01,
+      "null_perm_accs": [
+        0.6444444444444445,
+        0.6777777777777778,
+        0.6222222222222222,
+        0.6888888888888889,
+        0.6555555555555556,
+        0.6666666666666666,
+        0.6888888888888889,
+        0.6444444444444445,
+        0.6777777777777778,
+        0.6777777777777778,
+        0.6888888888888889,
+        0.6888888888888889,
+        0.6666666666666666,
+        0.6555555555555556,
+        0.6555555555555556,
+        0.6777777777777778,
+        0.6777777777777778,
+        0.6888888888888889,
+        0.6666666666666666,
+        0.6666666666666666
+      ],
+      "null_perms": [
+        {
+          "perm": 0,
+          "acc": 0.6444444444444445,
+          "selected_ridge": 0.01
+        },
+        {
+          "perm": 1,
+          "acc": 0.6777777777777778,
+          "selected_ridge": 0.1
+        },
+        {
+          "perm": 2,
+          "acc": 0.6222222222222222,
+          "selected_ridge": 0.0001
+        },
+        {
+          "perm": 3,
+          "acc": 0.6888888888888889,
+          "selected_ridge": 0.1
+        },
+        {
+          "perm": 4,
+          "acc": 0.6555555555555556,
+          "selected_ridge": 0.01
+        },
+        {
+          "perm": 5,
+          "acc": 0.6666666666666666,
+          "selected_ridge": 0.01
+        },
+        {
+          "perm": 6,
+          "acc": 0.6888888888888889,
+          "selected_ridge": 0.1
+        },
+        {
+          "perm": 7,
+          "acc": 0.6444444444444445,
+          "selected_ridge": 0.01
+        },
+        {
+          "perm": 8,
+          "acc": 0.6777777777777778,
+          "selected_ridge": 0.01
+        },
+        {
+          "perm": 9,
+          "acc": 0.6777777777777778,
+          "selected_ridge": 0.1
+        },
+        {
+          "perm": 10,
+          "acc": 0.6888888888888889,
+          "selected_ridge": 0.1
+        },
+        {
+          "perm": 11,
+          "acc": 0.6888888888888889,
+          "selected_ridge": 0.1
+        },
+        {
+          "perm": 12,
+          "acc": 0.6666666666666666,
+          "selected_ridge": 0.01
+        },
+        {
+          "perm": 13,
+          "acc": 0.6555555555555556,
+          "selected_ridge": 0.01
+        },
+        {
+          "perm": 14,
+          "acc": 0.6555555555555556,
+          "selected_ridge": 0.01
+        },
+        {
+          "perm": 15,
+          "acc": 0.6777777777777778,
+          "selected_ridge": 0.1
+        },
+        {
+          "perm": 16,
+          "acc": 0.6777777777777778,
+          "selected_ridge": 0.1
+        },
+        {
+          "perm": 17,
+          "acc": 0.6888888888888889,
+          "selected_ridge": 0.1
+        },
+        {
+          "perm": 18,
+          "acc": 0.6666666666666666,
+          "selected_ridge": 0.01
+        },
+        {
+          "perm": 19,
+          "acc": 0.6666666666666666,
+          "selected_ridge": 0.01
+        }
+      ],
+      "n_train": 210,
+      "n_test": 90,
+      "syn_scale": 0.033541289227515855,
+      "gain": 11.917578124999999
+    },
+    {
+      "seed": 2,
+      "alive": true,
+      "liveness": {
+        "non_input_spikes": 31085.0,
+        "probe_spikes": 2656.0,
+        "feature_std": 0.01617422141134739,
+        "unique_feature_rows": 254,
+        "alive": true
+      },
+      "probe_input_leak": false,
+      "n_features": 192,
+      "sigma_train": 0.0039591699583788375,
+      "sigma_theory": 0.011169153951844339,
+      "realised_rate": 0.0035978009259259257,
+      "pool_spikes": 31085.0,
+      "acc_no_injection": 0.7444444444444445,
+      "acc_positive": 1.0,
+      "acc_null_perm0": 0.7444444444444445,
+      "acc_null_perm_b": 0.7,
+      "diff_positive_vs_null0": 0.25555555555555554,
+      "diff_null_pair": 0.04444444444444451,
+      "selected_ridge_no_injection": 0.01,
+      "selected_ridge_positive": 0.0001,
+      "selected_ridge_null0": 0.01,
+      "null_perm_accs": [
+        0.7444444444444445,
+        0.7111111111111111,
+        0.7333333333333333,
+        0.7444444444444445,
+        0.7555555555555555,
+        0.7333333333333333,
+        0.7333333333333333,
+        0.7333333333333333,
+        0.7333333333333333,
+        0.7222222222222222,
+        0.7444444444444445,
+        0.7333333333333333,
+        0.7444444444444445,
+        0.7444444444444445,
+        0.7555555555555555,
+        0.7222222222222222,
+        0.7666666666666667,
+        0.7444444444444445,
+        0.7444444444444445,
+        0.7333333333333333
+      ],
+      "null_perms": [
+        {
+          "perm": 0,
+          "acc": 0.7444444444444445,
+          "selected_ridge": 0.01
+        },
+        {
+          "perm": 1,
+          "acc": 0.7111111111111111,
+          "selected_ridge": 0.01
+        },
+        {
+          "perm": 2,
+          "acc": 0.7333333333333333,
+          "selected_ridge": 0.01
+        },
+        {
+          "perm": 3,
+          "acc": 0.7444444444444445,
+          "selected_ridge": 0.01
+        },
+        {
+          "perm": 4,
+          "acc": 0.7555555555555555,
+          "selected_ridge": 0.01
+        },
+        {
+          "perm": 5,
+          "acc": 0.7333333333333333,
+          "selected_ridge": 0.001
+        },
+        {
+          "perm": 6,
+          "acc": 0.7333333333333333,
+          "selected_ridge": 0.01
+        },
+        {
+          "perm": 7,
+          "acc": 0.7333333333333333,
+          "selected_ridge": 0.01
+        },
+        {
+          "perm": 8,
+          "acc": 0.7333333333333333,
+          "selected_ridge": 0.01
+        },
+        {
+          "perm": 9,
+          "acc": 0.7222222222222222,
+          "selected_ridge": 0.01
+        },
+        {
+          "perm": 10,
+          "acc": 0.7444444444444445,
+          "selected_ridge": 0.01
+        },
+        {
+          "perm": 11,
+          "acc": 0.7333333333333333,
+          "selected_ridge": 0.01
+        },
+        {
+          "perm": 12,
+          "acc": 0.7444444444444445,
+          "selected_ridge": 0.01
+        },
+        {
+          "perm": 13,
+          "acc": 0.7444444444444445,
+          "selected_ridge": 0.01
+        },
+        {
+          "perm": 14,
+          "acc": 0.7555555555555555,
+          "selected_ridge": 0.01
+        },
+        {
+          "perm": 15,
+          "acc": 0.7222222222222222,
+          "selected_ridge": 0.0001
+        },
+        {
+          "perm": 16,
+          "acc": 0.7666666666666667,
+          "selected_ridge": 0.1
+        },
+        {
+          "perm": 17,
+          "acc": 0.7444444444444445,
+          "selected_ridge": 0.01
+        },
+        {
+          "perm": 18,
+          "acc": 0.7444444444444445,
+          "selected_ridge": 0.01
+        },
+        {
+          "perm": 19,
+          "acc": 0.7333333333333333,
+          "selected_ridge": 0.01
+        }
+      ],
+      "n_train": 210,
+      "n_test": 90,
+      "syn_scale": 0.033541289227515855,
+      "gain": 11.917578124999999
+    },
+    {
+      "seed": 3,
+      "alive": true,
+      "liveness": {
+        "non_input_spikes": 10287.0,
+        "probe_spikes": 1451.0,
+        "feature_std": 0.012337397783994675,
+        "unique_feature_rows": 172,
+        "alive": true
+      },
+      "probe_input_leak": false,
+      "n_features": 192,
+      "sigma_train": 0.002738873382302351,
+      "sigma_theory": 0.011169153951844339,
+      "realised_rate": 0.001190625,
+      "pool_spikes": 10287.0,
+      "acc_no_injection": 0.6666666666666666,
+      "acc_positive": 1.0,
+      "acc_null_perm0": 0.6666666666666666,
+      "acc_null_perm_b": 0.6888888888888889,
+      "diff_positive_vs_null0": 0.33333333333333337,
+      "diff_null_pair": -0.022222222222222254,
+      "selected_ridge_no_injection": 0.1,
+      "selected_ridge_positive": 0.0001,
+      "selected_ridge_null0": 0.01,
+      "null_perm_accs": [
+        0.6666666666666666,
+        0.6444444444444445,
+        0.6222222222222222,
+        0.6333333333333333,
+        0.6777777777777778,
+        0.6333333333333333,
+        0.6111111111111112,
+        0.6666666666666666,
+        0.6333333333333333,
+        0.6333333333333333,
+        0.6666666666666666,
+        0.6777777777777778,
+        0.6333333333333333,
+        0.6111111111111112,
+        0.6555555555555556,
+        0.6777777777777778,
+        0.6666666666666666,
+        0.6111111111111112,
+        0.6333333333333333,
+        0.6666666666666666
+      ],
+      "null_perms": [
+        {
+          "perm": 0,
+          "acc": 0.6666666666666666,
+          "selected_ridge": 0.01
+        },
+        {
+          "perm": 1,
+          "acc": 0.6444444444444445,
+          "selected_ridge": 0.01
+        },
+        {
+          "perm": 2,
+          "acc": 0.6222222222222222,
+          "selected_ridge": 0.01
+        },
+        {
+          "perm": 3,
+          "acc": 0.6333333333333333,
+          "selected_ridge": 0.01
+        },
+        {
+          "perm": 4,
+          "acc": 0.6777777777777778,
+          "selected_ridge": 0.1
+        },
+        {
+          "perm": 5,
+          "acc": 0.6333333333333333,
+          "selected_ridge": 0.0001
+        },
+        {
+          "perm": 6,
+          "acc": 0.6111111111111112,
+          "selected_ridge": 0.001
+        },
+        {
+          "perm": 7,
+          "acc": 0.6666666666666666,
+          "selected_ridge": 0.1
+        },
+        {
+          "perm": 8,
+          "acc": 0.6333333333333333,
+          "selected_ridge": 0.01
+        },
+        {
+          "perm": 9,
+          "acc": 0.6333333333333333,
+          "selected_ridge": 0.01
+        },
+        {
+          "perm": 10,
+          "acc": 0.6666666666666666,
+          "selected_ridge": 0.01
+        },
+        {
+          "perm": 11,
+          "acc": 0.6777777777777778,
+          "selected_ridge": 0.01
+        },
+        {
+          "perm": 12,
+          "acc": 0.6333333333333333,
+          "selected_ridge": 0.01
+        },
+        {
+          "perm": 13,
+          "acc": 0.6111111111111112,
+          "selected_ridge": 0.01
+        },
+        {
+          "perm": 14,
+          "acc": 0.6555555555555556,
+          "selected_ridge": 0.0001
+        },
+        {
+          "perm": 15,
+          "acc": 0.6777777777777778,
+          "selected_ridge": 0.001
+        },
+        {
+          "perm": 16,
+          "acc": 0.6666666666666666,
+          "selected_ridge": 0.001
+        },
+        {
+          "perm": 17,
+          "acc": 0.6111111111111112,
+          "selected_ridge": 0.01
+        },
+        {
+          "perm": 18,
+          "acc": 0.6333333333333333,
+          "selected_ridge": 0.01
+        },
+        {
+          "perm": 19,
+          "acc": 0.6666666666666666,
+          "selected_ridge": 0.01
+        }
+      ],
+      "n_train": 210,
+      "n_test": 90,
+      "syn_scale": 0.033541289227515855,
+      "gain": 11.917578124999999
+    },
+    {
+      "seed": 4,
+      "alive": true,
+      "liveness": {
+        "non_input_spikes": 22585.0,
+        "probe_spikes": 2773.0,
+        "feature_std": 0.024275390431284904,
+        "unique_feature_rows": 228,
+        "alive": true
+      },
+      "probe_input_leak": false,
+      "n_features": 192,
+      "sigma_train": 0.003647441611131879,
+      "sigma_theory": 0.011169153951844339,
+      "realised_rate": 0.0026140046296296298,
+      "pool_spikes": 22585.0,
+      "acc_no_injection": 0.8222222222222222,
+      "acc_positive": 1.0,
+      "acc_null_perm0": 0.8,
+      "acc_null_perm_b": 0.8444444444444444,
+      "diff_positive_vs_null0": 0.19999999999999996,
+      "diff_null_pair": -0.0444444444444444,
+      "selected_ridge_no_injection": 0.1,
+      "selected_ridge_positive": 0.0001,
+      "selected_ridge_null0": 0.0001,
+      "null_perm_accs": [
+        0.8,
+        0.8111111111111111,
+        0.8111111111111111,
+        0.8444444444444444,
+        0.8444444444444444,
+        0.8222222222222222,
+        0.8333333333333334,
+        0.8333333333333334,
+        0.8111111111111111,
+        0.8555555555555555,
+        0.8222222222222222,
+        0.7888888888888889,
+        0.8222222222222222,
+        0.8666666666666667,
+        0.8444444444444444,
+        0.8,
+        0.8555555555555555,
+        0.8333333333333334,
+        0.8444444444444444,
+        0.8333333333333334
+      ],
+      "null_perms": [
+        {
+          "perm": 0,
+          "acc": 0.8,
+          "selected_ridge": 0.0001
+        },
+        {
+          "perm": 1,
+          "acc": 0.8111111111111111,
+          "selected_ridge": 0.1
+        },
+        {
+          "perm": 2,
+          "acc": 0.8111111111111111,
+          "selected_ridge": 0.001
+        },
+        {
+          "perm": 3,
+          "acc": 0.8444444444444444,
+          "selected_ridge": 0.0001
+        },
+        {
+          "perm": 4,
+          "acc": 0.8444444444444444,
+          "selected_ridge": 0.1
+        },
+        {
+          "perm": 5,
+          "acc": 0.8222222222222222,
+          "selected_ridge": 0.0001
+        },
+        {
+          "perm": 6,
+          "acc": 0.8333333333333334,
+          "selected_ridge": 0.0001
+        },
+        {
+          "perm": 7,
+          "acc": 0.8333333333333334,
+          "selected_ridge": 0.0001
+        },
+        {
+          "perm": 8,
+          "acc": 0.8111111111111111,
+          "selected_ridge": 0.001
+        },
+        {
+          "perm": 9,
+          "acc": 0.8555555555555555,
+          "selected_ridge": 0.0001
+        },
+        {
+          "perm": 10,
+          "acc": 0.8222222222222222,
+          "selected_ridge": 0.01
+        },
+        {
+          "perm": 11,
+          "acc": 0.7888888888888889,
+          "selected_ridge": 0.001
+        },
+        {
+          "perm": 12,
+          "acc": 0.8222222222222222,
+          "selected_ridge": 0.0001
+        },
+        {
+          "perm": 13,
+          "acc": 0.8666666666666667,
+          "selected_ridge": 0.0001
+        },
+        {
+          "perm": 14,
+          "acc": 0.8444444444444444,
+          "selected_ridge": 0.01
+        },
+        {
+          "perm": 15,
+          "acc": 0.8,
+          "selected_ridge": 0.0001
+        },
+        {
+          "perm": 16,
+          "acc": 0.8555555555555555,
+          "selected_ridge": 0.1
+        },
+        {
+          "perm": 17,
+          "acc": 0.8333333333333334,
+          "selected_ridge": 0.1
+        },
+        {
+          "perm": 18,
+          "acc": 0.8444444444444444,
+          "selected_ridge": 0.1
+        },
+        {
+          "perm": 19,
+          "acc": 0.8333333333333334,
+          "selected_ridge": 0.1
+        }
+      ],
+      "n_train": 210,
+      "n_test": 90,
+      "syn_scale": 0.033541289227515855,
+      "gain": 11.917578124999999
+    },
+    {
+      "seed": 5,
+      "alive": true,
+      "liveness": {
+        "non_input_spikes": 20231.0,
+        "probe_spikes": 18.0,
+        "feature_std": 0.0011046817526221275,
+        "unique_feature_rows": 9,
+        "alive": true,
+        "dead_reason": "dead reservoir for arm=connectome_signed: unique_feature_rows=9. Refusing to score \u2014 the readout would be decoding drive, not computation."
+      },
+      "probe_input_leak": false,
+      "n_features": 192,
+      "sigma_train": 0.0002826316450312162,
+      "sigma_theory": 0.011169153951844339,
+      "realised_rate": 0.0023415509259259257,
+      "pool_spikes": 20231.0,
+      "acc_no_injection": 0.2111111111111111,
+      "acc_positive": 1.0,
+      "acc_null_perm0": 0.25555555555555554,
+      "acc_null_perm_b": 0.13333333333333333,
+      "diff_positive_vs_null0": 0.7444444444444445,
+      "diff_null_pair": 0.1222222222222222,
+      "selected_ridge_no_injection": 0.1,
+      "selected_ridge_positive": 0.0001,
+      "selected_ridge_null0": 0.01,
+      "null_perm_accs": [
+        0.25555555555555554,
+        0.2,
+        0.25555555555555554,
+        0.2,
+        0.2222222222222222,
+        0.15555555555555556,
+        0.2111111111111111,
+        0.18888888888888888,
+        0.2222222222222222,
+        0.17777777777777778,
+        0.16666666666666666,
+        0.24444444444444444,
+        0.1111111111111111,
+        0.16666666666666666,
+        0.17777777777777778,
+        0.23333333333333334,
+        0.2111111111111111,
+        0.2111111111111111,
+        0.26666666666666666,
+        0.2111111111111111
+      ],
+      "null_perms": [
+        {
+          "perm": 0,
+          "acc": 0.25555555555555554,
+          "selected_ridge": 0.01
+        },
+        {
+          "perm": 1,
+          "acc": 0.2,
+          "selected_ridge": 0.0001
+        },
+        {
+          "perm": 2,
+          "acc": 0.25555555555555554,
+          "selected_ridge": 0.0001
+        },
+        {
+          "perm": 3,
+          "acc": 0.2,
+          "selected_ridge": 0.0001
+        },
+        {
+          "perm": 4,
+          "acc": 0.2222222222222222,
+          "selected_ridge": 0.1
+        },
+        {
+          "perm": 5,
+          "acc": 0.15555555555555556,
+          "selected_ridge": 0.0001
+        },
+        {
+          "perm": 6,
+          "acc": 0.2111111111111111,
+          "selected_ridge": 0.1
+        },
+        {
+          "perm": 7,
+          "acc": 0.18888888888888888,
+          "selected_ridge": 0.0001
+        },
+        {
+          "perm": 8,
+          "acc": 0.2222222222222222,
+          "selected_ridge": 0.0001
+        },
+        {
+          "perm": 9,
+          "acc": 0.17777777777777778,
+          "selected_ridge": 0.0001
+        },
+        {
+          "perm": 10,
+          "acc": 0.16666666666666666,
+          "selected_ridge": 0.0001
+        },
+        {
+          "perm": 11,
+          "acc": 0.24444444444444444,
+          "selected_ridge": 1000.0
+        },
+        {
+          "perm": 12,
+          "acc": 0.1111111111111111,
+          "selected_ridge": 0.0001
+        },
+        {
+          "perm": 13,
+          "acc": 0.16666666666666666,
+          "selected_ridge": 0.0001
+        },
+        {
+          "perm": 14,
+          "acc": 0.17777777777777778,
+          "selected_ridge": 0.01
+        },
+        {
+          "perm": 15,
+          "acc": 0.23333333333333334,
+          "selected_ridge": 0.1
+        },
+        {
+          "perm": 16,
+          "acc": 0.2111111111111111,
+          "selected_ridge": 0.1
+        },
+        {
+          "perm": 17,
+          "acc": 0.2111111111111111,
+          "selected_ridge": 100.0
+        },
+        {
+          "perm": 18,
+          "acc": 0.26666666666666666,
+          "selected_ridge": 0.0001
+        },
+        {
+          "perm": 19,
+          "acc": 0.2111111111111111,
+          "selected_ridge": 0.1
+        }
+      ],
+      "n_train": 210,
+      "n_test": 90,
+      "syn_scale": 0.033541289227515855,
+      "gain": 11.917578124999999
+    },
+    {
+      "seed": 6,
+      "alive": true,
+      "liveness": {
+        "non_input_spikes": 28601.0,
+        "probe_spikes": 2730.0,
+        "feature_std": 0.016033314168453217,
+        "unique_feature_rows": 280,
+        "alive": true
+      },
+      "probe_input_leak": false,
+      "n_features": 192,
+      "sigma_train": 0.004855309794583078,
+      "sigma_theory": 0.011169153951844339,
+      "realised_rate": 0.0033103009259259257,
+      "pool_spikes": 28601.0,
+      "acc_no_injection": 0.7666666666666667,
+      "acc_positive": 1.0,
+      "acc_null_perm0": 0.7666666666666667,
+      "acc_null_perm_b": 0.7666666666666667,
+      "diff_positive_vs_null0": 0.23333333333333328,
+      "diff_null_pair": 0.0,
+      "selected_ridge_no_injection": 0.1,
+      "selected_ridge_positive": 0.0001,
+      "selected_ridge_null0": 0.1,
+      "null_perm_accs": [
+        0.7666666666666667,
+        0.7777777777777778,
+        0.7444444444444445,
+        0.7666666666666667,
+        0.6777777777777778,
+        0.7222222222222222,
+        0.7555555555555555,
+        0.7777777777777778,
+        0.7444444444444445,
+        0.7444444444444445,
+        0.7555555555555555,
+        0.7555555555555555,
+        0.7666666666666667,
+        0.7777777777777778,
+        0.7777777777777778,
+        0.7666666666666667,
+        0.7888888888888889,
+        0.7555555555555555,
+        0.7222222222222222,
+        0.7555555555555555
+      ],
+      "null_perms": [
+        {
+          "perm": 0,
+          "acc": 0.7666666666666667,
+          "selected_ridge": 0.1
+        },
+        {
+          "perm": 1,
+          "acc": 0.7777777777777778,
+          "selected_ridge": 0.1
+        },
+        {
+          "perm": 2,
+          "acc": 0.7444444444444445,
+          "selected_ridge": 0.1
+        },
+        {
+          "perm": 3,
+          "acc": 0.7666666666666667,
+          "selected_ridge": 0.1
+        },
+        {
+          "perm": 4,
+          "acc": 0.6777777777777778,
+          "selected_ridge": 0.0001
+        },
+        {
+          "perm": 5,
+          "acc": 0.7222222222222222,
+          "selected_ridge": 0.0001
+        },
+        {
+          "perm": 6,
+          "acc": 0.7555555555555555,
+          "selected_ridge": 0.1
+        },
+        {
+          "perm": 7,
+          "acc": 0.7777777777777778,
+          "selected_ridge": 0.1
+        },
+        {
+          "perm": 8,
+          "acc": 0.7444444444444445,
+          "selected_ridge": 0.1
+        },
+        {
+          "perm": 9,
+          "acc": 0.7444444444444445,
+          "selected_ridge": 0.1
+        },
+        {
+          "perm": 10,
+          "acc": 0.7555555555555555,
+          "selected_ridge": 0.1
+        },
+        {
+          "perm": 11,
+          "acc": 0.7555555555555555,
+          "selected_ridge": 0.1
+        },
+        {
+          "perm": 12,
+          "acc": 0.7666666666666667,
+          "selected_ridge": 0.1
+        },
+        {
+          "perm": 13,
+          "acc": 0.7777777777777778,
+          "selected_ridge": 0.1
+        },
+        {
+          "perm": 14,
+          "acc": 0.7777777777777778,
+          "selected_ridge": 0.1
+        },
+        {
+          "perm": 15,
+          "acc": 0.7666666666666667,
+          "selected_ridge": 0.1
+        },
+        {
+          "perm": 16,
+          "acc": 0.7888888888888889,
+          "selected_ridge": 0.1
+        },
+        {
+          "perm": 17,
+          "acc": 0.7555555555555555,
+          "selected_ridge": 0.1
+        },
+        {
+          "perm": 18,
+          "acc": 0.7222222222222222,
+          "selected_ridge": 0.01
+        },
+        {
+          "perm": 19,
+          "acc": 0.7555555555555555,
+          "selected_ridge": 0.01
+        }
+      ],
+      "n_train": 210,
+      "n_test": 90,
+      "syn_scale": 0.033541289227515855,
+      "gain": 11.917578124999999
+    },
+    {
+      "seed": 7,
+      "alive": true,
+      "liveness": {
+        "non_input_spikes": 26819.0,
+        "probe_spikes": 4362.0,
+        "feature_std": 0.03000296838581562,
+        "unique_feature_rows": 290,
+        "alive": true
+      },
+      "probe_input_leak": false,
+      "n_features": 192,
+      "sigma_train": 0.005661510606020472,
+      "sigma_theory": 0.011169153951844339,
+      "realised_rate": 0.003104050925925926,
+      "pool_spikes": 26819.0,
+      "acc_no_injection": 0.7888888888888889,
+      "acc_positive": 1.0,
+      "acc_null_perm0": 0.8,
+      "acc_null_perm_b": 0.8333333333333334,
+      "diff_positive_vs_null0": 0.19999999999999996,
+      "diff_null_pair": -0.033333333333333326,
+      "selected_ridge_no_injection": 0.001,
+      "selected_ridge_positive": 0.0001,
+      "selected_ridge_null0": 0.001,
+      "null_perm_accs": [
+        0.8,
+        0.8111111111111111,
+        0.8111111111111111,
+        0.8,
+        0.8,
+        0.8,
+        0.7888888888888889,
+        0.8,
+        0.7777777777777778,
+        0.8111111111111111,
+        0.8111111111111111,
+        0.7888888888888889,
+        0.7888888888888889,
+        0.8,
+        0.8333333333333334,
+        0.8111111111111111,
+        0.8,
+        0.7888888888888889,
+        0.8111111111111111,
+        0.8
+      ],
+      "null_perms": [
+        {
+          "perm": 0,
+          "acc": 0.8,
+          "selected_ridge": 0.001
+        },
+        {
+          "perm": 1,
+          "acc": 0.8111111111111111,
+          "selected_ridge": 0.0001
+        },
+        {
+          "perm": 2,
+          "acc": 0.8111111111111111,
+          "selected_ridge": 0.0001
+        },
+        {
+          "perm": 3,
+          "acc": 0.8,
+          "selected_ridge": 0.01
+        },
+        {
+          "perm": 4,
+          "acc": 0.8,
+          "selected_ridge": 0.001
+        },
+        {
+          "perm": 5,
+          "acc": 0.8,
+          "selected_ridge": 0.01
+        },
+        {
+          "perm": 6,
+          "acc": 0.7888888888888889,
+          "selected_ridge": 0.0001
+        },
+        {
+          "perm": 7,
+          "acc": 0.8,
+          "selected_ridge": 0.0001
+        },
+        {
+          "perm": 8,
+          "acc": 0.7777777777777778,
+          "selected_ridge": 0.01
+        },
+        {
+          "perm": 9,
+          "acc": 0.8111111111111111,
+          "selected_ridge": 0.0001
+        },
+        {
+          "perm": 10,
+          "acc": 0.8111111111111111,
+          "selected_ridge": 0.0001
+        },
+        {
+          "perm": 11,
+          "acc": 0.7888888888888889,
+          "selected_ridge": 0.01
+        },
+        {
+          "perm": 12,
+          "acc": 0.7888888888888889,
+          "selected_ridge": 0.01
+        },
+        {
+          "perm": 13,
+          "acc": 0.8,
+          "selected_ridge": 0.001
+        },
+        {
+          "perm": 14,
+          "acc": 0.8333333333333334,
+          "selected_ridge": 0.0001
+        },
+        {
+          "perm": 15,
+          "acc": 0.8111111111111111,
+          "selected_ridge": 0.0001
+        },
+        {
+          "perm": 16,
+          "acc": 0.8,
+          "selected_ridge": 0.01
+        },
+        {
+          "perm": 17,
+          "acc": 0.7888888888888889,
+          "selected_ridge": 0.001
+        },
+        {
+          "perm": 18,
+          "acc": 0.8111111111111111,
+          "selected_ridge": 0.0001
+        },
+        {
+          "perm": 19,
+          "acc": 0.8,
+          "selected_ridge": 0.001
+        }
+      ],
+      "n_train": 210,
+      "n_test": 90,
+      "syn_scale": 0.033541289227515855,
+      "gain": 11.917578124999999
+    },
+    {
+      "seed": 8,
+      "alive": true,
+      "liveness": {
+        "non_input_spikes": 25881.0,
+        "probe_spikes": 788.0,
+        "feature_std": 0.008673164062201977,
+        "unique_feature_rows": 49,
+        "alive": true
+      },
+      "probe_input_leak": false,
+      "n_features": 192,
+      "sigma_train": 0.0013138406254148277,
+      "sigma_theory": 0.011169153951844339,
+      "realised_rate": 0.002995486111111111,
+      "pool_spikes": 25881.0,
+      "acc_no_injection": 0.7333333333333333,
+      "acc_positive": 1.0,
+      "acc_null_perm0": 0.7333333333333333,
+      "acc_null_perm_b": 0.7333333333333333,
+      "diff_positive_vs_null0": 0.2666666666666667,
+      "diff_null_pair": 0.0,
+      "selected_ridge_no_injection": 0.1,
+      "selected_ridge_positive": 0.0001,
+      "selected_ridge_null0": 0.1,
+      "null_perm_accs": [
+        0.7333333333333333,
+        0.7333333333333333,
+        0.7333333333333333,
+        0.7333333333333333,
+        0.7333333333333333,
+        0.7333333333333333,
+        0.7333333333333333,
+        0.7333333333333333,
+        0.7333333333333333,
+        0.7333333333333333,
+        0.7333333333333333,
+        0.7333333333333333,
+        0.7333333333333333,
+        0.7333333333333333,
+        0.7333333333333333,
+        0.7333333333333333,
+        0.7333333333333333,
+        0.7333333333333333,
+        0.7333333333333333,
+        0.7333333333333333
+      ],
+      "null_perms": [
+        {
+          "perm": 0,
+          "acc": 0.7333333333333333,
+          "selected_ridge": 0.1
+        },
+        {
+          "perm": 1,
+          "acc": 0.7333333333333333,
+          "selected_ridge": 0.1
+        },
+        {
+          "perm": 2,
+          "acc": 0.7333333333333333,
+          "selected_ridge": 0.1
+        },
+        {
+          "perm": 3,
+          "acc": 0.7333333333333333,
+          "selected_ridge": 0.1
+        },
+        {
+          "perm": 4,
+          "acc": 0.7333333333333333,
+          "selected_ridge": 0.1
+        },
+        {
+          "perm": 5,
+          "acc": 0.7333333333333333,
+          "selected_ridge": 0.1
+        },
+        {
+          "perm": 6,
+          "acc": 0.7333333333333333,
+          "selected_ridge": 0.1
+        },
+        {
+          "perm": 7,
+          "acc": 0.7333333333333333,
+          "selected_ridge": 0.1
+        },
+        {
+          "perm": 8,
+          "acc": 0.7333333333333333,
+          "selected_ridge": 0.1
+        },
+        {
+          "perm": 9,
+          "acc": 0.7333333333333333,
+          "selected_ridge": 0.1
+        },
+        {
+          "perm": 10,
+          "acc": 0.7333333333333333,
+          "selected_ridge": 0.1
+        },
+        {
+          "perm": 11,
+          "acc": 0.7333333333333333,
+          "selected_ridge": 0.1
+        },
+        {
+          "perm": 12,
+          "acc": 0.7333333333333333,
+          "selected_ridge": 0.1
+        },
+        {
+          "perm": 13,
+          "acc": 0.7333333333333333,
+          "selected_ridge": 0.1
+        },
+        {
+          "perm": 14,
+          "acc": 0.7333333333333333,
+          "selected_ridge": 0.1
+        },
+        {
+          "perm": 15,
+          "acc": 0.7333333333333333,
+          "selected_ridge": 0.1
+        },
+        {
+          "perm": 16,
+          "acc": 0.7333333333333333,
+          "selected_ridge": 0.1
+        },
+        {
+          "perm": 17,
+          "acc": 0.7333333333333333,
+          "selected_ridge": 0.1
+        },
+        {
+          "perm": 18,
+          "acc": 0.7333333333333333,
+          "selected_ridge": 0.1
+        },
+        {
+          "perm": 19,
+          "acc": 0.7333333333333333,
+          "selected_ridge": 0.1
+        }
+      ],
+      "n_train": 210,
+      "n_test": 90,
+      "syn_scale": 0.033541289227515855,
+      "gain": 11.917578124999999
+    },
+    {
+      "seed": 9,
+      "alive": true,
+      "liveness": {
+        "non_input_spikes": 306.0,
+        "probe_spikes": 0.0,
+        "feature_std": 0.0,
+        "unique_feature_rows": 1,
+        "alive": true,
+        "dead_reason": "dead reservoir for arm=connectome_signed: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation."
+      },
+      "probe_input_leak": false,
+      "n_features": 192,
+      "sigma_train": 1e-12,
+      "sigma_theory": 0.011169153951844339,
+      "realised_rate": 3.541666666666667e-05,
+      "pool_spikes": 306.0,
+      "acc_no_injection": 0.2,
+      "acc_positive": 1.0,
+      "acc_null_perm0": 0.2,
+      "acc_null_perm_b": 0.2222222222222222,
+      "diff_positive_vs_null0": 0.8,
+      "diff_null_pair": -0.0222222222222222,
+      "selected_ridge_no_injection": 0.0001,
+      "selected_ridge_positive": 0.0001,
+      "selected_ridge_null0": 0.01,
+      "null_perm_accs": [
+        0.2,
+        0.2,
+        0.2111111111111111,
+        0.18888888888888888,
+        0.2,
+        0.15555555555555556,
+        0.26666666666666666,
+        0.24444444444444444,
+        0.25555555555555554,
+        0.26666666666666666,
+        0.2,
+        0.23333333333333334,
+        0.2777777777777778,
+        0.15555555555555556,
+        0.2,
+        0.2222222222222222,
+        0.26666666666666666,
+        0.15555555555555556,
+        0.23333333333333334,
+        0.2222222222222222
+      ],
+      "null_perms": [
+        {
+          "perm": 0,
+          "acc": 0.2,
+          "selected_ridge": 0.01
+        },
+        {
+          "perm": 1,
+          "acc": 0.2,
+          "selected_ridge": 0.01
+        },
+        {
+          "perm": 2,
+          "acc": 0.2111111111111111,
+          "selected_ridge": 0.0001
+        },
+        {
+          "perm": 3,
+          "acc": 0.18888888888888888,
+          "selected_ridge": 0.0001
+        },
+        {
+          "perm": 4,
+          "acc": 0.2,
+          "selected_ridge": 0.0001
+        },
+        {
+          "perm": 5,
+          "acc": 0.15555555555555556,
+          "selected_ridge": 0.1
+        },
+        {
+          "perm": 6,
+          "acc": 0.26666666666666666,
+          "selected_ridge": 0.0001
+        },
+        {
+          "perm": 7,
+          "acc": 0.24444444444444444,
+          "selected_ridge": 1.0
+        },
+        {
+          "perm": 8,
+          "acc": 0.25555555555555554,
+          "selected_ridge": 0.01
+        },
+        {
+          "perm": 9,
+          "acc": 0.26666666666666666,
+          "selected_ridge": 0.0001
+        },
+        {
+          "perm": 10,
+          "acc": 0.2,
+          "selected_ridge": 0.1
+        },
+        {
+          "perm": 11,
+          "acc": 0.23333333333333334,
+          "selected_ridge": 0.0001
+        },
+        {
+          "perm": 12,
+          "acc": 0.2777777777777778,
+          "selected_ridge": 0.0001
+        },
+        {
+          "perm": 13,
+          "acc": 0.15555555555555556,
+          "selected_ridge": 1.0
+        },
+        {
+          "perm": 14,
+          "acc": 0.2,
+          "selected_ridge": 0.0001
+        },
+        {
+          "perm": 15,
+          "acc": 0.2222222222222222,
+          "selected_ridge": 0.0001
+        },
+        {
+          "perm": 16,
+          "acc": 0.26666666666666666,
+          "selected_ridge": 0.0001
+        },
+        {
+          "perm": 17,
+          "acc": 0.15555555555555556,
+          "selected_ridge": 0.0001
+        },
+        {
+          "perm": 18,
+          "acc": 0.23333333333333334,
+          "selected_ridge": 0.0001
+        },
+        {
+          "perm": 19,
+          "acc": 0.2222222222222222,
+          "selected_ridge": 0.0001
+        }
+      ],
+      "n_train": 210,
+      "n_test": 90,
+      "syn_scale": 0.033541289227515855,
+      "gain": 11.917578124999999
+    },
+    {
+      "seed": 10,
+      "alive": true,
+      "liveness": {
+        "non_input_spikes": 15205.0,
+        "probe_spikes": 1200.0,
+        "feature_std": 0.013658847659826279,
+        "unique_feature_rows": 45,
+        "alive": true
+      },
+      "probe_input_leak": false,
+      "n_features": 192,
+      "sigma_train": 0.0013874517593058281,
+      "sigma_theory": 0.011169153951844339,
+      "realised_rate": 0.001759837962962963,
+      "pool_spikes": 15205.0,
+      "acc_no_injection": 0.7111111111111111,
+      "acc_positive": 1.0,
+      "acc_null_perm0": 0.6888888888888889,
+      "acc_null_perm_b": 0.7111111111111111,
+      "diff_positive_vs_null0": 0.3111111111111111,
+      "diff_null_pair": -0.022222222222222254,
+      "selected_ridge_no_injection": 0.0001,
+      "selected_ridge_positive": 0.001,
+      "selected_ridge_null0": 0.0001,
+      "null_perm_accs": [
+        0.6888888888888889,
+        0.6777777777777778,
+        0.7,
+        0.7111111111111111,
+        0.6666666666666666,
+        0.6666666666666666,
+        0.7,
+        0.6888888888888889,
+        0.6555555555555556,
+        0.7111111111111111,
+        0.6777777777777778,
+        0.7111111111111111,
+        0.7111111111111111,
+        0.7,
+        0.7111111111111111,
+        0.7111111111111111,
+        0.6888888888888889,
+        0.6444444444444445,
+        0.7111111111111111,
+        0.7
+      ],
+      "null_perms": [
+        {
+          "perm": 0,
+          "acc": 0.6888888888888889,
+          "selected_ridge": 0.0001
+        },
+        {
+          "perm": 1,
+          "acc": 0.6777777777777778,
+          "selected_ridge": 0.0001
+        },
+        {
+          "perm": 2,
+          "acc": 0.7,
+          "selected_ridge": 0.1
+        },
+        {
+          "perm": 3,
+          "acc": 0.7111111111111111,
+          "selected_ridge": 0.1
+        },
+        {
+          "perm": 4,
+          "acc": 0.6666666666666666,
+          "selected_ridge": 0.001
+        },
+        {
+          "perm": 5,
+          "acc": 0.6666666666666666,
+          "selected_ridge": 0.01
+        },
+        {
+          "perm": 6,
+          "acc": 0.7,
+          "selected_ridge": 0.1
+        },
+        {
+          "perm": 7,
+          "acc": 0.6888888888888889,
+          "selected_ridge": 0.01
+        },
+        {
+          "perm": 8,
+          "acc": 0.6555555555555556,
+          "selected_ridge": 0.0001
+        },
+        {
+          "perm": 9,
+          "acc": 0.7111111111111111,
+          "selected_ridge": 0.1
+        },
+        {
+          "perm": 10,
+          "acc": 0.6777777777777778,
+          "selected_ridge": 0.01
+        },
+        {
+          "perm": 11,
+          "acc": 0.7111111111111111,
+          "selected_ridge": 0.1
+        },
+        {
+          "perm": 12,
+          "acc": 0.7111111111111111,
+          "selected_ridge": 0.1
+        },
+        {
+          "perm": 13,
+          "acc": 0.7,
+          "selected_ridge": 0.1
+        },
+        {
+          "perm": 14,
+          "acc": 0.7111111111111111,
+          "selected_ridge": 0.0001
+        },
+        {
+          "perm": 15,
+          "acc": 0.7111111111111111,
+          "selected_ridge": 0.1
+        },
+        {
+          "perm": 16,
+          "acc": 0.6888888888888889,
+          "selected_ridge": 0.01
+        },
+        {
+          "perm": 17,
+          "acc": 0.6444444444444445,
+          "selected_ridge": 0.0001
+        },
+        {
+          "perm": 18,
+          "acc": 0.7111111111111111,
+          "selected_ridge": 0.1
+        },
+        {
+          "perm": 19,
+          "acc": 0.7,
+          "selected_ridge": 0.01
+        }
+      ],
+      "n_train": 210,
+      "n_test": 90,
+      "syn_scale": 0.033541289227515855,
+      "gain": 11.917578124999999
+    },
+    {
+      "seed": 11,
+      "alive": true,
+      "liveness": {
+        "non_input_spikes": 10803.0,
+        "probe_spikes": 853.0,
+        "feature_std": 0.008019682951271534,
+        "unique_feature_rows": 122,
+        "alive": true
+      },
+      "probe_input_leak": false,
+      "n_features": 192,
+      "sigma_train": 0.0019507200752653718,
+      "sigma_theory": 0.011169153951844339,
+      "realised_rate": 0.0012503472222222221,
+      "pool_spikes": 10803.0,
+      "acc_no_injection": 0.5111111111111111,
+      "acc_positive": 1.0,
+      "acc_null_perm0": 0.5333333333333333,
+      "acc_null_perm_b": 0.5,
+      "diff_positive_vs_null0": 0.4666666666666667,
+      "diff_null_pair": 0.033333333333333326,
+      "selected_ridge_no_injection": 0.01,
+      "selected_ridge_positive": 0.0001,
+      "selected_ridge_null0": 0.01,
+      "null_perm_accs": [
+        0.5333333333333333,
+        0.5,
+        0.5,
+        0.5,
+        0.5333333333333333,
+        0.5111111111111111,
+        0.5444444444444444,
+        0.5555555555555556,
+        0.5555555555555556,
+        0.5666666666666667,
+        0.4888888888888889,
+        0.4777777777777778,
+        0.5111111111111111,
+        0.5222222222222223,
+        0.4666666666666667,
+        0.5111111111111111,
+        0.5555555555555556,
+        0.5888888888888889,
+        0.5333333333333333,
+        0.4888888888888889
+      ],
+      "null_perms": [
+        {
+          "perm": 0,
+          "acc": 0.5333333333333333,
+          "selected_ridge": 0.01
+        },
+        {
+          "perm": 1,
+          "acc": 0.5,
+          "selected_ridge": 0.01
+        },
+        {
+          "perm": 2,
+          "acc": 0.5,
+          "selected_ridge": 0.01
+        },
+        {
+          "perm": 3,
+          "acc": 0.5,
+          "selected_ridge": 0.01
+        },
+        {
+          "perm": 4,
+          "acc": 0.5333333333333333,
+          "selected_ridge": 0.0001
+        },
+        {
+          "perm": 5,
+          "acc": 0.5111111111111111,
+          "selected_ridge": 0.01
+        },
+        {
+          "perm": 6,
+          "acc": 0.5444444444444444,
+          "selected_ridge": 0.1
+        },
+        {
+          "perm": 7,
+          "acc": 0.5555555555555556,
+          "selected_ridge": 0.1
+        },
+        {
+          "perm": 8,
+          "acc": 0.5555555555555556,
+          "selected_ridge": 0.0001
+        },
+        {
+          "perm": 9,
+          "acc": 0.5666666666666667,
+          "selected_ridge": 0.1
+        },
+        {
+          "perm": 10,
+          "acc": 0.4888888888888889,
+          "selected_ridge": 0.01
+        },
+        {
+          "perm": 11,
+          "acc": 0.4777777777777778,
+          "selected_ridge": 0.01
+        },
+        {
+          "perm": 12,
+          "acc": 0.5111111111111111,
+          "selected_ridge": 0.01
+        },
+        {
+          "perm": 13,
+          "acc": 0.5222222222222223,
+          "selected_ridge": 0.1
+        },
+        {
+          "perm": 14,
+          "acc": 0.4666666666666667,
+          "selected_ridge": 0.01
+        },
+        {
+          "perm": 15,
+          "acc": 0.5111111111111111,
+          "selected_ridge": 0.01
+        },
+        {
+          "perm": 16,
+          "acc": 0.5555555555555556,
+          "selected_ridge": 0.1
+        },
+        {
+          "perm": 17,
+          "acc": 0.5888888888888889,
+          "selected_ridge": 0.0001
+        },
+        {
+          "perm": 18,
+          "acc": 0.5333333333333333,
+          "selected_ridge": 0.01
+        },
+        {
+          "perm": 19,
+          "acc": 0.4888888888888889,
+          "selected_ridge": 0.01
+        }
+      ],
+      "n_train": 210,
+      "n_test": 90,
+      "syn_scale": 0.033541289227515855,
+      "gain": 11.917578124999999
+    }
+  ],
+  "aggregate": {
+    "n_rows": 12,
+    "n_live": 12,
+    "dead_seeds": [],
+    "leak_seeds": [],
+    "power_floor_met": true,
+    "alpha_star": 1.302734375,
+    "target_effect": 0.15,
+    "min_effect_gate": 0.1,
+    "positive_vs_null": {
+      "mean_a": 1.0,
+      "mean_b": 0.6351851851851852,
+      "mean_diff": 0.36481481481481476,
+      "ci95_diff": 0.11628726937451439,
+      "per_seed_diff": [
+        0.21111111111111114,
+        0.3555555555555555,
+        0.25555555555555554,
+        0.33333333333333337,
+        0.19999999999999996,
+        0.7444444444444445,
+        0.23333333333333328,
+        0.19999999999999996,
+        0.2666666666666667,
+        0.8,
+        0.3111111111111111,
+        0.4666666666666667
+      ],
+      "ci_excludes_zero": true,
+      "n_seeds": 12,
+      "min_effect": 0.1,
+      "separated": true
+    },
+    "null_pair": {
+      "mean_a": 0.6351851851851852,
+      "mean_b": 0.6333333333333334,
+      "mean_diff": 0.001851851851851857,
+      "ci95_diff": 0.026242178865614692,
+      "per_seed_diff": [
+        0.0,
+        -0.033333333333333326,
+        0.04444444444444451,
+        -0.022222222222222254,
+        -0.0444444444444444,
+        0.1222222222222222,
+        0.0,
+        -0.033333333333333326,
+        0.0,
+        -0.0222222222222222,
+        -0.022222222222222254,
+        0.033333333333333326
+      ],
+      "ci_excludes_zero": false,
+      "n_seeds": 12,
+      "min_effect": 0.1,
+      "separated": false
+    },
+    "mean_acc_no_injection": 0.6342592592592592,
+    "mean_acc_positive": 1.0,
+    "mean_acc_null_perm0": 0.6351851851851852,
+    "var_diff_positive": 0.042240927796483356,
+    "sd_diff_positive": 0.20552597839806858,
+    "var_diff_null": 0.0021511410400299287,
+    "seed_detection_rate_positive": 1.0,
+    "seed_false_detection_rate_null": 0.08333333333333333,
+    "seed_fn_rate_positive": 0.0,
+    "empirical_fp_perm_gate": 0.0,
+    "n_null_perm_gate_tests": 19,
+    "n_null_perm_gate_pass": 0,
+    "fp_perm_gates": [
+      {
+        "perm": 1,
+        "separated": false,
+        "mean_diff": -0.007407407407407404,
+        "ci95_diff": 0.01401483189896524
+      },
+      {
+        "perm": 2,
+        "separated": false,
+        "mean_diff": -0.007407407407407425,
+        "ci95_diff": 0.010833754919996198
+      },
+      {
+        "perm": 3,
+        "separated": false,
+        "mean_diff": -0.0018518518518518545,
+        "ci95_diff": 0.01691861935141869
+      },
+      {
+        "perm": 4,
+        "separated": false,
+        "mean_diff": -0.0064814814814814865,
+        "ci95_diff": 0.01827146654177574
+      },
+      {
+        "perm": 5,
+        "separated": false,
+        "mean_diff": -0.019444444444444473,
+        "ci95_diff": 0.019167181469688134
+      },
+      {
+        "perm": 6,
+        "separated": false,
+        "mean_diff": 0.002777777777777756,
+        "ci95_diff": 0.019538493092054656
+      },
+      {
+        "perm": 7,
+        "separated": false,
+        "mean_diff": 0.00277777777777777,
+        "ci95_diff": 0.015428351958169582
+      },
+      {
+        "perm": 8,
+        "separated": false,
+        "mean_diff": -0.002777777777777791,
+        "ci95_diff": 0.01633333333333333
+      },
+      {
+        "perm": 9,
+        "separated": false,
+        "mean_diff": 0.005555555555555543,
+        "ci95_diff": 0.02298186470892731
+      },
+      {
+        "perm": 10,
+        "separated": false,
+        "mean_diff": -0.006481481481481498,
+        "ci95_diff": 0.01885216936619489
+      },
+      {
+        "perm": 11,
+        "separated": false,
+        "mean_diff": -0.0009259259259259389,
+        "ci95_diff": 0.014794308197977364
+      },
+      {
+        "perm": 12,
+        "separated": false,
+        "mean_diff": -0.005555555555555573,
+        "ci95_diff": 0.02942626336595854
+      },
+      {
+        "perm": 13,
+        "separated": false,
+        "mean_diff": -0.008333333333333333,
+        "ci95_diff": 0.02228738761808475
+      },
+      {
+        "perm": 14,
+        "separated": false,
+        "mean_diff": -0.001851851851851857,
+        "ci95_diff": 0.020561430288604823
+      },
+      {
+        "perm": 15,
+        "separated": false,
+        "mean_diff": 0.002777777777777777,
+        "ci95_diff": 0.010425317395569018
+      },
+      {
+        "perm": 16,
+        "separated": false,
+        "mean_diff": 0.013888888888888883,
+        "ci95_diff": 0.01698044693175784
+      },
+      {
+        "perm": 17,
+        "separated": false,
+        "mean_diff": -0.00925925925925926,
+        "ci95_diff": 0.021248909363677432
+      },
+      {
+        "perm": 18,
+        "separated": false,
+        "mean_diff": 0.00555555555555554,
+        "ci95_diff": 0.014310803685762569
+      },
+      {
+        "perm": 19,
+        "separated": false,
+        "mean_diff": -0.005555555555555575,
+        "ci95_diff": 0.015282108354708708
+      }
+    ],
+    "mean_realised_rate": 0.002128096064814815,
+    "INSTRUMENT_VALID_E1": true,
+    "gate_rule": "live_n>=12 and no probe leak and |mean_diff|>=0.10 and ci_excludes_zero on true-label injection vs locked shuffle perm0"
+  },
+  "pc_a": {
+    "mean_a": 0.6435185185185185,
+    "mean_b": 0.20000000000000004,
+    "mean_diff": 0.4435185185185184,
+    "ci95_diff": 0.12232909265008099,
+    "per_seed_diff": [
+      0.5666666666666667,
+      0.5444444444444445,
+      0.5333333333333332,
+      0.45555555555555555,
+      0.6333333333333333,
+      0.0222222222222222,
+      0.5888888888888888,
+      0.6000000000000001,
+      0.5333333333333332,
+      0.0,
+      0.5111111111111111,
+      0.3333333333333333
+    ],
+    "ci_excludes_zero": true,
+    "n_seeds": 12,
+    "min_effect": 0.1,
+    "separated": true,
+    "detail": [
+      {
+        "seed": 0,
+        "quiescent": {
+          "gain": 0.3,
+          "syn_scale": 0.0008443315128890549,
+          "acc": 0.2,
+          "pool_spikes": 0.0,
+          "alive": false
+        },
+        "ignited": {
+          "gain": 12.0,
+          "syn_scale": 0.033773260515562196,
+          "acc": 0.7666666666666667,
+          "pool_spikes": 17194.0,
+          "alive": true
+        }
+      },
+      {
+        "seed": 1,
+        "quiescent": {
+          "gain": 0.3,
+          "syn_scale": 0.0008443315128890549,
+          "acc": 0.2,
+          "pool_spikes": 0.0,
+          "alive": false
+        },
+        "ignited": {
+          "gain": 12.0,
+          "syn_scale": 0.033773260515562196,
+          "acc": 0.7444444444444445,
+          "pool_spikes": 12217.0,
+          "alive": true
+        }
+      },
+      {
+        "seed": 2,
+        "quiescent": {
+          "gain": 0.3,
+          "syn_scale": 0.0008443315128890549,
+          "acc": 0.2,
+          "pool_spikes": 0.0,
+          "alive": false
+        },
+        "ignited": {
+          "gain": 12.0,
+          "syn_scale": 0.033773260515562196,
+          "acc": 0.7333333333333333,
+          "pool_spikes": 31760.0,
+          "alive": true
+        }
+      },
+      {
+        "seed": 3,
+        "quiescent": {
+          "gain": 0.3,
+          "syn_scale": 0.0008443315128890549,
+          "acc": 0.2,
+          "pool_spikes": 0.0,
+          "alive": false
+        },
+        "ignited": {
+          "gain": 12.0,
+          "syn_scale": 0.033773260515562196,
+          "acc": 0.6555555555555556,
+          "pool_spikes": 10469.0,
+          "alive": true
+        }
+      },
+      {
+        "seed": 4,
+        "quiescent": {
+          "gain": 0.3,
+          "syn_scale": 0.0008443315128890549,
+          "acc": 0.2,
+          "pool_spikes": 1.0,
+          "alive": true
+        },
+        "ignited": {
+          "gain": 12.0,
+          "syn_scale": 0.033773260515562196,
+          "acc": 0.8333333333333334,
+          "pool_spikes": 22775.0,
+          "alive": true
+        }
+      },
+      {
+        "seed": 5,
+        "quiescent": {
+          "gain": 0.3,
+          "syn_scale": 0.0008443315128890549,
+          "acc": 0.2,
+          "pool_spikes": 0.0,
+          "alive": false
+        },
+        "ignited": {
+          "gain": 12.0,
+          "syn_scale": 0.033773260515562196,
+          "acc": 0.2222222222222222,
+          "pool_spikes": 20487.0,
+          "alive": true
+        }
+      },
+      {
+        "seed": 6,
+        "quiescent": {
+          "gain": 0.3,
+          "syn_scale": 0.0008443315128890549,
+          "acc": 0.2,
+          "pool_spikes": 0.0,
+          "alive": false
+        },
+        "ignited": {
+          "gain": 12.0,
+          "syn_scale": 0.033773260515562196,
+          "acc": 0.7888888888888889,
+          "pool_spikes": 28977.0,
+          "alive": true
+        }
+      },
+      {
+        "seed": 7,
+        "quiescent": {
+          "gain": 0.3,
+          "syn_scale": 0.0008443315128890549,
+          "acc": 0.2,
+          "pool_spikes": 1.0,
+          "alive": true
+        },
+        "ignited": {
+          "gain": 12.0,
+          "syn_scale": 0.033773260515562196,
+          "acc": 0.8,
+          "pool_spikes": 27260.0,
+          "alive": true
+        }
+      },
+      {
+        "seed": 8,
+        "quiescent": {
+          "gain": 0.3,
+          "syn_scale": 0.0008443315128890549,
+          "acc": 0.2,
+          "pool_spikes": 0.0,
+          "alive": false
+        },
+        "ignited": {
+          "gain": 12.0,
+          "syn_scale": 0.033773260515562196,
+          "acc": 0.7333333333333333,
+          "pool_spikes": 26191.0,
+          "alive": true
+        }
+      },
+      {
+        "seed": 9,
+        "quiescent": {
+          "gain": 0.3,
+          "syn_scale": 0.0008443315128890549,
+          "acc": 0.2,
+          "pool_spikes": 0.0,
+          "alive": false
+        },
+        "ignited": {
+          "gain": 12.0,
+          "syn_scale": 0.033773260515562196,
+          "acc": 0.2,
+          "pool_spikes": 312.0,
+          "alive": true
+        }
+      },
+      {
+        "seed": 10,
+        "quiescent": {
+          "gain": 0.3,
+          "syn_scale": 0.0008443315128890549,
+          "acc": 0.2,
+          "pool_spikes": 0.0,
+          "alive": false
+        },
+        "ignited": {
+          "gain": 12.0,
+          "syn_scale": 0.033773260515562196,
+          "acc": 0.7111111111111111,
+          "pool_spikes": 15822.0,
+          "alive": true
+        }
+      },
+      {
+        "seed": 11,
+        "quiescent": {
+          "gain": 0.3,
+          "syn_scale": 0.0008443315128890549,
+          "acc": 0.2,
+          "pool_spikes": 0.0,
+          "alive": false
+        },
+        "ignited": {
+          "gain": 12.0,
+          "syn_scale": 0.033773260515562196,
+          "acc": 0.5333333333333333,
+          "pool_spikes": 10981.0,
+          "alive": true
+        }
+      }
+    ]
+  },
+  "seconds": 49.89262890815735,
+  "INSTRUMENT_VALID_E1": true,
+  "verdict": "PASS"
+}

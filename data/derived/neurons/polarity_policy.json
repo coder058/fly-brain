@@ -1,0 +1,29 @@
+{
+  "dataset": "male-cns:v1.0",
+  "nt_column": "consensus_nt",
+  "default": "glutamate_unknown",
+  "sensitivity_arms": ["glutamate_unknown", "glutamate_inhibitory"],
+  "sign_encoding": {"EXCITATORY": 1, "INHIBITORY": -1, "UNKNOWN": 0},
+  "policies": {
+    "glutamate_unknown": {
+      "excitatory": ["acetylcholine"],
+      "inhibitory": ["gaba", "histamine"],
+      "note": "As originally shipped. Glutamate falls through to UNKNOWN and contributes zero current, zeroing 60.05% of E1 subgraph edges."
+    },
+    "glutamate_inhibitory": {
+      "excitatory": ["acetylcholine"],
+      "inhibitory": ["gaba", "histamine", "glutamate"],
+      "note": "Drosophila glutamate is frequently inhibitory via the GluCl-alpha chloride channel."
+    },
+    "glutamate_excitatory": {
+      "excitatory": ["acetylcholine", "glutamate"],
+      "inhibitory": ["gaba", "histamine"],
+      "note": "Sensitivity bound in the opposite direction. Not a claim about biology."
+    }
+  },
+  "unknown_by_design": {
+    "transmitters": ["dopamine", "octopamine", "serotonin", "unclear"],
+    "rationale": "Monoamines are modulatory rather than fast ionotropic; a +-1 sign in a current-based LIF model would misrepresent them. 'unclear' is a genuine absence of prediction."
+  },
+  "provenance": "Written alongside the E1 audit fixes. flylab/polarity.DEFAULT_POLICY previously pointed at this path but no such file existed, and DEFAULT_ARTIFACT pointed at body_polarity.feather while the artifact on disk is body_polarity_traced.feather."
+}

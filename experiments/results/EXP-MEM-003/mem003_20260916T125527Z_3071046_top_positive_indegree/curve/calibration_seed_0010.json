@@ -1,0 +1,5030 @@
+{
+  "calibration_delay": 100,
+  "common_target_rate": null,
+  "experiment_id": "EXP-MEM-003",
+  "gain_grid": {
+    "max": 64.0,
+    "min": 0.125,
+    "points": 64
+  },
+  "graph_diagnostics": {
+    "active_nonzero_edges": 9471,
+    "n_nodes": 500,
+    "stored_subgraph_edges": 23708
+  },
+  "input_map": {
+    "positive_indegree_top50": [
+      {
+        "local_node": 10,
+        "score": 38.0
+      },
+      {
+        "local_node": 86,
+        "score": 37.0
+      },
+      {
+        "local_node": 22,
+        "score": 32.0
+      },
+      {
+        "local_node": 78,
+        "score": 30.0
+      },
+      {
+        "local_node": 2,
+        "score": 26.0
+      },
+      {
+        "local_node": 18,
+        "score": 23.0
+      },
+      {
+        "local_node": 176,
+        "score": 23.0
+      },
+      {
+        "local_node": 32,
+        "score": 22.0
+      },
+      {
+        "local_node": 190,
+        "score": 22.0
+      },
+      {
+        "local_node": 192,
+        "score": 22.0
+      },
+      {
+        "local_node": 268,
+        "score": 21.0
+      },
+      {
+        "local_node": 467,
+        "score": 21.0
+      },
+      {
+        "local_node": 9,
+        "score": 20.0
+      },
+      {
+        "local_node": 80,
+        "score": 20.0
+      },
+      {
+        "local_node": 165,
+        "score": 20.0
+      },
+      {
+        "local_node": 172,
+        "score": 20.0
+      },
+      {
+        "local_node": 7,
+        "score": 19.0
+      },
+      {
+        "local_node": 23,
+        "score": 19.0
+      },
+      {
+        "local_node": 35,
+        "score": 19.0
+      },
+      {
+        "local_node": 51,
+        "score": 18.0
+      },
+      {
+        "local_node": 130,
+        "score": 18.0
+      },
+      {
+        "local_node": 189,
+        "score": 18.0
+      },
+      {
+        "local_node": 193,
+        "score": 18.0
+      },
+      {
+        "local_node": 222,
+        "score": 18.0
+      },
+      {
+        "local_node": 248,
+        "score": 18.0
+      },
+      {
+        "local_node": 249,
+        "score": 18.0
+      },
+      {
+        "local_node": 254,
+        "score": 18.0
+      },
+      {
+        "local_node": 27,
+        "score": 17.0
+      },
+      {
+        "local_node": 37,
+        "score": 17.0
+      },
+      {
+        "local_node": 104,
+        "score": 17.0
+      },
+      {
+        "local_node": 173,
+        "score": 17.0
+      },
+      {
+        "local_node": 335,
+        "score": 17.0
+      },
+      {
+        "local_node": 55,
+        "score": 16.0
+      },
+      {
+        "local_node": 58,
+        "score": 16.0
+      },
+      {
+        "local_node": 59,
+        "score": 16.0
+      },
+      {
+        "local_node": 70,
+        "score": 16.0
+      },
+      {
+        "local_node": 79,
+        "score": 16.0
+      },
+      {
+        "local_node": 103,
+        "score": 16.0
+      },
+      {
+        "local_node": 279,
+        "score": 16.0
+      },
+      {
+        "local_node": 308,
+        "score": 16.0
+      },
+      {
+        "local_node": 24,
+        "score": 15.0
+      },
+      {
+        "local_node": 68,
+        "score": 15.0
+      },
+      {
+        "local_node": 106,
+        "score": 15.0
+      },
+      {
+        "local_node": 117,
+        "score": 15.0
+      },
+      {
+        "local_node": 128,
+        "score": 15.0
+      },
+      {
+        "local_node": 144,
+        "score": 15.0
+      },
+      {
+        "local_node": 150,
+        "score": 15.0
+      },
+      {
+        "local_node": 174,
+        "score": 15.0
+      },
+      {
+        "local_node": 180,
+        "score": 15.0
+      },
+      {
+        "local_node": 196,
+        "score": 15.0
+      }
+    ],
+    "rule": "top-50 local nodes by positive active incoming-edge count; ties by local index"
+  },
+  "map_rule": "top_positive_indegree",
+  "primary_max_relative_error": null,
+  "primary_rate_match_ok": false,
+  "protocol_sha256": "9f7c318aeed27fd17abb582309524b073c880e706911bf7bf73a55fcc3201138",
+  "runner_sha256": "bb6ceff64d6a4809e4a5791bc5666fd7c2b10f3a9c8edd19015d2fe27fd6ccd9",
+  "seed": 10,
+  "stage": "curve",
+  "trials_per_class": 10,
+  "variants": [
+    {
+      "arm": "connectome",
+      "candidates": [
+        {
+          "alive": false,
+          "gain": 0.125,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=connectome-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.0003435857858665558
+        },
+        {
+          "alive": false,
+          "gain": 0.13801118920922656,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=connectome-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.0003793494632226403
+        },
+        {
+          "alive": false,
+          "gain": 0.15237670677555942,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=connectome-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.00041883576436190656
+        },
+        {
+          "alive": false,
+          "gain": 0.1682375240790445,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=connectome-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.0004624321753835369
+        },
+        {
+          "alive": false,
+          "gain": 0.18574928614211858,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=connectome-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.0005105665156263324
+        },
+        {
+          "alive": false,
+          "gain": 0.2050838390019095,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=connectome-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.0005637111359360102
+        },
+        {
+          "alive": false,
+          "gain": 0.22643091606597668,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=connectome-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.0006223875539281019
+        },
+        {
+          "alive": false,
+          "gain": 0.25000000000000006,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=connectome-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.0006871715717331118
+        },
+        {
+          "alive": false,
+          "gain": 0.2760223784184531,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=connectome-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.0007586989264452806
+        },
+        {
+          "alive": false,
+          "gain": 0.3047534135511189,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=connectome-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.0008376715287238132
+        },
+        {
+          "alive": false,
+          "gain": 0.33647504815808904,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=connectome-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.0009248643507670738
+        },
+        {
+          "alive": false,
+          "gain": 0.3714985722842371,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=connectome-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.0010211330312526645
+        },
+        {
+          "alive": false,
+          "gain": 0.4101676780038189,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=connectome-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.0011274222718720204
+        },
+        {
+          "alive": false,
+          "gain": 0.4528618321319533,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=connectome-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.0012447751078562036
+        },
+        {
+          "alive": false,
+          "gain": 0.5000000000000001,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=connectome-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.0013743431434662236
+        },
+        {
+          "alive": false,
+          "gain": 0.5520447568369062,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=connectome-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.001517397852890561
+        },
+        {
+          "alive": false,
+          "gain": 0.6095068271022377,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=connectome-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.0016753430574476262
+        },
+        {
+          "alive": false,
+          "gain": 0.6729500963161781,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=connectome-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.0018497287015341475
+        },
+        {
+          "alive": false,
+          "gain": 0.7429971445684741,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=connectome-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.002042266062505329
+        },
+        {
+          "alive": false,
+          "gain": 0.820335356007638,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=connectome-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.002254844543744041
+        },
+        {
+          "alive": false,
+          "gain": 0.9057236642639067,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=connectome-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.0024895502157124077
+        },
+        {
+          "alive": false,
+          "gain": 1.0,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=connectome-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.0027486862869324463
+        },
+        {
+          "alive": false,
+          "gain": 1.1040895136738123,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=connectome-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.0030347957057811218
+        },
+        {
+          "alive": false,
+          "gain": 1.2190136542044754,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=connectome-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 2.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 2.2002200220022003e-06,
+          "syn_scale": 0.0033506861148952525
+        },
+        {
+          "alive": false,
+          "gain": 1.345900192632356,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=connectome-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 4.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 4.400440044004401e-06,
+          "syn_scale": 0.003699457403068295
+        },
+        {
+          "alive": false,
+          "gain": 1.4859942891369482,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=connectome-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 6.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 6.600660066006601e-06,
+          "syn_scale": 0.004084532125010658
+        },
+        {
+          "alive": false,
+          "gain": 1.6406707120152755,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=connectome-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 11.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 1.2101210121012102e-05,
+          "syn_scale": 0.004509689087488081
+        },
+        {
+          "alive": false,
+          "gain": 1.8114473285278136,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=connectome-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 24.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 2.6402640264026404e-05,
+          "syn_scale": 0.004979100431424815
+        },
+        {
+          "alive": false,
+          "gain": 2.0000000000000004,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=connectome-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 32.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 3.5203520352035205e-05,
+          "syn_scale": 0.005497372573864894
+        },
+        {
+          "alive": false,
+          "gain": 2.208179027347625,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=connectome-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 42.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 4.62046204620462e-05,
+          "syn_scale": 0.006069591411562244
+        },
+        {
+          "alive": false,
+          "gain": 2.4380273084089508,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=connectome-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 50.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 5.5005500550055004e-05,
+          "syn_scale": 0.006701372229790505
+        },
+        {
+          "alive": false,
+          "gain": 2.6918003852647123,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=connectome-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 55.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 6.0506050605060506e-05,
+          "syn_scale": 0.00739891480613659
+        },
+        {
+          "alive": false,
+          "gain": 2.9719885782738964,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=connectome-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 74.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 8.140814081408141e-05,
+          "syn_scale": 0.008169064250021316
+        },
+        {
+          "alive": false,
+          "gain": 3.2813414240305514,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=connectome-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 97.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.00010671067106710671,
+          "syn_scale": 0.009019378174976164
+        },
+        {
+          "alive": false,
+          "gain": 3.622894657055626,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=connectome-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 122.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.00013421342134213422,
+          "syn_scale": 0.009958200862849627
+        },
+        {
+          "alive": false,
+          "gain": 3.999999999999999,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=connectome-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 130.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.000143014301430143,
+          "syn_scale": 0.010994745147729782
+        },
+        {
+          "alive": false,
+          "gain": 4.416358054695248,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=connectome-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 139.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.00015291529152915292,
+          "syn_scale": 0.012139182823124484
+        },
+        {
+          "alive": false,
+          "gain": 4.8760546168179,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=connectome-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 164.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.00018041804180418043,
+          "syn_scale": 0.013402744459581005
+        },
+        {
+          "alive": false,
+          "gain": 5.383600770529425,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=connectome-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 175.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.00019251925192519253,
+          "syn_scale": 0.01479782961227318
+        },
+        {
+          "alive": false,
+          "gain": 5.943977156547794,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=connectome-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 181.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.00019911991199119913,
+          "syn_scale": 0.016338128500042633
+        },
+        {
+          "alive": false,
+          "gain": 6.562682848061104,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=connectome-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 184.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0002024202420242024,
+          "syn_scale": 0.018038756349952327
+        },
+        {
+          "alive": false,
+          "gain": 7.245789314111253,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=connectome-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 207.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.00022772277227722774,
+          "syn_scale": 0.019916401725699258
+        },
+        {
+          "alive": false,
+          "gain": 7.999999999999999,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=connectome-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 217.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0002387238723872387,
+          "syn_scale": 0.021989490295459567
+        },
+        {
+          "alive": false,
+          "gain": 8.832716109390498,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=connectome-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 222.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.00024422442244224424,
+          "syn_scale": 0.024278365646248974
+        },
+        {
+          "alive": false,
+          "gain": 9.752109233635801,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=connectome-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 233.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.00025632563256325634,
+          "syn_scale": 0.026805488919162016
+        },
+        {
+          "alive": false,
+          "gain": 10.767201541058846,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=connectome-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 249.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0002739273927392739,
+          "syn_scale": 0.029595659224546354
+        },
+        {
+          "alive": false,
+          "gain": 11.887954313095584,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=connectome-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 264.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.00029042904290429045,
+          "syn_scale": 0.03267625700008526
+        },
+        {
+          "alive": false,
+          "gain": 13.12536569612221,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=connectome-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 281.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0003091309130913091,
+          "syn_scale": 0.03607751269990466
+        },
+        {
+          "alive": false,
+          "gain": 14.4915786282225,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=connectome-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 314.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0003454345434543454,
+          "syn_scale": 0.0398328034513985
+        },
+        {
+          "alive": false,
+          "gain": 16.0,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=connectome-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 335.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0003685368536853685,
+          "syn_scale": 0.04397898059091914
+        },
+        {
+          "alive": false,
+          "gain": 17.66543221878099,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=connectome-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 359.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0003949394939493949,
+          "syn_scale": 0.04855673129249792
+        },
+        {
+          "alive": false,
+          "gain": 19.504218467271606,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=connectome-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 383.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.00042134213421342136,
+          "syn_scale": 0.05361097783832404
+        },
+        {
+          "alive": false,
+          "gain": 21.534403082117684,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=connectome-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 411.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.00045214521452145213,
+          "syn_scale": 0.05919131844909269
+        },
+        {
+          "alive": false,
+          "gain": 23.77590862619117,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=connectome-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 429.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.00047194719471947195,
+          "syn_scale": 0.06535251400017053
+        },
+        {
+          "alive": false,
+          "gain": 26.250731392244422,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=connectome-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 529.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0005819581958195819,
+          "syn_scale": 0.07215502539980934
+        },
+        {
+          "alive": false,
+          "gain": 28.983157256445004,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=connectome-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 586.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0006446644664466446,
+          "syn_scale": 0.07966560690279702
+        },
+        {
+          "alive": false,
+          "gain": 32.00000000000001,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=connectome-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 618.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0006798679867986799,
+          "syn_scale": 0.08795796118183831
+        },
+        {
+          "alive": false,
+          "gain": 35.33086443756198,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=connectome-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 686.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0007546754675467547,
+          "syn_scale": 0.09711346258499584
+        },
+        {
+          "alive": false,
+          "gain": 39.00843693454322,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=connectome-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 878.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0009658965896589659,
+          "syn_scale": 0.10722195567664809
+        },
+        {
+          "alive": false,
+          "gain": 43.068806164235376,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=connectome-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 1190.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.001309130913091309,
+          "syn_scale": 0.11838263689818539
+        },
+        {
+          "alive": false,
+          "gain": 47.55181725238235,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=connectome-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 1940.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.002134213421342134,
+          "syn_scale": 0.13070502800034106
+        },
+        {
+          "alive": false,
+          "gain": 52.501462784488794,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=connectome-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 2561.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0028173817381738175,
+          "syn_scale": 0.1443100507996185
+        },
+        {
+          "alive": false,
+          "gain": 57.966314512890015,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=connectome-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 2876.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.003163916391639164,
+          "syn_scale": 0.15933121380559404
+        },
+        {
+          "alive": false,
+          "gain": 64.0,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=connectome-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 3482.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0038305830583058305,
+          "syn_scale": 0.17591592236367656
+        }
+      ],
+      "name": "connectome-0",
+      "relative_rate_error": null,
+      "replicate": 0,
+      "rho_abs": 2182.860964717819,
+      "selected": null
+    },
+    {
+      "arm": "dp",
+      "candidates": [
+        {
+          "alive": false,
+          "gain": 0.125,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=dp-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.0016844751822122919
+        },
+        {
+          "alive": false,
+          "gain": 0.13801118920922656,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=dp-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.001859811384724376
+        },
+        {
+          "alive": false,
+          "gain": 0.15237670677555942,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=dp-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.0020533982472853555
+        },
+        {
+          "alive": false,
+          "gain": 0.1682375240790445,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=dp-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.0022671354722239466
+        },
+        {
+          "alive": false,
+          "gain": 0.18574928614211858,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=dp-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.0025031205009603866
+        },
+        {
+          "alive": false,
+          "gain": 0.2050838390019095,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=dp-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.0027636690965723025
+        },
+        {
+          "alive": false,
+          "gain": 0.22643091606597668,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=dp-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.0030513380687898577
+        },
+        {
+          "alive": false,
+          "gain": 0.25000000000000006,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=dp-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.0033689503644245846
+        },
+        {
+          "alive": false,
+          "gain": 0.2760223784184531,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=dp-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.003719622769448752
+        },
+        {
+          "alive": false,
+          "gain": 0.3047534135511189,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=dp-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.004106796494570711
+        },
+        {
+          "alive": false,
+          "gain": 0.33647504815808904,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=dp-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.004534270944447893
+        },
+        {
+          "alive": false,
+          "gain": 0.3714985722842371,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=dp-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.005006241001920772
+        },
+        {
+          "alive": false,
+          "gain": 0.4101676780038189,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=dp-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.005527338193144605
+        },
+        {
+          "alive": false,
+          "gain": 0.4528618321319533,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=dp-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.006102676137579715
+        },
+        {
+          "alive": false,
+          "gain": 0.5000000000000001,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=dp-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 3.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 3.3003300330033004e-06,
+          "syn_scale": 0.006737900728849169
+        },
+        {
+          "alive": false,
+          "gain": 0.5520447568369062,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=dp-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 10.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 1.1001100110011001e-05,
+          "syn_scale": 0.007439245538897504
+        },
+        {
+          "alive": false,
+          "gain": 0.6095068271022377,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=dp-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 10.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 1.1001100110011001e-05,
+          "syn_scale": 0.008213592989141422
+        },
+        {
+          "alive": false,
+          "gain": 0.6729500963161781,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=dp-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 10.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 1.1001100110011001e-05,
+          "syn_scale": 0.009068541888895786
+        },
+        {
+          "alive": false,
+          "gain": 0.7429971445684741,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=dp-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 10.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 1.1001100110011001e-05,
+          "syn_scale": 0.010012482003841545
+        },
+        {
+          "alive": false,
+          "gain": 0.820335356007638,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=dp-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 10.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 1.1001100110011001e-05,
+          "syn_scale": 0.01105467638628921
+        },
+        {
+          "alive": false,
+          "gain": 0.9057236642639067,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=dp-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 11.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 1.2101210121012102e-05,
+          "syn_scale": 0.012205352275159431
+        },
+        {
+          "alive": false,
+          "gain": 1.0,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=dp-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 20.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 2.2002200220022003e-05,
+          "syn_scale": 0.013475801457698335
+        },
+        {
+          "alive": false,
+          "gain": 1.1040895136738123,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=dp-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 21.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 2.31023102310231e-05,
+          "syn_scale": 0.014878491077795005
+        },
+        {
+          "alive": false,
+          "gain": 1.2190136542044754,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=dp-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 21.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 2.31023102310231e-05,
+          "syn_scale": 0.016427185978282844
+        },
+        {
+          "alive": false,
+          "gain": 1.345900192632356,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=dp-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 21.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 2.31023102310231e-05,
+          "syn_scale": 0.018137083777791572
+        },
+        {
+          "alive": false,
+          "gain": 1.4859942891369482,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=dp-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 21.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 2.31023102310231e-05,
+          "syn_scale": 0.02002496400768309
+        },
+        {
+          "alive": false,
+          "gain": 1.6406707120152755,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=dp-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 21.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 2.31023102310231e-05,
+          "syn_scale": 0.022109352772578413
+        },
+        {
+          "alive": false,
+          "gain": 1.8114473285278136,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=dp-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 21.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 2.31023102310231e-05,
+          "syn_scale": 0.024410704550318862
+        },
+        {
+          "alive": false,
+          "gain": 2.0000000000000004,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=dp-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 32.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 3.5203520352035205e-05,
+          "syn_scale": 0.026951602915396677
+        },
+        {
+          "alive": false,
+          "gain": 2.208179027347625,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=dp-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 52.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 5.720572057205721e-05,
+          "syn_scale": 0.029756982155590014
+        },
+        {
+          "alive": false,
+          "gain": 2.4380273084089508,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=dp-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 77.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 8.470847084708471e-05,
+          "syn_scale": 0.03285437195656569
+        },
+        {
+          "alive": false,
+          "gain": 2.6918003852647123,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=dp-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 86.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 9.460946094609461e-05,
+          "syn_scale": 0.036274167555583145
+        },
+        {
+          "alive": false,
+          "gain": 2.9719885782738964,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=dp-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 97.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.00010671067106710671,
+          "syn_scale": 0.04004992801536618
+        },
+        {
+          "alive": false,
+          "gain": 3.2813414240305514,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=dp-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 99.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.00010891089108910891,
+          "syn_scale": 0.04421870554515684
+        },
+        {
+          "alive": false,
+          "gain": 3.622894657055626,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=dp-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 137.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.00015071507150715073,
+          "syn_scale": 0.04882140910063771
+        },
+        {
+          "alive": false,
+          "gain": 3.999999999999999,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=dp-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 157.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0001727172717271727,
+          "syn_scale": 0.053903205830793326
+        },
+        {
+          "alive": false,
+          "gain": 4.416358054695248,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=dp-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 173.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0001903190319031903,
+          "syn_scale": 0.05951396431118001
+        },
+        {
+          "alive": false,
+          "gain": 4.8760546168179,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=dp-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 206.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0002266226622662266,
+          "syn_scale": 0.06570874391313135
+        },
+        {
+          "alive": false,
+          "gain": 5.383600770529425,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=dp-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 234.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.00025742574257425744,
+          "syn_scale": 0.07254833511116629
+        },
+        {
+          "alive": false,
+          "gain": 5.943977156547794,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=dp-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 252.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0002772277227722772,
+          "syn_scale": 0.08009985603073236
+        },
+        {
+          "alive": false,
+          "gain": 6.562682848061104,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=dp-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 286.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.00031463146314631465,
+          "syn_scale": 0.08843741109031368
+        },
+        {
+          "alive": false,
+          "gain": 7.245789314111253,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=dp-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 306.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0003366336633663366,
+          "syn_scale": 0.09764281820127543
+        },
+        {
+          "alive": false,
+          "gain": 7.999999999999999,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=dp-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 345.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.00037953795379537953,
+          "syn_scale": 0.10780641166158667
+        },
+        {
+          "alive": false,
+          "gain": 8.832716109390498,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=dp-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 389.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.00042794279427942793,
+          "syn_scale": 0.11902792862236004
+        },
+        {
+          "alive": false,
+          "gain": 9.752109233635801,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=dp-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 543.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0005973597359735974,
+          "syn_scale": 0.13141748782626272
+        },
+        {
+          "alive": false,
+          "gain": 10.767201541058846,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=dp-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 623.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0006853685368536853,
+          "syn_scale": 0.14509667022233255
+        },
+        {
+          "alive": false,
+          "gain": 11.887954313095584,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=dp-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 759.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.000834983498349835,
+          "syn_scale": 0.16019971206146466
+        },
+        {
+          "alive": false,
+          "gain": 13.12536569612221,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=dp-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 907.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0009977997799779977,
+          "syn_scale": 0.1768748221806274
+        },
+        {
+          "alive": false,
+          "gain": 14.4915786282225,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=dp-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 1151.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0012662266226622662,
+          "syn_scale": 0.1952856364025508
+        },
+        {
+          "alive": false,
+          "gain": 16.0,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=dp-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 1669.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0018360836083608362,
+          "syn_scale": 0.21561282332317336
+        },
+        {
+          "alive": false,
+          "gain": 17.66543221878099,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=dp-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 2184.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0024026402640264025,
+          "syn_scale": 0.23805585724471995
+        },
+        {
+          "alive": false,
+          "gain": 19.504218467271606,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=dp-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 4764.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.005240924092409241,
+          "syn_scale": 0.2628349756525255
+        },
+        {
+          "alive": true,
+          "gain": 21.534403082117684,
+          "liveness": {
+            "alive": true,
+            "feature_std": 0.0963696539402008,
+            "non_input_active": true,
+            "non_input_spikes": 24073.0,
+            "probe_spikes": 9.0,
+            "unique_feature_rows": 4
+          },
+          "rate": 0.026482948294829483,
+          "syn_scale": 0.29019334044466505
+        },
+        {
+          "alive": true,
+          "gain": 23.77590862619117,
+          "liveness": {
+            "alive": true,
+            "feature_std": 0.25302854180336,
+            "non_input_active": true,
+            "non_input_spikes": 55948.0,
+            "probe_spikes": 66.0,
+            "unique_feature_rows": 16
+          },
+          "rate": 0.06154895489548955,
+          "syn_scale": 0.32039942412292943
+        },
+        {
+          "alive": true,
+          "gain": 26.250731392244422,
+          "liveness": {
+            "alive": true,
+            "feature_std": 0.3318963348865509,
+            "non_input_active": true,
+            "non_input_spikes": 80170.0,
+            "probe_spikes": 121.0,
+            "unique_feature_rows": 20
+          },
+          "rate": 0.0881958195819582,
+          "syn_scale": 0.35374964436125483
+        },
+        {
+          "alive": true,
+          "gain": 28.983157256445004,
+          "liveness": {
+            "alive": true,
+            "feature_std": 0.34977519512176514,
+            "non_input_active": true,
+            "non_input_spikes": 92101.0,
+            "probe_spikes": 137.0,
+            "unique_feature_rows": 20
+          },
+          "rate": 0.10132123212321233,
+          "syn_scale": 0.3905712728051017
+        },
+        {
+          "alive": true,
+          "gain": 32.00000000000001,
+          "liveness": {
+            "alive": true,
+            "feature_std": 0.3560474216938019,
+            "non_input_active": true,
+            "non_input_spikes": 104811.0,
+            "probe_spikes": 143.0,
+            "unique_feature_rows": 20
+          },
+          "rate": 0.1153036303630363,
+          "syn_scale": 0.4312256466463468
+        },
+        {
+          "alive": true,
+          "gain": 35.33086443756198,
+          "liveness": {
+            "alive": true,
+            "feature_std": 0.3781752288341522,
+            "non_input_active": true,
+            "non_input_spikes": 115986.0,
+            "probe_spikes": 166.0,
+            "unique_feature_rows": 20
+          },
+          "rate": 0.1275973597359736,
+          "syn_scale": 0.4761117144894399
+        },
+        {
+          "alive": true,
+          "gain": 39.00843693454322,
+          "liveness": {
+            "alive": true,
+            "feature_std": 0.3781752288341522,
+            "non_input_active": true,
+            "non_input_spikes": 125058.0,
+            "probe_spikes": 166.0,
+            "unique_feature_rows": 19
+          },
+          "rate": 0.13757755775577557,
+          "syn_scale": 0.525669951305051
+        },
+        {
+          "alive": true,
+          "gain": 43.068806164235376,
+          "liveness": {
+            "alive": true,
+            "feature_std": 0.39684081077575684,
+            "non_input_active": true,
+            "non_input_spikes": 142451.0,
+            "probe_spikes": 188.0,
+            "unique_feature_rows": 18
+          },
+          "rate": 0.1567117711771177,
+          "syn_scale": 0.5803866808893301
+        },
+        {
+          "alive": true,
+          "gain": 47.55181725238235,
+          "liveness": {
+            "alive": true,
+            "feature_std": 0.40461209416389465,
+            "non_input_active": true,
+            "non_input_spikes": 176245.0,
+            "probe_spikes": 198.0,
+            "unique_feature_rows": 20
+          },
+          "rate": 0.1938888888888889,
+          "syn_scale": 0.6407988482458589
+        },
+        {
+          "alive": true,
+          "gain": 52.501462784488794,
+          "liveness": {
+            "alive": true,
+            "feature_std": 0.41480836272239685,
+            "non_input_active": true,
+            "non_input_spikes": 185587.0,
+            "probe_spikes": 212.0,
+            "unique_feature_rows": 18
+          },
+          "rate": 0.20416611661166117,
+          "syn_scale": 0.7074992887225089
+        },
+        {
+          "alive": true,
+          "gain": 57.966314512890015,
+          "liveness": {
+            "alive": true,
+            "feature_std": 0.437141478061676,
+            "non_input_active": true,
+            "non_input_spikes": 202540.0,
+            "probe_spikes": 247.0,
+            "unique_feature_rows": 19
+          },
+          "rate": 0.2228162816281628,
+          "syn_scale": 0.7811425456102034
+        },
+        {
+          "alive": true,
+          "gain": 64.0,
+          "liveness": {
+            "alive": true,
+            "feature_std": 0.44598788022994995,
+            "non_input_active": true,
+            "non_input_spikes": 207773.0,
+            "probe_spikes": 263.0,
+            "unique_feature_rows": 17
+          },
+          "rate": 0.22857315731573158,
+          "syn_scale": 0.8624512932926934
+        }
+      ],
+      "name": "dp-0",
+      "relative_rate_error": null,
+      "replicate": 0,
+      "rho_abs": 445.24253483805774,
+      "selected": null
+    },
+    {
+      "arm": "weight_perm",
+      "candidates": [
+        {
+          "alive": false,
+          "gain": 0.125,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=weight_perm-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.0013554947026928215
+        },
+        {
+          "alive": false,
+          "gain": 0.13801118920922656,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=weight_perm-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.0014965874870835462
+        },
+        {
+          "alive": false,
+          "gain": 0.15237670677555942,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=weight_perm-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.0016523665507843853
+        },
+        {
+          "alive": false,
+          "gain": 0.1682375240790445,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=weight_perm-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.0018243605814664064
+        },
+        {
+          "alive": false,
+          "gain": 0.18574928614211858,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=weight_perm-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.0020142573871569187
+        },
+        {
+          "alive": false,
+          "gain": 0.2050838390019095,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=weight_perm-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.002223920458999966
+        },
+        {
+          "alive": false,
+          "gain": 0.22643091606597668,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=weight_perm-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.0024554072580265144
+        },
+        {
+          "alive": false,
+          "gain": 0.25000000000000006,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=weight_perm-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.0027109894053856435
+        },
+        {
+          "alive": false,
+          "gain": 0.2760223784184531,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=weight_perm-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.0029931749741670924
+        },
+        {
+          "alive": false,
+          "gain": 0.3047534135511189,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=weight_perm-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.0033047331015687706
+        },
+        {
+          "alive": false,
+          "gain": 0.33647504815808904,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=weight_perm-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.003648721162932813
+        },
+        {
+          "alive": false,
+          "gain": 0.3714985722842371,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=weight_perm-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.0040285147743138365
+        },
+        {
+          "alive": false,
+          "gain": 0.4101676780038189,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=weight_perm-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.004447840917999932
+        },
+        {
+          "alive": false,
+          "gain": 0.4528618321319533,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=weight_perm-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.004910814516053028
+        },
+        {
+          "alive": false,
+          "gain": 0.5000000000000001,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=weight_perm-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.005421978810771287
+        },
+        {
+          "alive": false,
+          "gain": 0.5520447568369062,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=weight_perm-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.005986349948334185
+        },
+        {
+          "alive": false,
+          "gain": 0.6095068271022377,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=weight_perm-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 3.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 3.3003300330033004e-06,
+          "syn_scale": 0.006609466203137541
+        },
+        {
+          "alive": false,
+          "gain": 0.6729500963161781,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=weight_perm-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 6.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 6.600660066006601e-06,
+          "syn_scale": 0.007297442325865626
+        },
+        {
+          "alive": false,
+          "gain": 0.7429971445684741,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=weight_perm-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 6.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 6.600660066006601e-06,
+          "syn_scale": 0.008057029548627673
+        },
+        {
+          "alive": false,
+          "gain": 0.820335356007638,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=weight_perm-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 6.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 6.600660066006601e-06,
+          "syn_scale": 0.008895681835999864
+        },
+        {
+          "alive": false,
+          "gain": 0.9057236642639067,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=weight_perm-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 7.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 7.700770077007701e-06,
+          "syn_scale": 0.009821629032106058
+        },
+        {
+          "alive": false,
+          "gain": 1.0,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=weight_perm-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 8.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 8.800880088008801e-06,
+          "syn_scale": 0.010843957621542572
+        },
+        {
+          "alive": false,
+          "gain": 1.1040895136738123,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=weight_perm-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 8.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 8.800880088008801e-06,
+          "syn_scale": 0.011972699896668368
+        },
+        {
+          "alive": false,
+          "gain": 1.2190136542044754,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=weight_perm-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 11.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 1.2101210121012102e-05,
+          "syn_scale": 0.013218932406275082
+        },
+        {
+          "alive": false,
+          "gain": 1.345900192632356,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=weight_perm-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 11.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 1.2101210121012102e-05,
+          "syn_scale": 0.014594884651731251
+        },
+        {
+          "alive": false,
+          "gain": 1.4859942891369482,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=weight_perm-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 16.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 1.7601760176017602e-05,
+          "syn_scale": 0.016114059097255346
+        },
+        {
+          "alive": false,
+          "gain": 1.6406707120152755,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=weight_perm-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 16.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 1.7601760176017602e-05,
+          "syn_scale": 0.017791363671999724
+        },
+        {
+          "alive": false,
+          "gain": 1.8114473285278136,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=weight_perm-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 20.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 2.2002200220022003e-05,
+          "syn_scale": 0.019643258064212115
+        },
+        {
+          "alive": false,
+          "gain": 2.0000000000000004,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=weight_perm-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 21.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 2.31023102310231e-05,
+          "syn_scale": 0.021687915243085148
+        },
+        {
+          "alive": false,
+          "gain": 2.208179027347625,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=weight_perm-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 21.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 2.31023102310231e-05,
+          "syn_scale": 0.02394539979333674
+        },
+        {
+          "alive": false,
+          "gain": 2.4380273084089508,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=weight_perm-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 21.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 2.31023102310231e-05,
+          "syn_scale": 0.026437864812550164
+        },
+        {
+          "alive": false,
+          "gain": 2.6918003852647123,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=weight_perm-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 23.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 2.53025302530253e-05,
+          "syn_scale": 0.029189769303462502
+        },
+        {
+          "alive": false,
+          "gain": 2.9719885782738964,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=weight_perm-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 29.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 3.1903190319031906e-05,
+          "syn_scale": 0.03222811819451069
+        },
+        {
+          "alive": false,
+          "gain": 3.2813414240305514,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=weight_perm-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 42.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 4.62046204620462e-05,
+          "syn_scale": 0.035582727343999455
+        },
+        {
+          "alive": false,
+          "gain": 3.622894657055626,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=weight_perm-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 43.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 4.7304730473047305e-05,
+          "syn_scale": 0.039286516128424216
+        },
+        {
+          "alive": false,
+          "gain": 3.999999999999999,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=weight_perm-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 52.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 5.720572057205721e-05,
+          "syn_scale": 0.043375830486170275
+        },
+        {
+          "alive": false,
+          "gain": 4.416358054695248,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=weight_perm-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 67.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 7.370737073707371e-05,
+          "syn_scale": 0.04789079958667346
+        },
+        {
+          "alive": false,
+          "gain": 4.8760546168179,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=weight_perm-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 75.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 8.250825082508251e-05,
+          "syn_scale": 0.05287572962510031
+        },
+        {
+          "alive": false,
+          "gain": 5.383600770529425,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=weight_perm-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 87.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 9.57095709570957e-05,
+          "syn_scale": 0.058379538606925005
+        },
+        {
+          "alive": false,
+          "gain": 5.943977156547794,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=weight_perm-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 109.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.00011991199119911992,
+          "syn_scale": 0.06445623638902138
+        },
+        {
+          "alive": false,
+          "gain": 6.562682848061104,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=weight_perm-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 129.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.00014191419141914191,
+          "syn_scale": 0.07116545468799891
+        },
+        {
+          "alive": false,
+          "gain": 7.245789314111253,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=weight_perm-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 157.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0001727172717271727,
+          "syn_scale": 0.07857303225684845
+        },
+        {
+          "alive": false,
+          "gain": 7.999999999999999,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=weight_perm-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 188.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.00020682068206820682,
+          "syn_scale": 0.08675166097234056
+        },
+        {
+          "alive": false,
+          "gain": 8.832716109390498,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=weight_perm-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 234.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.00025742574257425744,
+          "syn_scale": 0.09578159917334694
+        },
+        {
+          "alive": false,
+          "gain": 9.752109233635801,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=weight_perm-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 253.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.00027832783278327835,
+          "syn_scale": 0.10575145925020064
+        },
+        {
+          "alive": false,
+          "gain": 10.767201541058846,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=weight_perm-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 279.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.00030693069306930693,
+          "syn_scale": 0.11675907721385
+        },
+        {
+          "alive": false,
+          "gain": 11.887954313095584,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=weight_perm-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 302.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.00033223322332233223,
+          "syn_scale": 0.12891247277804274
+        },
+        {
+          "alive": false,
+          "gain": 13.12536569612221,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=weight_perm-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 379.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0004169416941694169,
+          "syn_scale": 0.14233090937599785
+        },
+        {
+          "alive": false,
+          "gain": 14.4915786282225,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=weight_perm-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 425.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.00046754675467546757,
+          "syn_scale": 0.15714606451369684
+        },
+        {
+          "alive": false,
+          "gain": 16.0,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=weight_perm-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 483.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0005313531353135314,
+          "syn_scale": 0.17350332194468115
+        },
+        {
+          "alive": false,
+          "gain": 17.66543221878099,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=weight_perm-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 999.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.001099009900990099,
+          "syn_scale": 0.1915631983466938
+        },
+        {
+          "alive": false,
+          "gain": 19.504218467271606,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=weight_perm-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 1302.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0014323432343234324,
+          "syn_scale": 0.21150291850040132
+        },
+        {
+          "alive": false,
+          "gain": 21.534403082117684,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=weight_perm-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 1375.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0015126512651265126,
+          "syn_scale": 0.23351815442769994
+        },
+        {
+          "alive": true,
+          "gain": 23.77590862619117,
+          "liveness": {
+            "alive": true,
+            "feature_std": 0.05581428483128548,
+            "non_input_active": true,
+            "non_input_spikes": 3169.0,
+            "probe_spikes": 3.0,
+            "unique_feature_rows": 2
+          },
+          "rate": 0.0034862486248624864,
+          "syn_scale": 0.25782494555608554
+        },
+        {
+          "alive": true,
+          "gain": 26.250731392244422,
+          "liveness": {
+            "alive": true,
+            "feature_std": 0.12401959300041199,
+            "non_input_active": true,
+            "non_input_spikes": 14291.0,
+            "probe_spikes": 15.0,
+            "unique_feature_rows": 7
+          },
+          "rate": 0.015721672167216722,
+          "syn_scale": 0.28466181875199575
+        },
+        {
+          "alive": true,
+          "gain": 28.983157256445004,
+          "liveness": {
+            "alive": true,
+            "feature_std": 0.1496378779411316,
+            "non_input_active": true,
+            "non_input_spikes": 35304.0,
+            "probe_spikes": 22.0,
+            "unique_feature_rows": 10
+          },
+          "rate": 0.038838283828382836,
+          "syn_scale": 0.31429212902739373
+        },
+        {
+          "alive": true,
+          "gain": 32.00000000000001,
+          "liveness": {
+            "alive": true,
+            "feature_std": 0.1653299331665039,
+            "non_input_active": true,
+            "non_input_spikes": 50520.0,
+            "probe_spikes": 27.0,
+            "unique_feature_rows": 13
+          },
+          "rate": 0.05557755775577558,
+          "syn_scale": 0.34700664388936237
+        },
+        {
+          "alive": true,
+          "gain": 35.33086443756198,
+          "liveness": {
+            "alive": true,
+            "feature_std": 0.21358995139598846,
+            "non_input_active": true,
+            "non_input_spikes": 63458.0,
+            "probe_spikes": 46.0,
+            "unique_feature_rows": 13
+          },
+          "rate": 0.06981078107810781,
+          "syn_scale": 0.3831263966933876
+        },
+        {
+          "alive": true,
+          "gain": 39.00843693454322,
+          "liveness": {
+            "alive": true,
+            "feature_std": 0.20453837513923645,
+            "non_input_active": true,
+            "non_input_spikes": 68999.0,
+            "probe_spikes": 42.0,
+            "unique_feature_rows": 14
+          },
+          "rate": 0.0759064906490649,
+          "syn_scale": 0.42300583700080263
+        },
+        {
+          "alive": true,
+          "gain": 43.068806164235376,
+          "liveness": {
+            "alive": true,
+            "feature_std": 0.2748085856437683,
+            "non_input_active": true,
+            "non_input_spikes": 85754.0,
+            "probe_spikes": 79.0,
+            "unique_feature_rows": 17
+          },
+          "rate": 0.09433883388338835,
+          "syn_scale": 0.4670363088553999
+        },
+        {
+          "alive": true,
+          "gain": 47.55181725238235,
+          "liveness": {
+            "alive": true,
+            "feature_std": 0.2825663685798645,
+            "non_input_active": true,
+            "non_input_spikes": 99216.0,
+            "probe_spikes": 84.0,
+            "unique_feature_rows": 18
+          },
+          "rate": 0.10914851485148515,
+          "syn_scale": 0.5156498911121711
+        },
+        {
+          "alive": true,
+          "gain": 52.501462784488794,
+          "liveness": {
+            "alive": true,
+            "feature_std": 0.3081573247909546,
+            "non_input_active": true,
+            "non_input_spikes": 107918.0,
+            "probe_spikes": 102.0,
+            "unique_feature_rows": 19
+          },
+          "rate": 0.11872167216721673,
+          "syn_scale": 0.5693236375039908
+        },
+        {
+          "alive": true,
+          "gain": 57.966314512890015,
+          "liveness": {
+            "alive": true,
+            "feature_std": 0.341054767370224,
+            "non_input_active": true,
+            "non_input_spikes": 124016.0,
+            "probe_spikes": 129.0,
+            "unique_feature_rows": 20
+          },
+          "rate": 0.13643124312431243,
+          "syn_scale": 0.6285842580547875
+        },
+        {
+          "alive": true,
+          "gain": 64.0,
+          "liveness": {
+            "alive": true,
+            "feature_std": 0.37727177143096924,
+            "non_input_active": true,
+            "non_input_spikes": 137062.0,
+            "probe_spikes": 165.0,
+            "unique_feature_rows": 19
+          },
+          "rate": 0.15078327832783278,
+          "syn_scale": 0.6940132877787246
+        }
+      ],
+      "name": "weight_perm-0",
+      "relative_rate_error": null,
+      "replicate": 0,
+      "rho_abs": 553.3035271255966,
+      "selected": null
+    },
+    {
+      "arm": "er",
+      "candidates": [
+        {
+          "alive": false,
+          "gain": 0.125,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=er-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.007158807953951754
+        },
+        {
+          "alive": false,
+          "gain": 0.13801118920922656,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=er-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.007903964792362814
+        },
+        {
+          "alive": false,
+          "gain": 0.15237670677555942,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=er-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.008726684643694792
+        },
+        {
+          "alive": false,
+          "gain": 0.1682375240790445,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=er-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.009635041004241708
+        },
+        {
+          "alive": false,
+          "gain": 0.18574928614211858,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=er-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.01063794773660047
+        },
+        {
+          "alive": false,
+          "gain": 0.2050838390019095,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=er-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.011745246542990645
+        },
+        {
+          "alive": false,
+          "gain": 0.22643091606597668,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=er-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.012967803543629568
+        },
+        {
+          "alive": false,
+          "gain": 0.25000000000000006,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=er-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.014317615907903513
+        },
+        {
+          "alive": false,
+          "gain": 0.2760223784184531,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=er-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.015807929584725627
+        },
+        {
+          "alive": false,
+          "gain": 0.3047534135511189,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=er-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.017453369287389588
+        },
+        {
+          "alive": false,
+          "gain": 0.33647504815808904,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=er-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.019270082008483416
+        },
+        {
+          "alive": false,
+          "gain": 0.3714985722842371,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=er-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.021275895473200936
+        },
+        {
+          "alive": false,
+          "gain": 0.4101676780038189,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=er-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.02349049308598129
+        },
+        {
+          "alive": false,
+          "gain": 0.4528618321319533,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=er-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.025935607087259133
+        },
+        {
+          "alive": false,
+          "gain": 0.5000000000000001,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=er-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.028635231815807027
+        },
+        {
+          "alive": false,
+          "gain": 0.5520447568369062,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=er-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.031615859169451255
+        },
+        {
+          "alive": false,
+          "gain": 0.6095068271022377,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=er-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.03490673857477917
+        },
+        {
+          "alive": false,
+          "gain": 0.6729500963161781,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=er-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.03854016401696683
+        },
+        {
+          "alive": false,
+          "gain": 0.7429971445684741,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=er-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.04255179094640187
+        },
+        {
+          "alive": false,
+          "gain": 0.820335356007638,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=er-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.04698098617196258
+        },
+        {
+          "alive": false,
+          "gain": 0.9057236642639067,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=er-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.051871214174518274
+        },
+        {
+          "alive": false,
+          "gain": 1.0,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=er-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.05727046363161403
+        },
+        {
+          "alive": false,
+          "gain": 1.1040895136738123,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=er-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.0632317183389025
+        },
+        {
+          "alive": false,
+          "gain": 1.2190136542044754,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=er-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.06981347714955834
+        },
+        {
+          "alive": false,
+          "gain": 1.345900192632356,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=er-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.07708032803393366
+        },
+        {
+          "alive": false,
+          "gain": 1.4859942891369482,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=er-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.08510358189280375
+        },
+        {
+          "alive": false,
+          "gain": 1.6406707120152755,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=er-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.09396197234392514
+        },
+        {
+          "alive": false,
+          "gain": 1.8114473285278136,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=er-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.10374242834903655
+        },
+        {
+          "alive": false,
+          "gain": 2.0000000000000004,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=er-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.1145409272632281
+        },
+        {
+          "alive": false,
+          "gain": 2.208179027347625,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=er-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.12646343667780502
+        },
+        {
+          "alive": false,
+          "gain": 2.4380273084089508,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=er-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.13962695429911667
+        },
+        {
+          "alive": false,
+          "gain": 2.6918003852647123,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=er-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.15416065606786733
+        },
+        {
+          "alive": false,
+          "gain": 2.9719885782738964,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=er-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.1702071637856075
+        },
+        {
+          "alive": false,
+          "gain": 3.2813414240305514,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=er-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.18792394468785031
+        },
+        {
+          "alive": false,
+          "gain": 3.622894657055626,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=er-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.207484856698073
+        },
+        {
+          "alive": false,
+          "gain": 3.999999999999999,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=er-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 1.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 1.1001100110011001e-06,
+          "syn_scale": 0.22908185452645607
+        },
+        {
+          "alive": false,
+          "gain": 4.416358054695248,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=er-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 3.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 3.3003300330033004e-06,
+          "syn_scale": 0.2529268733556099
+        },
+        {
+          "alive": false,
+          "gain": 4.8760546168179,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=er-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 4.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 4.400440044004401e-06,
+          "syn_scale": 0.27925390859823324
+        },
+        {
+          "alive": false,
+          "gain": 5.383600770529425,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=er-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 5.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 5.500550055005501e-06,
+          "syn_scale": 0.30832131213573466
+        },
+        {
+          "alive": false,
+          "gain": 5.943977156547794,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=er-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 7.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 7.700770077007701e-06,
+          "syn_scale": 0.340414327571215
+        },
+        {
+          "alive": false,
+          "gain": 6.562682848061104,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=er-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 35.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 3.8503850385038503e-05,
+          "syn_scale": 0.37584788937570063
+        },
+        {
+          "alive": false,
+          "gain": 7.245789314111253,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=er-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 71.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 7.81078107810781e-05,
+          "syn_scale": 0.41496971339614613
+        },
+        {
+          "alive": false,
+          "gain": 7.999999999999999,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=er-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 139.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.00015291529152915292,
+          "syn_scale": 0.4581637090529122
+        },
+        {
+          "alive": true,
+          "gain": 8.832716109390498,
+          "liveness": {
+            "alive": true,
+            "feature_std": 0.13928373157978058,
+            "non_input_active": true,
+            "non_input_spikes": 9923.0,
+            "probe_spikes": 19.0,
+            "unique_feature_rows": 3
+          },
+          "rate": 0.010916391639163917,
+          "syn_scale": 0.50585374671122
+        },
+        {
+          "alive": true,
+          "gain": 9.752109233635801,
+          "liveness": {
+            "alive": true,
+            "feature_std": 0.3465542197227478,
+            "non_input_active": true,
+            "non_input_spikes": 81057.0,
+            "probe_spikes": 134.0,
+            "unique_feature_rows": 12
+          },
+          "rate": 0.08917161716171618,
+          "syn_scale": 0.5585078171964666
+        },
+        {
+          "alive": true,
+          "gain": 10.767201541058846,
+          "liveness": {
+            "alive": true,
+            "feature_std": 0.45688098669052124,
+            "non_input_active": true,
+            "non_input_spikes": 192415.0,
+            "probe_spikes": 285.0,
+            "unique_feature_rows": 20
+          },
+          "rate": 0.21167766776677668,
+          "syn_scale": 0.6166426242714692
+        },
+        {
+          "alive": true,
+          "gain": 11.887954313095584,
+          "liveness": {
+            "alive": true,
+            "feature_std": 0.47066280245780945,
+            "non_input_active": true,
+            "non_input_spikes": 226047.0,
+            "probe_spikes": 318.0,
+            "unique_feature_rows": 20
+          },
+          "rate": 0.24867656765676568,
+          "syn_scale": 0.6808286551424299
+        },
+        {
+          "alive": true,
+          "gain": 13.12536569612221,
+          "liveness": {
+            "alive": true,
+            "feature_std": 0.480121374130249,
+            "non_input_active": true,
+            "non_input_spikes": 249313.0,
+            "probe_spikes": 346.0,
+            "unique_feature_rows": 20
+          },
+          "rate": 0.27427172717271725,
+          "syn_scale": 0.7516957787514015
+        },
+        {
+          "alive": true,
+          "gain": 14.4915786282225,
+          "liveness": {
+            "alive": true,
+            "feature_std": 0.4841229319572449,
+            "non_input_active": true,
+            "non_input_spikes": 268640.0,
+            "probe_spikes": 360.0,
+            "unique_feature_rows": 20
+          },
+          "rate": 0.29553355335533554,
+          "syn_scale": 0.8299394267922919
+        },
+        {
+          "alive": true,
+          "gain": 16.0,
+          "liveness": {
+            "alive": true,
+            "feature_std": 0.4849190413951874,
+            "non_input_active": true,
+            "non_input_spikes": 282801.0,
+            "probe_spikes": 363.0,
+            "unique_feature_rows": 20
+          },
+          "rate": 0.3111122112211221,
+          "syn_scale": 0.9163274181058245
+        },
+        {
+          "alive": true,
+          "gain": 17.66543221878099,
+          "liveness": {
+            "alive": true,
+            "feature_std": 0.4866936206817627,
+            "non_input_active": true,
+            "non_input_spikes": 295678.0,
+            "probe_spikes": 370.0,
+            "unique_feature_rows": 20
+          },
+          "rate": 0.32527832783278327,
+          "syn_scale": 1.0117074934224395
+        },
+        {
+          "alive": true,
+          "gain": 19.504218467271606,
+          "liveness": {
+            "alive": true,
+            "feature_std": 0.48765572905540466,
+            "non_input_active": true,
+            "non_input_spikes": 308781.0,
+            "probe_spikes": 374.0,
+            "unique_feature_rows": 20
+          },
+          "rate": 0.3396930693069307,
+          "syn_scale": 1.1170156343929334
+        },
+        {
+          "alive": true,
+          "gain": 21.534403082117684,
+          "liveness": {
+            "alive": true,
+            "feature_std": 0.4898979663848877,
+            "non_input_active": true,
+            "non_input_spikes": 320721.0,
+            "probe_spikes": 384.0,
+            "unique_feature_rows": 18
+          },
+          "rate": 0.3528283828382838,
+          "syn_scale": 1.2332852485429382
+        },
+        {
+          "alive": true,
+          "gain": 23.77590862619117,
+          "liveness": {
+            "alive": true,
+            "feature_std": 0.49152541160583496,
+            "non_input_active": true,
+            "non_input_spikes": 332892.0,
+            "probe_spikes": 392.0,
+            "unique_feature_rows": 20
+          },
+          "rate": 0.3662178217821782,
+          "syn_scale": 1.36165731028486
+        },
+        {
+          "alive": true,
+          "gain": 26.250731392244422,
+          "liveness": {
+            "alive": true,
+            "feature_std": 0.4936928451061249,
+            "non_input_active": true,
+            "non_input_spikes": 341564.0,
+            "probe_spikes": 404.0,
+            "unique_feature_rows": 18
+          },
+          "rate": 0.37575797579757975,
+          "syn_scale": 1.5033915575028032
+        },
+        {
+          "alive": true,
+          "gain": 28.983157256445004,
+          "liveness": {
+            "alive": true,
+            "feature_std": 0.49495723843574524,
+            "non_input_active": true,
+            "non_input_spikes": 349738.0,
+            "probe_spikes": 412.0,
+            "unique_feature_rows": 20
+          },
+          "rate": 0.38475027502750275,
+          "syn_scale": 1.659878853584584
+        },
+        {
+          "alive": true,
+          "gain": 32.00000000000001,
+          "liveness": {
+            "alive": true,
+            "feature_std": 0.49495723843574524,
+            "non_input_active": true,
+            "non_input_spikes": 355533.0,
+            "probe_spikes": 412.0,
+            "unique_feature_rows": 18
+          },
+          "rate": 0.3911254125412541,
+          "syn_scale": 1.8326548362116497
+        },
+        {
+          "alive": true,
+          "gain": 35.33086443756198,
+          "liveness": {
+            "alive": true,
+            "feature_std": 0.4964621067047119,
+            "non_input_active": true,
+            "non_input_spikes": 362110.0,
+            "probe_spikes": 423.0,
+            "unique_feature_rows": 20
+          },
+          "rate": 0.39836083608360834,
+          "syn_scale": 2.023414986844879
+        },
+        {
+          "alive": true,
+          "gain": 39.00843693454322,
+          "liveness": {
+            "alive": true,
+            "feature_std": 0.49553564190864563,
+            "non_input_active": true,
+            "non_input_spikes": 366466.0,
+            "probe_spikes": 416.0,
+            "unique_feature_rows": 19
+          },
+          "rate": 0.40315291529152913,
+          "syn_scale": 2.234031268785867
+        },
+        {
+          "alive": true,
+          "gain": 43.068806164235376,
+          "liveness": {
+            "alive": true,
+            "feature_std": 0.49759724736213684,
+            "non_input_active": true,
+            "non_input_spikes": 371456.0,
+            "probe_spikes": 433.0,
+            "unique_feature_rows": 20
+          },
+          "rate": 0.40864246424642464,
+          "syn_scale": 2.4665704970858764
+        },
+        {
+          "alive": true,
+          "gain": 47.55181725238235,
+          "liveness": {
+            "alive": true,
+            "feature_std": 0.49759724736213684,
+            "non_input_active": true,
+            "non_input_spikes": 373007.0,
+            "probe_spikes": 433.0,
+            "unique_feature_rows": 20
+          },
+          "rate": 0.41034873487348733,
+          "syn_scale": 2.72331462056972
+        },
+        {
+          "alive": true,
+          "gain": 52.501462784488794,
+          "liveness": {
+            "alive": true,
+            "feature_std": 0.49789488315582275,
+            "non_input_active": true,
+            "non_input_spikes": 378344.0,
+            "probe_spikes": 436.0,
+            "unique_feature_rows": 18
+          },
+          "rate": 0.4162200220022002,
+          "syn_scale": 3.006783115005603
+        },
+        {
+          "alive": true,
+          "gain": 57.966314512890015,
+          "liveness": {
+            "alive": true,
+            "feature_std": 0.49881696701049805,
+            "non_input_active": true,
+            "non_input_spikes": 383364.0,
+            "probe_spikes": 447.0,
+            "unique_feature_rows": 18
+          },
+          "rate": 0.42174257425742573,
+          "syn_scale": 3.319757707169168
+        },
+        {
+          "alive": true,
+          "gain": 64.0,
+          "liveness": {
+            "alive": true,
+            "feature_std": 0.4977978765964508,
+            "non_input_active": true,
+            "non_input_spikes": 385632.0,
+            "probe_spikes": 435.0,
+            "unique_feature_rows": 20
+          },
+          "rate": 0.4242376237623762,
+          "syn_scale": 3.665309672423298
+        }
+      ],
+      "name": "er-0",
+      "relative_rate_error": null,
+      "replicate": 0,
+      "rho_abs": 104.76604552382081,
+      "selected": null
+    },
+    {
+      "arm": "ring",
+      "candidates": [
+        {
+          "alive": false,
+          "gain": 0.125,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=ring-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.007212889221411559
+        },
+        {
+          "alive": false,
+          "gain": 0.13801118920922656,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=ring-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.007963675352651373
+        },
+        {
+          "alive": false,
+          "gain": 0.15237670677555942,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=ring-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.008792610447164978
+        },
+        {
+          "alive": false,
+          "gain": 0.1682375240790445,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=ring-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.009707828992533663
+        },
+        {
+          "alive": false,
+          "gain": 0.18574928614211858,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=ring-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.01071831219119503
+        },
+        {
+          "alive": false,
+          "gain": 0.2050838390019095,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=ring-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.011833976094580612
+        },
+        {
+          "alive": false,
+          "gain": 0.22643091606597668,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=ring-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.01306576891109303
+        },
+        {
+          "alive": false,
+          "gain": 0.25000000000000006,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=ring-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.014425778442823124
+        },
+        {
+          "alive": false,
+          "gain": 0.2760223784184531,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=ring-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.015927350705302747
+        },
+        {
+          "alive": false,
+          "gain": 0.3047534135511189,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=ring-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.01758522089432996
+        },
+        {
+          "alive": false,
+          "gain": 0.33647504815808904,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=ring-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.019415657985067326
+        },
+        {
+          "alive": false,
+          "gain": 0.3714985722842371,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=ring-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.021436624382390055
+        },
+        {
+          "alive": false,
+          "gain": 0.4101676780038189,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=ring-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.023667952189161224
+        },
+        {
+          "alive": false,
+          "gain": 0.4528618321319533,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=ring-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.026131537822186055
+        },
+        {
+          "alive": false,
+          "gain": 0.5000000000000001,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=ring-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.028851556885646248
+        },
+        {
+          "alive": false,
+          "gain": 0.5520447568369062,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=ring-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.03185470141060549
+        },
+        {
+          "alive": false,
+          "gain": 0.6095068271022377,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=ring-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.03517044178865991
+        },
+        {
+          "alive": false,
+          "gain": 0.6729500963161781,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=ring-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.03883131597013465
+        },
+        {
+          "alive": false,
+          "gain": 0.7429971445684741,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=ring-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.04287324876478011
+        },
+        {
+          "alive": false,
+          "gain": 0.820335356007638,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=ring-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.04733590437832245
+        },
+        {
+          "alive": false,
+          "gain": 0.9057236642639067,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=ring-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.05226307564437212
+        },
+        {
+          "alive": false,
+          "gain": 1.0,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=ring-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.057703113771292475
+        },
+        {
+          "alive": false,
+          "gain": 1.1040895136738123,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=ring-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.06370940282121097
+        },
+        {
+          "alive": false,
+          "gain": 1.2190136542044754,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=ring-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.07034088357731982
+        },
+        {
+          "alive": false,
+          "gain": 1.345900192632356,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=ring-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.0776626319402693
+        },
+        {
+          "alive": false,
+          "gain": 1.4859942891369482,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=ring-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.08574649752956022
+        },
+        {
+          "alive": false,
+          "gain": 1.6406707120152755,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=ring-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.09467180875664488
+        },
+        {
+          "alive": false,
+          "gain": 1.8114473285278136,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=ring-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.10452615128874423
+        },
+        {
+          "alive": false,
+          "gain": 2.0000000000000004,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=ring-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.11540622754258499
+        },
+        {
+          "alive": false,
+          "gain": 2.208179027347625,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=ring-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.12741880564242197
+        },
+        {
+          "alive": false,
+          "gain": 2.4380273084089508,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=ring-0_calibration: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": false,
+            "non_input_spikes": 0.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.0,
+          "syn_scale": 0.14068176715463965
+        },
+        {
+          "alive": false,
+          "gain": 2.6918003852647123,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=ring-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 2.0,
+            "probe_spikes": 0.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 2.2002200220022003e-06,
+          "syn_scale": 0.1553252638805386
+        },
+        {
+          "alive": true,
+          "gain": 2.9719885782738964,
+          "liveness": {
+            "alive": true,
+            "feature_std": 0.3570714294910431,
+            "non_input_active": true,
+            "non_input_spikes": 77664.0,
+            "probe_spikes": 144.0,
+            "unique_feature_rows": 2
+          },
+          "rate": 0.08543894389438944,
+          "syn_scale": 0.17149299505912044
+        },
+        {
+          "alive": true,
+          "gain": 3.2813414240305514,
+          "liveness": {
+            "alive": true,
+            "feature_std": 0.4898979961872101,
+            "non_input_active": true,
+            "non_input_spikes": 236763.0,
+            "probe_spikes": 384.0,
+            "unique_feature_rows": 2
+          },
+          "rate": 0.2604653465346535,
+          "syn_scale": 0.1893436175132898
+        },
+        {
+          "alive": true,
+          "gain": 3.622894657055626,
+          "liveness": {
+            "alive": true,
+            "feature_std": 0.5,
+            "non_input_active": true,
+            "non_input_spikes": 315559.0,
+            "probe_spikes": 480.0,
+            "unique_feature_rows": 2
+          },
+          "rate": 0.34714961496149616,
+          "syn_scale": 0.2090523025774884
+        },
+        {
+          "alive": true,
+          "gain": 3.999999999999999,
+          "liveness": {
+            "alive": true,
+            "feature_std": 0.4769695997238159,
+            "non_input_active": true,
+            "non_input_spikes": 438552.0,
+            "probe_spikes": 624.0,
+            "unique_feature_rows": 2
+          },
+          "rate": 0.48245544554455444,
+          "syn_scale": 0.23081245508516984
+        },
+        {
+          "alive": true,
+          "gain": 4.416358054695248,
+          "liveness": {
+            "alive": true,
+            "feature_std": 0.4000000059604645,
+            "non_input_active": true,
+            "non_input_spikes": 570203.0,
+            "probe_spikes": 768.0,
+            "unique_feature_rows": 2
+          },
+          "rate": 0.6272860286028603,
+          "syn_scale": 0.25483761128484383
+        },
+        {
+          "alive": true,
+          "gain": 4.8760546168179,
+          "liveness": {
+            "alive": true,
+            "feature_std": 0.2179449498653412,
+            "non_input_active": true,
+            "non_input_spikes": 713173.0,
+            "probe_spikes": 912.0,
+            "unique_feature_rows": 2
+          },
+          "rate": 0.7845687568756876,
+          "syn_scale": 0.2813635343092792
+        },
+        {
+          "alive": false,
+          "gain": 5.383600770529425,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=ring-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 771975.0,
+            "probe_spikes": 960.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.8492574257425742,
+          "syn_scale": 0.3106505277610772
+        },
+        {
+          "alive": false,
+          "gain": 5.943977156547794,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=ring-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 789555.0,
+            "probe_spikes": 960.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.8685973597359736,
+          "syn_scale": 0.3429859901182409
+        },
+        {
+          "alive": false,
+          "gain": 6.562682848061104,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=ring-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 799292.0,
+            "probe_spikes": 960.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.8793091309130913,
+          "syn_scale": 0.3786872350265796
+        },
+        {
+          "alive": false,
+          "gain": 7.245789314111253,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=ring-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 807604.0,
+            "probe_spikes": 960.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.8884532453245324,
+          "syn_scale": 0.4181046051549769
+        },
+        {
+          "alive": false,
+          "gain": 7.999999999999999,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=ring-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 816354.0,
+            "probe_spikes": 960.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.8980792079207921,
+          "syn_scale": 0.46162491017033974
+        },
+        {
+          "alive": false,
+          "gain": 8.832716109390498,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=ring-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 822333.0,
+            "probe_spikes": 960.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.9046567656765676,
+          "syn_scale": 0.5096752225696878
+        },
+        {
+          "alive": false,
+          "gain": 9.752109233635801,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=ring-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 824585.0,
+            "probe_spikes": 960.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.9071342134213422,
+          "syn_scale": 0.5627270686185586
+        },
+        {
+          "alive": false,
+          "gain": 10.767201541058846,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=ring-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 843230.0,
+            "probe_spikes": 960.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.9276457645764576,
+          "syn_scale": 0.6213010555221542
+        },
+        {
+          "alive": false,
+          "gain": 11.887954313095584,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=ring-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 855081.0,
+            "probe_spikes": 960.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.9406831683168316,
+          "syn_scale": 0.6859719802364815
+        },
+        {
+          "alive": false,
+          "gain": 13.12536569612221,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=ring-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 862145.0,
+            "probe_spikes": 960.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.9484543454345434,
+          "syn_scale": 0.7573744700531593
+        },
+        {
+          "alive": false,
+          "gain": 14.4915786282225,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=ring-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 863856.0,
+            "probe_spikes": 960.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.9503366336633663,
+          "syn_scale": 0.8362092103099535
+        },
+        {
+          "alive": false,
+          "gain": 16.0,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=ring-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 864656.0,
+            "probe_spikes": 960.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.9512167216721672,
+          "syn_scale": 0.9232498203406796
+        },
+        {
+          "alive": false,
+          "gain": 17.66543221878099,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=ring-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 865766.0,
+            "probe_spikes": 960.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.9524378437843785,
+          "syn_scale": 1.0193504451393751
+        },
+        {
+          "alive": false,
+          "gain": 19.504218467271606,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=ring-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 866277.0,
+            "probe_spikes": 960.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.953,
+          "syn_scale": 1.1254541372371172
+        },
+        {
+          "alive": false,
+          "gain": 21.534403082117684,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=ring-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 866582.0,
+            "probe_spikes": 960.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.9533355335533553,
+          "syn_scale": 1.2426021110443082
+        },
+        {
+          "alive": false,
+          "gain": 23.77590862619117,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=ring-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 867127.0,
+            "probe_spikes": 960.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.9539350935093509,
+          "syn_scale": 1.3719439604729635
+        },
+        {
+          "alive": false,
+          "gain": 26.250731392244422,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=ring-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 867362.0,
+            "probe_spikes": 960.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.9541936193619361,
+          "syn_scale": 1.5147489401063188
+        },
+        {
+          "alive": false,
+          "gain": 28.983157256445004,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=ring-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 867723.0,
+            "probe_spikes": 960.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.9545907590759076,
+          "syn_scale": 1.6724184206199073
+        },
+        {
+          "alive": false,
+          "gain": 32.00000000000001,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=ring-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 867912.0,
+            "probe_spikes": 960.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.9547986798679868,
+          "syn_scale": 1.8464996406813599
+        },
+        {
+          "alive": false,
+          "gain": 35.33086443756198,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=ring-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 868083.0,
+            "probe_spikes": 960.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.954986798679868,
+          "syn_scale": 2.0387008902787502
+        },
+        {
+          "alive": false,
+          "gain": 39.00843693454322,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=ring-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 868251.0,
+            "probe_spikes": 960.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.9551716171617162,
+          "syn_scale": 2.250908274474235
+        },
+        {
+          "alive": false,
+          "gain": 43.068806164235376,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=ring-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 868462.0,
+            "probe_spikes": 960.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.9554037403740374,
+          "syn_scale": 2.4852042220886164
+        },
+        {
+          "alive": false,
+          "gain": 47.55181725238235,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=ring-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 868652.0,
+            "probe_spikes": 960.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.9556127612761276,
+          "syn_scale": 2.743887920945927
+        },
+        {
+          "alive": false,
+          "gain": 52.501462784488794,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=ring-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 868819.0,
+            "probe_spikes": 960.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.9557964796479648,
+          "syn_scale": 3.0294978802126344
+        },
+        {
+          "alive": false,
+          "gain": 57.966314512890015,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=ring-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 868948.0,
+            "probe_spikes": 960.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.955938393839384,
+          "syn_scale": 3.3448368412398146
+        },
+        {
+          "alive": false,
+          "gain": 64.0,
+          "liveness": {
+            "alive": false,
+            "dead_reason": "dead reservoir for arm=ring-0_calibration: feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation.",
+            "feature_std": 0.0,
+            "non_input_active": true,
+            "non_input_spikes": 869036.0,
+            "probe_spikes": 960.0,
+            "unique_feature_rows": 1
+          },
+          "rate": 0.956035203520352,
+          "syn_scale": 3.6929992813627184
+        }
+      ],
+      "name": "ring-0",
+      "relative_rate_error": null,
+      "replicate": 0,
+      "rho_abs": 103.98052388959681,
+      "selected": null
+    }
+  ]
+}

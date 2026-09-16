@@ -1,0 +1,70 @@
+{
+  "arms": [
+    "connectome",
+    "dp",
+    "weight_perm",
+    "er",
+    "ring"
+  ],
+  "cells_written": 2,
+  "curve": {
+    "10": {
+      "by_seed": [],
+      "connectome": {
+        "ci95_high": null,
+        "ci95_low": null,
+        "mean": null,
+        "n": 0
+      },
+      "dp": {
+        "ci95_high": null,
+        "ci95_low": null,
+        "mean": null,
+        "n": 0
+      },
+      "eligible": false,
+      "paired_difference_connectome_minus_dp": {
+        "ci95_high": null,
+        "ci95_low": null,
+        "mean": null,
+        "n": 0
+      }
+    },
+    "100": {
+      "by_seed": [],
+      "connectome": {
+        "ci95_high": null,
+        "ci95_low": null,
+        "mean": null,
+        "n": 0
+      },
+      "dp": {
+        "ci95_high": null,
+        "ci95_low": null,
+        "mean": null,
+        "n": 0
+      },
+      "eligible": false,
+      "paired_difference_connectome_minus_dp": {
+        "ci95_high": null,
+        "ci95_low": null,
+        "mean": null,
+        "n": 0
+      }
+    }
+  },
+  "curve_status": "NO_PAIR",
+  "delays": [
+    10,
+    100
+  ],
+  "eligible_delays": [],
+  "expected_cells": 2,
+  "experiment_id": "EXP-MEM-003",
+  "n_seeds": 1,
+  "protocol_sha256": "9f7c318aeed27fd17abb582309524b073c880e706911bf7bf73a55fcc3201138",
+  "runner_sha256": "bb6ceff64d6a4809e4a5791bc5666fd7c2b10f3a9c8edd19015d2fe27fd6ccd9",
+  "scientific_result": false,
+  "secondary_missing_does_not_gate_primary": true,
+  "stage": "smoke"
+}

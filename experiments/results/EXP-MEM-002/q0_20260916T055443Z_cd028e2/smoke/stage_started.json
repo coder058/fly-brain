@@ -1,0 +1,389 @@
+{
+  "arms": [
+    "connectome",
+    "dp",
+    "weight_perm",
+    "er",
+    "ring"
+  ],
+  "config_sha256": "ef2f8d0fd5ad5f1cde0177426fdec856f14ad2430121b7d44f4615c8be78a85f",
+  "cue0": [
+    23,
+    16,
+    108,
+    400,
+    248,
+    131,
+    165,
+    114,
+    91,
+    385,
+    14,
+    21,
+    192,
+    8,
+    178,
+    348,
+    389,
+    18,
+    367,
+    150,
+    35,
+    230,
+    476,
+    76,
+    397
+  ],
+  "cue1": [
+    27,
+    9,
+    78,
+    89,
+    468,
+    103,
+    104,
+    239,
+    163,
+    258,
+    420,
+    74,
+    126,
+    169,
+    193,
+    145,
+    443,
+    467,
+    198,
+    128,
+    68,
+    28,
+    261,
+    321,
+    168
+  ],
+  "delays": [
+    10,
+    100
+  ],
+  "experiment_id": "EXP-MEM-002",
+  "graph_sha256": {
+    "coo_signed.npz": "88289920f5ad069b8592168f9f9292dad49af8c6e29633ee8ad1e6176f2eccf5",
+    "csc_unsigned.npz": "1db82dc9ea509c4e14f173bcfbcbf8170830839718aee373e1ee609441d6aa4f",
+    "csr_unsigned.npz": "b6dbd38b2c7a2771ac61d04c84add24733164cbbd26872bd417a02de7afd7949"
+  },
+  "input_ids": [
+    8,
+    9,
+    14,
+    16,
+    18,
+    21,
+    23,
+    27,
+    28,
+    35,
+    68,
+    74,
+    76,
+    78,
+    89,
+    91,
+    103,
+    104,
+    108,
+    114,
+    126,
+    128,
+    131,
+    145,
+    150,
+    163,
+    165,
+    168,
+    169,
+    178,
+    192,
+    193,
+    198,
+    230,
+    239,
+    248,
+    258,
+    261,
+    321,
+    348,
+    367,
+    385,
+    389,
+    397,
+    400,
+    420,
+    443,
+    467,
+    468,
+    476
+  ],
+  "input_map": {
+    "positive_outdegree_top50": [
+      {
+        "local_node": 23,
+        "score": 5048.0
+      },
+      {
+        "local_node": 27,
+        "score": 4930.0
+      },
+      {
+        "local_node": 16,
+        "score": 4655.0
+      },
+      {
+        "local_node": 9,
+        "score": 4111.0
+      },
+      {
+        "local_node": 108,
+        "score": 3625.0
+      },
+      {
+        "local_node": 78,
+        "score": 3306.0
+      },
+      {
+        "local_node": 400,
+        "score": 3228.0
+      },
+      {
+        "local_node": 89,
+        "score": 3147.0
+      },
+      {
+        "local_node": 248,
+        "score": 3135.0
+      },
+      {
+        "local_node": 468,
+        "score": 3075.0
+      },
+      {
+        "local_node": 131,
+        "score": 2917.0
+      },
+      {
+        "local_node": 103,
+        "score": 2895.0
+      },
+      {
+        "local_node": 165,
+        "score": 2653.0
+      },
+      {
+        "local_node": 104,
+        "score": 2628.0
+      },
+      {
+        "local_node": 114,
+        "score": 2459.0
+      },
+      {
+        "local_node": 239,
+        "score": 2378.0
+      },
+      {
+        "local_node": 91,
+        "score": 2232.0
+      },
+      {
+        "local_node": 163,
+        "score": 1653.0
+      },
+      {
+        "local_node": 385,
+        "score": 1527.0
+      },
+      {
+        "local_node": 258,
+        "score": 1203.0
+      },
+      {
+        "local_node": 14,
+        "score": 1095.0
+      },
+      {
+        "local_node": 420,
+        "score": 985.0
+      },
+      {
+        "local_node": 21,
+        "score": 971.0
+      },
+      {
+        "local_node": 74,
+        "score": 918.0
+      },
+      {
+        "local_node": 192,
+        "score": 907.0
+      },
+      {
+        "local_node": 126,
+        "score": 895.0
+      },
+      {
+        "local_node": 8,
+        "score": 893.0
+      },
+      {
+        "local_node": 169,
+        "score": 887.0
+      },
+      {
+        "local_node": 178,
+        "score": 833.0
+      },
+      {
+        "local_node": 193,
+        "score": 805.0
+      },
+      {
+        "local_node": 348,
+        "score": 755.0
+      },
+      {
+        "local_node": 145,
+        "score": 713.0
+      },
+      {
+        "local_node": 389,
+        "score": 703.0
+      },
+      {
+        "local_node": 443,
+        "score": 700.0
+      },
+      {
+        "local_node": 18,
+        "score": 685.0
+      },
+      {
+        "local_node": 467,
+        "score": 646.0
+      },
+      {
+        "local_node": 367,
+        "score": 594.0
+      },
+      {
+        "local_node": 198,
+        "score": 529.0
+      },
+      {
+        "local_node": 150,
+        "score": 508.0
+      },
+      {
+        "local_node": 128,
+        "score": 440.0
+      },
+      {
+        "local_node": 35,
+        "score": 439.0
+      },
+      {
+        "local_node": 68,
+        "score": 429.0
+      },
+      {
+        "local_node": 230,
+        "score": 428.0
+      },
+      {
+        "local_node": 28,
+        "score": 401.0
+      },
+      {
+        "local_node": 476,
+        "score": 401.0
+      },
+      {
+        "local_node": 261,
+        "score": 394.0
+      },
+      {
+        "local_node": 76,
+        "score": 387.0
+      },
+      {
+        "local_node": 321,
+        "score": 377.0
+      },
+      {
+        "local_node": 397,
+        "score": 376.0
+      },
+      {
+        "local_node": 168,
+        "score": 351.0
+      }
+    ],
+    "rule": "top-50 local nodes by positive active outgoing-weight sum; ties by local index; alternate cue groups"
+  },
+  "probe_ids": [
+    25,
+    61,
+    66,
+    92,
+    106,
+    119,
+    120,
+    127,
+    130,
+    132,
+    139,
+    147,
+    148,
+    149,
+    173,
+    185,
+    190,
+    191,
+    201,
+    207,
+    210,
+    213,
+    223,
+    229,
+    232,
+    236,
+    238,
+    247,
+    250,
+    252,
+    262,
+    279,
+    305,
+    318,
+    330,
+    333,
+    336,
+    345,
+    354,
+    378,
+    384,
+    393,
+    406,
+    408,
+    418,
+    429,
+    482,
+    498
+  ],
+  "protocol_path": "experiments/results/EXP-MEM-002/protocol_map2.md",
+  "protocol_sha256": "76beba05b047dfaa2cbb3f496258f5babb3005f1162ac09e44eb84ef72076383",
+  "runner_sha256": "13b58834d1ad282c63bc56605e41b32fbd63afd13add3d6d748b1908912cb767",
+  "seeds": [
+    0
+  ],
+  "stage": "smoke",
+  "started_utc": "2026-09-16T05:54:50.999122+00:00"
+}

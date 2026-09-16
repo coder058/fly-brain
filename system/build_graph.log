@@ -1,0 +1,5 @@
+Traced 165122
+NT cols ['body', 'cell_type', 'total_nt_predictions', 'predicted_nt_confidence', 'predicted_nt', 'ground_truth', 'celltype_total_nt_predictions', 'celltype_predicted_nt', 'celltype_predicted_nt_confidence', 'consensus_nt']
+sign counts {1: 103718, -1: 27965, 0: 33439}
+edges 25563197 weight_sum 124025046
+DONE {'filter': 'status==Traced both ends', 'n_neurons': 165122, 'n_edges': 25563197, 'n_edges_csr_nnz': 25563197, 'weight_sum': 124025046, 'sign_counts': {'E': 103718, 'I': 27965, 'U': 33439}, 'seconds': 143.85}

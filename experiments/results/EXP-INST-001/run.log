@@ -1,0 +1,37 @@
+calibrating alpha_star on Gaussians (not reservoir)...
+  locked alpha_star=1.3027 synthetic_delta=0.1500
+loading graph...
+  n=500 nnz=23708 rho=2131.8641 load+spectrum 3.8s
+real smoke (8 trials/class, seed 0)...
+  smoke 0.9s; estimated full ~242s
+matching gain on seed 0 (E1 config)...
+  gain=11.9176 converged=True rate=0.002
+DEAD (recorded, not scored as evidence): dead reservoir for arm=pc_a_quiescent: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score — the readout would be decoding drive, not computation.
+  seed 0 alive=True acc0=0.789 pos=1.000 nul=0.789 d=0.211 rate=0.00193 t=4.3s
+DEAD (recorded, not scored as evidence): dead reservoir for arm=pc_a_quiescent: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score — the readout would be decoding drive, not computation.
+  seed 1 alive=True acc0=0.667 pos=1.000 nul=0.644 d=0.356 rate=0.00140 t=8.4s
+DEAD (recorded, not scored as evidence): dead reservoir for arm=pc_a_quiescent: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score — the readout would be decoding drive, not computation.
+  seed 2 alive=True acc0=0.744 pos=1.000 nul=0.744 d=0.256 rate=0.00360 t=12.5s
+DEAD (recorded, not scored as evidence): dead reservoir for arm=pc_a_quiescent: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score — the readout would be decoding drive, not computation.
+  seed 3 alive=True acc0=0.667 pos=1.000 nul=0.667 d=0.333 rate=0.00119 t=16.7s
+DEAD (recorded, not scored as evidence): dead reservoir for arm=pc_a_quiescent: feature_std=0, unique_feature_rows=1. Refusing to score — the readout would be decoding drive, not computation.
+  seed 4 alive=True acc0=0.822 pos=1.000 nul=0.800 d=0.200 rate=0.00261 t=20.8s
+DEAD (recorded, not scored as evidence): dead reservoir for arm=connectome_signed: unique_feature_rows=9. Refusing to score — the readout would be decoding drive, not computation.
+DEAD (recorded, not scored as evidence): dead reservoir for arm=pc_a_quiescent: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score — the readout would be decoding drive, not computation.
+  seed 5 alive=True acc0=0.211 pos=1.000 nul=0.256 d=0.744 rate=0.00234 t=25.0s
+DEAD (recorded, not scored as evidence): dead reservoir for arm=pc_a_quiescent: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score — the readout would be decoding drive, not computation.
+  seed 6 alive=True acc0=0.767 pos=1.000 nul=0.767 d=0.233 rate=0.00331 t=29.2s
+DEAD (recorded, not scored as evidence): dead reservoir for arm=pc_a_quiescent: feature_std=0, unique_feature_rows=1. Refusing to score — the readout would be decoding drive, not computation.
+  seed 7 alive=True acc0=0.789 pos=1.000 nul=0.800 d=0.200 rate=0.00310 t=33.3s
+DEAD (recorded, not scored as evidence): dead reservoir for arm=pc_a_quiescent: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score — the readout would be decoding drive, not computation.
+  seed 8 alive=True acc0=0.733 pos=1.000 nul=0.733 d=0.267 rate=0.00300 t=37.5s
+DEAD (recorded, not scored as evidence): dead reservoir for arm=connectome_signed: feature_std=0, unique_feature_rows=1. Refusing to score — the readout would be decoding drive, not computation.
+DEAD (recorded, not scored as evidence): dead reservoir for arm=pc_a_quiescent: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score — the readout would be decoding drive, not computation.
+DEAD (recorded, not scored as evidence): dead reservoir for arm=pc_a_ignited: feature_std=0, unique_feature_rows=1. Refusing to score — the readout would be decoding drive, not computation.
+  seed 9 alive=True acc0=0.200 pos=1.000 nul=0.200 d=0.800 rate=0.00004 t=41.6s
+DEAD (recorded, not scored as evidence): dead reservoir for arm=pc_a_quiescent: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score — the readout would be decoding drive, not computation.
+  seed 10 alive=True acc0=0.711 pos=1.000 nul=0.689 d=0.311 rate=0.00176 t=45.8s
+DEAD (recorded, not scored as evidence): dead reservoir for arm=pc_a_quiescent: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score — the readout would be decoding drive, not computation.
+  seed 11 alive=True acc0=0.511 pos=1.000 nul=0.533 d=0.467 rate=0.00125 t=49.9s
+GATE: PASS INSTRUMENT_VALID_E1= True
+WROTE /home/ubuntu/fly-lab/experiments/results/EXP-INST-001 and /home/ubuntu/fly-lab/experiments/results/exp_inst_001_20260916T000524Z_3dbe1d9.json

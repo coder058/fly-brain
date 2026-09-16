@@ -1,0 +1,435 @@
+{
+  "all_network_liveness_passed": false,
+  "all_primary_rate_matches_passed": false,
+  "curve_by_arm": {
+    "connectome-0": {
+      "10": {
+        "by_seed": {},
+        "ci95_high": null,
+        "ci95_low": null,
+        "mean": null,
+        "n": 0
+      },
+      "25": {
+        "by_seed": {},
+        "ci95_high": null,
+        "ci95_low": null,
+        "mean": null,
+        "n": 0
+      },
+      "50": {
+        "by_seed": {},
+        "ci95_high": null,
+        "ci95_low": null,
+        "mean": null,
+        "n": 0
+      },
+      "100": {
+        "by_seed": {},
+        "ci95_high": null,
+        "ci95_low": null,
+        "mean": null,
+        "n": 0
+      },
+      "250": {
+        "by_seed": {},
+        "ci95_high": null,
+        "ci95_low": null,
+        "mean": null,
+        "n": 0
+      },
+      "500": {
+        "by_seed": {},
+        "ci95_high": null,
+        "ci95_low": null,
+        "mean": null,
+        "n": 0
+      }
+    },
+    "dp-0": {
+      "10": {
+        "by_seed": {},
+        "ci95_high": null,
+        "ci95_low": null,
+        "mean": null,
+        "n": 0
+      },
+      "25": {
+        "by_seed": {},
+        "ci95_high": null,
+        "ci95_low": null,
+        "mean": null,
+        "n": 0
+      },
+      "50": {
+        "by_seed": {},
+        "ci95_high": null,
+        "ci95_low": null,
+        "mean": null,
+        "n": 0
+      },
+      "100": {
+        "by_seed": {},
+        "ci95_high": null,
+        "ci95_low": null,
+        "mean": null,
+        "n": 0
+      },
+      "250": {
+        "by_seed": {},
+        "ci95_high": null,
+        "ci95_low": null,
+        "mean": null,
+        "n": 0
+      },
+      "500": {
+        "by_seed": {},
+        "ci95_high": null,
+        "ci95_low": null,
+        "mean": null,
+        "n": 0
+      }
+    },
+    "dp-1": {
+      "10": {
+        "by_seed": {},
+        "ci95_high": null,
+        "ci95_low": null,
+        "mean": null,
+        "n": 0
+      },
+      "25": {
+        "by_seed": {},
+        "ci95_high": null,
+        "ci95_low": null,
+        "mean": null,
+        "n": 0
+      },
+      "50": {
+        "by_seed": {},
+        "ci95_high": null,
+        "ci95_low": null,
+        "mean": null,
+        "n": 0
+      },
+      "100": {
+        "by_seed": {},
+        "ci95_high": null,
+        "ci95_low": null,
+        "mean": null,
+        "n": 0
+      },
+      "250": {
+        "by_seed": {},
+        "ci95_high": null,
+        "ci95_low": null,
+        "mean": null,
+        "n": 0
+      },
+      "500": {
+        "by_seed": {},
+        "ci95_high": null,
+        "ci95_low": null,
+        "mean": null,
+        "n": 0
+      }
+    },
+    "er-0": {
+      "10": {
+        "by_seed": {},
+        "ci95_high": null,
+        "ci95_low": null,
+        "mean": null,
+        "n": 0
+      },
+      "25": {
+        "by_seed": {},
+        "ci95_high": null,
+        "ci95_low": null,
+        "mean": null,
+        "n": 0
+      },
+      "50": {
+        "by_seed": {},
+        "ci95_high": null,
+        "ci95_low": null,
+        "mean": null,
+        "n": 0
+      },
+      "100": {
+        "by_seed": {},
+        "ci95_high": null,
+        "ci95_low": null,
+        "mean": null,
+        "n": 0
+      },
+      "250": {
+        "by_seed": {},
+        "ci95_high": null,
+        "ci95_low": null,
+        "mean": null,
+        "n": 0
+      },
+      "500": {
+        "by_seed": {},
+        "ci95_high": null,
+        "ci95_low": null,
+        "mean": null,
+        "n": 0
+      }
+    },
+    "er-1": {
+      "10": {
+        "by_seed": {},
+        "ci95_high": null,
+        "ci95_low": null,
+        "mean": null,
+        "n": 0
+      },
+      "25": {
+        "by_seed": {},
+        "ci95_high": null,
+        "ci95_low": null,
+        "mean": null,
+        "n": 0
+      },
+      "50": {
+        "by_seed": {},
+        "ci95_high": null,
+        "ci95_low": null,
+        "mean": null,
+        "n": 0
+      },
+      "100": {
+        "by_seed": {},
+        "ci95_high": null,
+        "ci95_low": null,
+        "mean": null,
+        "n": 0
+      },
+      "250": {
+        "by_seed": {},
+        "ci95_high": null,
+        "ci95_low": null,
+        "mean": null,
+        "n": 0
+      },
+      "500": {
+        "by_seed": {},
+        "ci95_high": null,
+        "ci95_low": null,
+        "mean": null,
+        "n": 0
+      }
+    },
+    "ring-0": {
+      "10": {
+        "by_seed": {},
+        "ci95_high": null,
+        "ci95_low": null,
+        "mean": null,
+        "n": 0
+      },
+      "25": {
+        "by_seed": {},
+        "ci95_high": null,
+        "ci95_low": null,
+        "mean": null,
+        "n": 0
+      },
+      "50": {
+        "by_seed": {},
+        "ci95_high": null,
+        "ci95_low": null,
+        "mean": null,
+        "n": 0
+      },
+      "100": {
+        "by_seed": {},
+        "ci95_high": null,
+        "ci95_low": null,
+        "mean": null,
+        "n": 0
+      },
+      "250": {
+        "by_seed": {},
+        "ci95_high": null,
+        "ci95_low": null,
+        "mean": null,
+        "n": 0
+      },
+      "500": {
+        "by_seed": {},
+        "ci95_high": null,
+        "ci95_low": null,
+        "mean": null,
+        "n": 0
+      }
+    },
+    "ring-1": {
+      "10": {
+        "by_seed": {},
+        "ci95_high": null,
+        "ci95_low": null,
+        "mean": null,
+        "n": 0
+      },
+      "25": {
+        "by_seed": {},
+        "ci95_high": null,
+        "ci95_low": null,
+        "mean": null,
+        "n": 0
+      },
+      "50": {
+        "by_seed": {},
+        "ci95_high": null,
+        "ci95_low": null,
+        "mean": null,
+        "n": 0
+      },
+      "100": {
+        "by_seed": {},
+        "ci95_high": null,
+        "ci95_low": null,
+        "mean": null,
+        "n": 0
+      },
+      "250": {
+        "by_seed": {},
+        "ci95_high": null,
+        "ci95_low": null,
+        "mean": null,
+        "n": 0
+      },
+      "500": {
+        "by_seed": {},
+        "ci95_high": null,
+        "ci95_low": null,
+        "mean": null,
+        "n": 0
+      }
+    },
+    "weight_perm-0": {
+      "10": {
+        "by_seed": {},
+        "ci95_high": null,
+        "ci95_low": null,
+        "mean": null,
+        "n": 0
+      },
+      "25": {
+        "by_seed": {},
+        "ci95_high": null,
+        "ci95_low": null,
+        "mean": null,
+        "n": 0
+      },
+      "50": {
+        "by_seed": {},
+        "ci95_high": null,
+        "ci95_low": null,
+        "mean": null,
+        "n": 0
+      },
+      "100": {
+        "by_seed": {},
+        "ci95_high": null,
+        "ci95_low": null,
+        "mean": null,
+        "n": 0
+      },
+      "250": {
+        "by_seed": {},
+        "ci95_high": null,
+        "ci95_low": null,
+        "mean": null,
+        "n": 0
+      },
+      "500": {
+        "by_seed": {},
+        "ci95_high": null,
+        "ci95_low": null,
+        "mean": null,
+        "n": 0
+      }
+    },
+    "weight_perm-1": {
+      "10": {
+        "by_seed": {},
+        "ci95_high": null,
+        "ci95_low": null,
+        "mean": null,
+        "n": 0
+      },
+      "25": {
+        "by_seed": {},
+        "ci95_high": null,
+        "ci95_low": null,
+        "mean": null,
+        "n": 0
+      },
+      "50": {
+        "by_seed": {},
+        "ci95_high": null,
+        "ci95_low": null,
+        "mean": null,
+        "n": 0
+      },
+      "100": {
+        "by_seed": {},
+        "ci95_high": null,
+        "ci95_low": null,
+        "mean": null,
+        "n": 0
+      },
+      "250": {
+        "by_seed": {},
+        "ci95_high": null,
+        "ci95_low": null,
+        "mean": null,
+        "n": 0
+      },
+      "500": {
+        "by_seed": {},
+        "ci95_high": null,
+        "ci95_low": null,
+        "mean": null,
+        "n": 0
+      }
+    }
+  },
+  "delays": [
+    10,
+    25,
+    50,
+    100,
+    250,
+    500
+  ],
+  "equivalence_margin": 0.05,
+  "experiment_id": "EXP-MEM-001",
+  "n_task_seeds": 6,
+  "normalized_auc_by_arm_by_seed": {
+    "connectome-0": {},
+    "dp-0": {},
+    "dp-1": {},
+    "er-0": {},
+    "er-1": {},
+    "ring-0": {},
+    "ring-1": {},
+    "weight_perm-0": {},
+    "weight_perm-1": {}
+  },
+  "paired_seed_differences": [],
+  "primary_connectome_minus_dp_auc": {
+    "ci95_high": null,
+    "ci95_low": null,
+    "mean": null,
+    "n": 0
+  },
+  "protocol_sha256": "5b13c9af4540b4441045c6069145ca404513b808031e071f92f7b8a4bc981bd4",
+  "runner_sha256": "a32fd2323eb302a3855d80508d3801d814d9c24babc02e798f633ad3de259a90",
+  "stage": "sizing",
+  "status": "INVALIDATED"
+}

@@ -1,0 +1,54 @@
+seed 0...
+seed 1...
+seed 2...
+seed 3...
+seed 4...
+seed 5...
+seed 6...
+seed 7...
+seed 8...
+seed 9...
+seed 10...
+seed 11...
+{
+  "aggregate": {
+    "threshold": {
+      "mean": 0.7329166666666665,
+      "ci95": 0.017441475945715816
+    },
+    "pca": {
+      "mean": 0.6582222222222222,
+      "ci95": 0.03191442633520577
+    },
+    "fly_signed": {
+      "mean": 0.519,
+      "ci95": 0.026753176280162334
+    },
+    "fly_abs": {
+      "mean": 0.5140416666666666,
+      "ci95": 0.022196481371365148
+    },
+    "er_null": {
+      "mean": 0.533513888888889,
+      "ci95": 0.030364707489365064
+    },
+    "weight_perm": {
+      "mean": 0.5273194444444445,
+      "ci95": 0.03297682578254737
+    },
+    "hubs_removed": {
+      "mean": 0.519,
+      "ci95": 0.026753176280162334
+    }
+  },
+  "verdict": {
+    "beats_er_null": false,
+    "beats_weight_perm": false,
+    "beats_threshold_baseline": false,
+    "diff_vs_er": -0.014513888888888937,
+    "diff_vs_weight_perm": -0.008319444444444435,
+    "diff_vs_threshold": -0.21391666666666653,
+    "ANOMALY_TOPOLOGY_ADVANTAGE": false
+  }
+}
+seconds 39.79 WROTE /home/ubuntu/fly-lab/anomaly/results/exp_anom_006_20260915T190852Z.json

@@ -1,0 +1,403 @@
+{
+  "arms": [
+    "connectome",
+    "dp",
+    "weight_perm",
+    "er",
+    "ring"
+  ],
+  "config_sha256": "ef2f8d0fd5ad5f1cde0177426fdec856f14ad2430121b7d44f4615c8be78a85f",
+  "cue0": [
+    18,
+    131,
+    89,
+    400,
+    239,
+    91,
+    14,
+    443,
+    178,
+    78,
+    168,
+    198,
+    150,
+    145,
+    397,
+    23,
+    28,
+    68,
+    27,
+    35,
+    385,
+    162,
+    117,
+    284,
+    248
+  ],
+  "cue1": [
+    467,
+    163,
+    468,
+    16,
+    108,
+    126,
+    9,
+    169,
+    476,
+    230,
+    21,
+    8,
+    258,
+    74,
+    466,
+    396,
+    114,
+    128,
+    165,
+    76,
+    103,
+    136,
+    104,
+    192,
+    278
+  ],
+  "delays": [
+    10,
+    25,
+    50,
+    100,
+    250,
+    500
+  ],
+  "experiment_id": "EXP-MEM-002",
+  "graph_sha256": {
+    "coo_signed.npz": "88289920f5ad069b8592168f9f9292dad49af8c6e29633ee8ad1e6176f2eccf5",
+    "csc_unsigned.npz": "1db82dc9ea509c4e14f173bcfbcbf8170830839718aee373e1ee609441d6aa4f",
+    "csr_unsigned.npz": "b6dbd38b2c7a2771ac61d04c84add24733164cbbd26872bd417a02de7afd7949"
+  },
+  "input_ids": [
+    8,
+    9,
+    14,
+    16,
+    18,
+    21,
+    23,
+    27,
+    28,
+    35,
+    68,
+    74,
+    76,
+    78,
+    89,
+    91,
+    103,
+    104,
+    108,
+    114,
+    117,
+    126,
+    128,
+    131,
+    136,
+    145,
+    150,
+    162,
+    163,
+    165,
+    168,
+    169,
+    178,
+    192,
+    198,
+    230,
+    239,
+    248,
+    258,
+    278,
+    284,
+    385,
+    396,
+    397,
+    400,
+    443,
+    466,
+    467,
+    468,
+    476
+  ],
+  "input_map": {
+    "positive_outdegree_top50": [
+      {
+        "local_node": 18,
+        "positive_outdegree": 210
+      },
+      {
+        "local_node": 467,
+        "positive_outdegree": 206
+      },
+      {
+        "local_node": 131,
+        "positive_outdegree": 107
+      },
+      {
+        "local_node": 163,
+        "positive_outdegree": 107
+      },
+      {
+        "local_node": 89,
+        "positive_outdegree": 105
+      },
+      {
+        "local_node": 468,
+        "positive_outdegree": 105
+      },
+      {
+        "local_node": 400,
+        "positive_outdegree": 99
+      },
+      {
+        "local_node": 16,
+        "positive_outdegree": 89
+      },
+      {
+        "local_node": 239,
+        "positive_outdegree": 88
+      },
+      {
+        "local_node": 108,
+        "positive_outdegree": 80
+      },
+      {
+        "local_node": 91,
+        "positive_outdegree": 78
+      },
+      {
+        "local_node": 126,
+        "positive_outdegree": 77
+      },
+      {
+        "local_node": 14,
+        "positive_outdegree": 75
+      },
+      {
+        "local_node": 9,
+        "positive_outdegree": 73
+      },
+      {
+        "local_node": 443,
+        "positive_outdegree": 73
+      },
+      {
+        "local_node": 169,
+        "positive_outdegree": 69
+      },
+      {
+        "local_node": 178,
+        "positive_outdegree": 67
+      },
+      {
+        "local_node": 476,
+        "positive_outdegree": 67
+      },
+      {
+        "local_node": 78,
+        "positive_outdegree": 62
+      },
+      {
+        "local_node": 230,
+        "positive_outdegree": 61
+      },
+      {
+        "local_node": 168,
+        "positive_outdegree": 60
+      },
+      {
+        "local_node": 21,
+        "positive_outdegree": 59
+      },
+      {
+        "local_node": 198,
+        "positive_outdegree": 59
+      },
+      {
+        "local_node": 8,
+        "positive_outdegree": 58
+      },
+      {
+        "local_node": 150,
+        "positive_outdegree": 58
+      },
+      {
+        "local_node": 258,
+        "positive_outdegree": 58
+      },
+      {
+        "local_node": 145,
+        "positive_outdegree": 57
+      },
+      {
+        "local_node": 74,
+        "positive_outdegree": 53
+      },
+      {
+        "local_node": 397,
+        "positive_outdegree": 53
+      },
+      {
+        "local_node": 466,
+        "positive_outdegree": 53
+      },
+      {
+        "local_node": 23,
+        "positive_outdegree": 50
+      },
+      {
+        "local_node": 396,
+        "positive_outdegree": 46
+      },
+      {
+        "local_node": 28,
+        "positive_outdegree": 45
+      },
+      {
+        "local_node": 114,
+        "positive_outdegree": 45
+      },
+      {
+        "local_node": 68,
+        "positive_outdegree": 44
+      },
+      {
+        "local_node": 128,
+        "positive_outdegree": 42
+      },
+      {
+        "local_node": 27,
+        "positive_outdegree": 40
+      },
+      {
+        "local_node": 165,
+        "positive_outdegree": 36
+      },
+      {
+        "local_node": 35,
+        "positive_outdegree": 34
+      },
+      {
+        "local_node": 76,
+        "positive_outdegree": 34
+      },
+      {
+        "local_node": 385,
+        "positive_outdegree": 34
+      },
+      {
+        "local_node": 103,
+        "positive_outdegree": 33
+      },
+      {
+        "local_node": 162,
+        "positive_outdegree": 31
+      },
+      {
+        "local_node": 136,
+        "positive_outdegree": 29
+      },
+      {
+        "local_node": 117,
+        "positive_outdegree": 28
+      },
+      {
+        "local_node": 104,
+        "positive_outdegree": 27
+      },
+      {
+        "local_node": 284,
+        "positive_outdegree": 27
+      },
+      {
+        "local_node": 192,
+        "positive_outdegree": 26
+      },
+      {
+        "local_node": 248,
+        "positive_outdegree": 26
+      },
+      {
+        "local_node": 278,
+        "positive_outdegree": 26
+      }
+    ],
+    "rule": "top-50 local nodes by positive active outgoing-edge count; ties by local index; alternate cue groups"
+  },
+  "probe_ids": [
+    4,
+    45,
+    50,
+    52,
+    56,
+    62,
+    77,
+    81,
+    90,
+    99,
+    106,
+    110,
+    111,
+    122,
+    151,
+    171,
+    175,
+    190,
+    201,
+    217,
+    218,
+    228,
+    229,
+    236,
+    243,
+    259,
+    262,
+    266,
+    267,
+    272,
+    275,
+    287,
+    296,
+    297,
+    300,
+    324,
+    336,
+    346,
+    351,
+    370,
+    381,
+    383,
+    398,
+    417,
+    446,
+    457,
+    465,
+    469
+  ],
+  "protocol_sha256": "23fe208f7e627bf7102b2896fe240576578e30ca27016cb40ddfced7f71f6017",
+  "runner_sha256": "66def613a4e70521c85ffcdcb20239d3ed21b2b2be25ca94de38366a926afbff",
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+  ],
+  "stage": "q0",
+  "started_utc": "2026-09-16T05:41:20.126772+00:00"
+}

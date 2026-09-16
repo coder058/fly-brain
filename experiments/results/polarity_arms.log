@@ -1,0 +1,45 @@
+loading graph + neuron ids...
+reading neurotransmitter predictions from data/raw (read-only)...
+  glutamate_unknown      E=  3533 I=  5938 zero= 14237 (60.05%) rho=2131.9 ops_inflation=2.50x
+  glutamate_inhibitory   E=  3533 I=  9106 zero= 11069 (46.69%) rho=2132.1 ops_inflation=1.88x
+  glutamate_excitatory   E=  6701 I=  5938 zero= 11069 (46.69%) rho=2131.7 ops_inflation=1.88x
+  glutamate_unknown      matched gain=11.92 converged=True
+  glutamate_inhibitory   matched gain=15.04 converged=True
+  glutamate_excitatory   matched gain=6.30 converged=True
+
+{
+  "glutamate_unknown": {
+    "fraction_zeroed": 0.6005145942297958,
+    "ops_proxy_inflation": 2.5032203568788933,
+    "mean_acc": 0.6770833333333333,
+    "ci95": 0.1369243759241656,
+    "signed_weight_sum": -55861.0
+  },
+  "glutamate_inhibitory": {
+    "fraction_zeroed": 0.46688881390248016,
+    "ops_proxy_inflation": 1.8757813118126434,
+    "mean_acc": 0.6770833333333333,
+    "ci95": 0.13510307279176806,
+    "signed_weight_sum": -98396.0
+  },
+  "glutamate_excitatory": {
+    "fraction_zeroed": 0.46688881390248016,
+    "ops_proxy_inflation": 1.8757813118126434,
+    "mean_acc": 0.6270833333333333,
+    "ci95": 0.15568007169262937,
+    "signed_weight_sum": -13326.0
+  }
+}
+deltas: {
+  "glutamate_inhibitory_minus_glutamate_unknown": {
+    "mean_diff": 0.0,
+    "ci95_diff": 0.06234848300747451,
+    "ci_excludes_zero": false
+  },
+  "glutamate_excitatory_minus_glutamate_unknown": {
+    "mean_diff": -0.05,
+    "ci95_diff": 0.16133780985525026,
+    "ci_excludes_zero": false
+  }
+}
+WROTE /home/ubuntu/fly-lab/experiments/results/e1_polarity_arms_20260915T140857Z_fe089d3.json

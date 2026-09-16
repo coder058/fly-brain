@@ -1,0 +1,45 @@
+{
+  "arms": {
+    "glutamate_excitatory": {
+      "ci95": null,
+      "claim_metric_withheld": true,
+      "mean_acc": null,
+      "per_seed_acc": [],
+      "valid_seed_count": 8
+    },
+    "glutamate_inhibitory": {
+      "ci95": null,
+      "claim_metric_withheld": true,
+      "mean_acc": null,
+      "per_seed_acc": [],
+      "valid_seed_count": 6
+    },
+    "glutamate_unknown": {
+      "ci95": null,
+      "claim_metric_withheld": true,
+      "mean_acc": null,
+      "per_seed_acc": [],
+      "valid_seed_count": 8
+    }
+  },
+  "deltas_vs_glutamate_unknown": {
+    "glutamate_excitatory_minus_glutamate_unknown": {
+      "ci95_diff": null,
+      "claim_metric_withheld": true,
+      "mean_diff": null
+    },
+    "glutamate_inhibitory_minus_glutamate_unknown": {
+      "ci95_diff": null,
+      "claim_metric_withheld": true,
+      "mean_diff": null
+    }
+  },
+  "expected_seeds": 12,
+  "experiment_id": "EXP-GLU-001",
+  "protocol_sha256": "564f96e478aec5df668c09567221c7238142a3c9ffc071a20d5fa4a713f6a1a2",
+  "runner_sha256": "4e8a50130c8559322736c3536c3c8b58c454213eff044ac4ae8ede0598dc6c5f",
+  "scientific_result": false,
+  "seconds": 62.28220847698685,
+  "seeds_written": 12,
+  "status": "COMPLETE_METRIC_WITHHELD"
+}

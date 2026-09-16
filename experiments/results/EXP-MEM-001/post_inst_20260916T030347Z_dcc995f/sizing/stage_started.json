@@ -1,0 +1,13 @@
+{
+  "config_sha256": "ef2f8d0fd5ad5f1cde0177426fdec856f14ad2430121b7d44f4615c8be78a85f",
+  "experiment_id": "EXP-MEM-001",
+  "graph_sha256": {
+    "coo_signed.npz": "88289920f5ad069b8592168f9f9292dad49af8c6e29633ee8ad1e6176f2eccf5",
+    "csc_unsigned.npz": "1db82dc9ea509c4e14f173bcfbcbf8170830839718aee373e1ee609441d6aa4f",
+    "csr_unsigned.npz": "b6dbd38b2c7a2771ac61d04c84add24733164cbbd26872bd417a02de7afd7949"
+  },
+  "protocol_sha256": "5b13c9af4540b4441045c6069145ca404513b808031e071f92f7b8a4bc981bd4",
+  "runner_sha256": "a32fd2323eb302a3855d80508d3801d814d9c24babc02e798f633ad3de259a90",
+  "stage": "sizing",
+  "started_utc": "2026-09-16T03:04:44.795440+00:00"
+}

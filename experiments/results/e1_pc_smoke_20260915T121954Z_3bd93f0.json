@@ -1,0 +1,127 @@
+{
+  "provenance": {
+    "utc": "2026-09-15T12:19:54+00:00",
+    "git_rev": "3bd93f0",
+    "harness_sha256": "ef37f989c001ae6c",
+    "config_sha256": "ef2f8d0fd5ad5f1c"
+  },
+  "config": {
+    "task": "E1_reservoir_linear_readout",
+    "subgraph": {
+      "method": "top_out_degree",
+      "n": 500,
+      "rationale": "CPU-first lock; same selection rule as LIF smoke (top out-degree)"
+    },
+    "dynamics": {
+      "n_steps": 64,
+      "n_classes": 5,
+      "n_trials_per_class": 20,
+      "input_fraction": 0.1,
+      "I_amp": 6.0,
+      "lif": {
+        "dt": 1.0,
+        "tau_m": 6.0,
+        "v_th": 1.0,
+        "syn_scale": 0.002
+      },
+      "input_noise": 0.55
+    },
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "arms": [
+      "connectome_signed",
+      "connectome_abs",
+      "er_null",
+      "degree_shuffle",
+      "mlp"
+    ],
+    "note": "LSTM deferred until torch/GPU available; MLP is strong baseline for this turn",
+    "task_hardening": "temporal_holdout_noise055_5class_v6",
+    "harness_guards": {
+      "reject_dead_features": true,
+      "min_non_input_spikes": 1,
+      "on_dead": "raise",
+      "min_feature_std": 1e-06,
+      "min_unique_feature_rows": 10,
+      "bug_fixed": "E1 v2 features were all-zero: pulse width << tau_m so input neurons never reached v_th; all arms predicted one class \u2192 acc=3/18=0.1667"
+    }
+  },
+  "seeds": [
+    0
+  ],
+  "n": 500,
+  "nnz": 23708,
+  "n_probes": 48,
+  "target_rate": 0.01,
+  "pc_a_activity_resolution": {
+    "mean_a": 0.7333333333333333,
+    "mean_b": 0.2,
+    "mean_diff": 0.5333333333333332,
+    "ci95_diff": 0.0,
+    "per_seed_diff": [
+      0.5333333333333332
+    ],
+    "ci_excludes_zero": false,
+    "n_seeds": 1,
+    "min_effect": 0.1,
+    "separated": false,
+    "detail": [
+      {
+        "seed": 0,
+        "quiescent": {
+          "gain": 0.3,
+          "syn_scale": 0.0008443315128890549,
+          "non_input_spikes": 0.0,
+          "acc": 0.2
+        },
+        "ignited": {
+          "gain": 12.0,
+          "syn_scale": 0.033773260515562196,
+          "non_input_spikes": 5524.0,
+          "acc": 0.7333333333333333
+        }
+      }
+    ]
+  },
+  "pc_b_structure_resolution": {
+    "mean_a": 0.6666666666666666,
+    "mean_b": 0.5666666666666667,
+    "mean_diff": 0.09999999999999998,
+    "ci95_diff": 0.0,
+    "per_seed_diff": [
+      0.09999999999999998
+    ],
+    "ci_excludes_zero": false,
+    "n_seeds": 1,
+    "min_effect": 0.1,
+    "separated": false,
+    "detail": [
+      {
+        "seed": 0,
+        "ring": {
+          "gain": 1.57216796875,
+          "rate": 0.01091423611111111,
+          "matched": true,
+          "non_input_spikes": 31433.0,
+          "syn_scale": 0.036478753505770234,
+          "acc": 0.6666666666666666
+        },
+        "er": {
+          "gain": 1.8914207458496093,
+          "rate": 0.011201041666666666,
+          "matched": true,
+          "non_input_spikes": 32259.0,
+          "syn_scale": 0.04364228219366428,
+          "acc": 0.5666666666666667
+        }
+      }
+    ],
+    "rate_match_spread": 1.0262781153564726
+  },
+  "gate_passed": false
+}

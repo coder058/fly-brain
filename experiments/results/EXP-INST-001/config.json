@@ -1,0 +1,39 @@
+{
+  "experiment_id": "EXP-INST-001",
+  "question": "At the original E1 config, can the instrument detect an effect of ~0.15?",
+  "e1_measurement_config": {
+    "source": "experiments/results/e1_null_ensemble_powered_20260915T130422Z_fe089d3.json settings",
+    "n_probes": 48,
+    "target_rate": 0.002,
+    "polarity": "signed",
+    "n_seeds": 12,
+    "seeds": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+    "n_trials_per_class": 60,
+    "n_classes": 5,
+    "n_steps": 64,
+    "subgraph_n": 500,
+    "subgraph_method": "top_out_degree",
+    "split": "per_class_first_70pct_train",
+    "classifier": "ridge_sweep",
+    "metric": "heldout_accuracy",
+    "gain_match": "once_on_seed_0"
+  },
+  "target_effect": 0.15,
+  "min_effect_gate": 0.10,
+  "n_null_perms": 20,
+  "injection_rng_stream": 77001,
+  "null_perm_rng_stream": 88001,
+  "calibration_rng_stream": 76001,
+  "n_bins": 4,
+  "sigma_theory": "sqrt(target_rate * (1-target_rate) / (n_steps/n_bins))",
+  "pc_a": {
+    "run": true,
+    "quiescent_gain": 0.3,
+    "ignited_gain": 12.0,
+    "note": "Activity resolution at 48 probes / 12x60 / signed. Not the 0.15 test. Does not change INSTRUMENT_VALID_E1 by itself."
+  },
+  "stock_pc_b": {
+    "run": false,
+    "reason": "scientifically_invalid_for_this_question"
+  }
+}

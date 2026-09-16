@@ -1,0 +1,66 @@
+{
+  "exp": "EXP-ANOM-004",
+  "sweep": [
+    {
+      "noise": 0.15,
+      "path": "/home/ubuntu/fly-lab/anomaly/results/exp_anom_004_20260915T190657Z.json",
+      "seconds": 6.97,
+      "auroc": {
+        "threshold": 0.9745454545454545,
+        "pca": 0.8347474747474748,
+        "isolation_forest": 0.5713131313131313,
+        "ocsvm": 0.8452525252525253,
+        "mlp_recon": 0.8096969696969697,
+        "fly_signed": 0.5315151515151515,
+        "fly_er_null": 0.6167676767676767,
+        "fly_abs": 0.5892929292929293
+      }
+    },
+    {
+      "noise": 0.35,
+      "path": "/home/ubuntu/fly-lab/anomaly/results/exp_anom_004_20260915T190703Z.json",
+      "seconds": 5.99,
+      "auroc": {
+        "threshold": 0.6517171717171717,
+        "pca": 0.5466666666666666,
+        "isolation_forest": 0.5555555555555556,
+        "ocsvm": 0.5373737373737374,
+        "mlp_recon": 0.5818181818181818,
+        "fly_signed": 0.4216161616161616,
+        "fly_er_null": 0.5042424242424243,
+        "fly_abs": 0.536969696969697
+      }
+    },
+    {
+      "noise": 0.55,
+      "path": "/home/ubuntu/fly-lab/anomaly/results/exp_anom_004_20260915T190709Z.json",
+      "seconds": 5.98,
+      "auroc": {
+        "threshold": 0.5668686868686869,
+        "pca": 0.49616161616161614,
+        "isolation_forest": 0.547070707070707,
+        "ocsvm": 0.4888888888888889,
+        "mlp_recon": 0.5393939393939394,
+        "fly_signed": 0.5105050505050505,
+        "fly_er_null": 0.4783838383838384,
+        "fly_abs": 0.4533333333333333
+      }
+    },
+    {
+      "noise": 0.8,
+      "path": "/home/ubuntu/fly-lab/anomaly/results/exp_anom_004_20260915T190715Z.json",
+      "seconds": 5.98,
+      "auroc": {
+        "threshold": 0.5527272727272727,
+        "pca": 0.47919191919191917,
+        "isolation_forest": 0.5426262626262627,
+        "ocsvm": 0.46505050505050505,
+        "mlp_recon": 0.5272727272727272,
+        "fly_signed": 0.45232323232323235,
+        "fly_er_null": 0.5870707070707071,
+        "fly_abs": 0.42383838383838385
+      }
+    }
+  ],
+  "claim_ready": false
+}

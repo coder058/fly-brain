@@ -1,0 +1,131 @@
+{
+  "experiment_id": "EXP-GLU-001",
+  "n_probes": 48,
+  "n_trials_per_class": 60,
+  "policies": {
+    "glutamate_excitatory": {
+      "acc": 0.7666666666666667,
+      "alive": true,
+      "effective_nnz": 12639,
+      "gain": 8.794531249999999,
+      "gain_match": {
+        "converged": true,
+        "gain": 8.794531249999999,
+        "rate": 0.002026041666666667
+      },
+      "rate_match": true,
+      "reason": null,
+      "seed": 8,
+      "selected_ridge": 0.1,
+      "status": "LIVE",
+      "syn_scale": 0.024753887079617586,
+      "test_liveness": {
+        "alive": true,
+        "feature_std": 0.010876256041228771,
+        "non_input_active": true,
+        "non_input_spikes": 5347.0,
+        "probe_spikes": 365.0,
+        "unique_feature_rows": 39
+      },
+      "test_rate": 0.002062885802469136,
+      "test_relative_rate_error": 0.03144290123456789,
+      "train_acc": 0.7857142857142857,
+      "train_liveness": {
+        "alive": true,
+        "feature_std": 0.01157470140606165,
+        "non_input_active": true,
+        "non_input_spikes": 12580.0,
+        "probe_spikes": 901.0,
+        "unique_feature_rows": 69
+      },
+      "train_rate": 0.002080026455026455,
+      "train_relative_rate_error": 0.040013227513227424,
+      "train_test_gap": 0.01904761904761898,
+      "wall_seconds": 1.1194005309953354
+    },
+    "glutamate_inhibitory": {
+      "acc": 0.5555555555555556,
+      "alive": true,
+      "effective_nnz": 12639,
+      "gain": 10.04375,
+      "gain_match": {
+        "converged": true,
+        "gain": 10.04375,
+        "rate": 0.0019166666666666666
+      },
+      "rate_match": true,
+      "reason": null,
+      "seed": 8,
+      "selected_ridge": 0.0001,
+      "status": "LIVE",
+      "syn_scale": 0.028264952450771732,
+      "test_liveness": {
+        "alive": true,
+        "feature_std": 0.006249392870813608,
+        "non_input_active": true,
+        "non_input_spikes": 5036.0,
+        "probe_spikes": 146.0,
+        "unique_feature_rows": 14
+      },
+      "test_rate": 0.0019429012345679013,
+      "test_relative_rate_error": 0.02854938271604939,
+      "train_acc": 0.6428571428571429,
+      "train_liveness": {
+        "alive": true,
+        "feature_std": 0.006687759421765804,
+        "non_input_active": true,
+        "non_input_spikes": 11864.0,
+        "probe_spikes": 367.0,
+        "unique_feature_rows": 20
+      },
+      "train_rate": 0.0019616402116402116,
+      "train_relative_rate_error": 0.019179894179894217,
+      "train_test_gap": 0.08730158730158732,
+      "wall_seconds": 1.1204272420000052
+    },
+    "glutamate_unknown": {
+      "acc": 0.6333333333333333,
+      "alive": true,
+      "effective_nnz": 9471,
+      "gain": 10.04375,
+      "gain_match": {
+        "converged": true,
+        "gain": 10.04375,
+        "rate": 0.0019409722222222222
+      },
+      "rate_match": true,
+      "reason": null,
+      "seed": 8,
+      "selected_ridge": 0.0001,
+      "status": "LIVE",
+      "syn_scale": 0.028267515441931484,
+      "test_liveness": {
+        "alive": true,
+        "feature_std": 0.006913306191563606,
+        "non_input_active": true,
+        "non_input_spikes": 5087.0,
+        "probe_spikes": 165.0,
+        "unique_feature_rows": 16
+      },
+      "test_rate": 0.001962577160493827,
+      "test_relative_rate_error": 0.018711419753086486,
+      "train_acc": 0.680952380952381,
+      "train_liveness": {
+        "alive": true,
+        "feature_std": 0.007219509221613407,
+        "non_input_active": true,
+        "non_input_spikes": 12011.0,
+        "probe_spikes": 402.0,
+        "unique_feature_rows": 24
+      },
+      "train_rate": 0.0019859457671957672,
+      "train_relative_rate_error": 0.007027116402116406,
+      "train_test_gap": 0.04761904761904767,
+      "wall_seconds": 1.1201113350107335
+    }
+  },
+  "protocol_sha256": "564f96e478aec5df668c09567221c7238142a3c9ffc071a20d5fa4a713f6a1a2",
+  "runner_sha256": "4e8a50130c8559322736c3536c3c8b58c454213eff044ac4ae8ede0598dc6c5f",
+  "seed": 8,
+  "target_rate": 0.002
+}

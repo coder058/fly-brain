@@ -1,0 +1,164 @@
+{
+  "provenance": {
+    "utc": "2026-09-15T12:26:34+00:00",
+    "git_rev": "3bd93f0",
+    "harness_sha256": "ef37f989c001ae6c",
+    "config_sha256": "ef2f8d0fd5ad5f1c"
+  },
+  "config": {
+    "task": "E1_reservoir_linear_readout",
+    "subgraph": {
+      "method": "top_out_degree",
+      "n": 500,
+      "rationale": "CPU-first lock; same selection rule as LIF smoke (top out-degree)"
+    },
+    "dynamics": {
+      "n_steps": 64,
+      "n_classes": 5,
+      "n_trials_per_class": 60,
+      "input_fraction": 0.1,
+      "I_amp": 6.0,
+      "lif": {
+        "dt": 1.0,
+        "tau_m": 6.0,
+        "v_th": 1.0,
+        "syn_scale": 0.002
+      },
+      "input_noise": 0.55
+    },
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "arms": [
+      "connectome_signed",
+      "connectome_abs",
+      "er_null",
+      "degree_shuffle",
+      "mlp"
+    ],
+    "note": "LSTM deferred until torch/GPU available; MLP is strong baseline for this turn",
+    "task_hardening": "temporal_holdout_noise055_5class_v6",
+    "harness_guards": {
+      "reject_dead_features": true,
+      "min_non_input_spikes": 1,
+      "on_dead": "raise",
+      "min_feature_std": 1e-06,
+      "min_unique_feature_rows": 10,
+      "bug_fixed": "E1 v2 features were all-zero: pulse width << tau_m so input neurons never reached v_th; all arms predicted one class \u2192 acc=3/18=0.1667"
+    }
+  },
+  "seeds": [
+    0,
+    1
+  ],
+  "n": 500,
+  "nnz": 23708,
+  "n_probes": 450,
+  "target_rate": 0.01,
+  "pc_a_activity_resolution": {
+    "mean_a": 0.8055555555555556,
+    "mean_b": 0.2,
+    "mean_diff": 0.6055555555555555,
+    "ci95_diff": 0.05444444444444447,
+    "per_seed_diff": [
+      0.6333333333333333,
+      0.5777777777777777
+    ],
+    "ci_excludes_zero": true,
+    "n_seeds": 2,
+    "min_effect": 0.1,
+    "separated": true,
+    "detail": [
+      {
+        "seed": 0,
+        "quiescent": {
+          "gain": 0.3,
+          "syn_scale": 0.0008443315128890549,
+          "non_input_spikes": 0.0,
+          "acc": 0.2
+        },
+        "ignited": {
+          "gain": 12.0,
+          "syn_scale": 0.033773260515562196,
+          "non_input_spikes": 17194.0,
+          "acc": 0.8333333333333334
+        }
+      },
+      {
+        "seed": 1,
+        "quiescent": {
+          "gain": 0.3,
+          "syn_scale": 0.0008443315128890549,
+          "non_input_spikes": 0.0,
+          "acc": 0.2
+        },
+        "ignited": {
+          "gain": 12.0,
+          "syn_scale": 0.033773260515562196,
+          "non_input_spikes": 12217.0,
+          "acc": 0.7777777777777778
+        }
+      }
+    ]
+  },
+  "pc_b_structure_resolution": {
+    "mean_a": 0.7777777777777778,
+    "mean_b": 0.6388888888888888,
+    "mean_diff": 0.1388888888888889,
+    "ci95_diff": 0.032666666666666656,
+    "per_seed_diff": [
+      0.15555555555555556,
+      0.12222222222222223
+    ],
+    "ci_excludes_zero": true,
+    "n_seeds": 2,
+    "min_effect": 0.1,
+    "separated": true,
+    "detail": [
+      {
+        "seed": 0,
+        "ring": {
+          "gain": 1.57216796875,
+          "rate": 0.01131712962962963,
+          "matched": true,
+          "non_input_spikes": 97780.0,
+          "syn_scale": 0.036478753505770234,
+          "acc": 0.7888888888888889
+        },
+        "er": {
+          "gain": 1.8947081804275512,
+          "rate": 0.01861122685185185,
+          "matched": false,
+          "non_input_spikes": 160801.0,
+          "syn_scale": 0.04371813583324108,
+          "acc": 0.6333333333333333
+        }
+      },
+      {
+        "seed": 1,
+        "ring": {
+          "gain": 1.6855987548828124,
+          "rate": 0.010336921296296295,
+          "matched": true,
+          "non_input_spikes": 89311.0,
+          "syn_scale": 0.03898223951016666,
+          "acc": 0.7666666666666667
+        },
+        "er": {
+          "gain": 1.9025694370269777,
+          "rate": 0.01879525462962963,
+          "matched": false,
+          "non_input_spikes": 162391.0,
+          "syn_scale": 0.0437397434319413,
+          "acc": 0.6444444444444445
+        }
+      }
+    ],
+    "rate_match_spread": 1.8182642675594274
+  },
+  "gate_passed": true
+}

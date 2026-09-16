@@ -1,0 +1,69 @@
+loading graph...
+building 20 null draws per type (RNG stream 90000, independent of task seeds)...
+  nulls built in 43.4s
+  connectome_signed: matched gains [11.92]... converged=1/1
+  degree_preserving_null: matched gains [1.3, 1.3, 1.3, 1.3, 0.99]... converged=20/20
+  er_null: matched gains [0.91, 0.83, 0.83, 0.83, 0.83]... converged=20/20
+  rate matching done at 106.1s
+  seed 0 done at 162.4s
+  seed 1 done at 221.4s
+  seed 2 done at 277.2s
+  seed 3 done at 332.9s
+  seed 4 done at 388.9s
+  seed 5 done at 444.7s
+  seed 6 done at 500.6s
+  seed 7 done at 556.8s
+  seed 8 done at 613.0s
+  seed 9 done at 668.8s
+  seed 10 done at 725.2s
+  seed 11 done at 779.1s
+
+aggregate: {
+  "connectome_signed": {
+    "mean_acc": 0.6342592592592592,
+    "ci95": 0.12224094693828097,
+    "n_seeds": 12
+  },
+  "degree_preserving_null": {
+    "mean_acc": 0.6852777777777777,
+    "ci95_over_draws": 0.029502795407006194,
+    "sd_between_draws": 0.06731658781258615,
+    "sd_between_seeds": 0.05637302608149345,
+    "n_draws": 20,
+    "n_seeds": 12
+  },
+  "er_null": {
+    "mean_acc": 0.6508796296296296,
+    "ci95_over_draws": 0.016571175756908633,
+    "sd_between_draws": 0.037810485162800236,
+    "sd_between_seeds": 0.03272719803479029,
+    "n_draws": 20,
+    "n_seeds": 12
+  },
+  "mlp": {
+    "mean_acc": 0.6416666666666667,
+    "ci95": 0.12331396244275558,
+    "params": 995,
+    "param_budget": 965,
+    "width": 5,
+    "within_budget": true
+  }
+}
+comparisons: {
+  "connectome_vs_degree_preserving_null": {
+    "mean_diff": -0.05101851851851858,
+    "ci95_diff": 0.1104372869197143,
+    "ci_excludes_zero": false,
+    "connectome_percentile_in_null_draws": 0.25,
+    "empirical_p_one_sided": 0.75
+  },
+  "connectome_vs_er_null": {
+    "mean_diff": -0.016620370370370344,
+    "ci95_diff": 0.13089616694331208,
+    "ci_excludes_zero": false,
+    "connectome_percentile_in_null_draws": 0.3,
+    "empirical_p_one_sided": 0.7
+  }
+}
+total 779.1s
+WROTE /home/ubuntu/fly-lab/experiments/results/e1_null_ensemble_powered_20260915T130422Z_fe089d3.json

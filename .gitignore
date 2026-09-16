@@ -1,0 +1,14 @@
+# Immutable hash-verified MaleCNS v1.0 source data — never tracked, never modified.
+data/raw/
+
+# Derived sparse graph (~248 MB); rebuild with system/build_graph (see system/build_graph.log).
+data/derived/graph/
+
+# Python
+__pycache__/
+.pytest_cache/
+*.pyc
+*.pyo
+
+# Environment
+.venv/

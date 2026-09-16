@@ -1,0 +1,265 @@
+{
+      "updated_utc": "2026-09-16T15:09:39Z",
+  "repo": "/home/ubuntu/fly-lab",
+  "never_overwrite_results": true,
+  "experiments": [
+    {
+      "id": "e0_hashes",
+      "status": "done",
+      "note": "MaleCNS v1.0 SHA-256 verified; |V|=165122 |E|=25563197"
+    },
+    {
+      "id": "pc_ab_gate",
+      "status": "done",
+      "note": "PC-A and PC-B PASS at 12 seeds; FAIL at 5x20"
+    },
+    {
+      "id": "e1_null_ensemble_powered",
+      "status": "historical_recorded_incomplete",
+      "artifact": "experiments/results/e1_null_ensemble_powered_20260915T130422Z_fe089d3.json",
+      "log": "experiments/results/e1_null_ensemble_powered.log",
+      "note": "Not running now; historical measurements do not complete the closed hypothesis."
+    },
+    {
+      "id": "e1_polarity_glutamate_arms",
+      "status": "historical_underpowered",
+      "artifact": "experiments/results/e1_polarity_arms_20260915T140857Z_fe089d3.json"
+    },
+    {
+      "id": "e1_ablations_weight_perm_hubs",
+      "status": "code_ready_not_run",
+      "note": "flylab.nulls.weight_permutation_null + remove_topk_hubs; do not launch until ensemble frees CPU"
+    },
+    {
+      "id": "EXP-INST-001",
+      "status": "historical_reported_pass_audit_rejects_as_future_gate",
+      "INSTRUMENT_VALID_E1_for_future_claims": false,
+      "cmd": "experiments/harness/exp_inst_001.py",
+      "artifact": "experiments/results/EXP-INST-001/summary.json",
+      "stamped": "experiments/results/exp_inst_001_20260916T000524Z_3dbe1d9.json",
+      "note": "Post-LIF injection only; seeds 5/9 contain dead_reason yet were counted alive. Preserve artifact unchanged; not a topology, PC-B, or MEM gate."
+    },
+    {
+      "id": "executor_liveness_guards",
+      "status": "code_hardened_full_suite_pass",
+      "note": "All result executors withhold claim metrics if any required seed or either independent MEM split fails liveness/feature guards; the liveness/harness checkpoint had 72 tests passed, and the current suite is 74 after bounded A2A regression tests."
+    },
+    {
+      "id": "EXP-E1B-001",
+      "status": "DISABLED_BY_PI",
+      "authorization": "do_not_run"
+    },
+    {
+      "id": "EXP-MEM-001",
+      "status": "INVALIDATED",
+      "claim_ready": false,
+      "cycle": "post_INST_001_confirmatory",
+      "protocol": "experiments/results/EXP-MEM-001/protocol.md",
+      "sizing": {
+        "status": "INVALIDATED",
+        "artifact": "experiments/results/EXP-MEM-001/post_inst_20260916T030347Z_dcc995f/sizing/summary.json",
+        "report": "reports/EXP_MEM_001_SIZING.md"
+      },
+      "mapping_repair_protocol": "experiments/results/EXP-MEM-001/protocol_mapping_repair.md",
+      "mapping_repair": {
+        "status": "INVALIDATED",
+        "artifact": "experiments/results/EXP-MEM-001/post_inst_mapping_repair_20260916T031717Z_dcc995f/sizing/summary.json",
+        "report": "reports/EXP_MEM_001_MAPPING_REPAIR.md",
+        "primary_rate_match": true,
+        "network_liveness": false,
+        "primary_auc_pairs": 0,
+        "failed_cells": 5,
+        "stop_reason": "One accuracy-blind map repair was run; required network liveness still failed in five cells, so no memory curve was produced."
+      },
+      "superseded_exploratory_pilot": {
+        "status": "SUPERSEDED_INVALIDATED",
+        "artifact": "experiments/results/EXP-MEM-001/pilot_superseded/pilot_20260916T011917Z_dcc995f.json",
+        "artifact_sha256": "e866100d9e304088e6427e8290ec416ef08a8e36c0490c94f1355f5d48f06480",
+        "note": "Pre-INST exploratory pilot; preserve as history, do not confirm or cite as a memory result."
+      }
+    },
+    {
+      "id": "EXP-MEM-002",
+      "status": "INSTRUMENT_INCOMPLETE",
+      "claim_ready": false,
+      "cycle": "post_MEM_001_instrument_repair",
+      "protocol": "experiments/results/EXP-MEM-002/protocol.md",
+      "runner": "experiments/harness/exp_mem_002_instrument.py",
+      "scope": "accuracy_blind_liveness_and_rate_instrument",
+      "gate": "all_five_arms_live_and_rate_matched_in_train_and_test_for_12_seeds_at_each_delay",
+      "note": "Q0 instrument check; missing cells are retained and are not topology losses; no curve or accuracy is computed.",
+      "q0": {
+        "status": "INSTRUMENT_INCOMPLETE",
+        "artifact": "experiments/results/EXP-MEM-002/q0_20260916T054112Z_d6a9572/q0/summary.json",
+        "report": "reports/EXP_MEM_002_Q0.md",
+        "cells_written": 72,
+        "expected_cells": 72,
+        "complete_delays": [],
+        "missing_arm_cells": 263,
+        "missing_by_arm": {"connectome": 62, "dp": 30, "weight_perm": 44, "er": 55, "ring": 72}
+      },
+      "map2_protocol": "experiments/results/EXP-MEM-002/protocol_map2.md",
+      "map2_status": "INSTRUMENT_INCOMPLETE",
+      "map2": {
+        "status": "INSTRUMENT_INCOMPLETE",
+        "artifact": "experiments/results/EXP-MEM-002/q0_20260916T055512Z_cd028e2/q0/summary.json",
+        "report": "reports/EXP_MEM_002_MAP2.md",
+        "cells_written": 72,
+        "expected_cells": 72,
+        "complete_delays": [],
+        "missing_arm_cells": 277,
+        "missing_by_arm": {"connectome": 62, "dp": 38, "weight_perm": 52, "er": 56, "ring": 69}
+      },
+      "hygiene": {"status": "complete", "commit": "dfdf7dd", "full_suite": "71 passed"}
+    },
+    {
+      "id": "ops_proxy_nonzero_accounting",
+      "status": "verified",
+      "artifact": "reports/OPS_PROXY_AUDIT.md",
+      "test": "tests/test_controls.py::test_ops_proxy_counts_nonzero_sparse_synapses_only"
+    },
+    {
+      "id": "frozen_graph_integrity",
+      "status": "verified_read_only",
+      "artifact": "reports/GRAPH_INTEGRITY.md",
+      "runner": "scripts/verify_graph.py",
+      "result": "PASS_STRUCTURAL_CHECKS"
+    },
+    {
+      "id": "repository_continuity_backup",
+      "status": "verified",
+      "artifact": "reports/REPO_BACKUP_AUDIT.md",
+      "sha256": "f707d529742d8b753a31c50b55fcaa3c2fbcdc592d22ac32b14e000a879978bd",
+      "latest_backup": "C:\\Users\\jamon\\Desktop\\job\\fly-lab-backups-20260916\\fly-lab-current-4d94e77.bundle",
+      "latest_sha256": "e09ac7342fa4a248e5a67ec00659bb0ffe787e9b3ce87aa41b7eddd212c25034",
+      "latest_tip": "4d94e77",
+      "note": "Complete Git bundle verified and copied to the local PC; no origin was invented."
+    },
+    {
+      "id": "historical_artifact_catalog",
+      "status": "verified_read_only",
+      "artifact": "reports/HISTORICAL_ARTIFACTS_AUDIT.md",
+      "catalog": "reports/historical-artifacts-sha256.json",
+      "entries": 10,
+      "matched": 10
+    },
+    {
+      "id": "experiment_provenance_audit",
+      "status": "verified_read_only",
+      "artifact": "reports/EXPERIMENT_PROVENANCE_AUDIT.md",
+      "runner": "scripts/verify_experiment_provenance.py",
+      "result": "PASS_PROVENANCE_AUDIT"
+    },
+    {
+      "id": "build_graph_output_guard",
+      "status": "verified_fail_closed",
+      "artifact": "reports/BUILD_GRAPH_SAFETY.md",
+      "runner": "scripts/build_graph.py"
+    },
+    {
+      "id": "EXP-MEM-003",
+      "status": "MEM_003_NO_PAIR",
+      "protocol": "experiments/results/EXP-MEM-003/protocol.md",
+      "runner": "experiments/harness/exp_mem_003.py",
+      "primary_contrast": "connectome_vs_dp",
+      "artifacts": [
+        "experiments/results/EXP-MEM-003/mem003_20260916T125527Z_3071046_top_positive_indegree/curve/summary.json",
+        "experiments/results/EXP-MEM-003/mem003_20260916T130103Z_3071046_hash_ranked/curve/summary.json"
+      ],
+      "cells_written": 144,
+      "eligible_delays": [],
+      "note": "Both preregistered maps exhausted; no primary pair. This is not a memory or topology loss."
+    },
+    {
+      "id": "EXP-GLU-001",
+      "status": "COMPLETE_METRIC_WITHHELD",
+      "protocol": "experiments/results/EXP-GLU-001/protocol.md",
+      "runner": "experiments/harness/exp_glu_001.py",
+      "artifact": "experiments/results/EXP-GLU-001/glu001_20260916T132243Z_0747503/summary.json",
+      "seeds": 12,
+      "valid_seed_count": {
+        "glutamate_unknown": 8,
+        "glutamate_inhibitory": 6,
+        "glutamate_excitatory": 8
+      },
+      "scope": "glutamate polarity sensitivity only; comparison withheld"
+    },
+    {
+      "id": "EXP-IGNITE-001",
+      "status": "NO_COIGNITE",
+      "protocol": "experiments/results/EXP-IGNITE-001/protocol.md",
+      "runner": "experiments/harness/exp_ignite_001.py",
+      "primary_arms": [
+        "connectome_signed",
+        "degree_preserving"
+      ],
+      "artifacts": {
+        "smoke": "experiments/results/EXP-IGNITE-001/ignite_20260916T141558Z_1565e48/smoke/summary.json",
+        "sizing": "experiments/results/EXP-IGNITE-001/ignite_20260916T141558Z_1565e48/sizing/summary.json",
+        "confirm": "experiments/results/EXP-IGNITE-001/ignite_20260916T141558Z_1565e48/confirm/summary.json"
+      },
+      "measured": {
+        "smoke_pairs": 0,
+        "sizing_pairs": 0,
+        "confirm_pairs": 0,
+        "confirm_seeds": 12,
+        "gain_points": 16,
+        "rate_band": 0.2
+      },
+      "interpretation": "No primary pair co-ignited under the frozen hash map, gain cap, and rate band. This is not evidence that Fly lost or that biology has no value.",
+      "next": "N6 deferred hardware documentation and N8 existing one-job A2A queue."
+    },
+    {
+      "id": "EXP-IGNITE-002",
+      "status": "NO_COIGNITE",
+      "protocol": "experiments/results/EXP-IGNITE-002/protocol.md",
+      "runner": "experiments/harness/exp_ignite_002.py",
+      "primary_arms": [
+        "glutamate_unknown",
+        "glutamate_inhibitory"
+      ],
+      "artifacts": {
+        "smoke": "experiments/results/EXP-IGNITE-002/ignite002_20260916T142800Z_6e9cdb6/smoke/summary.json",
+        "sizing": "experiments/results/EXP-IGNITE-002/ignite002_20260916T142800Z_6e9cdb6/sizing/summary.json",
+        "confirm": "experiments/results/EXP-IGNITE-002/ignite002_20260916T142800Z_6e9cdb6/confirm/summary.json"
+      },
+      "measured": {
+        "smoke_pairs": 0,
+        "sizing_pairs": 0,
+        "confirm_pairs": 0,
+        "confirm_seeds": 12,
+        "gain_points": 16,
+        "rate_band": 0.2
+      },
+      "interpretation": "No unknown/inhibitory polarity pair co-ignited under the fixed hash map, gain cap, target rate, and band. This is not a memory, topology, or biological verdict; no accuracy was computed.",
+      "next": "N6 deferred hardware documentation and N8 existing bounded A2A queue; no new scientific ID authorized."
+    },
+    {
+      "id": "TRACK-7-QUEUE",
+      "status": "QUEUED_2VCPU",
+      "protocol": "QUEUED_2VCPU.md",
+      "measured": false,
+      "scope": "documentation_only; no continual-learning or architecture execution",
+      "next": "requires a separately authorized preregistered ID; current handoff authorizes none"
+    },
+    {
+      "id": "a2a_research_hub",
+      "status": "versioned_local_prototype_full_suite_pass_with_bounds_regressions",
+      "scope": "local_only; no agent shell execution; no public binding; no Cursor/Codex adapter connected",
+      "commit": "4d94e77",
+      "bounds_audit": "reports/A2A_BOUNDS_AUDIT.md"
+    },
+    {
+      "id": "loop_boundary_audit",
+      "status": "verified_read_only",
+      "artifact": "reports/LOOP_BOUNDARY_AUDIT.md",
+      "scope": "protected_paths_closed_ids_queue_boundary_and_current_test_evidence"
+    },
+    {
+      "id": "untracked_worktree_audit",
+      "status": "verified_read_only",
+      "artifact": "reports/UNTRACKED_WORKTREE_AUDIT.md",
+      "scope": "preserve_and_exclude_preexisting_untracked_user_work"
+    }
+  ]
+}

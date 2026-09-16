@@ -1,0 +1,46 @@
+{
+  "task": "E1_reservoir_linear_readout",
+  "subgraph": {
+    "method": "top_out_degree",
+    "n": 500,
+    "rationale": "CPU-first lock; same selection rule as LIF smoke (top out-degree)"
+  },
+  "dynamics": {
+    "n_steps": 64,
+    "n_classes": 5,
+    "n_trials_per_class": 20,
+    "input_fraction": 0.1,
+    "I_amp": 6.0,
+    "lif": {
+      "dt": 1.0,
+      "tau_m": 6.0,
+      "v_th": 1.0,
+      "syn_scale": 0.002
+    },
+    "input_noise": 0.55
+  },
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "arms": [
+    "connectome_signed",
+    "connectome_abs",
+    "er_null",
+    "degree_shuffle",
+    "mlp"
+  ],
+  "note": "LSTM deferred until torch/GPU available; MLP is strong baseline for this turn",
+  "task_hardening": "temporal_holdout_noise055_5class_v6",
+  "harness_guards": {
+    "reject_dead_features": true,
+    "min_non_input_spikes": 1,
+    "on_dead": "raise",
+    "min_feature_std": 1e-06,
+    "min_unique_feature_rows": 10,
+    "bug_fixed": "E1 v2 features were all-zero: pulse width << tau_m so input neurons never reached v_th; all arms predicted one class \u2192 acc=3/18=0.1667"
+  }
+}

@@ -1,0 +1,537 @@
+{
+  "provenance": {
+    "utc": "2026-09-15T12:29:11+00:00",
+    "git_rev": "3bd93f0",
+    "harness_sha256": "ef37f989c001ae6c",
+    "config_sha256": "ef2f8d0fd5ad5f1c"
+  },
+  "config": {
+    "task": "E1_reservoir_linear_readout",
+    "subgraph": {
+      "method": "top_out_degree",
+      "n": 500,
+      "rationale": "CPU-first lock; same selection rule as LIF smoke (top out-degree)"
+    },
+    "dynamics": {
+      "n_steps": 64,
+      "n_classes": 5,
+      "n_trials_per_class": 60,
+      "input_fraction": 0.1,
+      "I_amp": 6.0,
+      "lif": {
+        "dt": 1.0,
+        "tau_m": 6.0,
+        "v_th": 1.0,
+        "syn_scale": 0.002
+      },
+      "input_noise": 0.55
+    },
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "arms": [
+      "connectome_signed",
+      "connectome_abs",
+      "er_null",
+      "degree_shuffle",
+      "mlp"
+    ],
+    "note": "LSTM deferred until torch/GPU available; MLP is strong baseline for this turn",
+    "task_hardening": "temporal_holdout_noise055_5class_v6",
+    "harness_guards": {
+      "reject_dead_features": true,
+      "min_non_input_spikes": 1,
+      "on_dead": "raise",
+      "min_feature_std": 1e-06,
+      "min_unique_feature_rows": 10,
+      "bug_fixed": "E1 v2 features were all-zero: pulse width << tau_m so input neurons never reached v_th; all arms predicted one class \u2192 acc=3/18=0.1667"
+    }
+  },
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+  ],
+  "n": 500,
+  "nnz": 23708,
+  "n_probes": 450,
+  "target_rate": 0.01,
+  "pc_a_activity_resolution": {
+    "mean_a": 0.775,
+    "mean_b": 0.20000000000000004,
+    "mean_diff": 0.5750000000000001,
+    "ci95_diff": 0.0668621628542543,
+    "per_seed_diff": [
+      0.6333333333333333,
+      0.5777777777777777,
+      0.6000000000000001,
+      0.4888888888888889,
+      0.6111111111111112,
+      0.6555555555555554,
+      0.6333333333333333,
+      0.6444444444444444,
+      0.6000000000000001,
+      0.23333333333333334,
+      0.6666666666666667,
+      0.5555555555555556
+    ],
+    "ci_excludes_zero": true,
+    "n_seeds": 12,
+    "min_effect": 0.1,
+    "separated": true,
+    "detail": [
+      {
+        "seed": 0,
+        "quiescent": {
+          "gain": 0.3,
+          "syn_scale": 0.0008443315128890549,
+          "non_input_spikes": 0.0,
+          "acc": 0.2
+        },
+        "ignited": {
+          "gain": 12.0,
+          "syn_scale": 0.033773260515562196,
+          "non_input_spikes": 17194.0,
+          "acc": 0.8333333333333334
+        }
+      },
+      {
+        "seed": 1,
+        "quiescent": {
+          "gain": 0.3,
+          "syn_scale": 0.0008443315128890549,
+          "non_input_spikes": 0.0,
+          "acc": 0.2
+        },
+        "ignited": {
+          "gain": 12.0,
+          "syn_scale": 0.033773260515562196,
+          "non_input_spikes": 12217.0,
+          "acc": 0.7777777777777778
+        }
+      },
+      {
+        "seed": 2,
+        "quiescent": {
+          "gain": 0.3,
+          "syn_scale": 0.0008443315128890549,
+          "non_input_spikes": 0.0,
+          "acc": 0.2
+        },
+        "ignited": {
+          "gain": 12.0,
+          "syn_scale": 0.033773260515562196,
+          "non_input_spikes": 31760.0,
+          "acc": 0.8
+        }
+      },
+      {
+        "seed": 3,
+        "quiescent": {
+          "gain": 0.3,
+          "syn_scale": 0.0008443315128890549,
+          "non_input_spikes": 0.0,
+          "acc": 0.2
+        },
+        "ignited": {
+          "gain": 12.0,
+          "syn_scale": 0.033773260515562196,
+          "non_input_spikes": 10469.0,
+          "acc": 0.6888888888888889
+        }
+      },
+      {
+        "seed": 4,
+        "quiescent": {
+          "gain": 0.3,
+          "syn_scale": 0.0008443315128890549,
+          "non_input_spikes": 1.0,
+          "acc": 0.2
+        },
+        "ignited": {
+          "gain": 12.0,
+          "syn_scale": 0.033773260515562196,
+          "non_input_spikes": 22775.0,
+          "acc": 0.8111111111111111
+        }
+      },
+      {
+        "seed": 5,
+        "quiescent": {
+          "gain": 0.3,
+          "syn_scale": 0.0008443315128890549,
+          "non_input_spikes": 0.0,
+          "acc": 0.2
+        },
+        "ignited": {
+          "gain": 12.0,
+          "syn_scale": 0.033773260515562196,
+          "non_input_spikes": 20487.0,
+          "acc": 0.8555555555555555
+        }
+      },
+      {
+        "seed": 6,
+        "quiescent": {
+          "gain": 0.3,
+          "syn_scale": 0.0008443315128890549,
+          "non_input_spikes": 0.0,
+          "acc": 0.2
+        },
+        "ignited": {
+          "gain": 12.0,
+          "syn_scale": 0.033773260515562196,
+          "non_input_spikes": 28977.0,
+          "acc": 0.8333333333333334
+        }
+      },
+      {
+        "seed": 7,
+        "quiescent": {
+          "gain": 0.3,
+          "syn_scale": 0.0008443315128890549,
+          "non_input_spikes": 1.0,
+          "acc": 0.2
+        },
+        "ignited": {
+          "gain": 12.0,
+          "syn_scale": 0.033773260515562196,
+          "non_input_spikes": 27260.0,
+          "acc": 0.8444444444444444
+        }
+      },
+      {
+        "seed": 8,
+        "quiescent": {
+          "gain": 0.3,
+          "syn_scale": 0.0008443315128890549,
+          "non_input_spikes": 0.0,
+          "acc": 0.2
+        },
+        "ignited": {
+          "gain": 12.0,
+          "syn_scale": 0.033773260515562196,
+          "non_input_spikes": 26191.0,
+          "acc": 0.8
+        }
+      },
+      {
+        "seed": 9,
+        "quiescent": {
+          "gain": 0.3,
+          "syn_scale": 0.0008443315128890549,
+          "non_input_spikes": 0.0,
+          "acc": 0.2
+        },
+        "ignited": {
+          "gain": 12.0,
+          "syn_scale": 0.033773260515562196,
+          "non_input_spikes": 312.0,
+          "acc": 0.43333333333333335
+        }
+      },
+      {
+        "seed": 10,
+        "quiescent": {
+          "gain": 0.3,
+          "syn_scale": 0.0008443315128890549,
+          "non_input_spikes": 0.0,
+          "acc": 0.2
+        },
+        "ignited": {
+          "gain": 12.0,
+          "syn_scale": 0.033773260515562196,
+          "non_input_spikes": 15822.0,
+          "acc": 0.8666666666666667
+        }
+      },
+      {
+        "seed": 11,
+        "quiescent": {
+          "gain": 0.3,
+          "syn_scale": 0.0008443315128890549,
+          "non_input_spikes": 0.0,
+          "acc": 0.2
+        },
+        "ignited": {
+          "gain": 12.0,
+          "syn_scale": 0.033773260515562196,
+          "non_input_spikes": 10981.0,
+          "acc": 0.7555555555555555
+        }
+      }
+    ]
+  },
+  "pc_b_structure_resolution": {
+    "mean_a": 0.8037037037037038,
+    "mean_b": 0.6583333333333334,
+    "mean_diff": 0.14537037037037037,
+    "ci95_diff": 0.05283403936078005,
+    "per_seed_diff": [
+      0.15555555555555556,
+      0.12222222222222223,
+      0.05555555555555547,
+      0.022222222222222254,
+      0.12222222222222223,
+      0.21111111111111103,
+      0.05555555555555558,
+      0.1444444444444445,
+      0.0444444444444444,
+      0.288888888888889,
+      0.23333333333333328,
+      0.28888888888888886
+    ],
+    "ci_excludes_zero": true,
+    "n_seeds": 12,
+    "min_effect": 0.1,
+    "separated": true,
+    "mean_rate_ring": 0.010544319058641975,
+    "mean_rate_er": 0.035061410108024695,
+    "rate_confound_opposes_effect": true,
+    "detail": [
+      {
+        "seed": 0,
+        "ring": {
+          "gain": 1.57216796875,
+          "rate": 0.01131712962962963,
+          "matched": true,
+          "non_input_spikes": 97780.0,
+          "syn_scale": 0.036478753505770234,
+          "acc": 0.7888888888888889
+        },
+        "er": {
+          "gain": 1.8947081804275512,
+          "rate": 0.01861122685185185,
+          "matched": false,
+          "non_input_spikes": 160801.0,
+          "syn_scale": 0.04371813583324108,
+          "acc": 0.6333333333333333
+        }
+      },
+      {
+        "seed": 1,
+        "ring": {
+          "gain": 1.6855987548828124,
+          "rate": 0.010336921296296295,
+          "matched": true,
+          "non_input_spikes": 89311.0,
+          "syn_scale": 0.03898223951016666,
+          "acc": 0.7666666666666667
+        },
+        "er": {
+          "gain": 1.9025694370269777,
+          "rate": 0.01879525462962963,
+          "matched": false,
+          "non_input_spikes": 162391.0,
+          "syn_scale": 0.0437397434319413,
+          "acc": 0.6444444444444445
+        }
+      },
+      {
+        "seed": 2,
+        "ring": {
+          "gain": 1.630712890625,
+          "rate": 0.006356481481481481,
+          "matched": true,
+          "non_input_spikes": 54920.0,
+          "syn_scale": 0.03807028288301039,
+          "acc": 0.7333333333333333
+        },
+        "er": {
+          "gain": 1.912188756465912,
+          "rate": 0.098475,
+          "matched": false,
+          "non_input_spikes": 850824.0,
+          "syn_scale": 0.043874738628850454,
+          "acc": 0.6777777777777778
+        }
+      },
+      {
+        "seed": 3,
+        "ring": {
+          "gain": 1.740484619140625,
+          "rate": 0.01008761574074074,
+          "matched": true,
+          "non_input_spikes": 87157.0,
+          "syn_scale": 0.040497250078003665,
+          "acc": 0.6777777777777778
+        },
+        "er": {
+          "gain": 1.8571170806884765,
+          "rate": 0.00656412037037037,
+          "matched": false,
+          "non_input_spikes": 56714.0,
+          "syn_scale": 0.042682923546396474,
+          "acc": 0.6555555555555556
+        }
+      },
+      {
+        "seed": 4,
+        "ring": {
+          "gain": 1.5575317382812501,
+          "rate": 0.010082291666666666,
+          "matched": true,
+          "non_input_spikes": 87111.0,
+          "syn_scale": 0.03582976177004455,
+          "acc": 0.8666666666666667
+        },
+        "er": {
+          "gain": 1.8848172903060911,
+          "rate": 0.10411157407407408,
+          "matched": false,
+          "non_input_spikes": 899524.0,
+          "syn_scale": 0.04326929766733111,
+          "acc": 0.7444444444444445
+        }
+      },
+      {
+        "seed": 5,
+        "ring": {
+          "gain": 1.58680419921875,
+          "rate": 0.009741319444444445,
+          "matched": true,
+          "non_input_spikes": 84165.0,
+          "syn_scale": 0.03661694810841256,
+          "acc": 0.8555555555555555
+        },
+        "er": {
+          "gain": 1.9102877616882323,
+          "rate": 0.023693981481481483,
+          "matched": false,
+          "non_input_spikes": 204716.0,
+          "syn_scale": 0.04376861001242106,
+          "acc": 0.6444444444444445
+        }
+      },
+      {
+        "seed": 6,
+        "ring": {
+          "gain": 1.630712890625,
+          "rate": 0.011830902777777777,
+          "matched": true,
+          "non_input_spikes": 102219.0,
+          "syn_scale": 0.03785375848266995,
+          "acc": 0.6888888888888889
+        },
+        "er": {
+          "gain": 1.8889051437377928,
+          "rate": 0.006115740740740741,
+          "matched": false,
+          "non_input_spikes": 52840.0,
+          "syn_scale": 0.04363756246090784,
+          "acc": 0.6333333333333333
+        }
+      },
+      {
+        "seed": 7,
+        "ring": {
+          "gain": 1.6014404296875,
+          "rate": 0.012027083333333334,
+          "matched": true,
+          "non_input_spikes": 103914.0,
+          "syn_scale": 0.03709845781948317,
+          "acc": 0.8333333333333334
+        },
+        "er": {
+          "gain": 1.9110881805419924,
+          "rate": 0.03606863425925926,
+          "matched": false,
+          "non_input_spikes": 311633.0,
+          "syn_scale": 0.044067641229400906,
+          "acc": 0.6888888888888889
+        }
+      },
+      {
+        "seed": 8,
+        "ring": {
+          "gain": 1.740484619140625,
+          "rate": 0.00896423611111111,
+          "matched": true,
+          "non_input_spikes": 77451.0,
+          "syn_scale": 0.0402844831320036,
+          "acc": 0.6555555555555556
+        },
+        "er": {
+          "gain": 1.862662839889526,
+          "rate": 0.025970833333333332,
+          "matched": false,
+          "non_input_spikes": 224388.0,
+          "syn_scale": 0.04302540453062281,
+          "acc": 0.6111111111111112
+        }
+      },
+      {
+        "seed": 9,
+        "ring": {
+          "gain": 1.52825927734375,
+          "rate": 0.012976851851851852,
+          "matched": true,
+          "non_input_spikes": 112120.0,
+          "syn_scale": 0.03560372585058082,
+          "acc": 0.9555555555555556
+        },
+        "er": {
+          "gain": 1.9073147773742676,
+          "rate": 0.033198958333333334,
+          "matched": false,
+          "non_input_spikes": 286839.0,
+          "syn_scale": 0.043977002987374475,
+          "acc": 0.6666666666666666
+        }
+      },
+      {
+        "seed": 10,
+        "ring": {
+          "gain": 1.5428955078125002,
+          "rate": 0.010349537037037037,
+          "matched": true,
+          "non_input_spikes": 89420.0,
+          "syn_scale": 0.03587670633789589,
+          "acc": 0.8888888888888888
+        },
+        "er": {
+          "gain": 1.8778922379016878,
+          "rate": 0.03482546296296296,
+          "matched": false,
+          "non_input_spikes": 300892.0,
+          "syn_scale": 0.043153620023230935,
+          "acc": 0.6555555555555556
+        }
+      },
+      {
+        "seed": 11,
+        "ring": {
+          "gain": 1.5428955078125002,
+          "rate": 0.012461458333333333,
+          "matched": true,
+          "non_input_spikes": 107667.0,
+          "syn_scale": 0.03589165381612879,
+          "acc": 0.9333333333333333
+        },
+        "er": {
+          "gain": 1.8567597508430482,
+          "rate": 0.01430613425925926,
+          "matched": false,
+          "non_input_spikes": 123605.0,
+          "syn_scale": 0.042477422501807104,
+          "acc": 0.6444444444444445
+        }
+      }
+    ],
+    "rate_match_spread": 17.02354277062831
+  },
+  "gate_passed": true
+}

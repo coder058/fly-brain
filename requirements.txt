@@ -1,0 +1,11 @@
+# Pinned to the versions installed in .venv (Python 3.12.3) on Ubuntu-1.
+# Regenerate with: .venv/bin/pip freeze
+numpy==2.5.3
+pandas==3.0.5
+pyarrow==25.0.1
+python-dateutil==2.9.0.post0
+scipy==1.18.1
+six==1.17.0
+
+# test-only
+pytest==9.1.1

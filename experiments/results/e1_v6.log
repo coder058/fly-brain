@@ -1,0 +1,40 @@
+loading graph...
+seed 0...
+seed 1...
+seed 2...
+seed 3...
+seed 4...
+{
+  "connectome_signed": {
+    "mean_acc": 0.76,
+    "std": 0.0434613493680177,
+    "ci95": 0.038095552379656,
+    "n": 5
+  },
+  "connectome_abs": {
+    "mean_acc": 0.7466666666666667,
+    "std": 0.0691214711777591,
+    "ci95": 0.060587640837238624,
+    "n": 5
+  },
+  "er_null": {
+    "mean_acc": 0.76,
+    "std": 0.0434613493680177,
+    "ci95": 0.038095552379656,
+    "n": 5
+  },
+  "degree_shuffle": {
+    "mean_acc": 0.7733333333333334,
+    "std": 0.05477225575051666,
+    "ci95": 0.048009998958550335,
+    "n": 5
+  },
+  "mlp": {
+    "mean_acc": 0.8666666666666668,
+    "std": 0.0408248290463863,
+    "ci95": 0.035784540423670845,
+    "n": 5
+  }
+}
+validity {'chance': 0.2, 'nulls_near_chance': False, 'not_ceiling': True, 'valid_for_claims': False}
+WROTE /home/ubuntu/fly-lab/experiments/results/e1_pilot.json

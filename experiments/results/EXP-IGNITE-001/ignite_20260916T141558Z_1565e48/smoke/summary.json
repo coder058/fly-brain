@@ -1,0 +1,13 @@
+{
+  "expected_seeds": 1,
+  "experiment_id": "EXP-IGNITE-001",
+  "no_accuracy_or_auc_computed": true,
+  "pair_cell_count": 0,
+  "pair_cells": [],
+  "protocol_sha256": "e9f8a06d4c7c4294c339412d84d7dd155b4b1adfe75085d9941c8afa860aaca2",
+  "runner_sha256": "f96612d01178376e86d4d7fb8c99a7152ebcabb99c90a71e0a3fc4ea20b85247",
+  "scientific_result": false,
+  "seeds_written": 1,
+  "stage": "smoke",
+  "status": "NO_COIGNITE"
+}

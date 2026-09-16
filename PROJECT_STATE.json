@@ -1,0 +1,11 @@
+{
+  "mission": "FLY_BRAIN_ANOMALY_DETECTOR_V1",
+  "E1_TOPOLOGY_ADVANTAGE": false,
+  "current": "EXP-IGNITE-002 NO_COIGNITE; TRACK-7 QUEUED_2VCPU; MEM-004 blocked; EXP-NAV-001 DEFERRED_HARDWARE; A2A bounded queue present; no new scientific ID authorized",
+  "anomaly": {
+    "001": "pipeline smoke — ceiling (not a claim)",
+    "002": "subtle local_glitch",
+    "003": "rare drift ~5%"
+  },
+  "updated_utc": "2026-09-16T14:48:34Z"
+}

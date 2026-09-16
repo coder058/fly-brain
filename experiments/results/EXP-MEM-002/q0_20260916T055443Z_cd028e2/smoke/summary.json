@@ -1,0 +1,93 @@
+{
+  "arms": [
+    "connectome",
+    "dp",
+    "weight_perm",
+    "er",
+    "ring"
+  ],
+  "by_delay": {
+    "10": {
+      "cells": 1,
+      "complete": false,
+      "expected_cells": 1
+    },
+    "100": {
+      "cells": 1,
+      "complete": false,
+      "expected_cells": 1
+    }
+  },
+  "cells_written": 2,
+  "complete_delays": [],
+  "delays": [
+    10,
+    100
+  ],
+  "expected_cells": 2,
+  "experiment_id": "EXP-MEM-002",
+  "missing_cells": [
+    {
+      "arm": "connectome",
+      "delay": 10,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 0,
+      "variant": "connectome-0"
+    },
+    {
+      "arm": "dp",
+      "delay": 10,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 0,
+      "variant": "dp-0"
+    },
+    {
+      "arm": "er",
+      "delay": 10,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 0,
+      "variant": "er-0"
+    },
+    {
+      "arm": "ring",
+      "delay": 10,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 0,
+      "variant": "ring-0"
+    },
+    {
+      "arm": "weight_perm",
+      "delay": 10,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 0,
+      "variant": "weight_perm-0"
+    },
+    {
+      "arm": "connectome",
+      "delay": 100,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 0,
+      "variant": "connectome-0"
+    },
+    {
+      "arm": "ring",
+      "delay": 100,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 0,
+      "variant": "ring-0"
+    },
+    {
+      "arm": "weight_perm",
+      "delay": 100,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 0,
+      "variant": "weight_perm-0"
+    }
+  ],
+  "n_seeds": 1,
+  "no_accuracy_or_auc_computed": true,
+  "protocol_sha256": "76beba05b047dfaa2cbb3f496258f5babb3005f1162ac09e44eb84ef72076383",
+  "runner_sha256": "13b58834d1ad282c63bc56605e41b32fbd63afd13add3d6d748b1908912cb767",
+  "scientific_result": false,
+  "status": "INSTRUMENT_INCOMPLETE"
+}

@@ -1,0 +1,10 @@
+{"stage": "smoke", "seed": 0, "lag": 10, "live": {"connectome-0": true, "dp-0": true}, "acc": {"connectome-0": 1.0, "dp-0": 0.5}, "wall_s": 0.019, "rate_match": true}
+{"stage": "smoke", "seed": 0, "lag": 100, "live": {"connectome-0": true, "dp-0": true}, "acc": {"connectome-0": 1.0, "dp-0": 0.875}, "wall_s": 0.115, "rate_match": true}
+{
+  "run_root": "/home/ubuntu/fly-lab/experiments/results/EXP-MEM-001/post_inst_20260916T030347Z_dcc995f",
+  "stage": "smoke",
+  "status": "SMOKE_COMPLETE",
+  "summary": "experiments/results/EXP-MEM-001/post_inst_20260916T030347Z_dcc995f/smoke/summary.json",
+  "primary_rate_match": null,
+  "liveness": null
+}

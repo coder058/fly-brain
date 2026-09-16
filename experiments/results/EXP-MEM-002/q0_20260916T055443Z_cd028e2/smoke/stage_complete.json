@@ -1,0 +1,9 @@
+{
+  "completed_utc": "2026-09-16T05:55:03.582857+00:00",
+  "experiment_id": "EXP-MEM-002",
+  "protocol_sha256": "76beba05b047dfaa2cbb3f496258f5babb3005f1162ac09e44eb84ef72076383",
+  "runner_sha256": "13b58834d1ad282c63bc56605e41b32fbd63afd13add3d6d748b1908912cb767",
+  "stage": "smoke",
+  "status": "INSTRUMENT_INCOMPLETE",
+  "summary_path": "experiments/results/EXP-MEM-002/q0_20260916T055443Z_cd028e2/smoke/summary.json"
+}

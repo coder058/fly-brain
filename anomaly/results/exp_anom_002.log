@@ -1,0 +1,27 @@
+{
+  "threshold": {
+    "auroc": 0.7116666666666667
+  },
+  "pca": {
+    "auroc": 0.684
+  },
+  "isolation_forest": {
+    "auroc": 0.514
+  },
+  "ocsvm": {
+    "auroc": 0.6326666666666667
+  },
+  "mlp_recon": {
+    "auroc": 0.7013333333333334
+  },
+  "fly_signed": {
+    "auroc": 0.5195
+  },
+  "fly_er_null": {
+    "auroc": 0.483
+  },
+  "fly_abs": {
+    "auroc": 0.5765
+  }
+}
+ceiling_like False seconds 7.11 WROTE /home/ubuntu/fly-lab/anomaly/results/exp_anom_002_20260915T190454Z.json

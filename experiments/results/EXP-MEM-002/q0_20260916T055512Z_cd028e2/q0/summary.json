@@ -1,0 +1,2000 @@
+{
+  "arms": [
+    "connectome",
+    "dp",
+    "weight_perm",
+    "er",
+    "ring"
+  ],
+  "by_delay": {
+    "10": {
+      "cells": 12,
+      "complete": false,
+      "expected_cells": 12
+    },
+    "100": {
+      "cells": 12,
+      "complete": false,
+      "expected_cells": 12
+    },
+    "25": {
+      "cells": 12,
+      "complete": false,
+      "expected_cells": 12
+    },
+    "250": {
+      "cells": 12,
+      "complete": false,
+      "expected_cells": 12
+    },
+    "50": {
+      "cells": 12,
+      "complete": false,
+      "expected_cells": 12
+    },
+    "500": {
+      "cells": 12,
+      "complete": false,
+      "expected_cells": 12
+    }
+  },
+  "cells_written": 72,
+  "complete_delays": [],
+  "delays": [
+    10,
+    25,
+    50,
+    100,
+    250,
+    500
+  ],
+  "expected_cells": 72,
+  "experiment_id": "EXP-MEM-002",
+  "missing_cells": [
+    {
+      "arm": "dp",
+      "delay": 10,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 0,
+      "variant": "dp-0"
+    },
+    {
+      "arm": "er",
+      "delay": 10,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 0,
+      "variant": "er-0"
+    },
+    {
+      "arm": "ring",
+      "delay": 10,
+      "reason": "feature/liveness guard failed in split(s): test; train/test realised rate outside preregistered tolerance",
+      "seed": 0,
+      "variant": "ring-0"
+    },
+    {
+      "arm": "weight_perm",
+      "delay": 10,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 0,
+      "variant": "weight_perm-0"
+    },
+    {
+      "arm": "connectome",
+      "delay": 10,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 1,
+      "variant": "connectome-0"
+    },
+    {
+      "arm": "dp",
+      "delay": 10,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 1,
+      "variant": "dp-0"
+    },
+    {
+      "arm": "er",
+      "delay": 10,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 1,
+      "variant": "er-0"
+    },
+    {
+      "arm": "ring",
+      "delay": 10,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 1,
+      "variant": "ring-0"
+    },
+    {
+      "arm": "weight_perm",
+      "delay": 10,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 1,
+      "variant": "weight_perm-0"
+    },
+    {
+      "arm": "connectome",
+      "delay": 10,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 2,
+      "variant": "connectome-0"
+    },
+    {
+      "arm": "dp",
+      "delay": 10,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 2,
+      "variant": "dp-0"
+    },
+    {
+      "arm": "er",
+      "delay": 10,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 2,
+      "variant": "er-0"
+    },
+    {
+      "arm": "ring",
+      "delay": 10,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 2,
+      "variant": "ring-0"
+    },
+    {
+      "arm": "weight_perm",
+      "delay": 10,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 2,
+      "variant": "weight_perm-0"
+    },
+    {
+      "arm": "connectome",
+      "delay": 10,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 3,
+      "variant": "connectome-0"
+    },
+    {
+      "arm": "dp",
+      "delay": 10,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 3,
+      "variant": "dp-0"
+    },
+    {
+      "arm": "er",
+      "delay": 10,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 3,
+      "variant": "er-0"
+    },
+    {
+      "arm": "ring",
+      "delay": 10,
+      "reason": "feature/liveness guard failed in split(s): train; train/test realised rate outside preregistered tolerance",
+      "seed": 3,
+      "variant": "ring-0"
+    },
+    {
+      "arm": "weight_perm",
+      "delay": 10,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 3,
+      "variant": "weight_perm-0"
+    },
+    {
+      "arm": "connectome",
+      "delay": 10,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 4,
+      "variant": "connectome-0"
+    },
+    {
+      "arm": "dp",
+      "delay": 10,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 4,
+      "variant": "dp-0"
+    },
+    {
+      "arm": "er",
+      "delay": 10,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 4,
+      "variant": "er-0"
+    },
+    {
+      "arm": "ring",
+      "delay": 10,
+      "reason": "feature/liveness guard failed in split(s): test; train/test realised rate outside preregistered tolerance",
+      "seed": 4,
+      "variant": "ring-0"
+    },
+    {
+      "arm": "weight_perm",
+      "delay": 10,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 4,
+      "variant": "weight_perm-0"
+    },
+    {
+      "arm": "dp",
+      "delay": 10,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 5,
+      "variant": "dp-0"
+    },
+    {
+      "arm": "er",
+      "delay": 10,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 5,
+      "variant": "er-0"
+    },
+    {
+      "arm": "ring",
+      "delay": 10,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 5,
+      "variant": "ring-0"
+    },
+    {
+      "arm": "weight_perm",
+      "delay": 10,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 5,
+      "variant": "weight_perm-0"
+    },
+    {
+      "arm": "connectome",
+      "delay": 10,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 6,
+      "variant": "connectome-0"
+    },
+    {
+      "arm": "er",
+      "delay": 10,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 6,
+      "variant": "er-0"
+    },
+    {
+      "arm": "ring",
+      "delay": 10,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 6,
+      "variant": "ring-0"
+    },
+    {
+      "arm": "connectome",
+      "delay": 10,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 7,
+      "variant": "connectome-0"
+    },
+    {
+      "arm": "dp",
+      "delay": 10,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 7,
+      "variant": "dp-0"
+    },
+    {
+      "arm": "er",
+      "delay": 10,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 7,
+      "variant": "er-0"
+    },
+    {
+      "arm": "ring",
+      "delay": 10,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 7,
+      "variant": "ring-0"
+    },
+    {
+      "arm": "weight_perm",
+      "delay": 10,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 7,
+      "variant": "weight_perm-0"
+    },
+    {
+      "arm": "connectome",
+      "delay": 10,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 8,
+      "variant": "connectome-0"
+    },
+    {
+      "arm": "dp",
+      "delay": 10,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 8,
+      "variant": "dp-0"
+    },
+    {
+      "arm": "er",
+      "delay": 10,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 8,
+      "variant": "er-0"
+    },
+    {
+      "arm": "ring",
+      "delay": 10,
+      "reason": "feature/liveness guard failed in split(s): test; train/test realised rate outside preregistered tolerance",
+      "seed": 8,
+      "variant": "ring-0"
+    },
+    {
+      "arm": "weight_perm",
+      "delay": 10,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 8,
+      "variant": "weight_perm-0"
+    },
+    {
+      "arm": "connectome",
+      "delay": 10,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 9,
+      "variant": "connectome-0"
+    },
+    {
+      "arm": "dp",
+      "delay": 10,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 9,
+      "variant": "dp-0"
+    },
+    {
+      "arm": "er",
+      "delay": 10,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 9,
+      "variant": "er-0"
+    },
+    {
+      "arm": "ring",
+      "delay": 10,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 9,
+      "variant": "ring-0"
+    },
+    {
+      "arm": "weight_perm",
+      "delay": 10,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 9,
+      "variant": "weight_perm-0"
+    },
+    {
+      "arm": "dp",
+      "delay": 10,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 10,
+      "variant": "dp-0"
+    },
+    {
+      "arm": "er",
+      "delay": 10,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 10,
+      "variant": "er-0"
+    },
+    {
+      "arm": "ring",
+      "delay": 10,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 10,
+      "variant": "ring-0"
+    },
+    {
+      "arm": "weight_perm",
+      "delay": 10,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 10,
+      "variant": "weight_perm-0"
+    },
+    {
+      "arm": "connectome",
+      "delay": 10,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 11,
+      "variant": "connectome-0"
+    },
+    {
+      "arm": "dp",
+      "delay": 10,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 11,
+      "variant": "dp-0"
+    },
+    {
+      "arm": "er",
+      "delay": 10,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 11,
+      "variant": "er-0"
+    },
+    {
+      "arm": "ring",
+      "delay": 10,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 11,
+      "variant": "ring-0"
+    },
+    {
+      "arm": "weight_perm",
+      "delay": 10,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 11,
+      "variant": "weight_perm-0"
+    },
+    {
+      "arm": "connectome",
+      "delay": 25,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 0,
+      "variant": "connectome-0"
+    },
+    {
+      "arm": "dp",
+      "delay": 25,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 0,
+      "variant": "dp-0"
+    },
+    {
+      "arm": "er",
+      "delay": 25,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 0,
+      "variant": "er-0"
+    },
+    {
+      "arm": "ring",
+      "delay": 25,
+      "reason": "feature/liveness guard failed in split(s): train, test; train/test realised rate outside preregistered tolerance",
+      "seed": 0,
+      "variant": "ring-0"
+    },
+    {
+      "arm": "weight_perm",
+      "delay": 25,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 0,
+      "variant": "weight_perm-0"
+    },
+    {
+      "arm": "dp",
+      "delay": 25,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 1,
+      "variant": "dp-0"
+    },
+    {
+      "arm": "er",
+      "delay": 25,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 1,
+      "variant": "er-0"
+    },
+    {
+      "arm": "ring",
+      "delay": 25,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 1,
+      "variant": "ring-0"
+    },
+    {
+      "arm": "weight_perm",
+      "delay": 25,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 1,
+      "variant": "weight_perm-0"
+    },
+    {
+      "arm": "connectome",
+      "delay": 25,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 2,
+      "variant": "connectome-0"
+    },
+    {
+      "arm": "ring",
+      "delay": 25,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 2,
+      "variant": "ring-0"
+    },
+    {
+      "arm": "weight_perm",
+      "delay": 25,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 2,
+      "variant": "weight_perm-0"
+    },
+    {
+      "arm": "connectome",
+      "delay": 25,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 3,
+      "variant": "connectome-0"
+    },
+    {
+      "arm": "dp",
+      "delay": 25,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 3,
+      "variant": "dp-0"
+    },
+    {
+      "arm": "er",
+      "delay": 25,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 3,
+      "variant": "er-0"
+    },
+    {
+      "arm": "ring",
+      "delay": 25,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 3,
+      "variant": "ring-0"
+    },
+    {
+      "arm": "weight_perm",
+      "delay": 25,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 3,
+      "variant": "weight_perm-0"
+    },
+    {
+      "arm": "connectome",
+      "delay": 25,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 4,
+      "variant": "connectome-0"
+    },
+    {
+      "arm": "dp",
+      "delay": 25,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 4,
+      "variant": "dp-0"
+    },
+    {
+      "arm": "er",
+      "delay": 25,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 4,
+      "variant": "er-0"
+    },
+    {
+      "arm": "ring",
+      "delay": 25,
+      "reason": "feature/liveness guard failed in split(s): train, test; train/test realised rate outside preregistered tolerance",
+      "seed": 4,
+      "variant": "ring-0"
+    },
+    {
+      "arm": "weight_perm",
+      "delay": 25,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 4,
+      "variant": "weight_perm-0"
+    },
+    {
+      "arm": "connectome",
+      "delay": 25,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 5,
+      "variant": "connectome-0"
+    },
+    {
+      "arm": "dp",
+      "delay": 25,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 5,
+      "variant": "dp-0"
+    },
+    {
+      "arm": "er",
+      "delay": 25,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 5,
+      "variant": "er-0"
+    },
+    {
+      "arm": "ring",
+      "delay": 25,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 5,
+      "variant": "ring-0"
+    },
+    {
+      "arm": "connectome",
+      "delay": 25,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 6,
+      "variant": "connectome-0"
+    },
+    {
+      "arm": "er",
+      "delay": 25,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 6,
+      "variant": "er-0"
+    },
+    {
+      "arm": "ring",
+      "delay": 25,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 6,
+      "variant": "ring-0"
+    },
+    {
+      "arm": "weight_perm",
+      "delay": 25,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 6,
+      "variant": "weight_perm-0"
+    },
+    {
+      "arm": "connectome",
+      "delay": 25,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 7,
+      "variant": "connectome-0"
+    },
+    {
+      "arm": "er",
+      "delay": 25,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 7,
+      "variant": "er-0"
+    },
+    {
+      "arm": "ring",
+      "delay": 25,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 7,
+      "variant": "ring-0"
+    },
+    {
+      "arm": "weight_perm",
+      "delay": 25,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 7,
+      "variant": "weight_perm-0"
+    },
+    {
+      "arm": "connectome",
+      "delay": 25,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 8,
+      "variant": "connectome-0"
+    },
+    {
+      "arm": "dp",
+      "delay": 25,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 8,
+      "variant": "dp-0"
+    },
+    {
+      "arm": "er",
+      "delay": 25,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 8,
+      "variant": "er-0"
+    },
+    {
+      "arm": "ring",
+      "delay": 25,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 8,
+      "variant": "ring-0"
+    },
+    {
+      "arm": "weight_perm",
+      "delay": 25,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 8,
+      "variant": "weight_perm-0"
+    },
+    {
+      "arm": "connectome",
+      "delay": 25,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 9,
+      "variant": "connectome-0"
+    },
+    {
+      "arm": "dp",
+      "delay": 25,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 9,
+      "variant": "dp-0"
+    },
+    {
+      "arm": "er",
+      "delay": 25,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 9,
+      "variant": "er-0"
+    },
+    {
+      "arm": "ring",
+      "delay": 25,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 9,
+      "variant": "ring-0"
+    },
+    {
+      "arm": "weight_perm",
+      "delay": 25,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 9,
+      "variant": "weight_perm-0"
+    },
+    {
+      "arm": "connectome",
+      "delay": 25,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 10,
+      "variant": "connectome-0"
+    },
+    {
+      "arm": "dp",
+      "delay": 25,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 10,
+      "variant": "dp-0"
+    },
+    {
+      "arm": "er",
+      "delay": 25,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 10,
+      "variant": "er-0"
+    },
+    {
+      "arm": "ring",
+      "delay": 25,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 10,
+      "variant": "ring-0"
+    },
+    {
+      "arm": "weight_perm",
+      "delay": 25,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 10,
+      "variant": "weight_perm-0"
+    },
+    {
+      "arm": "dp",
+      "delay": 25,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 11,
+      "variant": "dp-0"
+    },
+    {
+      "arm": "er",
+      "delay": 25,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 11,
+      "variant": "er-0"
+    },
+    {
+      "arm": "ring",
+      "delay": 25,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 11,
+      "variant": "ring-0"
+    },
+    {
+      "arm": "weight_perm",
+      "delay": 25,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 11,
+      "variant": "weight_perm-0"
+    },
+    {
+      "arm": "connectome",
+      "delay": 50,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 0,
+      "variant": "connectome-0"
+    },
+    {
+      "arm": "dp",
+      "delay": 50,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 0,
+      "variant": "dp-0"
+    },
+    {
+      "arm": "er",
+      "delay": 50,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 0,
+      "variant": "er-0"
+    },
+    {
+      "arm": "ring",
+      "delay": 50,
+      "reason": "feature/liveness guard failed in split(s): test; train/test realised rate outside preregistered tolerance",
+      "seed": 0,
+      "variant": "ring-0"
+    },
+    {
+      "arm": "weight_perm",
+      "delay": 50,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 0,
+      "variant": "weight_perm-0"
+    },
+    {
+      "arm": "connectome",
+      "delay": 50,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 1,
+      "variant": "connectome-0"
+    },
+    {
+      "arm": "ring",
+      "delay": 50,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 1,
+      "variant": "ring-0"
+    },
+    {
+      "arm": "weight_perm",
+      "delay": 50,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 1,
+      "variant": "weight_perm-0"
+    },
+    {
+      "arm": "connectome",
+      "delay": 50,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 2,
+      "variant": "connectome-0"
+    },
+    {
+      "arm": "er",
+      "delay": 50,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 2,
+      "variant": "er-0"
+    },
+    {
+      "arm": "connectome",
+      "delay": 50,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 3,
+      "variant": "connectome-0"
+    },
+    {
+      "arm": "ring",
+      "delay": 50,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 3,
+      "variant": "ring-0"
+    },
+    {
+      "arm": "weight_perm",
+      "delay": 50,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 3,
+      "variant": "weight_perm-0"
+    },
+    {
+      "arm": "connectome",
+      "delay": 50,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 4,
+      "variant": "connectome-0"
+    },
+    {
+      "arm": "dp",
+      "delay": 50,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 4,
+      "variant": "dp-0"
+    },
+    {
+      "arm": "er",
+      "delay": 50,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 4,
+      "variant": "er-0"
+    },
+    {
+      "arm": "ring",
+      "delay": 50,
+      "reason": "feature/liveness guard failed in split(s): test; train/test realised rate outside preregistered tolerance",
+      "seed": 4,
+      "variant": "ring-0"
+    },
+    {
+      "arm": "weight_perm",
+      "delay": 50,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 4,
+      "variant": "weight_perm-0"
+    },
+    {
+      "arm": "connectome",
+      "delay": 50,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 5,
+      "variant": "connectome-0"
+    },
+    {
+      "arm": "dp",
+      "delay": 50,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 5,
+      "variant": "dp-0"
+    },
+    {
+      "arm": "er",
+      "delay": 50,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 5,
+      "variant": "er-0"
+    },
+    {
+      "arm": "ring",
+      "delay": 50,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 5,
+      "variant": "ring-0"
+    },
+    {
+      "arm": "connectome",
+      "delay": 50,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 6,
+      "variant": "connectome-0"
+    },
+    {
+      "arm": "er",
+      "delay": 50,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 6,
+      "variant": "er-0"
+    },
+    {
+      "arm": "ring",
+      "delay": 50,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 6,
+      "variant": "ring-0"
+    },
+    {
+      "arm": "weight_perm",
+      "delay": 50,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 6,
+      "variant": "weight_perm-0"
+    },
+    {
+      "arm": "connectome",
+      "delay": 50,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 7,
+      "variant": "connectome-0"
+    },
+    {
+      "arm": "ring",
+      "delay": 50,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 7,
+      "variant": "ring-0"
+    },
+    {
+      "arm": "connectome",
+      "delay": 50,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 8,
+      "variant": "connectome-0"
+    },
+    {
+      "arm": "dp",
+      "delay": 50,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 8,
+      "variant": "dp-0"
+    },
+    {
+      "arm": "er",
+      "delay": 50,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 8,
+      "variant": "er-0"
+    },
+    {
+      "arm": "ring",
+      "delay": 50,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 8,
+      "variant": "ring-0"
+    },
+    {
+      "arm": "weight_perm",
+      "delay": 50,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 8,
+      "variant": "weight_perm-0"
+    },
+    {
+      "arm": "connectome",
+      "delay": 50,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 9,
+      "variant": "connectome-0"
+    },
+    {
+      "arm": "dp",
+      "delay": 50,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 9,
+      "variant": "dp-0"
+    },
+    {
+      "arm": "er",
+      "delay": 50,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 9,
+      "variant": "er-0"
+    },
+    {
+      "arm": "ring",
+      "delay": 50,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 9,
+      "variant": "ring-0"
+    },
+    {
+      "arm": "weight_perm",
+      "delay": 50,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 9,
+      "variant": "weight_perm-0"
+    },
+    {
+      "arm": "connectome",
+      "delay": 50,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 10,
+      "variant": "connectome-0"
+    },
+    {
+      "arm": "er",
+      "delay": 50,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 10,
+      "variant": "er-0"
+    },
+    {
+      "arm": "ring",
+      "delay": 50,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 10,
+      "variant": "ring-0"
+    },
+    {
+      "arm": "dp",
+      "delay": 50,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 11,
+      "variant": "dp-0"
+    },
+    {
+      "arm": "er",
+      "delay": 50,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 11,
+      "variant": "er-0"
+    },
+    {
+      "arm": "ring",
+      "delay": 50,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 11,
+      "variant": "ring-0"
+    },
+    {
+      "arm": "weight_perm",
+      "delay": 50,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 11,
+      "variant": "weight_perm-0"
+    },
+    {
+      "arm": "connectome",
+      "delay": 100,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 0,
+      "variant": "connectome-0"
+    },
+    {
+      "arm": "dp",
+      "delay": 100,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 0,
+      "variant": "dp-0"
+    },
+    {
+      "arm": "er",
+      "delay": 100,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 0,
+      "variant": "er-0"
+    },
+    {
+      "arm": "ring",
+      "delay": 100,
+      "reason": "feature/liveness guard failed in split(s): test; train/test realised rate outside preregistered tolerance",
+      "seed": 0,
+      "variant": "ring-0"
+    },
+    {
+      "arm": "weight_perm",
+      "delay": 100,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 0,
+      "variant": "weight_perm-0"
+    },
+    {
+      "arm": "connectome",
+      "delay": 100,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 1,
+      "variant": "connectome-0"
+    },
+    {
+      "arm": "ring",
+      "delay": 100,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 1,
+      "variant": "ring-0"
+    },
+    {
+      "arm": "connectome",
+      "delay": 100,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 2,
+      "variant": "connectome-0"
+    },
+    {
+      "arm": "er",
+      "delay": 100,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 2,
+      "variant": "er-0"
+    },
+    {
+      "arm": "ring",
+      "delay": 100,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 2,
+      "variant": "ring-0"
+    },
+    {
+      "arm": "connectome",
+      "delay": 100,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 3,
+      "variant": "connectome-0"
+    },
+    {
+      "arm": "ring",
+      "delay": 100,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 3,
+      "variant": "ring-0"
+    },
+    {
+      "arm": "connectome",
+      "delay": 100,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 4,
+      "variant": "connectome-0"
+    },
+    {
+      "arm": "dp",
+      "delay": 100,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 4,
+      "variant": "dp-0"
+    },
+    {
+      "arm": "er",
+      "delay": 100,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 4,
+      "variant": "er-0"
+    },
+    {
+      "arm": "ring",
+      "delay": 100,
+      "reason": "feature/liveness guard failed in split(s): train; train/test realised rate outside preregistered tolerance",
+      "seed": 4,
+      "variant": "ring-0"
+    },
+    {
+      "arm": "connectome",
+      "delay": 100,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 5,
+      "variant": "connectome-0"
+    },
+    {
+      "arm": "er",
+      "delay": 100,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 5,
+      "variant": "er-0"
+    },
+    {
+      "arm": "ring",
+      "delay": 100,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 5,
+      "variant": "ring-0"
+    },
+    {
+      "arm": "weight_perm",
+      "delay": 100,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 5,
+      "variant": "weight_perm-0"
+    },
+    {
+      "arm": "connectome",
+      "delay": 100,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 6,
+      "variant": "connectome-0"
+    },
+    {
+      "arm": "ring",
+      "delay": 100,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 6,
+      "variant": "ring-0"
+    },
+    {
+      "arm": "weight_perm",
+      "delay": 100,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 6,
+      "variant": "weight_perm-0"
+    },
+    {
+      "arm": "connectome",
+      "delay": 100,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 7,
+      "variant": "connectome-0"
+    },
+    {
+      "arm": "connectome",
+      "delay": 100,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 8,
+      "variant": "connectome-0"
+    },
+    {
+      "arm": "er",
+      "delay": 100,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 8,
+      "variant": "er-0"
+    },
+    {
+      "arm": "ring",
+      "delay": 100,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 8,
+      "variant": "ring-0"
+    },
+    {
+      "arm": "connectome",
+      "delay": 100,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 9,
+      "variant": "connectome-0"
+    },
+    {
+      "arm": "dp",
+      "delay": 100,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 9,
+      "variant": "dp-0"
+    },
+    {
+      "arm": "er",
+      "delay": 100,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 9,
+      "variant": "er-0"
+    },
+    {
+      "arm": "ring",
+      "delay": 100,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 9,
+      "variant": "ring-0"
+    },
+    {
+      "arm": "connectome",
+      "delay": 100,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 10,
+      "variant": "connectome-0"
+    },
+    {
+      "arm": "ring",
+      "delay": 100,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 10,
+      "variant": "ring-0"
+    },
+    {
+      "arm": "er",
+      "delay": 100,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 11,
+      "variant": "er-0"
+    },
+    {
+      "arm": "ring",
+      "delay": 100,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 11,
+      "variant": "ring-0"
+    },
+    {
+      "arm": "weight_perm",
+      "delay": 100,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 11,
+      "variant": "weight_perm-0"
+    },
+    {
+      "arm": "connectome",
+      "delay": 250,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 0,
+      "variant": "connectome-0"
+    },
+    {
+      "arm": "dp",
+      "delay": 250,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 0,
+      "variant": "dp-0"
+    },
+    {
+      "arm": "er",
+      "delay": 250,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 0,
+      "variant": "er-0"
+    },
+    {
+      "arm": "ring",
+      "delay": 250,
+      "reason": "feature/liveness guard failed in split(s): train; train/test realised rate outside preregistered tolerance",
+      "seed": 0,
+      "variant": "ring-0"
+    },
+    {
+      "arm": "weight_perm",
+      "delay": 250,
+      "reason": "feature/liveness guard failed in split(s): train; train/test realised rate outside preregistered tolerance",
+      "seed": 0,
+      "variant": "weight_perm-0"
+    },
+    {
+      "arm": "connectome",
+      "delay": 250,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 1,
+      "variant": "connectome-0"
+    },
+    {
+      "arm": "er",
+      "delay": 250,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 1,
+      "variant": "er-0"
+    },
+    {
+      "arm": "ring",
+      "delay": 250,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 1,
+      "variant": "ring-0"
+    },
+    {
+      "arm": "weight_perm",
+      "delay": 250,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 1,
+      "variant": "weight_perm-0"
+    },
+    {
+      "arm": "connectome",
+      "delay": 250,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 2,
+      "variant": "connectome-0"
+    },
+    {
+      "arm": "er",
+      "delay": 250,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 2,
+      "variant": "er-0"
+    },
+    {
+      "arm": "ring",
+      "delay": 250,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 2,
+      "variant": "ring-0"
+    },
+    {
+      "arm": "connectome",
+      "delay": 250,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 3,
+      "variant": "connectome-0"
+    },
+    {
+      "arm": "er",
+      "delay": 250,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 3,
+      "variant": "er-0"
+    },
+    {
+      "arm": "ring",
+      "delay": 250,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 3,
+      "variant": "ring-0"
+    },
+    {
+      "arm": "connectome",
+      "delay": 250,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 4,
+      "variant": "connectome-0"
+    },
+    {
+      "arm": "dp",
+      "delay": 250,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 4,
+      "variant": "dp-0"
+    },
+    {
+      "arm": "er",
+      "delay": 250,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 4,
+      "variant": "er-0"
+    },
+    {
+      "arm": "ring",
+      "delay": 250,
+      "reason": "feature/liveness guard failed in split(s): train, test; train/test realised rate outside preregistered tolerance",
+      "seed": 4,
+      "variant": "ring-0"
+    },
+    {
+      "arm": "connectome",
+      "delay": 250,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 5,
+      "variant": "connectome-0"
+    },
+    {
+      "arm": "ring",
+      "delay": 250,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 5,
+      "variant": "ring-0"
+    },
+    {
+      "arm": "weight_perm",
+      "delay": 250,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 5,
+      "variant": "weight_perm-0"
+    },
+    {
+      "arm": "ring",
+      "delay": 250,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 6,
+      "variant": "ring-0"
+    },
+    {
+      "arm": "weight_perm",
+      "delay": 250,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 6,
+      "variant": "weight_perm-0"
+    },
+    {
+      "arm": "connectome",
+      "delay": 250,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 7,
+      "variant": "connectome-0"
+    },
+    {
+      "arm": "er",
+      "delay": 250,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 7,
+      "variant": "er-0"
+    },
+    {
+      "arm": "ring",
+      "delay": 250,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 7,
+      "variant": "ring-0"
+    },
+    {
+      "arm": "connectome",
+      "delay": 250,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 8,
+      "variant": "connectome-0"
+    },
+    {
+      "arm": "dp",
+      "delay": 250,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 8,
+      "variant": "dp-0"
+    },
+    {
+      "arm": "er",
+      "delay": 250,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 8,
+      "variant": "er-0"
+    },
+    {
+      "arm": "ring",
+      "delay": 250,
+      "reason": "feature/liveness guard failed in split(s): train; train/test realised rate outside preregistered tolerance",
+      "seed": 8,
+      "variant": "ring-0"
+    },
+    {
+      "arm": "weight_perm",
+      "delay": 250,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 8,
+      "variant": "weight_perm-0"
+    },
+    {
+      "arm": "connectome",
+      "delay": 250,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 9,
+      "variant": "connectome-0"
+    },
+    {
+      "arm": "dp",
+      "delay": 250,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 9,
+      "variant": "dp-0"
+    },
+    {
+      "arm": "er",
+      "delay": 250,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 9,
+      "variant": "er-0"
+    },
+    {
+      "arm": "ring",
+      "delay": 250,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 9,
+      "variant": "ring-0"
+    },
+    {
+      "arm": "weight_perm",
+      "delay": 250,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 9,
+      "variant": "weight_perm-0"
+    },
+    {
+      "arm": "connectome",
+      "delay": 250,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 10,
+      "variant": "connectome-0"
+    },
+    {
+      "arm": "ring",
+      "delay": 250,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 10,
+      "variant": "ring-0"
+    },
+    {
+      "arm": "weight_perm",
+      "delay": 250,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 10,
+      "variant": "weight_perm-0"
+    },
+    {
+      "arm": "connectome",
+      "delay": 250,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 11,
+      "variant": "connectome-0"
+    },
+    {
+      "arm": "ring",
+      "delay": 250,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 11,
+      "variant": "ring-0"
+    },
+    {
+      "arm": "weight_perm",
+      "delay": 250,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 11,
+      "variant": "weight_perm-0"
+    },
+    {
+      "arm": "connectome",
+      "delay": 500,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 0,
+      "variant": "connectome-0"
+    },
+    {
+      "arm": "dp",
+      "delay": 500,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 0,
+      "variant": "dp-0"
+    },
+    {
+      "arm": "er",
+      "delay": 500,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 0,
+      "variant": "er-0"
+    },
+    {
+      "arm": "ring",
+      "delay": 500,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 0,
+      "variant": "ring-0"
+    },
+    {
+      "arm": "weight_perm",
+      "delay": 500,
+      "reason": "feature/liveness guard failed in split(s): train, test; train/test realised rate outside preregistered tolerance",
+      "seed": 0,
+      "variant": "weight_perm-0"
+    },
+    {
+      "arm": "connectome",
+      "delay": 500,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 1,
+      "variant": "connectome-0"
+    },
+    {
+      "arm": "er",
+      "delay": 500,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 1,
+      "variant": "er-0"
+    },
+    {
+      "arm": "ring",
+      "delay": 500,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 1,
+      "variant": "ring-0"
+    },
+    {
+      "arm": "weight_perm",
+      "delay": 500,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 1,
+      "variant": "weight_perm-0"
+    },
+    {
+      "arm": "connectome",
+      "delay": 500,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 2,
+      "variant": "connectome-0"
+    },
+    {
+      "arm": "dp",
+      "delay": 500,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 2,
+      "variant": "dp-0"
+    },
+    {
+      "arm": "er",
+      "delay": 500,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 2,
+      "variant": "er-0"
+    },
+    {
+      "arm": "ring",
+      "delay": 500,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 2,
+      "variant": "ring-0"
+    },
+    {
+      "arm": "connectome",
+      "delay": 500,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 3,
+      "variant": "connectome-0"
+    },
+    {
+      "arm": "er",
+      "delay": 500,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 3,
+      "variant": "er-0"
+    },
+    {
+      "arm": "ring",
+      "delay": 500,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 3,
+      "variant": "ring-0"
+    },
+    {
+      "arm": "weight_perm",
+      "delay": 500,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 3,
+      "variant": "weight_perm-0"
+    },
+    {
+      "arm": "connectome",
+      "delay": 500,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 4,
+      "variant": "connectome-0"
+    },
+    {
+      "arm": "dp",
+      "delay": 500,
+      "reason": "feature/liveness guard failed in split(s): train, test; train/test realised rate outside preregistered tolerance",
+      "seed": 4,
+      "variant": "dp-0"
+    },
+    {
+      "arm": "er",
+      "delay": 500,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 4,
+      "variant": "er-0"
+    },
+    {
+      "arm": "ring",
+      "delay": 500,
+      "reason": "feature/liveness guard failed in split(s): train; train/test realised rate outside preregistered tolerance",
+      "seed": 4,
+      "variant": "ring-0"
+    },
+    {
+      "arm": "connectome",
+      "delay": 500,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 5,
+      "variant": "connectome-0"
+    },
+    {
+      "arm": "dp",
+      "delay": 500,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 5,
+      "variant": "dp-0"
+    },
+    {
+      "arm": "ring",
+      "delay": 500,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 5,
+      "variant": "ring-0"
+    },
+    {
+      "arm": "weight_perm",
+      "delay": 500,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 5,
+      "variant": "weight_perm-0"
+    },
+    {
+      "arm": "er",
+      "delay": 500,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 6,
+      "variant": "er-0"
+    },
+    {
+      "arm": "ring",
+      "delay": 500,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 6,
+      "variant": "ring-0"
+    },
+    {
+      "arm": "weight_perm",
+      "delay": 500,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 6,
+      "variant": "weight_perm-0"
+    },
+    {
+      "arm": "connectome",
+      "delay": 500,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 7,
+      "variant": "connectome-0"
+    },
+    {
+      "arm": "er",
+      "delay": 500,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 7,
+      "variant": "er-0"
+    },
+    {
+      "arm": "ring",
+      "delay": 500,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 7,
+      "variant": "ring-0"
+    },
+    {
+      "arm": "weight_perm",
+      "delay": 500,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 7,
+      "variant": "weight_perm-0"
+    },
+    {
+      "arm": "connectome",
+      "delay": 500,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 8,
+      "variant": "connectome-0"
+    },
+    {
+      "arm": "er",
+      "delay": 500,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 8,
+      "variant": "er-0"
+    },
+    {
+      "arm": "weight_perm",
+      "delay": 500,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 8,
+      "variant": "weight_perm-0"
+    },
+    {
+      "arm": "dp",
+      "delay": 500,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 9,
+      "variant": "dp-0"
+    },
+    {
+      "arm": "er",
+      "delay": 500,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 9,
+      "variant": "er-0"
+    },
+    {
+      "arm": "ring",
+      "delay": 500,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 9,
+      "variant": "ring-0"
+    },
+    {
+      "arm": "weight_perm",
+      "delay": 500,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 9,
+      "variant": "weight_perm-0"
+    },
+    {
+      "arm": "connectome",
+      "delay": 500,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 10,
+      "variant": "connectome-0"
+    },
+    {
+      "arm": "ring",
+      "delay": 500,
+      "reason": "feature/liveness guard failed in split(s): train; train/test realised rate outside preregistered tolerance",
+      "seed": 10,
+      "variant": "ring-0"
+    },
+    {
+      "arm": "weight_perm",
+      "delay": 500,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 10,
+      "variant": "weight_perm-0"
+    },
+    {
+      "arm": "connectome",
+      "delay": 500,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 11,
+      "variant": "connectome-0"
+    },
+    {
+      "arm": "ring",
+      "delay": 500,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 11,
+      "variant": "ring-0"
+    },
+    {
+      "arm": "weight_perm",
+      "delay": 500,
+      "reason": "train/test realised rate outside preregistered tolerance",
+      "seed": 11,
+      "variant": "weight_perm-0"
+    }
+  ],
+  "n_seeds": 12,
+  "no_accuracy_or_auc_computed": true,
+  "protocol_sha256": "76beba05b047dfaa2cbb3f496258f5babb3005f1162ac09e44eb84ef72076383",
+  "runner_sha256": "13b58834d1ad282c63bc56605e41b32fbd63afd13add3d6d748b1908912cb767",
+  "scientific_result": false,
+  "status": "INSTRUMENT_INCOMPLETE"
+}

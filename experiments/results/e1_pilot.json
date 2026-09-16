@@ -1,0 +1,281 @@
+{
+  "config": {
+    "task": "E1_reservoir_linear_readout",
+    "subgraph": {
+      "method": "top_out_degree",
+      "n": 500,
+      "rationale": "CPU-first lock; same selection rule as LIF smoke (top out-degree)"
+    },
+    "dynamics": {
+      "n_steps": 64,
+      "n_classes": 5,
+      "n_trials_per_class": 20,
+      "input_fraction": 0.1,
+      "I_amp": 6.0,
+      "lif": {
+        "dt": 1.0,
+        "tau_m": 6.0,
+        "v_th": 1.0,
+        "syn_scale": 0.002
+      },
+      "input_noise": 0.55
+    },
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "arms": [
+      "connectome_signed",
+      "connectome_abs",
+      "er_null",
+      "degree_shuffle",
+      "mlp"
+    ],
+    "note": "LSTM deferred until torch/GPU available; MLP is strong baseline for this turn",
+    "task_hardening": "shared_inputs_temporal_phase_only_v2",
+    "harness_guards": {
+      "reject_dead_features": true,
+      "min_feature_std": 1e-06,
+      "min_unique_feature_rows": 10,
+      "bug_fixed": "E1 v2 features were all-zero: pulse width << tau_m so input neurons never reached v_th; all arms predicted one class \u2192 acc=3/18=0.1667"
+    }
+  },
+  "seeds": [
+    {
+      "seed": 0,
+      "n": 500,
+      "nnz": 23708,
+      "n_inputs": 50,
+      "chance": 0.2,
+      "arms": {
+        "connectome_signed": {
+          "acc": 0.8,
+          "seconds": 0.31675219535827637,
+          "ops_proxy": 303462400.0,
+          "readout_params": 965
+        },
+        "connectome_abs": {
+          "acc": 0.8,
+          "seconds": 0.3495352268218994,
+          "ops_proxy": 303462400.0,
+          "readout_params": 965
+        },
+        "er_null": {
+          "acc": 0.8,
+          "seconds": 0.34166717529296875,
+          "ops_proxy": 303462400.0,
+          "readout_params": 965
+        },
+        "degree_shuffle": {
+          "acc": 0.8,
+          "seconds": 0.3352818489074707,
+          "ops_proxy": 279385600.0,
+          "readout_params": 965
+        },
+        "mlp": {
+          "acc": 0.9333333333333333,
+          "params": 6341,
+          "note": "LSTM deferred (no torch)"
+        }
+      }
+    },
+    {
+      "seed": 1,
+      "n": 500,
+      "nnz": 23708,
+      "n_inputs": 50,
+      "chance": 0.2,
+      "arms": {
+        "connectome_signed": {
+          "acc": 0.8,
+          "seconds": 0.3154172897338867,
+          "ops_proxy": 303462400.0,
+          "readout_params": 965
+        },
+        "connectome_abs": {
+          "acc": 0.8,
+          "seconds": 0.3487966060638428,
+          "ops_proxy": 303462400.0,
+          "readout_params": 965
+        },
+        "er_null": {
+          "acc": 0.8,
+          "seconds": 0.3419182300567627,
+          "ops_proxy": 303462400.0,
+          "readout_params": 965
+        },
+        "degree_shuffle": {
+          "acc": 0.8333333333333334,
+          "seconds": 0.33481788635253906,
+          "ops_proxy": 278233600.0,
+          "readout_params": 965
+        },
+        "mlp": {
+          "acc": 0.8333333333333334,
+          "params": 6341,
+          "note": "LSTM deferred (no torch)"
+        }
+      }
+    },
+    {
+      "seed": 2,
+      "n": 500,
+      "nnz": 23708,
+      "n_inputs": 50,
+      "chance": 0.2,
+      "arms": {
+        "connectome_signed": {
+          "acc": 0.7333333333333333,
+          "seconds": 0.3157351016998291,
+          "ops_proxy": 303462400.0,
+          "readout_params": 965
+        },
+        "connectome_abs": {
+          "acc": 0.7333333333333333,
+          "seconds": 0.3492426872253418,
+          "ops_proxy": 303462400.0,
+          "readout_params": 965
+        },
+        "er_null": {
+          "acc": 0.7333333333333333,
+          "seconds": 0.3419501781463623,
+          "ops_proxy": 303462400.0,
+          "readout_params": 965
+        },
+        "degree_shuffle": {
+          "acc": 0.7333333333333333,
+          "seconds": 0.3357558250427246,
+          "ops_proxy": 278681600.0,
+          "readout_params": 965
+        },
+        "mlp": {
+          "acc": 0.8333333333333334,
+          "params": 6341,
+          "note": "LSTM deferred (no torch)"
+        }
+      }
+    },
+    {
+      "seed": 3,
+      "n": 500,
+      "nnz": 23708,
+      "n_inputs": 50,
+      "chance": 0.2,
+      "arms": {
+        "connectome_signed": {
+          "acc": 0.7666666666666667,
+          "seconds": 0.31653475761413574,
+          "ops_proxy": 303462400.0,
+          "readout_params": 965
+        },
+        "connectome_abs": {
+          "acc": 0.7666666666666667,
+          "seconds": 0.3489663600921631,
+          "ops_proxy": 303462400.0,
+          "readout_params": 965
+        },
+        "er_null": {
+          "acc": 0.7666666666666667,
+          "seconds": 0.34180307388305664,
+          "ops_proxy": 303462400.0,
+          "readout_params": 965
+        },
+        "degree_shuffle": {
+          "acc": 0.8,
+          "seconds": 0.3355550765991211,
+          "ops_proxy": 279155200.0,
+          "readout_params": 965
+        },
+        "mlp": {
+          "acc": 0.8666666666666667,
+          "params": 6341,
+          "note": "LSTM deferred (no torch)"
+        }
+      }
+    },
+    {
+      "seed": 4,
+      "n": 500,
+      "nnz": 23708,
+      "n_inputs": 50,
+      "chance": 0.2,
+      "arms": {
+        "connectome_signed": {
+          "acc": 0.7,
+          "seconds": 0.31616783142089844,
+          "ops_proxy": 303462400.0,
+          "readout_params": 965
+        },
+        "connectome_abs": {
+          "acc": 0.6333333333333333,
+          "seconds": 0.34981608390808105,
+          "ops_proxy": 303462400.0,
+          "readout_params": 965
+        },
+        "er_null": {
+          "acc": 0.7,
+          "seconds": 0.3422074317932129,
+          "ops_proxy": 303462400.0,
+          "readout_params": 965
+        },
+        "degree_shuffle": {
+          "acc": 0.7,
+          "seconds": 0.33656764030456543,
+          "ops_proxy": 279065600.0,
+          "readout_params": 965
+        },
+        "mlp": {
+          "acc": 0.8666666666666667,
+          "params": 6341,
+          "note": "LSTM deferred (no torch)"
+        }
+      }
+    }
+  ],
+  "aggregate": {
+    "connectome_signed": {
+      "mean_acc": 0.76,
+      "std": 0.0434613493680177,
+      "ci95": 0.038095552379656,
+      "n": 5
+    },
+    "connectome_abs": {
+      "mean_acc": 0.7466666666666667,
+      "std": 0.0691214711777591,
+      "ci95": 0.060587640837238624,
+      "n": 5
+    },
+    "er_null": {
+      "mean_acc": 0.76,
+      "std": 0.0434613493680177,
+      "ci95": 0.038095552379656,
+      "n": 5
+    },
+    "degree_shuffle": {
+      "mean_acc": 0.7733333333333334,
+      "std": 0.05477225575051666,
+      "ci95": 0.048009998958550335,
+      "n": 5
+    },
+    "mlp": {
+      "mean_acc": 0.8666666666666668,
+      "std": 0.0408248290463863,
+      "ci95": 0.035784540423670845,
+      "n": 5
+    }
+  },
+  "task_validity": {
+    "chance": 0.2,
+    "nulls_near_chance": false,
+    "not_ceiling": true,
+    "valid_for_claims": false
+  },
+  "pass_e1_preliminary": {
+    "beats_both_nulls": false,
+    "vs_mlp": -0.1066666666666668,
+    "blocked_by_invalid_task": true
+  }
+}

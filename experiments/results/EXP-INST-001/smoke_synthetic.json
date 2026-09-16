@@ -1,0 +1,23 @@
+{
+  "status": "ok",
+  "n_train": 40,
+  "n_test": 20,
+  "split_disjoint": true,
+  "acc_pos_amp2": 0.45,
+  "acc_null_amp2": 0.3,
+  "gate_tiny_separated": false,
+  "estimator": "ridge_sweep",
+  "note": "smoke_synthetic_not_evidence",
+  "gate_fn_imported_min_effect": 0.1,
+  "dummy_gate_keys": [
+    "ci95_diff",
+    "ci_excludes_zero",
+    "mean_a",
+    "mean_b",
+    "mean_diff",
+    "min_effect",
+    "n_seeds",
+    "per_seed_diff",
+    "separated"
+  ]
+}

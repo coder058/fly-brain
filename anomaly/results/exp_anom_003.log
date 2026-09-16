@@ -1,0 +1,35 @@
+{
+  "threshold": {
+    "auroc": 0.97125,
+    "auprc": 0.879913111173253
+  },
+  "pca": {
+    "auroc": 1.0,
+    "auprc": 1.0
+  },
+  "isolation_forest": {
+    "auroc": 1.0,
+    "auprc": 1.0
+  },
+  "ocsvm": {
+    "auroc": 1.0,
+    "auprc": 1.0
+  },
+  "mlp_recon": {
+    "auroc": 1.0,
+    "auprc": 1.0
+  },
+  "fly_signed": {
+    "auroc": 0.5747916666666667,
+    "auprc": 0.1798539470639518
+  },
+  "fly_er_null": {
+    "auroc": 0.4608333333333333,
+    "auprc": 0.12847273423115071
+  },
+  "fly_abs": {
+    "auroc": 0.8845833333333334,
+    "auprc": 0.4305396688093042
+  }
+}
+ceiling_like False prevalence 0.047619047619047616 seconds 7.88 WROTE /home/ubuntu/fly-lab/anomaly/results/exp_anom_003_20260915T190502Z.json

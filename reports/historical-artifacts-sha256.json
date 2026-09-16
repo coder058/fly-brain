@@ -1,0 +1,17 @@
+{
+  "captured_utc": "2026-09-16T01:09:03Z",
+  "base_revision": "dcc995f",
+  "policy": "Hashes and byte sizes only; these pre-existing untracked user artifacts were not edited, moved, staged, or copied.",
+  "files": [
+    {"path":"anomaly/results/detect_demo_seed0.json","bytes":949,"sha256":"2ee5ded1f0d1c6f7f277f3755394529f204b02e503ec0d0dd4546e44b9f28118"},
+    {"path":"docs/ANOMALY_TOPOLOGY_ADVANTAGE.md","bytes":202,"sha256":"bc3013e4a60a101cd2270825aab71eedfb8cb7a99f6d759ac97b1e8aa09cad47"},
+    {"path":"experiments/results/EXP-006/ANOMALY_TOPOLOGY_ADVANTAGE.md","bytes":202,"sha256":"bc3013e4a60a101cd2270825aab71eedfb8cb7a99f6d759ac97b1e8aa09cad47"},
+    {"path":"experiments/results/EXP-006/EXP006_SUMMARY.json","bytes":2988,"sha256":"fb6b995a6e2c03c087daf77afd5777dc699737eca59ea50d6fc0ee498435dd0d"},
+    {"path":"experiments/results/ablations.log","bytes":0,"sha256":"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"},
+    {"path":"experiments/results/e1_ens_microbench_20260915T125111Z_5b796db.json","bytes":12521,"sha256":"eb07c67b6384da56b0a596afd4e6d1340a41e85d8b8132b6b6bc3f24690e5e17"},
+    {"path":"experiments/results/e1_null_ensemble_powered.log","bytes":2032,"sha256":"872d865a73589b9fcb9bf7a84ad7ce44606c6a78a4ebc4ecd9d2b64e0a0b054a"},
+    {"path":"experiments/results/e1_null_ensemble_powered_20260915T130422Z_fe089d3.json","bytes":1479882,"sha256":"4ea48bab67ae716f4b12b8920ba18253f4da8e74f4d9a3aa7751e40bb819a313"},
+    {"path":"experiments/results/e1_polarity_arms_20260915T140857Z_fe089d3.json","bytes":10534,"sha256":"5f4ecb5a2a786d3947208fb1071d98af0f44b98a5a94fafedfe561390832fc0a"},
+    {"path":"experiments/results/polarity_arms.log","bytes":1638,"sha256":"bacac39db423e2c83a3f13d40c85bc8b15af80ab0c8429251fd9e72d1e11b9f5"}
+  ]
+}

@@ -1,0 +1,408 @@
+# Fly Lab — research ledger
+# Canonical state assembled from tracked files and preserved artifacts (2026-09-16).
+# Status is evidence status, not "code exists".
+# Do not treat CLOSED hypothesis IDs as scientifically complete.
+
+machine: Ubuntu-1
+repo: /home/ubuntu/fly-lab
+git_tip: HEAD
+git_branch: cursor/exp-inst-001-c6ad
+git_origin: none
+hardware: {vcpu: 2, ram_gib: 15, gpu: false}
+never_touch: data/raw/
+updated_utc: "2026-09-16T15:09:39Z"
+
+dataset:
+  name: MaleCNS v1.0
+  license: CC-BY
+  lock: data/manifests/source.lock.json
+  e0:
+    status: done_on_disk
+    n_neurons: 165122
+    n_edges: 25563197
+    weight_sum: 124025046
+    filter: "status==Traced both ends"
+    evidence:
+      - data/manifests/e0_diagnosis.json
+      - data/derived/graph/graph_meta.json  # existing original, preserved
+      - reports/GRAPH_REBUILD_AUDIT.md
+    note: >
+      Counts computed from files; published targets (~166700 / ~25582938) differ
+      and are not forced. Rebuilt to a new /tmp directory using bounded Feather
+      batches. CSR/CSC/COO bytes and key counts match; body_id/sign columns match.
+      The original data/derived/graph/ was never written. Exact raw weight sum is
+      124025046; the builder now accumulates it before float32 conversion.
+
+hypotheses:
+  E1_TOPOLOGY_ADVANTAGE:
+    id_status: CLOSED
+    scientifically_complete: false
+    valid_statement: >
+      The tested implementation/configuration did not demonstrate a topology
+      advantage under that experimental setup.
+    invalid_statement: Biological topology has no value.
+    evidence: experiments/results/e1_null_ensemble_powered_20260915T130422Z_fe089d3.json
+    evidence_git_tracked: false
+    docs: docs/E1_TOPOLOGY_ADVANTAGE.md
+    protocol:
+      n_seeds: 12
+      n_trials_per_class: 60
+      n_null_draws: 20
+      n_probes: 48
+      target_rate: 0.002
+      subgraph_n: 500
+    numbers:
+      connectome_signed_mean_acc: 0.6343
+      connectome_ci95_over_seeds: 0.1222
+      er_null_mean_acc: 0.6509
+      er_ci95_over_draws: 0.0166
+      degree_preserving_mean_acc: 0.6853
+      dp_ci95_over_draws: 0.0295
+      mlp_mean_acc: 0.6417
+      paired_diff_vs_dp: -0.0510
+      paired_ci95_vs_dp: 0.1104
+      paired_diff_vs_er: -0.0166
+      paired_ci95_vs_er: 0.1309
+      ci_excludes_zero: false
+    why_not_scientifically_complete:
+      - PC-B never run at 48 probes / rate 0.002 / signed
+      - EXP-INST-001 ran a constructed-effect gate at 48 / 0.002 / signed / 12x60 (see EXP-INST-001); that does not complete this ID
+      - rate match once on seed 0; seed 9 dead (306 spikes, acc=0.200) included in mean
+      - check_alive not called by null_ensemble.py
+      - no no-network control in the result table
+      - ER null also changes sign balance, weight law, and effective nnz
+      - flagship JSON is untracked
+    do_not: rerun to rescue a win; describe as evidence biology is useless
+
+  ANOMALY_TOPOLOGY_ADVANTAGE:
+    id_status: CLOSED
+    scientifically_complete: false
+    experiment_id: EXP-006
+    valid_statement: >
+      The tested implementation/configuration did not demonstrate a topology
+      advantage under that experimental setup.
+    invalid_statement: Biological topology has no value.
+    evidence: anomaly/results/exp_anom_006_20260915T190852Z.json
+    docs:
+      - docs/ANOMALY_TOPOLOGY_ADVANTAGE.md  # untracked
+      - experiments/results/EXP-006/EXP006_SUMMARY.json  # untracked
+    numbers:
+      fly_signed_mean_auroc: 0.519
+      er_null_mean_auroc: 0.534
+      weight_perm_mean_auroc: 0.527
+      threshold_mean_auroc: 0.733
+      hubs_removed_identical_to_fly_signed: true
+    why_not_scientifically_complete:
+      - no positive-control gate in anomaly/
+      - arms compared at fixed gain=5, not matched firing rate
+      - hubs_removed bit-identical to fly_signed (local zeroing ablation is a no-op here)
+      - EXP006_SUMMARY.json sets no_post_hoc_tuning true while summarize() tunes F1 on test labels
+      - AUROC/AUPRC are threshold-free; operating-point F1/FPR/FNR in V1 tables are not
+    do_not: EXP-007/008/009 topology hunt; spend more research budget on Anomaly V2
+
+  GLUTAMATE_POLARITY_ACCURACY:
+    id_status: OPEN
+    scientifically_complete: false
+    evidence: experiments/results/e1_polarity_arms_20260915T140857Z_fe089d3.json
+    evidence_git_tracked: false
+    protocol: {n_seeds: 8, n_trials_per_class: 40, n_probes: 48, below_protocol_floor: true}
+    measured:
+      glutamate_unknown:
+        fraction_zeroed: 0.6005
+        edges_zeroed: 14237
+        edges_total: 23708
+        mean_acc: 0.677
+        ci95: 0.137
+      glutamate_inhibitory:
+        fraction_zeroed: 0.4669
+        mean_acc: 0.677
+        ci95: 0.135
+      glutamate_excitatory:
+        fraction_zeroed: 0.4669
+        mean_acc: 0.627
+        ci95: 0.156
+    note: >
+      ~60% subgraph-edge zeroing under glutamate_unknown is measured. Accuracy
+      insensitivity is not established at PROTOCOL power (12x60).
+
+engineering_milestones:
+  ANOMALY_V1_APP:
+    status: engineering_true
+    scientific_claim: false
+    evidence: anomaly/detect.py --demo
+  ANOMALY_V2_REAL_SENSOR:
+    status: engineering_true
+    scientific_claim: false
+    evidence:
+      - reports/ANOMALY_V2.md
+      - anomaly/results/v2_nab_machine_temperature_20260915T221603Z.json
+      - tests/test_anomaly_v2.py
+    note: >
+      One NAB series, not a NAB scoreboard. Threshold AUROC 0.943 / AUPRC 0.746
+      on frozen test with val-chosen threshold. Fly optional ablation AUROC 0.431.
+      Do not spend more research budget here.
+
+experiments:
+  - id: e0_hashes
+    status: done_on_disk
+  - id: pc_ab_gate
+    status: done_wrong_config
+    passing_artifact: experiments/results/e1_positive_control_20260915T122911Z_3bd93f0.json
+    passing_config: {n_probes: 450, target_rate: 0.01, regime: all_excitatory, seeds: 12, trials: 60, gate_passed: true}
+    failing_48probe_artifact: experiments/results/e1_positive_control_20260915T122213Z_3bd93f0.json
+    failing_48probe_config: {n_probes: 48, target_rate: 0.01, seeds: 5, trials: 20, gate_passed: false}
+    missing: stock all-excitatory PC-B at n_probes=48 / target_rate=0.002 (not run; EXP-INST-001 used constructed injection instead)
+  - id: e1_null_ensemble_powered
+    status: ran_but_scientifically_incomplete
+    artifact: experiments/results/e1_null_ensemble_powered_20260915T130422Z_fe089d3.json
+    git_tracked: false
+  - id: e1_polarity_glutamate_arms
+    status: ran_underpowered
+    artifact: experiments/results/e1_polarity_arms_20260915T140857Z_fe089d3.json
+    git_tracked: false
+  - id: e1_ablations_weight_perm_hubs
+    status: code_ready_not_run
+    note: flylab.nulls has tested implementations; ablations.log empty
+  - id: EXP-ANOM-001
+    status: smoke_ceiling_not_a_claim
+    claim_ready: false
+    n_seeds: 1
+  - id: EXP-ANOM-002
+    status: single_seed
+    claim_ready: false
+  - id: EXP-ANOM-003
+    status: single_seed
+    claim_ready: false
+  - id: EXP-ANOM-004
+    status: noise_sweep_single_seed
+    claim_ready: false
+  - id: EXP-ANOM-005
+    status: temporal_split_on_exchangeable_windows
+    claim_ready: false
+  - id: EXP-006
+    status: CLOSED_as_hypothesis_id
+    scientifically_complete: false
+  - id: EXP-INST-001
+    status: historical_artifact_preserved_audit_rejects_as_future_gate
+    reported_verdict: PASS
+    scientifically: limited_post_lif_feature_injection_only
+    INSTRUMENT_VALID_E1_for_future_claims: false
+    artifact: experiments/results/EXP-INST-001/summary.json
+    stamped: experiments/results/exp_inst_001_20260916T000524Z_3dbe1d9.json
+    protocol: experiments/results/EXP-INST-001/protocol.md
+    config: {n_probes: 48, target_rate: 0.002, polarity: signed, seeds: 12, trials: 60}
+    gate: {min_effect: 0.10, target_effect_synthetic: 0.15, mean_diff: 0.3648, ci95_diff: 0.1163, ci_excludes_zero: true, separated: true}
+    null_control: {mean_diff: 0.00185, ci_excludes_zero: false, empirical_fp_perm_gate: 0.0}
+    residuals:
+      - positive arm acc=1.0 all seeds; realized Δ larger than 0.15 synthetic lock
+      - seeds 5 and 9 have dead_reason but alive=true (pool_spikes>0); seed 9 = 306 spikes / acc0=0.200
+      - stock ring-vs-ER PC-B not run; injection is post-LIF feature-space
+    audit: reports/RESEARCH_CONTROL_STATE.md
+    do_not: treat reported PASS as E1/PC-B/MEM gate; edit historical result; reopen closed IDs
+  - id: executor_liveness_guards
+    status: code_hardened_full_suite_pass
+    scope: [experiments/harness/e1_reservoir.py, experiments/harness/exp_inst_001.py, experiments/harness/null_ensemble.py, experiments/harness/polarity_arms.py, experiments/harness/positive_control.py, experiments/harness/exp_mem_001.py]
+    rule: any failed liveness/feature guard is retained in raw rows, not scored or silently dropped
+  - id: ops_proxy_nonzero_accounting
+    status: verified
+    artifact: reports/OPS_PROXY_AUDIT.md
+    scope: experiments/harness/e1_reservoir.py
+    rule: count effective nonzero sparse synapses; retain stored_nnz separately
+    test: tests/test_controls.py::test_ops_proxy_counts_nonzero_sparse_synapses_only
+  - id: frozen_graph_integrity
+    status: verified_read_only
+    runner: scripts/verify_graph.py
+    artifact: reports/GRAPH_INTEGRITY.md
+    result: PASS_STRUCTURAL_CHECKS
+    note: Hashes, dimensions, edge counts, bounds, sparse zero policy, and signed-weight identity checked without rebuilding or touching raw data.
+  - id: repository_continuity_backup
+    status: verified
+    artifact: reports/REPO_BACKUP_AUDIT.md
+    local_backup: C:\Users\jamon\Desktop\job\fly-lab-backups-20260916\fly-lab-20260916.bundle
+    sha256: f707d529742d8b753a31c50b55fcaa3c2fbcdc592d22ac32b14e000a879978bd
+    note: Complete Git bundle verified; no origin configured. Raw and ignored graph files were not copied or modified.
+    latest_local_backup: C:\Users\jamon\Desktop\job\fly-lab-backups-20260916\fly-lab-current-4d94e77.bundle
+    latest_sha256: e09ac7342fa4a248e5a67ec00659bb0ffe787e9b3ce87aa41b7eddd212c25034
+    latest_tip: 4d94e77
+  - id: historical_artifact_catalog
+    status: verified_read_only
+    artifact: reports/HISTORICAL_ARTIFACTS_AUDIT.md
+    catalog: reports/historical-artifacts-sha256.json
+    entries: 10
+    matched: 10
+    note: Existing untracked historical artifacts match recorded sizes and hashes; no claim status changed.
+  - id: experiment_provenance_audit
+    status: verified_read_only
+    runner: scripts/verify_experiment_provenance.py
+    artifact: reports/EXPERIMENT_PROVENANCE_AUDIT.md
+    result: PASS_PROVENANCE_AUDIT
+    note: Both MEM-002 full runs have complete checkpoint provenance; INST-001 conclusion hash is unchanged from a01037d.
+  - id: build_graph_output_guard
+    status: verified_fail_closed
+    artifact: reports/BUILD_GRAPH_SAFETY.md
+    runner: scripts/build_graph.py
+    test: protected data/derived/graph path rejected before data access
+  - id: EXP-E1B-001
+    status: DISABLED_BY_PI
+    authorization: do_not_run
+    note: closed classification work is not reopened by this audit.
+  - id: EXP-MEM-001
+    status: INVALIDATED
+    cycle: post_INST_001_confirmatory
+    claim_ready: false
+    protocol: experiments/results/EXP-MEM-001/protocol.md
+    sizing:
+      status: INVALIDATED
+      artifact: experiments/results/EXP-MEM-001/post_inst_20260916T030347Z_dcc995f/sizing/summary.json
+      report: reports/EXP_MEM_001_SIZING.md
+      note: Random-per-seed input mapping failed liveness/rate calibration in required sizing cells; no memory curve or power estimate.
+    mapping_repair_protocol: experiments/results/EXP-MEM-001/protocol_mapping_repair.md
+    mapping_repair:
+      status: INVALIDATED
+      artifact: experiments/results/EXP-MEM-001/post_inst_mapping_repair_20260916T031717Z_dcc995f/sizing/summary.json
+      report: reports/EXP_MEM_001_MAPPING_REPAIR.md
+      primary_rate_match: true
+      network_liveness: false
+      primary_auc_pairs: 0
+      failed_cells: 5
+      stop_reason: One accuracy-blind map repair was run; required network liveness still failed in five cells, so no memory curve was produced.
+    superseded_exploratory_pilot:
+      status: SUPERSEDED_INVALIDATED
+      artifact: experiments/results/EXP-MEM-001/pilot_superseded/pilot_20260916T011917Z_dcc995f.json
+      artifact_sha256: e866100d9e304088e6427e8290ec416ef08a8e36c0490c94f1355f5d48f06480
+      note: Pre-INST exploratory pilot; invalid liveness. Preserve as history; do not confirm or cite as a memory result.
+  - id: EXP-MEM-002
+    status: INSTRUMENT_INCOMPLETE
+    cycle: post_MEM_001_instrument_repair
+    claim_ready: false
+    protocol: experiments/results/EXP-MEM-002/protocol.md
+    runner: experiments/harness/exp_mem_002_instrument.py
+    scope: accuracy_blind_liveness_and_rate_instrument
+    gate: all_five_arms_live_and_rate_matched_in_train_and_test_for_12_seeds_at_each_delay
+    note: Q0 instrument check; a missing cell is retained and is not a topology loss. No curve or accuracy is computed here.
+    q0:
+      status: INSTRUMENT_INCOMPLETE
+      artifact: experiments/results/EXP-MEM-002/q0_20260916T054112Z_d6a9572/q0/summary.json
+      report: reports/EXP_MEM_002_Q0.md
+      cells_written: 72
+      expected_cells: 72
+      complete_delays: []
+      missing_arm_cells: 263
+      missing_by_arm: {connectome: 62, dp: 30, weight_perm: 44, er: 55, ring: 72}
+    map2_protocol: experiments/results/EXP-MEM-002/protocol_map2.md
+    map2_status: INSTRUMENT_INCOMPLETE
+    map2:
+      status: INSTRUMENT_INCOMPLETE
+      artifact: experiments/results/EXP-MEM-002/q0_20260916T055512Z_cd028e2/q0/summary.json
+      report: reports/EXP_MEM_002_MAP2.md
+      cells_written: 72
+      expected_cells: 72
+      complete_delays: []
+      missing_arm_cells: 277
+      missing_by_arm: {connectome: 62, dp: 38, weight_perm: 52, er: 56, ring: 69}
+    hygiene:
+      status: complete
+      commit: dfdf7dd
+      full_suite: "72 passed"
+      scope: fail_closed_check_alive_in_E1_runners_and_tests
+  - id: EXP-MEM-003
+    status: MEM_003_NO_PAIR
+    claim_ready: false
+    protocol: experiments/results/EXP-MEM-003/protocol.md
+    runner: experiments/harness/exp_mem_003.py
+    primary_contrast: connectome_vs_dp
+    secondary_arms: [weight_perm, er, ring]
+    initial_map:
+      rule: top_positive_indegree
+      status: NO_PAIR
+      artifact: experiments/results/EXP-MEM-003/mem003_20260916T125527Z_3071046_top_positive_indegree/curve/summary.json
+      cells_written: 72
+      expected_cells: 72
+      eligible_delays: []
+      live_rows: {connectome: 0, dp: 0, weight_perm: 0, er: 0, ring: 0}
+    fallback_map:
+      rule: hash_ranked
+      status: NO_PAIR
+      artifact: experiments/results/EXP-MEM-003/mem003_20260916T130103Z_3071046_hash_ranked/curve/summary.json
+      cells_written: 72
+      expected_cells: 72
+      eligible_delays: []
+      live_rows: {connectome: 4, dp: 12, weight_perm: 10, er: 0, ring: 0}
+    interpretation: >
+      No delay had both primary arms live and rate-matched. This is an
+      instrument outcome, not evidence that the connectome lacks memory or
+      that topology has no value. No EXP-A-001 was run.
+    next: EXP-GLU-001 at 12 seeds; polarity sensitivity only, not memory.
+  - id: EXP-GLU-001
+    status: COMPLETE_METRIC_WITHHELD
+    claim_ready: false
+    protocol: experiments/results/EXP-GLU-001/protocol.md
+    runner: experiments/harness/exp_glu_001.py
+    artifact: experiments/results/EXP-GLU-001/glu001_20260916T132243Z_0747503/summary.json
+    seeds: 12
+    valid_seed_count: {glutamate_unknown: 8, glutamate_inhibitory: 6, glutamate_excitatory: 8}
+    paired_comparison: withheld
+    reason: >
+      Required 12-seed all-policy validity was not met; invalid rows were
+      caused by train/test rate-band failures and one liveness failure in
+      unknown and inhibitory policies. No topology or memory claim is made.
+  - id: EXP-IGNITE-001
+    status: NO_COIGNITE
+    claim_ready: false
+    protocol: experiments/results/EXP-IGNITE-001/protocol.md
+    runner: experiments/harness/exp_ignite_001.py
+    primary_arms: [connectome_signed, degree_preserving]
+    artifacts:
+      smoke: experiments/results/EXP-IGNITE-001/ignite_20260916T141558Z_1565e48/smoke/summary.json
+      sizing: experiments/results/EXP-IGNITE-001/ignite_20260916T141558Z_1565e48/sizing/summary.json
+      confirm: experiments/results/EXP-IGNITE-001/ignite_20260916T141558Z_1565e48/confirm/summary.json
+    measured: {smoke_pairs: 0, sizing_pairs: 0, confirm_pairs: 0, confirm_seeds: 12, gain_points: 16, rate_band: 0.20}
+    interpretation: >
+      No primary pair co-ignited under the frozen hash map, gain cap, and rate
+      band. This is not evidence that Fly lost or that biology has no value.
+    next: N6 deferred hardware documentation and N8 existing one-job A2A queue.
+  - id: EXP-IGNITE-002
+    status: NO_COIGNITE
+    claim_ready: false
+    protocol: experiments/results/EXP-IGNITE-002/protocol.md
+    runner: experiments/harness/exp_ignite_002.py
+    primary_arms: [glutamate_unknown, glutamate_inhibitory]
+    artifacts:
+      smoke: experiments/results/EXP-IGNITE-002/ignite002_20260916T142800Z_6e9cdb6/smoke/summary.json
+      sizing: experiments/results/EXP-IGNITE-002/ignite002_20260916T142800Z_6e9cdb6/sizing/summary.json
+      confirm: experiments/results/EXP-IGNITE-002/ignite002_20260916T142800Z_6e9cdb6/confirm/summary.json
+    measured: {smoke_pairs: 0, sizing_pairs: 0, confirm_pairs: 0, confirm_seeds: 12, gain_points: 16, rate_band: 0.20}
+    interpretation: >
+      No unknown/inhibitory polarity pair co-ignited under the fixed hash map,
+      gain cap, target rate, and band. This is not a memory, topology, or
+      biological verdict; no accuracy was computed.
+    next: N6 deferred hardware documentation and N8 existing bounded A2A queue; no new scientific ID authorized.
+  - id: TRACK-7-QUEUE
+    status: QUEUED_2VCPU
+    claim_ready: false
+    protocol: QUEUED_2VCPU.md
+    measured: none
+    interpretation: >
+      Documentary queue marker only. No continual-learning or architecture
+      execution occurred; no scientific claim is made.
+    next: requires a separately authorized, preregistered ID; current handoff authorizes none.
+  - id: a2a_research_hub
+    status: versioned_local_prototype_full_suite_pass_no_external_workers
+    scope: local_only_http_json_sqlite_task_queue; no shell execution; no public bind
+    commit: 4d94e77
+  - id: loop_boundary_audit
+    status: verified_read_only
+    artifact: reports/LOOP_BOUNDARY_AUDIT.md
+    scope: protected_paths_closed_ids_queue_boundary_and_current_test_evidence
+  - id: untracked_worktree_audit
+    status: verified_read_only
+    artifact: reports/UNTRACKED_WORKTREE_AUDIT.md
+    scope: preserve_and_exclude_preexisting_untracked_user_work
+
+tests:
+  previous_pytest: "58 passed (2026-09-15, .venv/bin/python -m pytest -q)"
+  current: "74 passed (2026-09-16, .venv/bin/python -m pytest -q)"
+  note: Includes fail-closed liveness by independent train/test split, A2A loopback Agent Card/enqueue/lookup, and bounded request-limit regressions. JSON metadata parsed; PyYAML unavailable on the VPS, so this YAML was not library-parsed.
+
+registry_file: experiments/registry.json
+registry_status: reconciled

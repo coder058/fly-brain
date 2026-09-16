@@ -1,0 +1,116 @@
+{
+  "experiment_id": "EXP-MEM-001",
+  "stage": "exploratory_pilot_only",
+  "claim_ready": false,
+  "protocol_frozen": false,
+  "provenance": {
+    "utc": "2026-09-16T01:19:16+00:00",
+    "git_rev": "dcc995f",
+    "harness_sha256": "0eb5932f1dbae32a",
+    "config_sha256": "ef2f8d0fd5ad5f1c"
+  },
+  "graph_sha256": {
+    "csr_unsigned.npz": "b6dbd38b2c7a2771ac61d04c84add24733164cbbd26872bd417a02de7afd7949",
+    "csc_unsigned.npz": "1db82dc9ea509c4e14f173bcfbcbf8170830839718aee373e1ee609441d6aa4f",
+    "coo_signed.npz": "88289920f5ad069b8592168f9f9292dad49af8c6e29633ee8ad1e6176f2eccf5"
+  },
+  "task": "binary cue at t=0, silent delay, classify from final-step non-input spikes",
+  "control_note": "The delay line validates task/evaluator plumbing; it is not a neural architecture result.",
+  "operating_point_note": "Gain is exploratory; this pilot does not claim matched-rate comparisons.",
+  "settings": {
+    "pilot": true,
+    "n": 128,
+    "lags": [
+      1,
+      4,
+      16
+    ],
+    "trials_per_class": 20,
+    "seed": 0,
+    "n_probes": 48,
+    "gain": 12.0
+  },
+  "n_nodes": 128,
+  "n_inputs": 13,
+  "n_probes": 48,
+  "rho_signed": 1894.9258088956228,
+  "syn_scale": 0.03799621054396961,
+  "cue_amplitude": 6.0,
+  "rows": [
+    {
+      "lag_steps": 1,
+      "train_trials": 40,
+      "test_trials": 40,
+      "readout_window_steps": 1,
+      "probe_ids_exclude_inputs": true,
+      "external_input_after_onset_nonzero_count": 0,
+      "liveness": {
+        "non_input_spikes": 0.0,
+        "probe_spikes": 0.0,
+        "feature_std": 0.0,
+        "unique_feature_rows": 1,
+        "non_input_active": false,
+        "alive": false,
+        "dead_reason": "dead reservoir for arm=mem_connectome_lag_1: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation."
+      },
+      "scoring_skipped": true,
+      "accuracy": null,
+      "selected_ridge": null,
+      "delay_line_positive_control_accuracy": 1.0,
+      "memoryless_control_accuracy": 0.5,
+      "realised_non_input_rate": 0.0,
+      "wall_seconds": 0.009048599000379909,
+      "cpu_seconds": 0.00904782000000015
+    },
+    {
+      "lag_steps": 4,
+      "train_trials": 40,
+      "test_trials": 40,
+      "readout_window_steps": 1,
+      "probe_ids_exclude_inputs": true,
+      "external_input_after_onset_nonzero_count": 0,
+      "liveness": {
+        "non_input_spikes": 0.0,
+        "probe_spikes": 0.0,
+        "feature_std": 0.0,
+        "unique_feature_rows": 1,
+        "non_input_active": false,
+        "alive": false,
+        "dead_reason": "dead reservoir for arm=mem_connectome_lag_4: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation."
+      },
+      "scoring_skipped": true,
+      "accuracy": null,
+      "selected_ridge": null,
+      "delay_line_positive_control_accuracy": 1.0,
+      "memoryless_control_accuracy": 0.5,
+      "realised_non_input_rate": 0.0,
+      "wall_seconds": 0.014498201002425049,
+      "cpu_seconds": 0.014498968999999917
+    },
+    {
+      "lag_steps": 16,
+      "train_trials": 40,
+      "test_trials": 40,
+      "readout_window_steps": 1,
+      "probe_ids_exclude_inputs": true,
+      "external_input_after_onset_nonzero_count": 0,
+      "liveness": {
+        "non_input_spikes": 0.0,
+        "probe_spikes": 0.0,
+        "feature_std": 0.0,
+        "unique_feature_rows": 1,
+        "non_input_active": false,
+        "alive": false,
+        "dead_reason": "dead reservoir for arm=mem_connectome_lag_16: non_input_spikes=0 (reservoir silent), feature_std=0, unique_feature_rows=1. Refusing to score \u2014 the readout would be decoding drive, not computation."
+      },
+      "scoring_skipped": true,
+      "accuracy": null,
+      "selected_ridge": null,
+      "delay_line_positive_control_accuracy": 1.0,
+      "memoryless_control_accuracy": 0.5,
+      "realised_non_input_rate": 0.0,
+      "wall_seconds": 0.037939359004667494,
+      "cpu_seconds": 0.03781442400000046
+    }
+  ]
+}

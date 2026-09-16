@@ -1,0 +1,9 @@
+data/raw/
+data/checksums/
+data/manifests/
+data/derived/
+experiments/
+flylab/
+scripts/
+system/system_profile.json
+system/hardware_benchmark.json

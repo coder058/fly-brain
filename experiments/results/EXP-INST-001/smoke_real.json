@@ -1,0 +1,62 @@
+{
+  "status": "ok",
+  "seconds": 0.8974230289459229,
+  "estimated_full_seconds": 242.30421781539917,
+  "matched_gain": {
+    "gain": 11.29296875,
+    "rate": 0.0017317708333333334,
+    "converged": true
+  },
+  "syn_scale": 0.031783364632321065,
+  "row": {
+    "seed": 0,
+    "alive": true,
+    "liveness": {
+      "non_input_spikes": 1942.0,
+      "probe_spikes": 258.0,
+      "feature_std": 0.013367763720452785,
+      "unique_feature_rows": 33,
+      "alive": true
+    },
+    "probe_input_leak": false,
+    "n_features": 192,
+    "sigma_train": 0.0026302727910575718,
+    "sigma_theory": 0.011169153951844339,
+    "realised_rate": 0.001685763888888889,
+    "pool_spikes": 1942.0,
+    "acc_no_injection": 0.6,
+    "acc_positive": 1.0,
+    "acc_null_perm0": 0.6,
+    "acc_null_perm_b": 0.4666666666666667,
+    "diff_positive_vs_null0": 0.4,
+    "diff_null_pair": 0.1333333333333333,
+    "selected_ridge_no_injection": 0.001,
+    "selected_ridge_positive": 0.0001,
+    "selected_ridge_null0": 0.001,
+    "null_perm_accs": [
+      0.6,
+      0.6,
+      0.4,
+      0.7333333333333333,
+      0.6,
+      0.5333333333333333,
+      0.6666666666666666,
+      0.6,
+      0.6,
+      0.6,
+      0.6666666666666666,
+      0.6,
+      0.6,
+      0.4666666666666667,
+      0.6,
+      0.6,
+      0.4666666666666667,
+      0.4666666666666667,
+      0.4666666666666667,
+      0.6
+    ],
+    "n_train": 25,
+    "n_test": 15
+  },
+  "note": "smoke_real_not_evidence"
+}

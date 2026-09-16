@@ -1,0 +1,22 @@
+{
+  "INSTRUMENT_VALID_E1": true,
+  "verdict": "PASS",
+  "interpretation": "The E1 measurement procedure detected the pre-registered constructed effect under the predefined gate (|mean_diff|>=0.10 and 95% CI excludes 0). INSTRUMENT_VALID_E1=TRUE. This does not evaluate MaleCNS topology and does not reopen EXP-006. EXP-E1B-001 is not launched here.",
+  "next_step": "STOP. Do not launch EXP-E1B-001 from this runner.",
+  "what_would_raise_sensitivity": null,
+  "pc_a_separated": true,
+  "residuals": [
+    "Realized mean_diff=0.3648 (positive acc=1.0 on all 12 seeds). Synthetic calibration target was 0.15. The Gaussian-to-spike-bin transfer produced a stronger-than-0.15 class-conditional signal. The gate was not retuned. A ceiling positive arm shows the readout can separate present vs shuffled injection; it is not a measurement of power exactly at 0.15 on reservoir noise.",
+    "check_alive.alive is pool_spikes>0. Seeds 5 and 9 printed dead_reason (unique_feature_rows=9; feature_std=0 / unique_feature_rows=1) but were kept in the primary mean. Seed 9 matches the E1 powered run (306 non-input spikes, acc_no_injection=0.200).",
+    "Stock all-excitatory PC-B (ring vs ER) was not run. Feature injection is after LIF, before readout.",
+    "Gain matched once on seed 0 (E1 config). Realised mean rate=0.00213 vs target 0.002; seed 9 rate=4e-5."
+  ],
+  "language_forbidden": [
+    "breakthrough",
+    "proves",
+    "superiority",
+    "inferiority",
+    "topology is false",
+    "Fly does not work"
+  ]
+}

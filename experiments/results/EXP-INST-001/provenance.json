@@ -1,0 +1,79 @@
+{
+  "utc": "2026-09-16T00:04:16+00:00",
+  "git_rev": "3dbe1d9",
+  "command": [
+    "/home/ubuntu/fly-lab/.venv/bin/python",
+    "/home/ubuntu/fly-lab/experiments/harness/exp_inst_001.py"
+  ],
+  "script": "/home/ubuntu/fly-lab/experiments/harness/exp_inst_001.py",
+  "script_sha256": "16b70e13aed3064d4380d4d3723bad8ed2ff697b0ebf2b176b30e81c348b803c",
+  "e1_config_sha256": "ef2f8d0fd5ad5f1cde0177426fdec856f14ad2430121b7d44f4615c8be78a85f",
+  "positive_control_sha256": "625f287947e010cfdb18dacfe1edcf2209ed560078573bc6c38d76d230e766b5",
+  "e1_reservoir_sha256": "d6f741b55920e7a1874cfaf4a32a7c5c0d3a0588130b5e1b61d96081b4f0067a",
+  "null_ensemble_sha256": "632b1968da44661838b4a70bc58a7334babcea2f710997d6611c7e506917ebca",
+  "min_effect_gate": 0.1,
+  "target_effect": 0.15,
+  "n_probes": 48,
+  "target_rate": 0.002,
+  "n_seeds": 12,
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+  ],
+  "n_trials_per_class": 60,
+  "dataset": {
+    "source.lock.json": {
+      "path": "/home/ubuntu/fly-lab/data/manifests/source.lock.json",
+      "exists": true,
+      "sha256": "94ffb38cd1bd4ceb2789514661ffe0e18146881654da2f323026094b005728ec",
+      "bytes": 1360
+    },
+    "graph_meta.json": {
+      "path": "/home/ubuntu/fly-lab/data/derived/graph/graph_meta.json",
+      "exists": true,
+      "sha256": "7a50f8de7a67793253f498b69b595e3310b1bf5abc876a929c69a0bbe3704fb1",
+      "bytes": 240
+    },
+    "csr_unsigned.npz": {
+      "path": "/home/ubuntu/fly-lab/data/derived/graph/csr_unsigned.npz",
+      "exists": true,
+      "sha256": "b6dbd38b2c7a2771ac61d04c84add24733164cbbd26872bd417a02de7afd7949",
+      "bytes": 79567122
+    },
+    "csc_unsigned.npz": {
+      "path": "/home/ubuntu/fly-lab/data/derived/graph/csc_unsigned.npz",
+      "exists": true,
+      "sha256": "1db82dc9ea509c4e14f173bcfbcbf8170830839718aee373e1ee609441d6aa4f",
+      "bytes": 79524272
+    },
+    "coo_signed.npz": {
+      "path": "/home/ubuntu/fly-lab/data/derived/graph/coo_signed.npz",
+      "exists": true,
+      "sha256": "88289920f5ad069b8592168f9f9292dad49af8c6e29633ee8ad1e6176f2eccf5",
+      "bytes": 93769185
+    }
+  },
+  "env": {
+    "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+    "platform": "Linux-6.17.0-1019-aws-x86_64-with-glibc2.39",
+    "executable": "/home/ubuntu/fly-lab/.venv/bin/python",
+    "numpy": "2.5.3",
+    "nproc": 2,
+    "cwd": "/home/ubuntu/fly-lab",
+    "git_rev": "3dbe1d9",
+    "git_branch": "cursor/exp-inst-001-c6ad",
+    "utc": "2026-09-16T00:04:16+00:00"
+  },
+  "never_touch": "data/raw/",
+  "note": "Recorded before the scientific run. Smoke is not evidence."
+}

@@ -1,0 +1,8 @@
+{
+  "completed_utc": "2026-09-16T03:10:21.919693+00:00",
+  "protocol_sha256": "5b13c9af4540b4441045c6069145ca404513b808031e071f92f7b8a4bc981bd4",
+  "runner_sha256": "a32fd2323eb302a3855d80508d3801d814d9c24babc02e798f633ad3de259a90",
+  "stage": "sizing",
+  "status": "INVALIDATED",
+  "summary_path": "experiments/results/EXP-MEM-001/post_inst_20260916T030347Z_dcc995f/sizing/summary.json"
+}
