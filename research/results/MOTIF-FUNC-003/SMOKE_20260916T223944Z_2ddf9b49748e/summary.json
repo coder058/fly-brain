@@ -1,0 +1,18 @@
+{
+  "aggregate": {
+    "classification": "SMOKE_NOT_EVIDENCE",
+    "positive_control_live": [
+      true
+    ],
+    "seeds_completed": 1
+  },
+  "claim_scope": "locked LIF readout comparison only; no biology, general topology, novelty, or ML transfer",
+  "classification": "SMOKE_NOT_EVIDENCE",
+  "experiment": "MOTIF-FUNC-003",
+  "mode": "smoke",
+  "protocol_sha256": "fcc52bd378e7d76baa5baf9ee922b04939aaba668dafe6a1fca79eb3cda3bd33",
+  "runner_sha256": "3098a144326df11ddf345d657e39188740a6296abb453f3a62a8fa47c4abf3c2",
+  "seeds_completed": [
+    0
+  ]
+}

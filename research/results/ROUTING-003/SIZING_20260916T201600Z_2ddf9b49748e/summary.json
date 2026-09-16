@@ -1,0 +1,26 @@
+{
+  "estimate_only": true,
+  "experiment": "ROUTING-003",
+  "extrapolated_full_seed_count": 12,
+  "extrapolated_minutes": 3.2332000000000005,
+  "extrapolated_seconds": 193.99200000000002,
+  "method": "12 times the maximum measured ROUTING-001 full seed elapsed time; conservative runner-cost estimate, not a result",
+  "protected_paths": "data/raw and data/derived/graph untouched",
+  "ram_risk": "No new peak-RAM measurement; prior process remained within observed host capacity.",
+  "source_measured_artifact": "research/results/ROUTING-001/FULL_*/seed-*.json",
+  "source_measured_seed_elapsed_seconds": [
+    15.856,
+    16.083,
+    15.931,
+    16.004,
+    15.964,
+    16.137,
+    15.849,
+    15.97,
+    15.886,
+    16.166,
+    15.826,
+    15.912
+  ],
+  "status": "SIZING_ONLY"
+}

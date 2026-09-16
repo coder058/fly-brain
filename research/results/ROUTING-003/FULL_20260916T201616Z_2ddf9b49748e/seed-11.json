@@ -1,0 +1,540 @@
+{
+  "arm_diagnostics": {
+    "block_preserving": {
+      "accepted_swaps": 189656,
+      "attempts": 489654,
+      "block_counts_preserved": true,
+      "blocks": {
+        "ascending_neuron|ascending_neuron": {
+          "accepted_swaps": 2160,
+          "attempts": 6791,
+          "edges": 270,
+          "target_swaps": 2160
+        },
+        "ascending_neuron|cb_intrinsic": {
+          "accepted_swaps": 2840,
+          "attempts": 6741,
+          "edges": 355,
+          "target_swaps": 2840
+        },
+        "ascending_neuron|descending_neuron": {
+          "accepted_swaps": 2600,
+          "attempts": 6968,
+          "edges": 325,
+          "target_swaps": 2600
+        },
+        "ascending_neuron|ol_intrinsic": {
+          "accepted_swaps": 0,
+          "attempts": 0,
+          "edges": 1,
+          "target_swaps": 8
+        },
+        "ascending_neuron|visual_centrifugal": {
+          "accepted_swaps": 3032,
+          "attempts": 6984,
+          "edges": 379,
+          "target_swaps": 3032
+        },
+        "ascending_neuron|visual_projection": {
+          "accepted_swaps": 56,
+          "attempts": 60,
+          "edges": 7,
+          "target_swaps": 56
+        },
+        "ascending_neuron|vnc_intrinsic": {
+          "accepted_swaps": 1368,
+          "attempts": 3719,
+          "edges": 171,
+          "target_swaps": 1368
+        },
+        "cb_intrinsic|ascending_neuron": {
+          "accepted_swaps": 1800,
+          "attempts": 3447,
+          "edges": 225,
+          "target_swaps": 1800
+        },
+        "cb_intrinsic|cb_intrinsic": {
+          "accepted_swaps": 42224,
+          "attempts": 80787,
+          "edges": 5278,
+          "target_swaps": 42224
+        },
+        "cb_intrinsic|descending_neuron": {
+          "accepted_swaps": 7952,
+          "attempts": 20072,
+          "edges": 994,
+          "target_swaps": 7952
+        },
+        "cb_intrinsic|ol_intrinsic": {
+          "accepted_swaps": 336,
+          "attempts": 523,
+          "edges": 42,
+          "target_swaps": 336
+        },
+        "cb_intrinsic|visual_centrifugal": {
+          "accepted_swaps": 13552,
+          "attempts": 32293,
+          "edges": 1694,
+          "target_swaps": 13552
+        },
+        "cb_intrinsic|visual_projection": {
+          "accepted_swaps": 504,
+          "attempts": 3038,
+          "edges": 63,
+          "target_swaps": 504
+        },
+        "descending_neuron|ascending_neuron": {
+          "accepted_swaps": 3176,
+          "attempts": 11515,
+          "edges": 397,
+          "target_swaps": 3176
+        },
+        "descending_neuron|cb_intrinsic": {
+          "accepted_swaps": 9056,
+          "attempts": 26032,
+          "edges": 1132,
+          "target_swaps": 9056
+        },
+        "descending_neuron|descending_neuron": {
+          "accepted_swaps": 6416,
+          "attempts": 29779,
+          "edges": 802,
+          "target_swaps": 6416
+        },
+        "descending_neuron|ol_intrinsic": {
+          "accepted_swaps": 1280,
+          "attempts": 2425,
+          "edges": 160,
+          "target_swaps": 1280
+        },
+        "descending_neuron|visual_centrifugal": {
+          "accepted_swaps": 4576,
+          "attempts": 13063,
+          "edges": 572,
+          "target_swaps": 4576
+        },
+        "descending_neuron|visual_projection": {
+          "accepted_swaps": 448,
+          "attempts": 790,
+          "edges": 56,
+          "target_swaps": 448
+        },
+        "descending_neuron|vnc_intrinsic": {
+          "accepted_swaps": 2296,
+          "attempts": 7335,
+          "edges": 287,
+          "target_swaps": 2296
+        },
+        "ol_intrinsic|cb_intrinsic": {
+          "accepted_swaps": 160,
+          "attempts": 199,
+          "edges": 20,
+          "target_swaps": 160
+        },
+        "ol_intrinsic|descending_neuron": {
+          "accepted_swaps": 768,
+          "attempts": 1104,
+          "edges": 96,
+          "target_swaps": 768
+        },
+        "ol_intrinsic|ol_intrinsic": {
+          "accepted_swaps": 12440,
+          "attempts": 17967,
+          "edges": 1555,
+          "target_swaps": 12440
+        },
+        "ol_intrinsic|visual_centrifugal": {
+          "accepted_swaps": 8664,
+          "attempts": 13986,
+          "edges": 1083,
+          "target_swaps": 8664
+        },
+        "ol_intrinsic|visual_projection": {
+          "accepted_swaps": 3752,
+          "attempts": 9887,
+          "edges": 469,
+          "target_swaps": 3752
+        },
+        "visual_centrifugal|ascending_neuron": {
+          "accepted_swaps": 904,
+          "attempts": 2156,
+          "edges": 113,
+          "target_swaps": 904
+        },
+        "visual_centrifugal|cb_intrinsic": {
+          "accepted_swaps": 6248,
+          "attempts": 18695,
+          "edges": 781,
+          "target_swaps": 6248
+        },
+        "visual_centrifugal|descending_neuron": {
+          "accepted_swaps": 1784,
+          "attempts": 3760,
+          "edges": 223,
+          "target_swaps": 1784
+        },
+        "visual_centrifugal|ol_intrinsic": {
+          "accepted_swaps": 13336,
+          "attempts": 25686,
+          "edges": 1667,
+          "target_swaps": 13336
+        },
+        "visual_centrifugal|visual_centrifugal": {
+          "accepted_swaps": 16136,
+          "attempts": 53096,
+          "edges": 2017,
+          "target_swaps": 16136
+        },
+        "visual_centrifugal|visual_projection": {
+          "accepted_swaps": 4176,
+          "attempts": 17058,
+          "edges": 522,
+          "target_swaps": 4176
+        },
+        "visual_projection|ascending_neuron": {
+          "accepted_swaps": 120,
+          "attempts": 146,
+          "edges": 15,
+          "target_swaps": 120
+        },
+        "visual_projection|cb_intrinsic": {
+          "accepted_swaps": 792,
+          "attempts": 3156,
+          "edges": 99,
+          "target_swaps": 792
+        },
+        "visual_projection|descending_neuron": {
+          "accepted_swaps": 352,
+          "attempts": 596,
+          "edges": 44,
+          "target_swaps": 352
+        },
+        "visual_projection|ol_intrinsic": {
+          "accepted_swaps": 3056,
+          "attempts": 7858,
+          "edges": 382,
+          "target_swaps": 3056
+        },
+        "visual_projection|visual_centrifugal": {
+          "accepted_swaps": 3776,
+          "attempts": 13924,
+          "edges": 472,
+          "target_swaps": 3776
+        },
+        "visual_projection|visual_projection": {
+          "accepted_swaps": 2488,
+          "attempts": 16842,
+          "edges": 311,
+          "target_swaps": 2488
+        },
+        "vnc_intrinsic|ascending_neuron": {
+          "accepted_swaps": 1560,
+          "attempts": 6141,
+          "edges": 195,
+          "target_swaps": 1560
+        },
+        "vnc_intrinsic|descending_neuron": {
+          "accepted_swaps": 1704,
+          "attempts": 4094,
+          "edges": 213,
+          "target_swaps": 1704
+        },
+        "vnc_intrinsic|vnc_intrinsic": {
+          "accepted_swaps": 1768,
+          "attempts": 10941,
+          "edges": 221,
+          "target_swaps": 1768
+        }
+      },
+      "duplicate_edges": 0,
+      "fraction_edges_rewired": 0.9768432596591867,
+      "n_edges_in": 23708,
+      "n_edges_out": 23708,
+      "self_loops": 0,
+      "weight_multiset_preserved": true
+    },
+    "connectome_signed": {
+      "nnz": 23708
+    },
+    "degree_preserving": {
+      "duplicate_edges": 0,
+      "fraction_edges_rewired": 0.9979331871098364,
+      "in_degree_preserved": true,
+      "n_edges_in": 23708,
+      "n_edges_out": 23708,
+      "out_degree_preserved": true,
+      "self_loops": 0
+    },
+    "source_edges": 23708,
+    "source_self_loops": 4
+  },
+  "arms": {
+    "block_preserving": {
+      "arm": "block_preserving",
+      "calibration": {
+        "accepted": true,
+        "converged": true,
+        "gain": 12.542187499999999,
+        "pool_size": 468,
+        "rate": 0.013004139957264958,
+        "reason": "rate_matched",
+        "relative_tolerance": 0.15,
+        "spectrum": {
+          "dominant_eigenvalue_imag": 0.0,
+          "dominant_eigenvalue_real": -441.55734746149653,
+          "nnz": 23708,
+          "rho_abs": 555.5820632010427,
+          "rho_signed": 441.55734746149653
+        },
+        "target_rate": 0.013
+      },
+      "feature_shape": [
+        80,
+        256
+      ],
+      "liveness": {
+        "alive": true,
+        "test": {
+          "alive": true,
+          "feature_std": 3.5034053325653076,
+          "pool_spikes": 2282.0,
+          "probe_a_spikes": 11.0,
+          "probe_a_state_std_max": 0.5207926630973816,
+          "probe_b_spikes": 274.0,
+          "probe_b_state_std_max": 10.407774925231934,
+          "problems": [],
+          "unique_feature_rows": 24
+        },
+        "train": {
+          "alive": true,
+          "feature_std": 3.6713385581970215,
+          "pool_spikes": 5876.0,
+          "probe_a_spikes": 31.0,
+          "probe_a_state_std_max": 0.512541651725769,
+          "probe_b_spikes": 707.0,
+          "probe_b_state_std_max": 14.553940773010254,
+          "problems": [],
+          "unique_feature_rows": 56
+        }
+      },
+      "metrics": {
+        "chance_binary": 0.5,
+        "cross_A_from_B": 0.8333333333333334,
+        "cross_B_from_A": 0.9583333333333334,
+        "cross_mean": 0.8958333333333334,
+        "routing_margin": 0.08333333333333337,
+        "within_A_from_A": 1.0,
+        "within_B_from_B": 0.9583333333333334,
+        "within_mean": 0.9791666666666667
+      },
+      "n_trials": 80,
+      "seed": 11,
+      "status": "MEASURED",
+      "test_trials": 24,
+      "train_trials": 56
+    },
+    "connectome_signed": {
+      "arm": "connectome_signed",
+      "calibration": {
+        "accepted": true,
+        "converged": true,
+        "gain": 70.00625,
+        "pool_size": 468,
+        "rate": 0.014080862713675214,
+        "reason": "rate_matched",
+        "relative_tolerance": 0.15,
+        "spectrum": {
+          "dominant_eigenvalue_imag": 0.0,
+          "dominant_eigenvalue_real": -2131.864051645932,
+          "nnz": 23708,
+          "rho_abs": 2182.860964717819,
+          "rho_signed": 2131.864051645932
+        },
+        "target_rate": 0.013
+      },
+      "feature_shape": [
+        80,
+        256
+      ],
+      "liveness": {
+        "alive": true,
+        "test": {
+          "alive": true,
+          "feature_std": 4.708141803741455,
+          "pool_spikes": 2141.0,
+          "probe_a_spikes": 0.0,
+          "probe_a_state_std_max": 11.14089298248291,
+          "probe_b_spikes": 744.0,
+          "probe_b_state_std_max": 6.304801940917969,
+          "problems": [],
+          "unique_feature_rows": 24
+        },
+        "train": {
+          "alive": true,
+          "feature_std": 4.449381351470947,
+          "pool_spikes": 4892.0,
+          "probe_a_spikes": 0.0,
+          "probe_a_state_std_max": 10.114710807800293,
+          "probe_b_spikes": 1692.0,
+          "probe_b_state_std_max": 6.3445963859558105,
+          "problems": [],
+          "unique_feature_rows": 56
+        }
+      },
+      "metrics": {
+        "chance_binary": 0.5,
+        "cross_A_from_B": 0.7083333333333334,
+        "cross_B_from_A": 1.0,
+        "cross_mean": 0.8541666666666667,
+        "routing_margin": 0.14583333333333326,
+        "within_A_from_A": 1.0,
+        "within_B_from_B": 1.0,
+        "within_mean": 1.0
+      },
+      "n_trials": 80,
+      "seed": 11,
+      "status": "MEASURED",
+      "test_trials": 24,
+      "train_trials": 56
+    },
+    "degree_preserving": {
+      "arm": "degree_preserving",
+      "calibration": {
+        "accepted": true,
+        "converged": true,
+        "gain": 8.169921875,
+        "pool_size": 468,
+        "rate": 0.013221153846153846,
+        "reason": "rate_matched",
+        "relative_tolerance": 0.15,
+        "spectrum": {
+          "dominant_eigenvalue_imag": 209.14117223643285,
+          "dominant_eigenvalue_real": 225.48493531459363,
+          "nnz": 23708,
+          "rho_abs": 449.48465306082596,
+          "rho_signed": 307.54428295491977
+        },
+        "target_rate": 0.013
+      },
+      "feature_shape": [
+        80,
+        256
+      ],
+      "liveness": {
+        "alive": true,
+        "test": {
+          "alive": true,
+          "feature_std": 2.49505352973938,
+          "pool_spikes": 2449.0,
+          "probe_a_spikes": 149.0,
+          "probe_a_state_std_max": 4.540412425994873,
+          "probe_b_spikes": 446.0,
+          "probe_b_state_std_max": 4.998449802398682,
+          "problems": [],
+          "unique_feature_rows": 24
+        },
+        "train": {
+          "alive": true,
+          "feature_std": 2.3834869861602783,
+          "pool_spikes": 5517.0,
+          "probe_a_spikes": 315.0,
+          "probe_a_state_std_max": 4.449939727783203,
+          "probe_b_spikes": 1049.0,
+          "probe_b_state_std_max": 5.1472063064575195,
+          "problems": [],
+          "unique_feature_rows": 56
+        }
+      },
+      "metrics": {
+        "chance_binary": 0.5,
+        "cross_A_from_B": 1.0,
+        "cross_B_from_A": 0.9166666666666666,
+        "cross_mean": 0.9583333333333333,
+        "routing_margin": 0.02083333333333348,
+        "within_A_from_A": 1.0,
+        "within_B_from_B": 0.9583333333333334,
+        "within_mean": 0.9791666666666667
+      },
+      "n_trials": 80,
+      "seed": 11,
+      "status": "MEASURED",
+      "test_trials": 24,
+      "train_trials": 56
+    }
+  },
+  "elapsed_seconds": 15.806,
+  "positive_control": {
+    "arm": "positive_control",
+    "calibration": {
+      "accepted": true,
+      "converged": true,
+      "gain": 0.674609375,
+      "pool_size": 468,
+      "rate": 0.013354700854700854,
+      "reason": "rate_matched",
+      "relative_tolerance": 0.15,
+      "spectrum": {
+        "dominant_eigenvalue_imag": 0.0,
+        "dominant_eigenvalue_real": 13.67727177278538,
+        "nnz": 23708,
+        "rho_abs": 13.67727177278538,
+        "rho_signed": 13.67727177278538
+      },
+      "target_rate": 0.013
+    },
+    "feature_shape": [
+      80,
+      256
+    ],
+    "liveness": {
+      "alive": true,
+      "test": {
+        "alive": true,
+        "feature_std": 0.040631141513586044,
+        "pool_spikes": 2342.0,
+        "probe_a_spikes": 1184.0,
+        "probe_a_state_std_max": 0.15583014488220215,
+        "probe_b_spikes": 1158.0,
+        "probe_b_state_std_max": 0.15467345714569092,
+        "problems": [],
+        "unique_feature_rows": 24
+      },
+      "train": {
+        "alive": true,
+        "feature_std": 0.03849552199244499,
+        "pool_spikes": 5642.0,
+        "probe_a_spikes": 2793.0,
+        "probe_a_state_std_max": 0.1547715961933136,
+        "probe_b_spikes": 2849.0,
+        "probe_b_state_std_max": 0.15488611161708832,
+        "problems": [],
+        "unique_feature_rows": 56
+      }
+    },
+    "metrics": {
+      "chance_binary": 0.5,
+      "cross_A_from_B": 0.5,
+      "cross_B_from_A": 0.5416666666666666,
+      "cross_mean": 0.5208333333333333,
+      "routing_margin": 0.47916666666666674,
+      "within_A_from_A": 1.0,
+      "within_B_from_B": 1.0,
+      "within_mean": 1.0
+    },
+    "n_trials": 80,
+    "seed": 11,
+    "status": "MEASURED",
+    "test_trials": 24,
+    "train_trials": 56
+  },
+  "positive_control_pass": true,
+  "seed": 11,
+  "selected_labels": [
+    "cb_intrinsic",
+    "ol_intrinsic"
+  ],
+  "selected_node_count": 500,
+  "source_edge_count": 23708,
+  "started_utc": "2026-09-16T20:19:29+00:00",
+  "status": "MEASURED"
+}

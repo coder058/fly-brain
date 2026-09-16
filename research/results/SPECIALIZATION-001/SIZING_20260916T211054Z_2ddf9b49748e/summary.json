@@ -1,0 +1,28 @@
+{
+  "block_seconds": 15.681620974006364,
+  "degree_seconds": 7.015276967998943,
+  "estimate_only": true,
+  "estimated_full_minutes": 7.565632647335103,
+  "estimated_full_seconds": 453.93795884010615,
+  "experiment": "SPECIALIZATION-001",
+  "git_tip": "2ddf9b49748ee6463572b090612ddc698ddf8842",
+  "n_edge_records": 23708,
+  "n_nodes": 500,
+  "pair_seconds": 22.696897942005307,
+  "protocol_sha256": "ec849682f89bfca2200e85e3a5e603001fc62c123a4b992662c6938a3125aa14",
+  "raw_and_derived_graph_untouched": true,
+  "sample_summary": {
+    "block": {
+      "all_positive": 2372,
+      "any_inhibitory": 35435,
+      "total_induced_ffl": 90512
+    },
+    "degree": {
+      "all_positive": 489,
+      "any_inhibitory": 65867,
+      "total_induced_ffl": 116150
+    }
+  },
+  "smoke_not_evidence": true,
+  "source_self_loops": 4
+}

@@ -1,0 +1,10 @@
+{"mode": "smoke", "n_graph_edges": 25563197, "outdir": "/home/ubuntu/fly-lab/research/results/ROUTING-001/SMOKE_20260916T195127Z_2ddf9b49748e", "seeds": [0], "selected_labels": ["cb_intrinsic", "ol_intrinsic"]}
+seed 0
+{
+  "classification": "SMOKE_NOT_EVIDENCE",
+  "positive_control_live": [
+    true
+  ],
+  "seeds_completed": 1
+}
+WROTE /home/ubuntu/fly-lab/research/results/ROUTING-001/SMOKE_20260916T195127Z_2ddf9b49748e/summary.json

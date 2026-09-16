@@ -1,0 +1,14 @@
+{"outdir": "/home/ubuntu/fly-lab/research/results/MOTIF-MINE-006B/SMOKE_20260916T215415Z_2ddf9b49748e", "mode": "smoke", "graph": {"n_nodes": 500, "n_edges": 23704}, "observed": {"noninduced_feed_forward_loop": 490588, "induced_feed_forward_loop": 33551, "induced_3cycle": 4276}, "seeds": [0]}
+seed 0
+Traceback (most recent call last):
+  File "/home/ubuntu/fly-lab/research/motif_mine_006b.py", line 186, in <module>
+    main()
+  File "/home/ubuntu/fly-lab/research/motif_mine_006b.py", line 173, in main
+    N,rd=reciprocity_endpoint_null(A,labels,int(seed))
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/fly-lab/research/motif_mine_006b.py", line 136, in reciprocity_endpoint_null
+    reports["single"]["|".join(key)]=permute_single_group(present,singles,idxs,rng)
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/fly-lab/research/motif_mine_006b.py", line 87, in permute_single_group
+    raise RuntimeError("single permutation group exceeded attempt cap")
+RuntimeError: single permutation group exceeded attempt cap

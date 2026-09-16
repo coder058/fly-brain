@@ -1,0 +1,57 @@
+{
+  "audit_type": "independent_fixed_topology_weight_permutation_audit",
+  "checks": {
+    "block_counts_preserved": true,
+    "directed_edge_count_preserved": true,
+    "edge_set_preserved": true,
+    "metadata_edge_records_match": true,
+    "node_in_out_degree_preserved": true,
+    "observed_all_measured": true,
+    "positive_control_all_pass": true,
+    "raw_and_derived_graph_untouched_declared_by_run": true,
+    "raw_subgraph_edge_records_before_self_loop_removal": 23708,
+    "reciprocal_pairs_preserved": true,
+    "source_self_loops_removed_matches_metadata": true,
+    "weight_multiset_preserved": true,
+    "weight_permuted_all_measured": true,
+    "zero_weight_records_retained_in_topology": true
+  },
+  "classification": "PASS_OBSERVED_OVER_NULL",
+  "experiment": "MOTIF-FUNC-002",
+  "negative_weight_records": 5936,
+  "observed_source_edge_records": 23704,
+  "positive_weight_records": 3533,
+  "primary": {
+    "ci95": [
+      0.08783645362404835,
+      0.16910799082039613
+    ],
+    "mean": 0.12847222222222224,
+    "n": 12,
+    "sd": 0.06395610210631195,
+    "values": [
+      0.08333333333333348,
+      0.02083333333333326,
+      0.08333333333333326,
+      0.14583333333333326,
+      0.22916666666666674,
+      0.22916666666666674,
+      0.125,
+      0.125,
+      0.10416666666666674,
+      0.1875,
+      0.14583333333333326,
+      0.0625
+    ]
+  },
+  "protocol_sha256_used_by_run": "4a6c2b37f3b876b1c3e3fd693b3cf371d8dd0a3a74d6458e16bee2e1d15f52a0",
+  "raw_and_derived_graph_untouched": true,
+  "raw_selected_subgraph_records_before_self_loop_removal": 23708,
+  "reciprocal_pairs": 6745,
+  "run_artifact": "research/results/MOTIF-FUNC-002/FULL_20260916T223250Z_2ddf9b49748e/summary.json",
+  "run_summary_sha256": "39e80711efaac422e520967cc8dac312179a3f9c2abdca7ec929b3f0d08cae85",
+  "runner_sha256_used_by_run": "8c21889ffb76d581336585cf0de16cf5a2755a7e334b08e2a77a043ab1d10211",
+  "scope": "locked LIF readout comparison only; no motif attribution, biology, novelty, or ML transfer",
+  "self_loops_removed": 4,
+  "zero_weight_records": 14235
+}

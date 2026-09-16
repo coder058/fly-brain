@@ -1,0 +1,94 @@
+{
+  "aggregate": {
+    "arms": {
+      "block_preserving": {
+        "mean_routing_margin": 0.31875,
+        "missing_seeds": [
+          3,
+          9
+        ],
+        "n_measured": 10,
+        "n_planned": 12,
+        "sd_routing_margin": 0.14667416331851083
+      },
+      "connectome_signed": {
+        "mean_routing_margin": 0.24826388888888892,
+        "missing_seeds": [],
+        "n_measured": 12,
+        "n_planned": 12,
+        "sd_routing_margin": 0.043025506783845494
+      },
+      "degree_preserving": {
+        "mean_routing_margin": -0.005208333333333352,
+        "missing_seeds": [],
+        "n_measured": 12,
+        "n_planned": 12,
+        "sd_routing_margin": 0.018042195912175825
+      }
+    },
+    "classification": "INCONCLUSIVE",
+    "gate": {
+      "all_primary_pairs_alive": false,
+      "claim_scope": "routing task only; not biological function, novelty, or ML transfer",
+      "connectome_margin_at_least_minimum": true,
+      "minimum_margin": 0.1,
+      "paired_ci_excludes_zero": false,
+      "positive_control": true
+    },
+    "paired_primary": {
+      "ci95_paired_t": [
+        -0.18456381464811983,
+        0.030397147981453168
+      ],
+      "connectome_minus_block_differences": [
+        -0.0625,
+        -0.20833333333333337,
+        0.1875,
+        0.08333333333333337,
+        -0.22916666666666674,
+        0.0,
+        -0.08333333333333326,
+        -0.02083333333333326,
+        -0.3125000000000001,
+        -0.125
+      ],
+      "mean_difference": -0.07708333333333334,
+      "n": 10,
+      "seeds_common": [
+        0,
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10,
+        11
+      ]
+    },
+    "positive_control_all_pass": true
+  },
+  "elapsed_seconds": 194.941,
+  "experiment": "ROUTING-001",
+  "finished_utc": "2026-09-16T19:56:27+00:00",
+  "git_tip": "2ddf9b49748ee6463572b090612ddc698ddf8842",
+  "mode": "full",
+  "results_dir": "/home/ubuntu/fly-lab/research/results/ROUTING-001/FULL_20260916T195312Z_2ddf9b49748e",
+  "seeds_completed": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+  ],
+  "started_utc": "2026-09-16T19:53:16+00:00",
+  "status": "COMPLETE"
+}

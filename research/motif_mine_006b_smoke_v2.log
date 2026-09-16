@@ -1,0 +1,2 @@
+{"outdir": "/home/ubuntu/fly-lab/research/results/MOTIF-MINE-006B/SMOKE_20260916T215622Z_2ddf9b49748e", "mode": "smoke", "graph": {"n_nodes": 500, "n_edges": 23704}, "observed": {"noninduced_feed_forward_loop": 490588, "induced_feed_forward_loop": 33551, "induced_3cycle": 4276}, "seeds": [0]}
+seed 0

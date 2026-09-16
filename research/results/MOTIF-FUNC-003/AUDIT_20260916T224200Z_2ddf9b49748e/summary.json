@@ -1,0 +1,56 @@
+{
+  "audit_type": "independent_fixed_topology_block_weight_permutation_audit",
+  "checks": {
+    "all_seed_train_test_liveness": true,
+    "block_counts_preserved": true,
+    "block_weight_multisets_preserved": true,
+    "block_weight_permuted_all_measured": true,
+    "directed_edge_count_preserved": true,
+    "edge_set_preserved": true,
+    "metadata_edge_records_match": true,
+    "observed_all_measured": true,
+    "positive_control_all_pass": true,
+    "raw_and_derived_graph_untouched_declared_by_run": true,
+    "raw_subgraph_edge_records_before_self_loop_removal": 23708,
+    "reciprocal_pairs_preserved": true,
+    "source_self_loops_removed_matches_metadata": true,
+    "weight_multiset_preserved": true,
+    "zero_weight_records_retained_in_topology": true
+  },
+  "classification": "PASS_OBSERVED_OVER_NULL",
+  "experiment": "MOTIF-FUNC-003",
+  "observed_source_edge_records": 23704,
+  "primary": {
+    "ci95": [
+      0.08232979134020302,
+      0.17461465310424146
+    ],
+    "mean": 0.12847222222222224,
+    "n": 12,
+    "sd": 0.07262296549883594,
+    "values": [
+      0.02083333333333348,
+      0.125,
+      0.08333333333333326,
+      0.20833333333333337,
+      0.16666666666666674,
+      0.125,
+      0.1875,
+      0.02083333333333326,
+      0.10416666666666674,
+      0.27083333333333326,
+      0.10416666666666674,
+      0.125
+    ]
+  },
+  "protocol_sha256": "fcc52bd378e7d76baa5baf9ee922b04939aaba668dafe6a1fca79eb3cda3bd33",
+  "raw_and_derived_graph_untouched": true,
+  "raw_selected_subgraph_records_before_self_loop_removal": 23708,
+  "reciprocal_pairs": 6745,
+  "run_artifact": "research/results/MOTIF-FUNC-003/FULL_20260916T224042Z_2ddf9b49748e/summary.json",
+  "run_summary_sha256": "fab7b7e5118a5da65ddc1aeac36de7f8a274c2fd3857decda65934b3fba6e01c",
+  "runner_sha256": "3098a144326df11ddf345d657e39188740a6296abb453f3a62a8fa47c4abf3c2",
+  "scope": "locked LIF readout comparison only; no motif attribution, biology, novelty, or ML transfer",
+  "self_loops_removed": 4,
+  "zero_weight_records": 14235
+}

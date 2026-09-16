@@ -1,0 +1,16 @@
+{
+  "counts": {
+    "directed_3cycle": 84,
+    "feed_forward_loop": 25701
+  },
+  "rewire_diag": {
+    "duplicate_edges": 0,
+    "fraction_edges_rewired": 0.9944027880452001,
+    "in_degree_preserved": true,
+    "n_edges_in": 9469,
+    "n_edges_out": 9469,
+    "out_degree_preserved": true,
+    "self_loops": 0
+  },
+  "seed": 2
+}

@@ -1,0 +1,20 @@
+{
+  "audit_type": "adversarial_post_run",
+  "checks": {
+    "independent_topology_ok_seed0": true,
+    "independent_weight_multiset_ok_seed0": true,
+    "no_input_probe_overlap_enforced_by_runner": true,
+    "null_measured": true,
+    "null_missing_not_negative": true,
+    "null_swap_completeness_all_seeds": true,
+    "observed_measured": true,
+    "observed_train_test_liveness_all_alive": true,
+    "positive_control_all_pass": true,
+    "raw_and_derived_graph_untouched": true,
+    "train_only_readout_selection": true
+  },
+  "created_utc": "2026-09-16T22:24:12+00:00",
+  "experiment": "MOTIF-FUNC-001",
+  "interpretation": "Functional distinction is valid for this locked LIF readout versus this degree+reciprocity null. It is not attribution to motifs, biology, novelty, or ML transfer.",
+  "source_summary": "research/results/MOTIF-FUNC-001/FULL_20260916T222020Z_2ddf9b49748e/summary.json"
+}

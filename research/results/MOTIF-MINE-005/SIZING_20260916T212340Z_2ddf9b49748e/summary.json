@@ -1,0 +1,29 @@
+{
+  "block_seconds": 16.806789634996676,
+  "degree_seconds": 7.914587327002664,
+  "estimate_only": true,
+  "estimated_full_minutes": 8.240458987333113,
+  "estimated_full_seconds": 494.4275392399868,
+  "experiment": "MOTIF-MINE-005",
+  "git_tip": "2ddf9b49748ee6463572b090612ddc698ddf8842",
+  "n_edges": 23704,
+  "n_nodes": 500,
+  "pair_seconds": 24.72137696199934,
+  "protocol_sha256": "07222d8a860569117958e63de0bb7a24663577fb7ab13781f0fdb8d15afee909",
+  "raw_and_derived_graph_untouched": true,
+  "runner_sha256": "2512a3919ba87ea7df70782f8b479a6e29022f77a9ee65b469477f8b8ce3ba01",
+  "sample_counts": {
+    "block": {
+      "induced_3cycle": 21916,
+      "induced_feed_forward_loop": 91970,
+      "noninduced_feed_forward_loop": 351230
+    },
+    "degree": {
+      "induced_3cycle": 33806,
+      "induced_feed_forward_loop": 118176,
+      "noninduced_feed_forward_loop": 251030
+    }
+  },
+  "smoke_not_evidence": true,
+  "source_self_loops_removed": 4
+}

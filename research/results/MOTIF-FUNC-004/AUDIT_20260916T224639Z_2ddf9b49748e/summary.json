@@ -1,0 +1,56 @@
+{
+  "audit_type": "independent_fixed_topology_block_sign_permutation_audit",
+  "checks": {
+    "all_seed_train_test_liveness": true,
+    "block_absolute_weight_multisets_preserved": true,
+    "block_counts_preserved": true,
+    "block_sign_multisets_preserved": true,
+    "block_sign_permuted_all_measured": true,
+    "directed_edge_count_preserved": true,
+    "edge_set_preserved": true,
+    "metadata_edge_records_match": true,
+    "observed_all_measured": true,
+    "positive_control_all_pass": true,
+    "raw_and_derived_graph_untouched_declared_by_run": true,
+    "raw_subgraph_edge_records_before_self_loop_removal": 23708,
+    "reciprocal_pairs_preserved": true,
+    "source_self_loops_removed_matches_metadata": true,
+    "zero_positions_preserved": true
+  },
+  "classification": "INCONCLUSIVE",
+  "experiment": "MOTIF-FUNC-004",
+  "observed_source_edge_records": 23704,
+  "primary": {
+    "ci95": [
+      -0.06585597296303776,
+      0.006828195185259938
+    ],
+    "mean": -0.029513888888888912,
+    "n": 12,
+    "sd": 0.057198328467371176,
+    "values": [
+      -0.125,
+      -0.04166666666666674,
+      -0.02083333333333337,
+      -0.06250000000000011,
+      -0.02083333333333326,
+      0.0625,
+      -0.02083333333333348,
+      -0.04166666666666652,
+      0.08333333333333348,
+      -0.02083333333333348,
+      -0.0625,
+      -0.08333333333333348
+    ]
+  },
+  "protocol_sha256": "364e266b2148a028d78c71f9a9003ee48fdea403b48d8c23b98db0bc0092fa6e",
+  "raw_and_derived_graph_untouched": true,
+  "raw_selected_subgraph_records_before_self_loop_removal": 23708,
+  "reciprocal_pairs": 6745,
+  "run_artifact": "research/results/MOTIF-FUNC-004/FULL_20260916T224521Z_2ddf9b49748e/summary.json",
+  "run_summary_sha256": "5e45322b6a811392aaf68451099fa50fef3607893d250f1af77671b0eb976fca",
+  "runner_sha256": "a7343ab28ed9b0881afab67888b38548603ea3fc14518d50ab1e829016206302",
+  "scope": "locked LIF readout comparison only; no motif attribution, biology, novelty, or ML transfer",
+  "self_loops_removed": 4,
+  "zero_weight_records": 14235
+}

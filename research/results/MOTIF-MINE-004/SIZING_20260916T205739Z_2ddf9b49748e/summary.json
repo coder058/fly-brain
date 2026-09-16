@@ -1,0 +1,30 @@
+{
+  "block_seconds": 16.3111096490029,
+  "degree_seconds": 7.753511942006298,
+  "estimate_only": true,
+  "estimated_full_minutes": 8.0215405303364,
+  "estimated_full_seconds": 481.292431820184,
+  "experiment": "MOTIF-MINE-004",
+  "git_tip": "2ddf9b49748ee6463572b090612ddc698ddf8842",
+  "graph_meta_sha256": "7a50f8de7a67793253f498b69b595e3310b1bf5abc876a929c69a0bbe3704fb1",
+  "method": "one degree-preserving and one block-preserving null at seed 0, including motif enumeration; full estimate is 20 pairs",
+  "n_edges": 23704,
+  "n_nodes": 500,
+  "pair_seconds": 24.0646215910092,
+  "protocol_sha256": "c1dcdae076fcee2a046a359cbbdbaac4a5c15873f029b7f9201e36a3be0e490e",
+  "raw_and_derived_graph_untouched": true,
+  "sample_counts": {
+    "block": {
+      "induced_3cycle": 21916,
+      "induced_feed_forward_loop": 131854,
+      "noninduced_feed_forward_loop": 351230
+    },
+    "degree": {
+      "induced_3cycle": 33806,
+      "induced_feed_forward_loop": 145086,
+      "noninduced_feed_forward_loop": 251030
+    }
+  },
+  "smoke_not_evidence": true,
+  "source_self_loops_removed": 4
+}

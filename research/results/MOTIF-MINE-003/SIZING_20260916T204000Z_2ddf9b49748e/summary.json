@@ -1,0 +1,12 @@
+{
+  "estimate_only": true,
+  "experiment": "MOTIF-MINE-003",
+  "graph_edges": 9469,
+  "graph_nodes": 500,
+  "method": "one complete degree-null plus block-null pair with induced counts, multiplied by 20; estimate only",
+  "one_degree_plus_block_seconds": 8.019687114996486,
+  "protected_paths": "data/raw and data/derived/graph untouched",
+  "ram_risk": "No peak-RAM measurement; smoke and sizing completed without error.",
+  "status": "SIZING_ONLY",
+  "twenty_pair_seconds_estimate": 160.39374229992973
+}

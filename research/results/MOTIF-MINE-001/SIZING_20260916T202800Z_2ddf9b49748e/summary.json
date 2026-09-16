@@ -1,0 +1,12 @@
+{
+  "estimate_only": true,
+  "experiment": "MOTIF-MINE-001",
+  "graph_edges": 9469,
+  "graph_nodes": 500,
+  "method": "one complete null construction plus both motif counts, multiplied by 20; estimate only",
+  "one_null_measured_seconds": 2.33207462199789,
+  "protected_paths": "data/raw and data/derived/graph untouched",
+  "ram_risk": "No peak-RAM measurement; smoke and one-null sizing completed without error.",
+  "status": "SIZING_ONLY",
+  "twenty_null_seconds_estimate": 46.6414924399578
+}

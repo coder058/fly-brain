@@ -1,0 +1,21 @@
+{
+  "arm_statuses": {
+    "block_magnitude_permuted": "MISSING",
+    "observed_signed": "MEASURED"
+  },
+  "estimate_only": true,
+  "estimated_full_minutes": 0.3172310891968664,
+  "estimated_full_seconds": 19.033865351811983,
+  "experiment": "MOTIF-FUNC-005",
+  "git_tip": "2ddf9b49748ee6463572b090612ddc698ddf8842",
+  "missing_is_not_negative": true,
+  "mode": "sizing",
+  "one_seed_seconds": 1.586155445984332,
+  "positive_control_pass": true,
+  "protocol_sha256": "e30ebc7be0de9c7617a3468254cc86f6f7c675bc0f3dc7df98d0a7f2e219aede",
+  "raw_and_derived_graph_untouched": true,
+  "runner_sha256": "8b4b3d725b16b5f89b3ee3f4fa7fa2b33fea2524a1b3e84c15ffec226267ec4f",
+  "seed_status": "MEASURED",
+  "sizing_not_evidence": true,
+  "status": "SIZING_ONLY"
+}

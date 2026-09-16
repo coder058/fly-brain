@@ -1,0 +1,262 @@
+{"outdir": "/home/ubuntu/fly-lab/research/results/SPECIALIZATION-001/SMOKE_20260916T204913Z_2ddf9b49748e", "mode": "smoke", "observed_summary": {"all_positive": 1303, "any_inhibitory": 11359, "total_induced_ffl": 33551}, "seeds": [0]}
+seed 0
+{
+  "block_comparison": {
+    "nnn": {
+      "delta": -3155.0,
+      "null_mean": 4406.0,
+      "null_sd": null,
+      "observed": 1251
+    },
+    "npn": {
+      "delta": -1625.0,
+      "null_mean": 2542.0,
+      "null_sd": null,
+      "observed": 917
+    },
+    "nun": {
+      "delta": -7198.0,
+      "null_mean": 9119.0,
+      "null_sd": null,
+      "observed": 1921
+    },
+    "pnp": {
+      "delta": -2197.0,
+      "null_mean": 3454.0,
+      "null_sd": null,
+      "observed": 1257
+    },
+    "ppp": {
+      "delta": -1069.0,
+      "null_mean": 2372.0,
+      "null_sd": null,
+      "observed": 1303
+    },
+    "pup": {
+      "delta": -4450.0,
+      "null_mean": 7819.0,
+      "null_sd": null,
+      "observed": 3369
+    },
+    "unu": {
+      "delta": -9901.0,
+      "null_mean": 15914.0,
+      "null_sd": null,
+      "observed": 6013
+    },
+    "upu": {
+      "delta": -5691.0,
+      "null_mean": 10117.0,
+      "null_sd": null,
+      "observed": 4426
+    },
+    "uuu": {
+      "delta": -21675.0,
+      "null_mean": 34769.0,
+      "null_sd": null,
+      "observed": 13094
+    }
+  },
+  "block_null_summaries": [
+    {
+      "all_positive": 2372,
+      "any_inhibitory": 35435,
+      "total_induced_ffl": 90512
+    }
+  ],
+  "claim_scope": "signed structural motif composition only; no biological function, novelty, or ML transfer",
+  "classification": "SMOKE_NOT_EVIDENCE",
+  "degree_comparison": {
+    "nnn": {
+      "delta": -615.0,
+      "null_mean": 1866.0,
+      "null_sd": null,
+      "observed": 1251
+    },
+    "nnp": {
+      "delta": -1039.0,
+      "null_mean": 1039.0,
+      "null_sd": null,
+      "observed": 0
+    },
+    "nnu": {
+      "delta": -4135.0,
+      "null_mean": 4135.0,
+      "null_sd": null,
+      "observed": 0
+    },
+    "npn": {
+      "delta": -59.0,
+      "null_mean": 976.0,
+      "null_sd": null,
+      "observed": 917
+    },
+    "npp": {
+      "delta": -777.0,
+      "null_mean": 777.0,
+      "null_sd": null,
+      "observed": 0
+    },
+    "npu": {
+      "delta": -2488.0,
+      "null_mean": 2488.0,
+      "null_sd": null,
+      "observed": 0
+    },
+    "nun": {
+      "delta": -2200.0,
+      "null_mean": 4121.0,
+      "null_sd": null,
+      "observed": 1921
+    },
+    "nup": {
+      "delta": -2736.0,
+      "null_mean": 2736.0,
+      "null_sd": null,
+      "observed": 0
+    },
+    "nuu": {
+      "delta": -10335.0,
+      "null_mean": 10335.0,
+      "null_sd": null,
+      "observed": 0
+    },
+    "pnn": {
+      "delta": -1199.0,
+      "null_mean": 1199.0,
+      "null_sd": null,
+      "observed": 0
+    },
+    "pnp": {
+      "delta": 603.0,
+      "null_mean": 654.0,
+      "null_sd": null,
+      "observed": 1257
+    },
+    "pnu": {
+      "delta": -2644.0,
+      "null_mean": 2644.0,
+      "null_sd": null,
+      "observed": 0
+    },
+    "ppn": {
+      "delta": -576.0,
+      "null_mean": 576.0,
+      "null_sd": null,
+      "observed": 0
+    },
+    "ppp": {
+      "delta": 814.0,
+      "null_mean": 489.0,
+      "null_sd": null,
+      "observed": 1303
+    },
+    "ppu": {
+      "delta": -1610.0,
+      "null_mean": 1610.0,
+      "null_sd": null,
+      "observed": 0
+    },
+    "pun": {
+      "delta": -2633.0,
+      "null_mean": 2633.0,
+      "null_sd": null,
+      "observed": 0
+    },
+    "pup": {
+      "delta": 1693.0,
+      "null_mean": 1676.0,
+      "null_sd": null,
+      "observed": 3369
+    },
+    "puu": {
+      "delta": -6547.0,
+      "null_mean": 6547.0,
+      "null_sd": null,
+      "observed": 0
+    },
+    "unn": {
+      "delta": -4582.0,
+      "null_mean": 4582.0,
+      "null_sd": null,
+      "observed": 0
+    },
+    "unp": {
+      "delta": -2451.0,
+      "null_mean": 2451.0,
+      "null_sd": null,
+      "observed": 0
+    },
+    "unu": {
+      "delta": -4029.0,
+      "null_mean": 10042.0,
+      "null_sd": null,
+      "observed": 6013
+    },
+    "upn": {
+      "delta": -2428.0,
+      "null_mean": 2428.0,
+      "null_sd": null,
+      "observed": 0
+    },
+    "upp": {
+      "delta": -1883.0,
+      "null_mean": 1883.0,
+      "null_sd": null,
+      "observed": 0
+    },
+    "upu": {
+      "delta": -1920.0,
+      "null_mean": 6346.0,
+      "null_sd": null,
+      "observed": 4426
+    },
+    "uun": {
+      "delta": -10185.0,
+      "null_mean": 10185.0,
+      "null_sd": null,
+      "observed": 0
+    },
+    "uup": {
+      "delta": -6559.0,
+      "null_mean": 6559.0,
+      "null_sd": null,
+      "observed": 0
+    },
+    "uuu": {
+      "delta": -12079.0,
+      "null_mean": 25173.0,
+      "null_sd": null,
+      "observed": 13094
+    }
+  },
+  "degree_null_summaries": [
+    {
+      "all_positive": 489,
+      "any_inhibitory": 65867,
+      "total_induced_ffl": 116150
+    }
+  ],
+  "experiment": "SPECIALIZATION-001",
+  "mode": "smoke",
+  "observed_pattern_counts": {
+    "nnn": 1251,
+    "npn": 917,
+    "nun": 1921,
+    "pnp": 1257,
+    "ppp": 1303,
+    "pup": 3369,
+    "unu": 6013,
+    "upu": 4426,
+    "uuu": 13094
+  },
+  "observed_summary": {
+    "all_positive": 1303,
+    "any_inhibitory": 11359,
+    "total_induced_ffl": 33551
+  },
+  "seeds_completed": [
+    0
+  ]
+}
+WROTE /home/ubuntu/fly-lab/research/results/SPECIALIZATION-001/SMOKE_20260916T204913Z_2ddf9b49748e/summary.json

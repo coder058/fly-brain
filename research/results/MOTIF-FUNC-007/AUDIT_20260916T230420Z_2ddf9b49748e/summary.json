@@ -1,0 +1,60 @@
+{
+  "audit_type": "independent_cross_stream_pair_weight_permutation_audit",
+  "checks": {
+    "all_seed_train_test_liveness": true,
+    "block_counts_preserved": true,
+    "directed_edge_count_preserved": true,
+    "edge_set_preserved": true,
+    "metadata_edge_records_match": true,
+    "metadata_stream_pair_match": true,
+    "node_in_out_degree_preserved": true,
+    "observed_all_measured": true,
+    "positive_control_all_pass": true,
+    "raw_and_derived_graph_untouched_declared_by_run": true,
+    "raw_subgraph_edge_records_before_self_loop_removal": 23708,
+    "reciprocal_pairs_preserved": true,
+    "source_self_loops_removed_matches_metadata": true,
+    "weight_multiset_preserved": true,
+    "weight_permuted_all_measured": true,
+    "zero_weight_records_retained_in_topology": true
+  },
+  "classification": "PASS_OBSERVED_OVER_NULL",
+  "experiment": "MOTIF-FUNC-007",
+  "observed_source_edge_records": 23704,
+  "primary": {
+    "ci95": [
+      0.18129871007072917,
+      0.2666179565959374
+    ],
+    "mean": 0.2239583333333333,
+    "n": 12,
+    "sd": 0.06714142036241731,
+    "values": [
+      0.10416666666666674,
+      0.22916666666666674,
+      0.3125,
+      0.16666666666666663,
+      0.35416666666666663,
+      0.22916666666666674,
+      0.22916666666666674,
+      0.1875,
+      0.16666666666666674,
+      0.20833333333333337,
+      0.27083333333333326,
+      0.22916666666666663
+    ]
+  },
+  "protocol_sha256": "2892c9244300742088c9e779d0ea1ee498d280c08facc71144ca30861fac81c4",
+  "raw_and_derived_graph_untouched": true,
+  "raw_selected_subgraph_records_before_self_loop_removal": 23708,
+  "reciprocal_pairs": 6745,
+  "run_artifact": "research/results/MOTIF-FUNC-007/FULL_20260916T230250Z_2ddf9b49748e/summary.json",
+  "run_summary_sha256": "d7e4dcd87a2c69779ff209120e1be761bbd33c7a0971fa3ecf1fcc16cd3e2f3d",
+  "runner_sha256": "a4507bb5db59554c17f85f853a463c864cd03fc68ed550d01607617c10c7afc7",
+  "scope": "locked LIF readout comparison only; no motif attribution, biology, novelty, or ML transfer",
+  "self_loops_removed": 4,
+  "stream_pair": [
+    "cb_intrinsic",
+    "visual_centrifugal"
+  ]
+}

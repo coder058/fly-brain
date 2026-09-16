@@ -1,0 +1,20 @@
+{
+  "aggregate": {
+    "classification": "SMOKE_NOT_EVIDENCE",
+    "positive_control_live": [
+      false
+    ],
+    "seeds_completed": 1
+  },
+  "elapsed_seconds": 17.705,
+  "experiment": "ROUTING-001",
+  "finished_utc": "2026-09-16T19:45:08+00:00",
+  "git_tip": "2ddf9b49748ee6463572b090612ddc698ddf8842",
+  "mode": "smoke",
+  "results_dir": "/home/ubuntu/fly-lab/research/results/ROUTING-001/SMOKE_20260916T194450Z_2ddf9b49748e",
+  "seeds_completed": [
+    0
+  ],
+  "started_utc": "2026-09-16T19:44:54+00:00",
+  "status": "COMPLETE"
+}

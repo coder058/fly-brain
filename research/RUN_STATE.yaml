@@ -4,14 +4,14 @@ machine: Ubuntu-1
 repo: /home/ubuntu/fly-lab
 git_tip: 2ddf9b49748ee6463572b090612ddc698ddf8842
 started_utc: "2026-09-16T19:11:01.500163Z"
-current_phase: CIRCUIT-MINE-002
-current_question: "Which higher-order structures in the frozen graph justify a direct computational hypothesis?"
-active_process: CIRCUIT-MINE-002 pid 85719
-latest_result: "CIRCUIT-MINE-002 running; annotation alignment not yet inspected."
-current_belief: "Whole-graph recurrence is widespread; localized recurrence is not yet supported."
+current_phase: MOTIF-FUNC-008-COMPLETE
+current_question: "With topology fixed, does global permutation of signed weights erase the MOTIF-FUNC-001 LIF readout difference?"
+active_process: null
+latest_result: "MOTIF-FUNC-003 PASS narrow: observed-minus-within-block-permuted mean 0.12847, CI95 [0.08233,0.17461], n=12; audit passed; M4 preregistered."
+current_belief: "M2/M3 support within-block weight-placement sensitivity; M4 is inconclusive for sign, and M5 is instrument-limited for magnitude at target 0.013."
 next:
-  - "Run CIRCUIT-MINE-001 once on the existing derived graph."
-  - "Review structure against mechanism-matched controls."
-  - "Update HYPOTHESIS_SPACE and choose one falsifiable follow-up."
+  - "MOTIF-FUNC-004 protocol: sign-versus-magnitude placement control."
+  - "Keep M1-M3 interpretations narrow; no biological or ML-transfer claim."
 blockers:
   - "Raw source and protected derived graph are read-only."
+  - "ROUTING-001 primary contrast is incomplete; missing is not a negative."

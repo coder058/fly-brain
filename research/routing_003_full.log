@@ -1,0 +1,82 @@
+{"mode": "full", "n_graph_edges": 25563197, "outdir": "/home/ubuntu/fly-lab/research/results/ROUTING-003/FULL_20260916T201616Z_2ddf9b49748e", "seeds": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11], "selected_labels": ["cb_intrinsic", "ol_intrinsic"]}
+seed 0
+seed 1
+seed 2
+seed 3
+seed 4
+seed 5
+seed 6
+seed 7
+seed 8
+seed 9
+seed 10
+seed 11
+{
+  "arms": {
+    "block_preserving": {
+      "mean_routing_margin": 0.24739583333333337,
+      "missing_seeds": [
+        2,
+        4,
+        6,
+        8
+      ],
+      "n_measured": 8,
+      "n_planned": 12,
+      "sd_routing_margin": 0.12067800977663988
+    },
+    "connectome_signed": {
+      "mean_routing_margin": 0.18229166666666666,
+      "missing_seeds": [],
+      "n_measured": 12,
+      "n_planned": 12,
+      "sd_routing_margin": 0.04452771949056343
+    },
+    "degree_preserving": {
+      "mean_routing_margin": -0.006944444444444429,
+      "missing_seeds": [],
+      "n_measured": 12,
+      "n_planned": 12,
+      "sd_routing_margin": 0.03478529624736341
+    }
+  },
+  "classification": "INCONCLUSIVE",
+  "gate": {
+    "all_primary_pairs_alive": false,
+    "claim_scope": "routing task only; not biological function, novelty, or ML transfer",
+    "connectome_margin_at_least_minimum": true,
+    "minimum_margin": 0.1,
+    "paired_ci_excludes_zero": false,
+    "positive_control": true
+  },
+  "paired_primary": {
+    "ci95_paired_t": [
+      -0.14872401153071557,
+      0.008099011530715503
+    ],
+    "connectome_minus_block_differences": [
+      -0.14583333333333326,
+      -0.02083333333333348,
+      -0.04166666666666685,
+      -0.25,
+      -0.02083333333333315,
+      -0.0625,
+      -0.08333333333333348,
+      0.06249999999999989
+    ],
+    "mean_difference": -0.07031250000000004,
+    "n": 8,
+    "seeds_common": [
+      0,
+      1,
+      3,
+      5,
+      7,
+      9,
+      10,
+      11
+    ]
+  },
+  "positive_control_all_pass": true
+}
+WROTE /home/ubuntu/fly-lab/research/results/ROUTING-003/FULL_20260916T201616Z_2ddf9b49748e/summary.json

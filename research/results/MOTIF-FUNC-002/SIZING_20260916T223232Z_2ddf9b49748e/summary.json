@@ -1,0 +1,20 @@
+{
+  "arm_statuses": {
+    "observed_signed": "MEASURED",
+    "weight_permuted": "MEASURED"
+  },
+  "estimate_only": true,
+  "estimated_full_minutes": 0.35895125939860006,
+  "estimated_full_seconds": 21.537075563916005,
+  "experiment": "MOTIF-FUNC-002",
+  "git_tip": "2ddf9b49748ee6463572b090612ddc698ddf8842",
+  "mode": "sizing",
+  "one_seed_seconds": 1.7947562969930004,
+  "positive_control_pass": true,
+  "protocol_sha256": "4a6c2b37f3b876b1c3e3fd693b3cf371d8dd0a3a74d6458e16bee2e1d15f52a0",
+  "raw_and_derived_graph_untouched": true,
+  "runner_sha256": "8c21889ffb76d581336585cf0de16cf5a2755a7e334b08e2a77a043ab1d10211",
+  "seed_status": "MEASURED",
+  "sizing_not_evidence": true,
+  "status": "SIZING_ONLY"
+}

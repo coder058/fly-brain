@@ -1,0 +1,88 @@
+{
+  "aggregate": {
+    "arms": {
+      "block_preserving": {
+        "mean_closest_absolute_rate_error": 0.000400268206908832,
+        "mean_max_grid_rate": 0.1831652866809117,
+        "n_seeds": 12,
+        "target_reachable_by_seed": [
+          false,
+          false,
+          true,
+          false,
+          false,
+          false,
+          true,
+          true,
+          true,
+          false,
+          true,
+          false
+        ],
+        "target_reachable_count": 5
+      },
+      "connectome_signed": {
+        "mean_closest_absolute_rate_error": 0.0005699341168091169,
+        "mean_max_grid_rate": 0.015227141203703706,
+        "n_seeds": 12,
+        "target_reachable_by_seed": [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "target_reachable_count": 0
+      },
+      "degree_preserving": {
+        "mean_closest_absolute_rate_error": 0.0008367053952991454,
+        "mean_max_grid_rate": 0.26948464765847574,
+        "n_seeds": 12,
+        "target_reachable_by_seed": [
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "target_reachable_count": 1
+      }
+    },
+    "classification": "CALIBRATION_ONLY",
+    "experiment": "ROUTING-002",
+    "seeds_completed": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ]
+  },
+  "elapsed_seconds": 177.232,
+  "experiment": "ROUTING-002",
+  "finished_utc": "2026-09-16T20:07:24+00:00",
+  "results_dir": "/home/ubuntu/fly-lab/research/results/ROUTING-002/FULL_20260916T200427Z_2ddf9b49748e",
+  "started_utc": "2026-09-16T20:04:31+00:00",
+  "status": "COMPLETE"
+}

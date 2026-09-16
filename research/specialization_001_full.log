@@ -1,0 +1,490 @@
+{"outdir": "/home/ubuntu/fly-lab/research/results/SPECIALIZATION-001/FULL_20260916T211104Z_2ddf9b49748e", "mode": "full", "observed_summary": {"all_positive": 1303, "any_inhibitory": 11359, "total_induced_ffl": 33551}, "seeds": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]}
+seed 0
+seed 1
+seed 2
+seed 3
+seed 4
+seed 5
+seed 6
+seed 7
+seed 8
+seed 9
+seed 10
+seed 11
+seed 12
+seed 13
+seed 14
+seed 15
+seed 16
+seed 17
+seed 18
+seed 19
+{
+  "block_comparison": {
+    "nnn": {
+      "delta": -3261.1499999999996,
+      "null_mean": 4512.15,
+      "null_sd": 137.86540919545982,
+      "observed": 1251
+    },
+    "npn": {
+      "delta": -1477.6999999999998,
+      "null_mean": 2394.7,
+      "null_sd": 97.60397964276488,
+      "observed": 917
+    },
+    "nun": {
+      "delta": -7595.549999999999,
+      "null_mean": 9516.55,
+      "null_sd": 208.6504190468379,
+      "observed": 1921
+    },
+    "pnp": {
+      "delta": -2301.9,
+      "null_mean": 3558.9,
+      "null_sd": 139.56922447679014,
+      "observed": 1257
+    },
+    "ppp": {
+      "delta": -1404.1,
+      "null_mean": 2707.1,
+      "null_sd": 152.35654166944616,
+      "observed": 1303
+    },
+    "pup": {
+      "delta": -4458.45,
+      "null_mean": 7827.45,
+      "null_sd": 245.5409656034481,
+      "observed": 3369
+    },
+    "unu": {
+      "delta": -10266.3,
+      "null_mean": 16279.3,
+      "null_sd": 349.12659444300203,
+      "observed": 6013
+    },
+    "upu": {
+      "delta": -6240.15,
+      "null_mean": 10666.15,
+      "null_sd": 240.3644765329256,
+      "observed": 4426
+    },
+    "uuu": {
+      "delta": -22554.699999999997,
+      "null_mean": 35648.7,
+      "null_sd": 771.2595371755285,
+      "observed": 13094
+    }
+  },
+  "block_null_summaries": [
+    {
+      "all_positive": 2372,
+      "any_inhibitory": 35435,
+      "total_induced_ffl": 90512
+    },
+    {
+      "all_positive": 3008,
+      "any_inhibitory": 35570,
+      "total_induced_ffl": 93294
+    },
+    {
+      "all_positive": 2661,
+      "any_inhibitory": 36515,
+      "total_induced_ffl": 93128
+    },
+    {
+      "all_positive": 2603,
+      "any_inhibitory": 36218,
+      "total_induced_ffl": 94284
+    },
+    {
+      "all_positive": 2891,
+      "any_inhibitory": 35678,
+      "total_induced_ffl": 92080
+    },
+    {
+      "all_positive": 2755,
+      "any_inhibitory": 36734,
+      "total_induced_ffl": 94329
+    },
+    {
+      "all_positive": 2800,
+      "any_inhibitory": 36229,
+      "total_induced_ffl": 92559
+    },
+    {
+      "all_positive": 2666,
+      "any_inhibitory": 36660,
+      "total_induced_ffl": 94003
+    },
+    {
+      "all_positive": 2636,
+      "any_inhibitory": 36085,
+      "total_induced_ffl": 93181
+    },
+    {
+      "all_positive": 2830,
+      "any_inhibitory": 37649,
+      "total_induced_ffl": 96896
+    },
+    {
+      "all_positive": 2453,
+      "any_inhibitory": 36683,
+      "total_induced_ffl": 93349
+    },
+    {
+      "all_positive": 2571,
+      "any_inhibitory": 35422,
+      "total_induced_ffl": 90609
+    },
+    {
+      "all_positive": 2758,
+      "any_inhibitory": 36779,
+      "total_induced_ffl": 94140
+    },
+    {
+      "all_positive": 2819,
+      "any_inhibitory": 36814,
+      "total_induced_ffl": 93705
+    },
+    {
+      "all_positive": 2680,
+      "any_inhibitory": 36582,
+      "total_induced_ffl": 91925
+    },
+    {
+      "all_positive": 2750,
+      "any_inhibitory": 35011,
+      "total_induced_ffl": 90848
+    },
+    {
+      "all_positive": 2687,
+      "any_inhibitory": 36052,
+      "total_induced_ffl": 92048
+    },
+    {
+      "all_positive": 2597,
+      "any_inhibitory": 35867,
+      "total_induced_ffl": 93289
+    },
+    {
+      "all_positive": 2686,
+      "any_inhibitory": 36924,
+      "total_induced_ffl": 93727
+    },
+    {
+      "all_positive": 2919,
+      "any_inhibitory": 36325,
+      "total_induced_ffl": 94314
+    }
+  ],
+  "claim_scope": "signed structural motif composition only; no biological function, novelty, or ML transfer",
+  "classification": "STRUCTURAL_MEASURED",
+  "degree_comparison": {
+    "nnn": {
+      "delta": -614.3,
+      "null_mean": 1865.3,
+      "null_sd": 66.25318264450634,
+      "observed": 1251
+    },
+    "nnp": {
+      "delta": -969.15,
+      "null_mean": 969.15,
+      "null_sd": 44.88379733442676,
+      "observed": 0
+    },
+    "nnu": {
+      "delta": -4103.2,
+      "null_mean": 4103.2,
+      "null_sd": 104.75063120020856,
+      "observed": 0
+    },
+    "npn": {
+      "delta": -66.10000000000002,
+      "null_mean": 983.1,
+      "null_sd": 32.48465224654479,
+      "observed": 917
+    },
+    "npp": {
+      "delta": -727.65,
+      "null_mean": 727.65,
+      "null_sd": 28.486885255832153,
+      "observed": 0
+    },
+    "npu": {
+      "delta": -2565.9,
+      "null_mean": 2565.9,
+      "null_sd": 63.69408796823504,
+      "observed": 0
+    },
+    "nun": {
+      "delta": -2161.4,
+      "null_mean": 4082.4,
+      "null_sd": 86.8146240409323,
+      "observed": 1921
+    },
+    "nup": {
+      "delta": -2570.55,
+      "null_mean": 2570.55,
+      "null_sd": 67.12711821611292,
+      "observed": 0
+    },
+    "nuu": {
+      "delta": -10423.5,
+      "null_mean": 10423.5,
+      "null_sd": 153.78813177122677,
+      "observed": 0
+    },
+    "pnn": {
+      "delta": -1127.4,
+      "null_mean": 1127.4,
+      "null_sd": 51.65513170614268,
+      "observed": 0
+    },
+    "pnp": {
+      "delta": 659.55,
+      "null_mean": 597.45,
+      "null_sd": 32.06978410640737,
+      "observed": 1257
+    },
+    "pnu": {
+      "delta": -2510.65,
+      "null_mean": 2510.65,
+      "null_sd": 67.76373428472287,
+      "observed": 0
+    },
+    "ppn": {
+      "delta": -588.95,
+      "null_mean": 588.95,
+      "null_sd": 24.21716442178107,
+      "observed": 0
+    },
+    "ppp": {
+      "delta": 861.4,
+      "null_mean": 441.6,
+      "null_sd": 31.1387387771499,
+      "observed": 1303
+    },
+    "ppu": {
+      "delta": -1562.05,
+      "null_mean": 1562.05,
+      "null_sd": 51.87888222632241,
+      "observed": 0
+    },
+    "pun": {
+      "delta": -2493.25,
+      "null_mean": 2493.25,
+      "null_sd": 64.10178994134415,
+      "observed": 0
+    },
+    "pup": {
+      "delta": 1800.45,
+      "null_mean": 1568.55,
+      "null_sd": 47.92480403825625,
+      "observed": 3369
+    },
+    "puu": {
+      "delta": -6399.45,
+      "null_mean": 6399.45,
+      "null_sd": 97.81694772971551,
+      "observed": 0
+    },
+    "unn": {
+      "delta": -4557.25,
+      "null_mean": 4557.25,
+      "null_sd": 94.67722173674866,
+      "observed": 0
+    },
+    "unp": {
+      "delta": -2386.35,
+      "null_mean": 2386.35,
+      "null_sd": 49.3987800829556,
+      "observed": 0
+    },
+    "unu": {
+      "delta": -4045.5,
+      "null_mean": 10058.5,
+      "null_sd": 200.60710487496644,
+      "observed": 6013
+    },
+    "upn": {
+      "delta": -2381.0,
+      "null_mean": 2381.0,
+      "null_sd": 75.39440157912048,
+      "observed": 0
+    },
+    "upp": {
+      "delta": -1782.65,
+      "null_mean": 1782.65,
+      "null_sd": 61.722873862894104,
+      "observed": 0
+    },
+    "upu": {
+      "delta": -1886.6999999999998,
+      "null_mean": 6312.7,
+      "null_sd": 127.83628510510496,
+      "observed": 4426
+    },
+    "uun": {
+      "delta": -10052.8,
+      "null_mean": 10052.8,
+      "null_sd": 125.10610233759685,
+      "observed": 0
+    },
+    "uup": {
+      "delta": -6312.95,
+      "null_mean": 6312.95,
+      "null_sd": 116.94554513240678,
+      "observed": 0
+    },
+    "uuu": {
+      "delta": -12416.05,
+      "null_mean": 25510.05,
+      "null_sd": 448.53322062027917,
+      "observed": 13094
+    }
+  },
+  "degree_null_summaries": [
+    {
+      "all_positive": 489,
+      "any_inhibitory": 65867,
+      "total_induced_ffl": 116150
+    },
+    {
+      "all_positive": 412,
+      "any_inhibitory": 66220,
+      "total_induced_ffl": 116327
+    },
+    {
+      "all_positive": 415,
+      "any_inhibitory": 64298,
+      "total_induced_ffl": 114066
+    },
+    {
+      "all_positive": 430,
+      "any_inhibitory": 64611,
+      "total_induced_ffl": 114393
+    },
+    {
+      "all_positive": 449,
+      "any_inhibitory": 66090,
+      "total_induced_ffl": 116090
+    },
+    {
+      "all_positive": 433,
+      "any_inhibitory": 65559,
+      "total_induced_ffl": 114754
+    },
+    {
+      "all_positive": 447,
+      "any_inhibitory": 66131,
+      "total_induced_ffl": 117836
+    },
+    {
+      "all_positive": 437,
+      "any_inhibitory": 64685,
+      "total_induced_ffl": 115083
+    },
+    {
+      "all_positive": 425,
+      "any_inhibitory": 65565,
+      "total_induced_ffl": 114567
+    },
+    {
+      "all_positive": 515,
+      "any_inhibitory": 63186,
+      "total_induced_ffl": 111346
+    },
+    {
+      "all_positive": 429,
+      "any_inhibitory": 64077,
+      "total_induced_ffl": 113672
+    },
+    {
+      "all_positive": 452,
+      "any_inhibitory": 65005,
+      "total_induced_ffl": 115348
+    },
+    {
+      "all_positive": 426,
+      "any_inhibitory": 65495,
+      "total_induced_ffl": 115672
+    },
+    {
+      "all_positive": 443,
+      "any_inhibitory": 64803,
+      "total_induced_ffl": 114649
+    },
+    {
+      "all_positive": 438,
+      "any_inhibitory": 64865,
+      "total_induced_ffl": 114025
+    },
+    {
+      "all_positive": 408,
+      "any_inhibitory": 65545,
+      "total_induced_ffl": 115247
+    },
+    {
+      "all_positive": 383,
+      "any_inhibitory": 65063,
+      "total_induced_ffl": 114970
+    },
+    {
+      "all_positive": 471,
+      "any_inhibitory": 64971,
+      "total_induced_ffl": 115385
+    },
+    {
+      "all_positive": 493,
+      "any_inhibitory": 63324,
+      "total_induced_ffl": 113348
+    },
+    {
+      "all_positive": 437,
+      "any_inhibitory": 65527,
+      "total_induced_ffl": 115759
+    }
+  ],
+  "experiment": "SPECIALIZATION-001",
+  "mode": "full",
+  "observed_pattern_counts": {
+    "nnn": 1251,
+    "npn": 917,
+    "nun": 1921,
+    "pnp": 1257,
+    "ppp": 1303,
+    "pup": 3369,
+    "unu": 6013,
+    "upu": 4426,
+    "uuu": 13094
+  },
+  "observed_summary": {
+    "all_positive": 1303,
+    "any_inhibitory": 11359,
+    "total_induced_ffl": 33551
+  },
+  "seeds_completed": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+  ]
+}
+WROTE /home/ubuntu/fly-lab/research/results/SPECIALIZATION-001/FULL_20260916T211104Z_2ddf9b49748e/summary.json

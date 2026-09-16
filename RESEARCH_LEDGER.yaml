@@ -10,7 +10,7 @@ git_branch: cursor/exp-inst-001-c6ad
 git_origin: none
 hardware: {vcpu: 2, ram_gib: 15, gpu: false}
 never_touch: data/raw/
-updated_utc: "2026-09-16T15:09:39Z"
+updated_utc: "2026-09-16T21:10:00Z"
 
 dataset:
   name: MaleCNS v1.0
@@ -398,6 +398,436 @@ experiments:
     status: verified_read_only
     artifact: reports/UNTRACKED_WORKTREE_AUDIT.md
     scope: preserve_and_exclude_preexisting_untracked_user_work
+
+  - id: ROUTING-002
+    status: CALIBRATION_ONLY_COMPLETE
+    claim_ready: false
+    protocol: research/ROUTING-002-PROTOCOL.md
+    runner: research/routing_002_calibration.py
+    artifact: research/results/ROUTING-002/FULL_20260916T200427Z_2ddf9b49748e/summary.json
+    artifact_sha256: 8b37c5b50780c3e8a35f3adcda4fce265aceb57fef8166ec8605454601cc8325
+    seeds: 12
+    target_rate_reference: 0.002
+    target_relative_tolerance: 0.15
+    target_reachable_count: {connectome_signed: 0, degree_preserving: 1, block_preserving: 5}
+    mean_max_grid_rate: {connectome_signed: 0.015227141203703706, degree_preserving: 0.26948464765847574, block_preserving: 0.1831652866809117}
+    interpretation: >
+      The reference target was reachable on the fixed grid in 0/12 connectome,
+      1/12 degree-preserving, and 5/12 block-preserving seeds. This resolves
+      ROUTING-001 missingness as an operating-point envelope problem under the
+      tested calibration, not as evidence for or against routing or topology.
+      No task metric was computed.
+    next: ROUTING-003 uses a separately frozen operating point derived only from this calibration envelope.
+
+  - id: ROUTING-003
+    status: INCONCLUSIVE
+    claim_ready: false
+    protocol: research/ROUTING-003-PROTOCOL.md
+    runner: research/routing_003.py
+    artifact: research/results/ROUTING-003/FULL_20260916T201616Z_2ddf9b49748e/summary.json
+    artifact_sha256: 797cce9c05e14e5d1ea1d73a4f741fd49a38a8d0cddfaabbcf83a15d914d166a
+    sizing_artifact: research/results/ROUTING-003/SIZING_20260916T201600Z_2ddf9b49748e/summary.json
+    seeds: 12
+    target_rate: 0.013
+    measured: {positive_control: 12, connectome: 12, degree_preserving: 12, block_preserving: 8}
+    missing_block_seeds: [2, 4, 6, 8]
+    paired_primary: {n: 8, mean_connectome_minus_block: -0.07031250000000004, ci95: [-0.14872401153071557, 0.008099011530715503]}
+    interpretation: >
+      The positive control passed, but four block-preserving seeds missed the
+      calibration-derived target because the measured rate response was
+      discontinuous or outside the gain envelope. The available paired contrast
+      is inconclusive; missing rows are not negatives and no routing advantage
+      is claimed.
+    next: MOTIF-MINE-001; no ML abstraction.
+
+  - id: MOTIF-MINE-001
+    status: INVALIDATED_IMPLEMENTATION
+    claim_ready: false
+    protocol: research/MOTIF-MINE-001-PROTOCOL.md
+    runner: research/motif_mine_001.py
+    artifact: research/results/MOTIF-MINE-001/FULL_20260916T202657Z_2ddf9b49748e/summary.json
+    artifact_sha256: adfbb0b1907087527cf56555fe1bafc6000c1881d6eb5d156017a2b763451c40
+    sizing_artifact: research/results/MOTIF-MINE-001/SIZING_20260916T202800Z_2ddf9b49748e/summary.json
+    seeds: 20
+    observed: {directed_3cycle: 85, feed_forward_loop: 62611}
+    degree_null: {directed_3cycle_mean: 84.85, directed_3cycle_sd: 0.36634754853252327, feed_forward_mean: 25254.5, feed_forward_sd: 237.1900193160705}
+    deltas: {directed_3cycle: 0.15000000000000568, feed_forward_loop: 37356.5}
+    interpretation: >
+      Feed-forward occurrence count is structurally enriched relative to the
+      tested degree-preserving null on the fixed 500-node subgraph; directed
+      3-cycles are not materially separated in this sample. This is a
+      structural candidate only. The FFL statistic is non-induced, so reciprocal
+      extra edges count as additional occurrences. No biological, functional,
+      novelty, or ML claim is made.
+    next: MOTIF-MINE-002 block-preserving control.
+
+  - id: MOTIF-MINE-002
+    status: INVALIDATED_IMPLEMENTATION
+    claim_ready: false
+    protocol: research/MOTIF-MINE-002-PROTOCOL.md
+    runner: research/motif_mine_002.py
+    artifact: research/results/MOTIF-MINE-002/FULL_20260916T203208Z_2ddf9b49748e/summary.json
+    artifact_sha256: ebc2cd25187acef9f58ece08a4bcec8a2aa0157b15ebcff39eebe54e16065a22
+    sizing_artifact: research/results/MOTIF-MINE-002/SIZING_20260916T203300Z_2ddf9b49748e/summary.json
+    seeds: 20
+    observed: {directed_3cycle: 85, feed_forward_loop: 62611}
+    block_null: {directed_3cycle_mean: 84.95, directed_3cycle_sd: 0.22360679774997896, feed_forward_mean: 36682.15, feed_forward_sd: 280.39319666647066}
+    deltas: {directed_3cycle: 0.04999999999999716, feed_forward_loop: 25928.85}
+    interpretation: >
+      Feed-forward occurrences remain structurally enriched relative to the
+      tested degree- and superclass-block-preserving null; the residual delta
+      is 25928.85. Directed 3-cycles remain near the null. This is structural
+      evidence under one counting rule and one subgraph, not biological
+      function, novelty, or ML evidence. The non-induced count and unpreserved
+      reciprocity remain alternative explanations.
+    next: MOTIF-MINE-003 induced-motif control.
+
+  - id: MOTIF-CYCLE-AUDIT
+    status: INVALIDATED_SUBMETRIC
+    claim_ready: false
+    scope: MOTIF-MINE-001_and_MOTIF-MINE-002_cycle_counts
+    reason: >
+      The historical cycle3 helper multiplied boolean sparse matrices, so the
+      diagonal counted participating vertices rather than directed cycle
+      occurrences. The old cycle numbers and their null comparisons are not
+      claimable. Feed-forward counts used dense integer adjacency and are
+      unaffected. MOTIF-MINE-003 uses explicit induced-cycle enumeration.
+    action: "Do not overwrite historical artifacts; remove cycle claims from interpretation."
+
+  - id: MOTIF-MINE-003
+    status: INVALIDATED_IMPLEMENTATION
+    claim_ready: false
+    protocol: research/MOTIF-MINE-003-PROTOCOL.md
+    runner: research/motif_mine_003.py
+    artifact: research/results/MOTIF-MINE-003/FULL_20260916T203935Z_2ddf9b49748e/summary.json
+    artifact_sha256: eeddf6aea721e04f477126c6234284faee3e90969b726a9dfe0c157e12b57c3c
+    sizing_artifact: research/results/MOTIF-MINE-003/SIZING_20260916T204000Z_2ddf9b49748e/summary.json
+    seeds: {degree: 20, block: 20}
+    observed: {induced_3cycle: 354, induced_feed_forward_loop: 15740}
+    degree_null: {induced_3cycle_mean: 1734.15, induced_3cycle_sd: 78.59441188117236, induced_feed_forward_mean: 18953.1, induced_feed_forward_sd: 266.9985018684562}
+    block_null: {induced_3cycle_mean: 1566.1, induced_3cycle_sd: 69.25080276943024, induced_feed_forward_mean: 22673.05, induced_feed_forward_sd: 383.730644977355}
+    interpretation: >
+      Under an induced definition that excludes reciprocal extra edges, both
+      induced FFL and induced cycles were lower than both degree and block
+      nulls. This falsifies the enrichment candidate under the induced control.
+      It does not establish a biological absence or a general topology result.
+    next: SPECIALIZATION-001 signed-polarity composition.
+
+  - id: MOTIF-EDGE-PRESENCE-AUDIT
+    status: INVALIDATED_IMPLEMENTATION
+    claim_ready: false
+    scope: MOTIF-MINE-001_to_003
+    reason: >
+      The motif runners converted signed_weight to boolean, dropping UNKNOWN
+      zero-weight edges from the binary topology despite protocols specifying
+      directed edge presence. Historical motif counts are not valid measures of
+      the full graph topology. The old artifacts remain immutable; no numbers
+      from them are claimable. A corrected new ID uses unsigned edge presence.
+
+
+  - id: MOTIF-MINE-004
+    status: PARTIAL_INVALIDATED
+    claim_ready: false
+    protocol: research/MOTIF-MINE-004-PROTOCOL.md
+    runner: research/motif_mine_004.py
+    artifact: research/results/MOTIF-MINE-004/FULL_20260916T205754Z_2ddf9b49748e/summary.json
+    artifact_sha256: a8c402c0df1e02116931a6c278f35fba94aa7a96bd29c31c273c54029bd1d109
+    sizing_artifact: research/results/MOTIF-MINE-004/SIZING_20260916T205739Z_2ddf9b49748e/summary.json
+    protocol_sha256: c1dcdae076fcee2a046a359cbbdbaac4a5c15873f029b7f9201e36a3be0e490e
+    runner_sha256: 529d721dc209ffd08fa45d4f99d7d71162840446062b544165066f8b31c6eb45
+    seeds: {degree: 20, block: 20}
+    graph: {nodes: 500, analyzed_edges: 23704, source_self_loops_removed: 4}
+    observed: {noninduced_ffl: 490588, induced_ffl: 72245, induced_3cycle: 4276}
+    degree_null: {noninduced_ffl_mean: 250756.2, noninduced_ffl_sd: 988.9078292423628, induced_ffl_mean: 142679.65, induced_ffl_sd: 1756.1283454774805, induced_3cycle_mean: 32600.2, induced_3cycle_sd: 618.9381909452077}
+    block_null: {noninduced_ffl_mean: 351624.5, noninduced_ffl_sd: 893.6798849935615, induced_ffl_mean: 133260.15, induced_ffl_sd: 1487.4813851113, induced_3cycle_mean: 22528.65, induced_3cycle_sd: 438.8594397922151}
+    invariants: {null_files: 40, bad: 0, raw_and_derived_graph_untouched: true}
+    interpretation: >
+      Corrected unsigned-edge topology shows non-induced FFL enrichment versus
+      both tested null families, while induced FFLs and induced 3-cycles are
+      lower than both null families. This is a structural signature only; it
+      does not establish function, memory, biology, novelty, or ML transfer.
+    next: SPECIALIZATION-001 full signed-composition screen.
+
+
+  - id: MOTIF-MINE-005
+    status: STRUCTURAL_MEASURED
+    claim_ready: false
+    protocol: research/MOTIF-MINE-005-PROTOCOL.md
+    runner: research/motif_mine_005.py
+    seeds: {degree: 20, block: 20}
+    depends_on: MOTIF-MINE-004
+    artifact: research/results/MOTIF-MINE-005/FULL_20260916T212407Z_2ddf9b49748e/summary.json
+    artifact_sha256: f363c6310324f0ea555b399f470af3e1cfd9319a9071602bbf3afd75252909
+    protocol_sha256: 07222d8a860569117958e63de0bb7a24663577fb7ab13781f0fdb8d15afee909
+    runner_sha256: 2512a3919ba87ea7df70782f8b479a6e29022f77a9ee65b469477f8b8ce3ba01
+    interpretation: >
+      Completed fail-closed unsigned topology replication with all three induced
+      reverse-edge exclusions. Non-induced FFL enrichment remains; induced FFL/cycles are depleted; M4 induced values are not used.
+    next: run smoke, size, then full.
+
+
+  - id: SPECIALIZATION-001
+    status: STRUCTURAL_MEASURED
+    claim_ready: false
+    protocol: research/SPECIALIZATION-001-PROTOCOL.md
+    runner: research/specialization_001.py
+    artifact: research/results/SPECIALIZATION-001/FULL_20260916T211104Z_2ddf9b49748e/summary.json
+    artifact_sha256: 7bf11f16683bf648626f5f1482f3bb65bf9325061b1048d811fc345ba44c33b2
+    protocol_sha256: ec849682f89bfca2200e85e3a5e603001fc62c123a4b992662c6938a3125aa14
+    runner_sha256: d67cf308bb2ebf511303403563b598348fc2df8561880e6cef4f4314d9c9f32c
+    seeds: {degree: 20, block: 20}
+    observed: {induced_ffl: 33551, all_positive: 1303, any_inhibitory: 11359}
+    interpretation: >
+      Ordered sign composition is structurally patterned, but all-positive
+      enrichment is not robust to the block-preserving null; no function claim.
+    next: reciprocity-preserving null.
+
+
+  - id: MOTIF-MINE-006
+    status: COMPUTE_INFEASIBLE_SMOKE
+    claim_ready: false
+    protocol: research/MOTIF-MINE-006-PROTOCOL.md
+    runner: research/motif_mine_006.py
+    seeds: 20
+    depends_on: MOTIF-MINE-005
+    interpretation: >
+      Reciprocity-preserving degree+block null tests whether the remaining
+      non-induced FFL enrichment is explained by reciprocal closure. No metrics.
+    next: do not run full; use MOTIF-MINE-006B endpoint-permutation implementation.
+
+
+  - id: MOTIF-MINE-006B
+    status: INSTRUMENT_INSUFFICIENT
+    claim_ready: false
+    protocol: research/MOTIF-MINE-006B-PROTOCOL.md
+    runner: research/motif_mine_006b.py
+    seeds: 20
+    depends_on: MOTIF-MINE-005
+    interpretation: >
+      Efficient endpoint-permutation null preserves directed degrees, exact
+      superclass blocks, and reciprocal pairs. It supersedes M6 before metrics
+      because the M6 swap implementation exceeded the smoke cost gate.
+
+
+  - id: MOTIF-MINE-007
+    status: INSTRUMENT_INSUFFICIENT
+    claim_ready: false
+    protocol: research/MOTIF-MINE-007-PROTOCOL.md
+    runner: research/motif_mine_007.py
+    seeds: 20
+    depends_on: MOTIF-MINE-005
+    interpretation: >
+      Complementary degree+reciprocity null intentionally drops block
+      preservation to obtain a mixed endpoint null; no metrics yet.
+
+
+  - id: MOTIF-MINE-007B
+    status: STRUCTURAL_MEASURED
+    claim_ready: false
+    protocol: research/MOTIF-MINE-007B-PROTOCOL.md
+    runner: research/motif_mine_007b.py
+    seeds: 20
+    depends_on: MOTIF-MINE-005
+    artifact: research/results/MOTIF-MINE-007B/FULL_20260916T220944Z_2ddf9b49748e/summary.json
+    artifact_sha256: d97d710a8373d12b25305ecbe82305dbe2f48764370925148d0291b4594b86b7
+    protocol_sha256: 887b48594d79c568c3e20b58639d7aadaad3446be13ed3a13c1ba37968fcd093
+    runner_sha256: c94e6774d4bafe164d5d1b5fef623efb6a2398459ac64f38cb94772bbd2da6b9
+    interpretation: >
+      Completed global two-switch degree+reciprocity null without block preservation;
+      Residual non-induced and induced FFL contrasts remain, but blocks were not preserved; no function claim.
+
+
+  - id: MOTIF-FUNC-001
+    status: PASS_FUNCTIONAL_READOUT
+    claim_ready: true
+    protocol: research/MOTIF-FUNC-001-PROTOCOL.md
+    runner: research/motif_func_001.py
+    seeds: 12
+    depends_on: MOTIF-MINE-007B
+    artifact: research/results/MOTIF-FUNC-001/FULL_20260916T222020Z_2ddf9b49748e/summary.json
+    artifact_sha256: 1e64f64a3bc03178373c8c1877ee6cb0fd4e712f7cc801d605953b33cb6aa705
+    audit_artifact: research/results/MOTIF-FUNC-001/AUDIT_20260916T222412Z_2ddf9b49748e/summary.json
+    audit_sha256: e76f6078e11a563dad3d6165fc02225714c2ccf616649c10b65f09badb5092dd
+    protocol_sha256: a4bb19e772550939088cb18fcac2235dba74a2c5f221ef014d387de3f2936d30
+    runner_sha256: 9cd3d52b9c1a1ff9494b4f6faf6427fcd6a3a5bd2a83fa1518cf20b6ae2ea7ef
+    interpretation: >
+      Locked LIF functional comparison passed: observed signed topology exceeded
+      the degree+reciprocity null in 11 paired seeds; train/test liveness and paired CI gate passed.
+
+  - id: MOTIF-FUNC-002
+    status: PASS_FUNCTIONAL_READOUT
+    claim_ready: true
+    protocol: research/MOTIF-FUNC-002-PROTOCOL.md
+    runner: research/motif_func_002.py
+    seeds: 12
+    depends_on: MOTIF-FUNC-001
+    artifact: research/results/MOTIF-FUNC-002/FULL_20260916T223250Z_2ddf9b49748e/summary.json
+    artifact_sha256: 39e80711efaac422e520967cc8dac312179a3f9c2abdca7ec929b3f0d08cae85
+    audit_artifact: research/results/MOTIF-FUNC-002/AUDIT_20260916T223620Z_2ddf9b49748e/summary.json
+    audit_sha256: b7fef5e54d19fb8244d2ce847f93bc60a75edfb5aed823832cf714a811307760
+    protocol_sha256_used_by_run: 4a6c2b37f3b876b1c3e3fd693b3cf371d8dd0a3a74d6458e16bee2e1d15f52a0
+    protocol_current_sha256: c8b01dc98458fbdcbd2d502b16be4df96423b187de45ad9d5aedb5105e720d03
+    runner_sha256: 8c21889ffb76d581336585cf0de16cf5a2755a7e334b08e2a77a043ab1d10211
+    observed_edge_records: 23704
+    source_records_before_self_loop_removal: 23708
+    self_loops_removed: 4
+    paired_primary: {n: 12, mean: 0.12847222222222224, sd: 0.06395610210631195, ci95: [0.08783645362404835, 0.16910799082039613]}
+    controls: {positive_control: "12/12", observed: "12/12", weight_permuted: "12/12", train_test_liveness: "all measured arms alive"}
+    interpretation: >
+      With topology fixed, globally permuting the signed edge weights reduced
+      the locked LIF routing margin relative to the observed assignment. This
+      supports a narrow dependence on signed-weight placement for this task.
+      It does not identify a motif, biological function, novelty, or transferable
+      ML advantage; M1 also leaves block/spatial alternatives unresolved.
+    next: MOTIF-FUNC-003 block-preserving weight-permutation control.
+
+
+  - id: MOTIF-FUNC-003
+    status: PASS_FUNCTIONAL_READOUT
+    claim_ready: true
+    protocol: research/MOTIF-FUNC-003-PROTOCOL.md
+    runner: research/motif_func_003.py
+    seeds: 12
+    depends_on: MOTIF-FUNC-002
+    artifact: research/results/MOTIF-FUNC-003/FULL_20260916T224042Z_2ddf9b49748e/summary.json
+    artifact_sha256: fab7b7e5118a5da65ddc1aeac36de7f8a274c2fd3857decda65934b3fba6e01c
+    audit_artifact: research/results/MOTIF-FUNC-003/AUDIT_20260916T224200Z_2ddf9b49748e/summary.json
+    audit_sha256: 6ac3b1549164522087963e91fddd6cdc52ae6d05d985739af2298beda6f9e719
+    protocol_sha256: fcc52bd378e7d76baa5baf9ee922b04939aaba668dafe6a1fca79eb3cda3bd33
+    runner_sha256: 3098a144326df11ddf345d657e39188740a6296abb453f3a62a8fa47c4abf3c2
+    paired_primary: {n: 12, mean: 0.12847222222222224, sd: 0.07262296549883594, ci95: [0.08232979134020302, 0.17461465310424146]}
+    controls: {positive_control: "12/12", observed: "12/12", block_weight_permuted: "12/12", train_test_liveness: "all measured arms alive"}
+    interpretation: >
+      With topology fixed and each source-superclass to destination-superclass
+      weight multiset preserved, within-block weight permutation reduced the
+      locked LIF routing margin relative to the observed assignment. Coarse
+      block weight composition alone did not account for the result under this
+      control. This remains a narrow task/readout result, not motif, biology,
+      novelty, or transferable ML evidence.
+    next: MOTIF-FUNC-004 sign-versus-magnitude placement control.
+
+
+  - id: MOTIF-FUNC-004
+    status: INCONCLUSIVE
+    claim_ready: false
+    protocol: research/MOTIF-FUNC-004-PROTOCOL.md
+    runner: research/motif_func_004.py
+    seeds: 12
+    depends_on: MOTIF-FUNC-003
+    artifact: research/results/MOTIF-FUNC-004/FULL_20260916T224521Z_2ddf9b49748e/summary.json
+    artifact_sha256: 5e45322b6a811392aaf68451099fa50fef3607893d250f1af77671b0eb976fca
+    audit_artifact: research/results/MOTIF-FUNC-004/AUDIT_20260916T224639Z_2ddf9b49748e/summary.json
+    audit_sha256: 8ce8cd238a5d50c94f68c769570315ad3304f421c0dee78ac43027d5394aed5f
+    protocol_sha256: 364e266b2148a028d78c71f9a9003ee48fdea403b48d8c23b98db0bc0092fa6e
+    runner_sha256: a7343ab28ed9b0881afab67888b38548603ea3fc14518d50ab1e829016206302
+    paired_primary: {n: 12, mean: -0.029513888888888912, sd: 0.057198328467371176, ci95: [-0.06585597296303776, 0.006828195185259938]}
+    controls: {positive_control: "12/12", observed: "12/12", block_sign_permuted: "12/12", train_test_liveness: "all measured arms alive"}
+    interpretation: >
+      With topology, zero positions, block-level sign counts, and block-level
+      absolute-weight multisets preserved, the observed arm did not show a
+      claim-ready advantage over within-block sign permutation. The interval
+      crosses zero, so this is INCONCLUSIVE, not evidence that sign placement
+      is irrelevant. No motif, biology, novelty, or transferable ML claim.
+    next: MOTIF-FUNC-005 magnitude-placement control.
+
+
+  - id: MOTIF-FUNC-005
+    status: INCONCLUSIVE_INSTRUMENT
+    claim_ready: false
+    protocol: research/MOTIF-FUNC-005-PROTOCOL.md
+    runner: research/motif_func_005.py
+    seeds: 12
+    depends_on: MOTIF-FUNC-004
+    artifact: research/results/MOTIF-FUNC-005/FULL_20260916T225003Z_2ddf9b49748e/summary.json
+    artifact_sha256: 3d5e87e0ef2854865aeb3054dda031cfe7c1c65e665a8445c928ab0c07d9e200
+    audit_artifact: research/results/MOTIF-FUNC-005/AUDIT_20260916T225122Z_2ddf9b49748e/summary.json
+    audit_sha256: b429f4be0106ab1b82e64c9afe2cbb2007fb1c3523aebda54cb99e9b457f6f04
+    protocol_sha256: e30ebc7be0de9c7617a3468254cc86f6f7c675bc0f3dc7df98d0a7f2e219aede
+    runner_sha256: 8b4b3d725b16b5f89b3ee3f4fa7fa2b33fea2524a1b3e84c15ffec226267ec4f
+    paired_primary: {n: 7, mean: 0.11309523809523805, sd: 0.0611629469912633, ci95: [0.05652894661576626, 0.16966152957470984]}
+    missing_seeds: [0, 3, 7, 8, 9]
+    controls: {positive_control: "12/12", observed: "12/12", block_magnitude_permuted: "7/12", measured_train_test_liveness: "all measured arms alive"}
+    interpretation: >
+      The magnitude-permuted arm was MISSING in 5 seeds because independent
+      rate calibration was not accepted; missing rows are not negatives. The
+      remaining 7 paired rows are insufficient for the preregistered gate of
+      8, so no magnitude-placement claim is licensed. Invariants passed.
+    next: MOTIF-FUNC-006 one-time lower operating-point replication.
+
+
+  - id: MOTIF-FUNC-006
+    status: INCONCLUSIVE
+    claim_ready: false
+    protocol: research/MOTIF-FUNC-006-PROTOCOL.md
+    runner: research/motif_func_006.py
+    seeds: 12
+    depends_on: MOTIF-FUNC-005
+    artifact: research/results/MOTIF-FUNC-006/FULL_20260916T225532Z_2ddf9b49748e/summary.json
+    artifact_sha256: 4fc3d3479a4905269a87f2c119a51b5b6d76563ad52765ffb1d84202c4193d3b
+    audit_artifact: research/results/MOTIF-FUNC-006/AUDIT_20260916T225701Z_2ddf9b49748e/summary.json
+    audit_sha256: 8d3bec892c757d1c82b6aa0cae52202f46431a09e649bdcbaf20218e4a7474a5
+    protocol_sha256: fa564b12b7a97fa2b427d5fa2492008578604a84949720be304f89acb53923eb
+    runner_sha256: 609bdb76bcfe2d431d506597c5c8d0194498c349b0a792ec37c3be688b3f73b4
+    target_rate: 0.003
+    paired_primary: {n: 8, mean: 0.08072916666666669, sd: 0.13567397714888743, ci95: [-0.03269711675051455, 0.19415545008384794]}
+    missing_seeds: [0, 1, 10, 11]
+    controls: {positive_control: "12/12", observed: "12/12", block_magnitude_permuted: "8/12", measured_train_test_liveness: "all measured arms alive"}
+    interpretation: >
+      The one-time lower operating-point replication recovered 8 paired rows,
+      but the primary interval crossed zero. Four magnitude-arm rows remained
+      MISSING from calibration; they are not negatives. The magnitude branch is
+      closed under this declared target with no further target tuning.
+    next: MOTIF-FUNC-007 independent stream-pair replication.
+
+
+  - id: MOTIF-FUNC-007
+    status: PASS_FUNCTIONAL_READOUT
+    claim_ready: true
+    protocol: research/MOTIF-FUNC-007-PROTOCOL.md
+    runner: research/motif_func_007.py
+    seeds: 12
+    depends_on: MOTIF-FUNC-006
+    artifact: research/results/MOTIF-FUNC-007/FULL_20260916T230250Z_2ddf9b49748e/summary.json
+    artifact_sha256: d7e4dcd87a2c69779ff209120e1be761bbd33c7a0971fa3ecf1fcc16cd3e2f3d
+    audit_artifact: research/results/MOTIF-FUNC-007/AUDIT_20260916T230420Z_2ddf9b49748e/summary.json
+    audit_sha256: d18ac822dd25db61819cbc695299d6bc6351eae9bdfd3cb20ac65d47880747f6
+    protocol_sha256: 2892c9244300742088c9e779d0ea1ee498d280c08facc71144ca30861fac81c4
+    runner_sha256: a4507bb5db59554c17f85f853a463c864cd03fc68ed550d01607617c10c7afc7
+    stream_pair: ["cb_intrinsic", "visual_centrifugal"]
+    paired_primary: {n: 12, mean: 0.2239583333333333, sd: 0.06714142036241731, ci95: [0.18129871007072917, 0.2666179565959374]}
+    controls: {positive_control: "12/12", observed: "12/12", weight_permuted: "12/12", train_test_liveness: "all measured arms alive"}
+    interpretation: >
+      On the predeclared cross-stream pair cb_intrinsic plus
+      visual_centrifugal, observed signed weights exceeded the global
+      weight-permuted arm in all 12 paired seeds. This replicates the narrow
+      M2 readout result for a second pair; it remains a locked task/readout
+      result, not motif, biology, novelty, or transferable ML evidence.
+    next: MOTIF-FUNC-008 second cross-stream-pair replication.
+
+
+  - id: MOTIF-FUNC-008
+    status: INCONCLUSIVE
+    claim_ready: false
+    protocol: research/MOTIF-FUNC-008-PROTOCOL.md
+    runner: research/motif_func_008.py
+    seeds: 12
+    depends_on: MOTIF-FUNC-007
+    artifact: research/results/MOTIF-FUNC-008/FULL_20260916T230701Z_2ddf9b49748e/summary.json
+    artifact_sha256: 20ed74b7b90e1e4ff9c3f93abc67f954ecb4043203ec64d77f1643b8ca211ed0
+    audit_artifact: research/results/MOTIF-FUNC-008/AUDIT_20260916T230840Z_2ddf9b49748e/summary.json
+    audit_sha256: 34b35e06ac44424a13be1c75f6bb980b5374abe2613370c4d43196aa806939c9
+    protocol_sha256: 39213d2f413bf9c99b27805d284f6ace43b5c6b635c935c43aee28a4b9f93b3b
+    runner_sha256: 0c1a781f96569544837184be65312127d9669dea47f6d8ad75b9f2cf8fd6db56
+    stream_pair: ["visual_centrifugal", "ol_intrinsic"]
+    paired_primary: {n: 12, mean: 0.005208333333333333, sd: 0.03985156328125154, ci95: [-0.02011214196831266, 0.030528808634979324]}
+    controls: {positive_control: "12/12", observed: "12/12", weight_permuted: "12/12", train_test_liveness: "all measured arms alive"}
+    interpretation: >
+      On the second new stream pair, observed and globally weight-permuted
+      margins were statistically inconclusive. This limits generality of the
+      M2/M7 effect; it is not a refutation of those pair-specific results and
+      does not support a biological, motif, novelty, or ML claim.
+    next: publish reproducible research artifacts to fly-brain.
+
 
 tests:
   previous_pytest: "58 passed (2026-09-15, .venv/bin/python -m pytest -q)"

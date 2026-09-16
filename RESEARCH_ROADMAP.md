@@ -422,3 +422,240 @@ I am not the PI. I do not replace the 8-track program with a smaller one. I sequ
 | Glutamate UNKNOWN zeros ~60% of edges | **Confirmed** on E1 subgraph (14,237/23,708). Full-graph **neuron** U=33,439/165,122 is a different statistic. |
 | No git origin | **Confirmed.** |
 | `build_graph.py` reconstructed; `graph_meta` gitignored | **Confirmed.** Artifacts older than restored script; `.gitignore:5`. |
+
+---
+
+## ROUTING-002 — calibration envelope complete
+
+ROUTING-002 was preregistered and run as a calibration-only experiment. On the
+fixed nine-point gain grid and 12 seeds, the reference target 0.002 ±15% was
+reachable in 0/12 connectome, 1/12 degree-preserving, and 5/12
+block-preserving seeds. No task metric was computed.
+
+Decision: ROUTING-001 remains INCONCLUSIVE and is not repaired or rewritten.
+A new operating point may be tested only in ROUTING-003, whose protocol must be
+frozen before task metrics. No claim about biological routing or ML transfer is
+licensed by the calibration result.
+
+---
+
+## ROUTING-003 — operating-point replication complete
+
+ROUTING-003 tested a new target rate of 0.013 ±15%, selected from the
+ROUTING-002 calibration envelope and frozen before task metrics. The positive
+control passed 12/12; connectome and degree controls were measured 12/12; the
+block-preserving arm was measured 8/12 because four seeds did not calibrate at
+the target. The paired n=8 contrast was -0.07031250000000004 with CI95
+[-0.14872401153071557, 0.008099011530715503]. Classification: INCONCLUSIVE.
+
+Decision: do not call this a routing negative or positive, and do not launch an
+ML abstraction. Pivot to a preregistered higher-order motif inventory with
+degree-preserving nulls, keeping the result structural.
+
+---
+
+## MOTIF-MINE-001 — structural candidate
+
+The fixed 500-node subgraph contained 85 directed 3-cycles and 62,611
+non-induced feed-forward occurrences. Across 20 degree-preserving nulls, the
+cycle mean was 84.85 ±0.3663 and the feed-forward mean was 25,254.5 ±237.19.
+This is a structural enrichment screen, not a biological or ML result.
+
+The large feed-forward delta may reflect higher-order closure beyond in/out
+degree, but it may also reflect reciprocal structure, module/block structure,
+or other unpreserved dependencies. MOTIF-MINE-002 is preregistered to test a
+block-preserving degree-matched null before any functional translation.
+
+---
+
+## MOTIF-MINE-002 — block-preserving control complete
+
+The feed-forward enrichment persisted after preserving directed degrees and
+superclass source-to-destination blocks: observed 62,611 versus 36,682.15
+±280.39 across 20 nulls. Directed 3-cycles remained near-null. This narrows,
+but does not remove, the alternatives of reciprocal structure, non-induced
+counting, spatial organization, and high-out-degree selection. MOTIF-MINE-003
+will use an induced motif definition with both degree and block controls.
+
+---
+
+## Motif cycle-count audit correction
+
+A smoke consistency check found that the historical cycle helper in
+MOTIF-MINE-001/002 used boolean sparse multiplication. Those cycle submetrics
+are invalidated and removed from claims; the historical FFL counts remain
+unaffected. MOTIF-MINE-003 uses explicit induced-cycle enumeration and is the
+first valid cycle-control measurement in this chain.
+
+---
+
+## MOTIF-MINE-003 — induced control complete
+
+The non-induced FFL signal did not survive reciprocal-edge exclusion. Observed
+induced FFLs were 15,740 versus 18,953.1 ±266.998 in degree nulls and
+22,673.05 ±383.731 in block nulls. Induced cycles were also lower than both
+null families. The feed-forward primitive is therefore not accepted as a
+breakthrough candidate under this control. The next mechanism screen tests
+whether signed polarity composition, rather than motif abundance, is
+structured.
+
+---
+
+## Motif edge-presence audit correction
+
+The first three motif IDs are invalidated as full-topology analyses because
+their binary adjacency was derived from signed weights and dropped UNKNOWN
+zero-weight edges. Their files remain immutable history. No FFL or cycle number
+from those IDs is used going forward. MOTIF-MINE-004 repeats the question on
+the unsigned edge topology with induced and non-induced definitions.
+
+
+
+## MOTIF-MINE-004 — corrected unsigned topology
+
+The corrected unsigned-edge run is complete on the fixed 500-node subgraph:
+23,704 analyzed edges after removing 4 self-loops, 20 degree nulls, 20 block
+nulls, and zero invariant failures. Non-induced FFLs were 490,588 versus null
+means 250,756.2 and 351,624.5. Induced FFLs were 72,245 versus 142,679.65 and
+133,260.15; induced cycles were 4,276 versus 32,600.2 and 22,528.65.
+
+Decision: record a mixed structural signature only. Do not translate it into
+function or ML architecture. The next discriminating experiment is
+SPECIALIZATION-001, which tests signed composition of induced FFLs under the
+same null families.
+
+
+## Audit correction: MOTIF-MINE-004 induced counter
+
+MOTIF-MINE-004 omitted the sink-to-middle reverse-edge exclusion in its induced
+FFL counter. Its induced submetrics are invalidated; its non-induced count is
+not affected. MOTIF-MINE-005 is preregistered with the explicit three-edge
+induced condition before any new metrics.
+
+
+## MOTIF-MINE-005 — corrected result
+
+The corrected induced count is 33,551, not M4's invalid 72,245. It is below
+both degree and block null means; induced cycles are likewise depleted. The
+non-induced FFL count remains enriched, consistent with a reciprocal/extra-edge
+explanation. SPECIALIZATION-001's independent induced total matches 33,551.
+
+Decision: no computational or biological primitive is established. The next
+structural discriminator should preserve reciprocity in addition to degree and
+superclass blocks.
+
+
+## MOTIF-MINE-006B — efficient reciprocity control
+
+The first M6 swap generator preserved correctness only after a guard but its
+smoke exceeded ten minutes, projecting near the operational time gate. It was
+stopped before metrics. M6B preregisters endpoint permutations within compatible
+superclass groups, retaining the same degree/block/reciprocity target with a
+bounded 20-round construction. No M6 result is claimable.
+
+
+## MOTIF-MINE-007 — degree plus reciprocity complement
+
+The block-preserving endpoint null was mostly rigid in smoke and is not a
+strong evidence control. M7 intentionally drops block preservation while
+retaining exact node degrees and reciprocal-pair count, making a complementary
+null with useful mixing. Results remain pending.
+
+
+## MOTIF-MINE-007B — reciprocity complement complete
+
+The global degree+reciprocity null completed 20/20 with exact swaps and
+invariants. Non-induced FFLs remained above its mean (490,588 vs 240,957.95);
+induced FFLs were also above it (33,551 vs 23,621.65), while induced cycles
+were near it. Because blocks were intentionally broken, this result narrows
+but does not identify the mechanism. Move to a functional signed-weight test
+before any architecture or novelty claim.
+
+
+## MOTIF-FUNC-001 — narrow functional PASS
+
+The locked LIF readout separated the observed signed graph from the
+degree+reciprocity null: 11 paired seeds, mean margin difference 0.17614,
+95% t interval [0.14789, 0.20438], positive control 12/12. This is not
+motif attribution because the null breaks superclass blocks. The next control
+keeps topology fixed and permutes weights to test whether weight placement,
+rather than topology, drives the readout.
+
+
+## MOTIF-FUNC-002 — fixed-topology weight placement control
+
+The preregistered 12-seed readout completed with all observed and
+weight-permuted arms measured and all train/test liveness checks alive. The
+observed assignment exceeded the global weight permutation by mean margin
+0.12847222222222224, 95% t interval [0.08783645362404835, 0.16910799082039613].
+This narrows the M1 signal to a dependence on where the signed weights sit on
+this fixed topology, but it is not motif, biological, novelty, or ML evidence.
+A wording audit corrected the record count: 23,708 selected records preceded
+removal of 4 self-loops, leaving 23,704 analyzed records. Next is a
+block-preserving weight permutation to test whether coarse block allocation
+explains the effect.
+
+
+## MOTIF-FUNC-003 — within-block weight placement control
+
+The preregistered 12-seed control fixed topology and preserved each
+source-superclass to destination-superclass weight multiset while permuting
+weights within blocks. Both arms were measured in all seeds, liveness passed,
+and the observed-minus-null margin was 0.12847222222222224 with 95% t interval
+[0.08232979134020302, 0.17461465310424146]. Thus coarse block weight
+composition alone did not account for the result in this locked readout.
+This remains functional evidence for a computational control only; it is not
+motif, biological, novelty, or ML-transfer evidence. Next: a pre-registered
+sign-versus-magnitude placement control.
+
+
+## MOTIF-FUNC-004 — within-block sign placement control
+
+The preregistered 12-seed control preserved topology, zero positions, block sign
+counts, and block absolute-weight multisets while permuting signs within blocks.
+All arms were measured and alive, but observed-minus-null was
+-0.029513888888888912 with 95% t interval
+[-0.06585597296303776, 0.006828195185259938]. Classification: INCONCLUSIVE.
+This is not evidence that polarity is irrelevant; it leaves magnitude placement
+and other within-block structure unresolved. Next: magnitude-placement control.
+
+
+## MOTIF-FUNC-005 — within-block magnitude placement control
+
+The full control preserved topology, signs, zero positions, and block
+distributions, but the magnitude-permuted arm calibrated in only 7/12 seeds;
+five rows were MISSING, not negatives. The 7-pair observed-minus-null mean was
+0.11309523809523805 with 95% t interval
+[0.05652894661576626, 0.16966152957470984], but the preregistered n≥8 gate
+failed. Classification: INCONCLUSIVE instrument-limited. A single new
+operating-point replication is the next diagnostic; no indefinite tuning.
+
+
+## MOTIF-FUNC-006 — one-time lower operating-point replication
+
+The lower target 0.003 recovered 8/12 magnitude-arm pairs, with four rows
+MISSING rather than negative. The paired mean was 0.08072916666666669, but
+the 95% t interval [-0.03269711675051455, 0.19415545008384794] crossed zero.
+Classification: INCONCLUSIVE. This closes target tuning for the magnitude
+branch. Next is an independent stream-pair replication of the narrow M2/M3
+readout effect.
+
+
+## MOTIF-FUNC-007 — cross-stream-pair replication
+
+The predeclared pair cb_intrinsic + visual_centrifugal replicated M2 with
+12/12 measured observed and permuted arms, positive control 12/12, and live
+train/test splits. Observed-minus-null mean was 0.2239583333333333 with 95% t
+interval [0.18129871007072917, 0.2666179565959374]. This strengthens the
+narrow readout result across one new pair but does not establish biology,
+motifs, novelty, or ML transfer. A second cross-stream pair is next.
+
+
+## MOTIF-FUNC-008 — second cross-stream-pair replication
+
+The second new pair visual_centrifugal + ol_intrinsic had complete measurement
+and liveness, but observed-minus-null was 0.005208333333333333 with 95% t
+interval [-0.02011214196831266, 0.030528808634979324]. Classification:
+INCONCLUSIVE. Together with M2/M7, this limits the result to selected
+task/pair conditions. Publish the reproducible artifacts with these negative
+and incomplete controls visible.

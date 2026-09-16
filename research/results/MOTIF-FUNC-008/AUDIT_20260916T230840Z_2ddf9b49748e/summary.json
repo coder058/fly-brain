@@ -1,0 +1,60 @@
+{
+  "audit_type": "independent_second_cross_stream_weight_permutation_audit",
+  "checks": {
+    "all_seed_train_test_liveness": true,
+    "block_counts_preserved": true,
+    "directed_edge_count_preserved": true,
+    "edge_set_preserved": true,
+    "metadata_edge_records_match": true,
+    "metadata_stream_pair_match": true,
+    "node_in_out_degree_preserved": true,
+    "observed_all_measured": true,
+    "positive_control_all_pass": true,
+    "raw_and_derived_graph_untouched_declared_by_run": true,
+    "raw_subgraph_edge_records_before_self_loop_removal": 23708,
+    "reciprocal_pairs_preserved": true,
+    "source_self_loops_removed_matches_metadata": true,
+    "weight_multiset_preserved": true,
+    "weight_permuted_all_measured": true,
+    "zero_weight_records_retained_in_topology": true
+  },
+  "classification": "INCONCLUSIVE",
+  "experiment": "MOTIF-FUNC-008",
+  "observed_source_edge_records": 23704,
+  "primary": {
+    "ci95": [
+      -0.02011214196831266,
+      0.030528808634979324
+    ],
+    "mean": 0.005208333333333333,
+    "n": 12,
+    "sd": 0.03985156328125154,
+    "values": [
+      0.0,
+      -0.04166666666666652,
+      0.02083333333333348,
+      -0.04166666666666674,
+      0.02083333333333326,
+      -0.04166666666666663,
+      0.0,
+      0.02083333333333326,
+      -0.02083333333333348,
+      0.08333333333333337,
+      0.0625,
+      0.0
+    ]
+  },
+  "protocol_sha256": "39213d2f413bf9c99b27805d284f6ace43b5c6b635c935c43aee28a4b9f93b3b",
+  "raw_and_derived_graph_untouched": true,
+  "raw_selected_subgraph_records_before_self_loop_removal": 23708,
+  "reciprocal_pairs": 6745,
+  "run_artifact": "research/results/MOTIF-FUNC-008/FULL_20260916T230701Z_2ddf9b49748e/summary.json",
+  "run_summary_sha256": "20ed74b7b90e1e4ff9c3f93abc67f954ecb4043203ec64d77f1643b8ca211ed0",
+  "runner_sha256": "0c1a781f96569544837184be65312127d9669dea47f6d8ad75b9f2cf8fd6db56",
+  "scope": "locked LIF readout comparison only; no motif attribution, biology, novelty, or ML transfer",
+  "self_loops_removed": 4,
+  "stream_pair": [
+    "visual_centrifugal",
+    "ol_intrinsic"
+  ]
+}

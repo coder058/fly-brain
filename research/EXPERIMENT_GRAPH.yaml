@@ -1,13 +1,41 @@
 version: 1
 nodes:
-  - {id: E0, type: data, status: frozen}
-  - {id: CIRCUIT-MINE-001, type: analysis, status: measured_structural_inventory}
-  - {id: CIRCUIT-MINE-002, type: analysis, status: measured_label_block_analysis}
-  - {id: CIRCUIT-MINE-003, type: analysis, status: preregistered_degree_conditioned_null}
-  - {id: H01-H20, type: hypothesis_space, status: updated_after_CIRCUIT_MINE_002}
+  - {id: H08, kind: hypothesis, status: DOWNGRADED_BY_CIRCUIT_MINE_001, note: "Global recurrence is widespread; compact recurrent-core claim not supported."}
+  - {id: H19, kind: hypothesis, status: PROMISING_STRUCTURAL_ONLY, note: "Annotation-conditioned routing/interference control is supported structurally beyond exact degree-pair null; function untested."}
+  - {id: H21, kind: hypothesis, status: INCONCLUSIVE_INSTRUMENT, note: "ROUTING-001 connectome margin measured but primary block control incomplete."}
+  - {id: H22, kind: hypothesis, status: NEXT, note: "Rate-envelope calibration may explain block-preserving missingness."}
+  - {id: CIRCUIT-MINE-001, kind: experiment, status: COMPLETE, result: "Largest SCC 163397/165122; reciprocal directed-edge fraction 0.2988661; no compact recurrent core."}
+  - {id: CIRCUIT-MINE-002, kind: experiment, status: COMPLETE, result: "Same-superclass fraction 0.7215534504545734; label-null mean 0.3435372246, SD 0.0012592195."}
+  - {id: CIRCUIT-MINE-003, kind: experiment, status: COMPLETE, result: "Same-superclass fraction 0.7215534504545734; exact-degree-pair null mean 0.5091055805735097, SD 0.0009599352; delta 0.21244786988106368."}
+  - {id: ROUTING-001, kind: experiment, status: INCONCLUSIVE, depends_on: CIRCUIT-MINE-003, tests: H19, result: "Positive control complete; primary block contrast missing seeds 3 and 9; no routing claim."}
+  - {id: ROUTING-002, kind: experiment, status: COMPLETE, depends_on: ROUTING-001, tests: H22, result: "Calibration-only: reference target reachable connectome 0/12, degree 1/12, block 5/12; no task metric."}
+  - {id: ROUTING-003, kind: experiment, status: INCONCLUSIVE, depends_on: ROUTING-002, tests: H21, result: "Target 0.013; block 8/12 measured; paired n=8 mean -0.0703125 CI95 [-0.1487240,0.0080990]."}
+  - {id: MOTIF-MINE-001, kind: experiment, status: INVALIDATED_IMPLEMENTATION, depends_on: CIRCUIT-MINE-003, tests: H27, result: "FFL 62611 vs degree-null mean 25254.5 SD 237.19; cycles near null; structural candidate."}
+  - {id: MOTIF-MINE-002, kind: experiment, status: INVALIDATED_IMPLEMENTATION, depends_on: MOTIF-MINE-001, tests: H28, result: "FFL 62611 vs block-null mean 36682.15 SD 280.39; cycles near-null; induced control pending."}
+  - {id: MOTIF-MINE-003, kind: experiment, status: INVALIDATED_IMPLEMENTATION, depends_on: MOTIF-MINE-002, tests: H28, result: "Induced FFL/cycle counts depleted vs degree and block nulls; no abundance candidate."}
+  - {id: MOTIF-MINE-004, kind: experiment, status: PARTIAL_INVALIDATED, depends_on: MOTIF-MINE-003, tests: H27, result: "Unsigned topology: non-induced FFL 490588 vs degree 250756.2/block 351624.5; induced FFL/cycles depleted; structural only."}
+  - {id: SPECIALIZATION-001, kind: experiment, status: COMPLETE, depends_on: MOTIF-MINE-004, tests: H18, note: "Signed polarity composition of induced feed-forward triads."}
 edges:
-  - [E0, CIRCUIT-MINE-001, supplies]
-  - [CIRCUIT-MINE-001, H01-H20, updates]
-  - [CIRCUIT-MINE-001, CIRCUIT-MINE-002, motivates]
-  - [CIRCUIT-MINE-002, CIRCUIT-MINE-003, adversarially_tests]
-  - [CIRCUIT-MINE-003, H05-H07_H10-H12_H17-H20, updates]
+  - "CIRCUIT-MINE-001 -> H08 DOWNGRADED_BY_CIRCUIT_MINE_001"
+  - "CIRCUIT-MINE-002 -> H19 PROMISING_STRUCTURAL_ONLY"
+  - "CIRCUIT-MINE-003 -> H19 SURVIVES_EXACT_DEGREE_NULL"
+  - "ROUTING-001 -> H21 INCONCLUSIVE_INSTRUMENT"
+  - "ROUTING-001 -> H22 NEXT"
+  - "ROUTING-002 -> ROUTING-003"
+
+updates:
+  - "MOTIF-MINE-004 -> H27 STRUCTURAL_SIGNATURE_ONLY; no function or ML translation"
+  - "MOTIF-MINE-004 -> SPECIALIZATION-001"
+  - {id: MOTIF-MINE-005, kind: experiment, status: COMPLETE, depends_on: MOTIF-MINE-004, tests: H27, note: "Corrected induced reverse-edge orientation; unsigned topology replication."}
+  - {id: MOTIF-MINE-006, kind: experiment, status: COMPUTE_INFEASIBLE_SMOKE, depends_on: MOTIF-MINE-005, tests: H28, note: "Reciprocity-preserving degree+block null for non-induced FFL closure."}
+  - {id: MOTIF-MINE-006B, kind: experiment, status: INSTRUMENT_INSUFFICIENT, depends_on: MOTIF-MINE-005, tests: H28, note: "Efficient endpoint-permutation reciprocity-preserving control."}
+  - {id: MOTIF-MINE-007, kind: experiment, status: INSTRUMENT_INSUFFICIENT, depends_on: MOTIF-MINE-005, tests: H28, note: "Degree+reciprocity null without block preservation."}
+  - {id: MOTIF-MINE-007B, kind: experiment, status: COMPLETE, depends_on: MOTIF-MINE-005, tests: H28, note: "Global two-switch degree+reciprocity control."}
+  - {id: MOTIF-FUNC-001, kind: experiment, status: PASS_FUNCTIONAL_READOUT, depends_on: MOTIF-MINE-007B, tests: H14, note: "Signed-weight functional readout comparing observed graph and degree+reciprocity nulls."}
+  - {id: MOTIF-FUNC-002, kind: experiment, status: PASS_FUNCTIONAL_READOUT, depends_on: MOTIF-FUNC-001, tests: H14, note: "Fixed-topology global signed-weight permutation control; narrow readout PASS."}
+  - {id: MOTIF-FUNC-003, kind: experiment, status: PASS_FUNCTIONAL_READOUT, depends_on: MOTIF-FUNC-002, tests: H14, note: "Block-preserving signed-weight permutation control; narrow readout PASS."}
+  - {id: MOTIF-FUNC-004, kind: experiment, status: NEXT, depends_on: MOTIF-FUNC-003, tests: H14, note: "Sign-versus-magnitude placement control."}
+  - {id: MOTIF-FUNC-005, kind: experiment, status: NEXT, depends_on: MOTIF-FUNC-004, tests: H14, note: "Within-block magnitude-placement control."}
+  - {id: MOTIF-FUNC-006, kind: experiment, status: NEXT, depends_on: MOTIF-FUNC-005, tests: H14, note: "One-time lower operating-point replication for magnitude arm."}
+  - {id: MOTIF-FUNC-007, kind: experiment, status: NEXT, depends_on: MOTIF-FUNC-006, tests: H14, note: "Independent stream-pair replication of locked readout."}
+  - {id: MOTIF-FUNC-008, kind: experiment, status: NEXT, depends_on: MOTIF-FUNC-007, tests: H14, note: "Second cross-stream-pair global weight-permutation replication."}

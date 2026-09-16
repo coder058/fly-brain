@@ -1,0 +1,177 @@
+{
+  "arms": {
+    "block_magnitude_permuted": {
+      "arm": "block_magnitude_permuted",
+      "calibration": {
+        "accepted": false,
+        "converged": false,
+        "gain": 16.992529296875002,
+        "pool_size": 468,
+        "rate": 0.0034805689102564105,
+        "reason": "max_iter",
+        "relative_tolerance": 0.15,
+        "spectrum": {
+          "dominant_eigenvalue_imag": 820.6432442040042,
+          "dominant_eigenvalue_real": -62.55838644967997,
+          "nnz": 23704,
+          "rho_abs": 945.0651902454206,
+          "rho_signed": 823.0242317045472
+        },
+        "target_rate": 0.003
+      },
+      "reason": "rate_calibration_not_accepted",
+      "seed": 0,
+      "status": "MISSING"
+    },
+    "observed_signed": {
+      "arm": "observed_signed",
+      "calibration": {
+        "accepted": true,
+        "converged": true,
+        "gain": 27.5328125,
+        "pool_size": 468,
+        "rate": 0.0027961404914529915,
+        "reason": "rate_matched",
+        "relative_tolerance": 0.15,
+        "spectrum": {
+          "dominant_eigenvalue_imag": 0.0,
+          "dominant_eigenvalue_real": -2131.864051645915,
+          "nnz": 23704,
+          "rho_abs": 2182.8609647174594,
+          "rho_signed": 2131.864051645915
+        },
+        "target_rate": 0.003
+      },
+      "feature_shape": [
+        8,
+        256
+      ],
+      "liveness": {
+        "alive": true,
+        "test": {
+          "alive": true,
+          "feature_std": 1.968762755393982,
+          "pool_spikes": 89.0,
+          "probe_a_spikes": 0.0,
+          "probe_a_state_std_max": 3.6030640602111816,
+          "probe_b_spikes": 36.0,
+          "probe_b_state_std_max": 2.4325742721557617,
+          "problems": [],
+          "unique_feature_rows": 4
+        },
+        "train": {
+          "alive": true,
+          "feature_std": 1.8638665676116943,
+          "pool_spikes": 87.0,
+          "probe_a_spikes": 0.0,
+          "probe_a_state_std_max": 3.9786345958709717,
+          "probe_b_spikes": 36.0,
+          "probe_b_state_std_max": 2.4035837650299072,
+          "problems": [],
+          "unique_feature_rows": 4
+        }
+      },
+      "metrics": {
+        "chance_binary": 0.5,
+        "cross_A_from_B": 0.75,
+        "cross_B_from_A": 1.0,
+        "cross_mean": 0.875,
+        "routing_margin": 0.125,
+        "within_A_from_A": 1.0,
+        "within_B_from_B": 1.0,
+        "within_mean": 1.0
+      },
+      "n_trials": 8,
+      "seed": 0,
+      "status": "MEASURED",
+      "test_trials": 4,
+      "train_trials": 4
+    }
+  },
+  "elapsed_seconds": 1.394,
+  "permutation_diagnostics": {
+    "block_absolute_weight_multisets_preserved": true,
+    "block_counts_preserved": true,
+    "block_sign_multisets_preserved": true,
+    "edge_set_preserved": true,
+    "original_reciprocal_pairs": 6745,
+    "reciprocal_pairs": 6745,
+    "source_units": {
+      "edge_records": 23704
+    },
+    "zero_positions_preserved": true
+  },
+  "positive_control": {
+    "arm": "positive_control",
+    "calibration": {
+      "accepted": true,
+      "converged": true,
+      "gain": 0.20615234375,
+      "pool_size": 468,
+      "rate": 0.002670940170940171,
+      "reason": "rate_matched",
+      "relative_tolerance": 0.15,
+      "spectrum": {
+        "dominant_eigenvalue_imag": 0.0,
+        "dominant_eigenvalue_real": 13.508464383496245,
+        "nnz": 23704,
+        "rho_abs": 13.508464383496245,
+        "rho_signed": 13.508464383496245
+      },
+      "target_rate": 0.003
+    },
+    "feature_shape": [
+      8,
+      256
+    ],
+    "liveness": {
+      "alive": true,
+      "test": {
+        "alive": true,
+        "feature_std": 0.08775170892477036,
+        "pool_spikes": 124.0,
+        "probe_a_spikes": 60.0,
+        "probe_a_state_std_max": 0.20831361413002014,
+        "probe_b_spikes": 64.0,
+        "probe_b_state_std_max": 0.19756370782852173,
+        "problems": [],
+        "unique_feature_rows": 4
+      },
+      "train": {
+        "alive": true,
+        "feature_std": 0.15144102275371552,
+        "pool_spikes": 68.0,
+        "probe_a_spikes": 48.0,
+        "probe_a_state_std_max": 0.2410201132297516,
+        "probe_b_spikes": 20.0,
+        "probe_b_state_std_max": 0.27035582065582275,
+        "problems": [],
+        "unique_feature_rows": 4
+      }
+    },
+    "metrics": {
+      "chance_binary": 0.5,
+      "cross_A_from_B": 0.75,
+      "cross_B_from_A": 0.5,
+      "cross_mean": 0.625,
+      "routing_margin": 0.125,
+      "within_A_from_A": 1.0,
+      "within_B_from_B": 0.5,
+      "within_mean": 0.75
+    },
+    "n_trials": 8,
+    "seed": 0,
+    "status": "MEASURED",
+    "test_trials": 4,
+    "train_trials": 4
+  },
+  "positive_control_pass": true,
+  "seed": 0,
+  "selected_labels": [
+    "cb_intrinsic",
+    "ol_intrinsic"
+  ],
+  "source_edges": 23704,
+  "source_reciprocal_pairs": 6745,
+  "status": "SMOKE_MEASURED_NOT_EVIDENCE"
+}

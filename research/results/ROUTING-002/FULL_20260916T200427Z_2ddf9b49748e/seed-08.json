@@ -1,0 +1,555 @@
+{
+  "arm_diagnostics": {
+    "block_preserving": {
+      "accepted_swaps": 189656,
+      "attempts": 491150,
+      "block_counts_preserved": true,
+      "blocks": {
+        "ascending_neuron|ascending_neuron": {
+          "accepted_swaps": 2160,
+          "attempts": 6514,
+          "edges": 270,
+          "target_swaps": 2160
+        },
+        "ascending_neuron|cb_intrinsic": {
+          "accepted_swaps": 2840,
+          "attempts": 6692,
+          "edges": 355,
+          "target_swaps": 2840
+        },
+        "ascending_neuron|descending_neuron": {
+          "accepted_swaps": 2600,
+          "attempts": 7205,
+          "edges": 325,
+          "target_swaps": 2600
+        },
+        "ascending_neuron|ol_intrinsic": {
+          "accepted_swaps": 0,
+          "attempts": 0,
+          "edges": 1,
+          "target_swaps": 8
+        },
+        "ascending_neuron|visual_centrifugal": {
+          "accepted_swaps": 3032,
+          "attempts": 6994,
+          "edges": 379,
+          "target_swaps": 3032
+        },
+        "ascending_neuron|visual_projection": {
+          "accepted_swaps": 56,
+          "attempts": 63,
+          "edges": 7,
+          "target_swaps": 56
+        },
+        "ascending_neuron|vnc_intrinsic": {
+          "accepted_swaps": 1368,
+          "attempts": 3587,
+          "edges": 171,
+          "target_swaps": 1368
+        },
+        "cb_intrinsic|ascending_neuron": {
+          "accepted_swaps": 1800,
+          "attempts": 3369,
+          "edges": 225,
+          "target_swaps": 1800
+        },
+        "cb_intrinsic|cb_intrinsic": {
+          "accepted_swaps": 42224,
+          "attempts": 81796,
+          "edges": 5278,
+          "target_swaps": 42224
+        },
+        "cb_intrinsic|descending_neuron": {
+          "accepted_swaps": 7952,
+          "attempts": 19917,
+          "edges": 994,
+          "target_swaps": 7952
+        },
+        "cb_intrinsic|ol_intrinsic": {
+          "accepted_swaps": 336,
+          "attempts": 553,
+          "edges": 42,
+          "target_swaps": 336
+        },
+        "cb_intrinsic|visual_centrifugal": {
+          "accepted_swaps": 13552,
+          "attempts": 32234,
+          "edges": 1694,
+          "target_swaps": 13552
+        },
+        "cb_intrinsic|visual_projection": {
+          "accepted_swaps": 504,
+          "attempts": 2988,
+          "edges": 63,
+          "target_swaps": 504
+        },
+        "descending_neuron|ascending_neuron": {
+          "accepted_swaps": 3176,
+          "attempts": 11768,
+          "edges": 397,
+          "target_swaps": 3176
+        },
+        "descending_neuron|cb_intrinsic": {
+          "accepted_swaps": 9056,
+          "attempts": 25946,
+          "edges": 1132,
+          "target_swaps": 9056
+        },
+        "descending_neuron|descending_neuron": {
+          "accepted_swaps": 6416,
+          "attempts": 29562,
+          "edges": 802,
+          "target_swaps": 6416
+        },
+        "descending_neuron|ol_intrinsic": {
+          "accepted_swaps": 1280,
+          "attempts": 2400,
+          "edges": 160,
+          "target_swaps": 1280
+        },
+        "descending_neuron|visual_centrifugal": {
+          "accepted_swaps": 4576,
+          "attempts": 13192,
+          "edges": 572,
+          "target_swaps": 4576
+        },
+        "descending_neuron|visual_projection": {
+          "accepted_swaps": 448,
+          "attempts": 852,
+          "edges": 56,
+          "target_swaps": 448
+        },
+        "descending_neuron|vnc_intrinsic": {
+          "accepted_swaps": 2296,
+          "attempts": 7656,
+          "edges": 287,
+          "target_swaps": 2296
+        },
+        "ol_intrinsic|cb_intrinsic": {
+          "accepted_swaps": 160,
+          "attempts": 224,
+          "edges": 20,
+          "target_swaps": 160
+        },
+        "ol_intrinsic|descending_neuron": {
+          "accepted_swaps": 768,
+          "attempts": 1069,
+          "edges": 96,
+          "target_swaps": 768
+        },
+        "ol_intrinsic|ol_intrinsic": {
+          "accepted_swaps": 12440,
+          "attempts": 18294,
+          "edges": 1555,
+          "target_swaps": 12440
+        },
+        "ol_intrinsic|visual_centrifugal": {
+          "accepted_swaps": 8664,
+          "attempts": 14112,
+          "edges": 1083,
+          "target_swaps": 8664
+        },
+        "ol_intrinsic|visual_projection": {
+          "accepted_swaps": 3752,
+          "attempts": 9684,
+          "edges": 469,
+          "target_swaps": 3752
+        },
+        "visual_centrifugal|ascending_neuron": {
+          "accepted_swaps": 904,
+          "attempts": 2179,
+          "edges": 113,
+          "target_swaps": 904
+        },
+        "visual_centrifugal|cb_intrinsic": {
+          "accepted_swaps": 6248,
+          "attempts": 18767,
+          "edges": 781,
+          "target_swaps": 6248
+        },
+        "visual_centrifugal|descending_neuron": {
+          "accepted_swaps": 1784,
+          "attempts": 3793,
+          "edges": 223,
+          "target_swaps": 1784
+        },
+        "visual_centrifugal|ol_intrinsic": {
+          "accepted_swaps": 13336,
+          "attempts": 25685,
+          "edges": 1667,
+          "target_swaps": 13336
+        },
+        "visual_centrifugal|visual_centrifugal": {
+          "accepted_swaps": 16136,
+          "attempts": 53596,
+          "edges": 2017,
+          "target_swaps": 16136
+        },
+        "visual_centrifugal|visual_projection": {
+          "accepted_swaps": 4176,
+          "attempts": 16896,
+          "edges": 522,
+          "target_swaps": 4176
+        },
+        "visual_projection|ascending_neuron": {
+          "accepted_swaps": 120,
+          "attempts": 150,
+          "edges": 15,
+          "target_swaps": 120
+        },
+        "visual_projection|cb_intrinsic": {
+          "accepted_swaps": 792,
+          "attempts": 3082,
+          "edges": 99,
+          "target_swaps": 792
+        },
+        "visual_projection|descending_neuron": {
+          "accepted_swaps": 352,
+          "attempts": 604,
+          "edges": 44,
+          "target_swaps": 352
+        },
+        "visual_projection|ol_intrinsic": {
+          "accepted_swaps": 3056,
+          "attempts": 7950,
+          "edges": 382,
+          "target_swaps": 3056
+        },
+        "visual_projection|visual_centrifugal": {
+          "accepted_swaps": 3776,
+          "attempts": 14084,
+          "edges": 472,
+          "target_swaps": 3776
+        },
+        "visual_projection|visual_projection": {
+          "accepted_swaps": 2488,
+          "attempts": 16414,
+          "edges": 311,
+          "target_swaps": 2488
+        },
+        "vnc_intrinsic|ascending_neuron": {
+          "accepted_swaps": 1560,
+          "attempts": 5843,
+          "edges": 195,
+          "target_swaps": 1560
+        },
+        "vnc_intrinsic|descending_neuron": {
+          "accepted_swaps": 1704,
+          "attempts": 4118,
+          "edges": 213,
+          "target_swaps": 1704
+        },
+        "vnc_intrinsic|vnc_intrinsic": {
+          "accepted_swaps": 1768,
+          "attempts": 11318,
+          "edges": 221,
+          "target_swaps": 1768
+        }
+      },
+      "duplicate_edges": 0,
+      "fraction_edges_rewired": 0.9769697992238907,
+      "n_edges_in": 23708,
+      "n_edges_out": 23708,
+      "self_loops": 0,
+      "weight_multiset_preserved": true
+    },
+    "connectome_signed": {
+      "nnz": 23708
+    },
+    "degree_preserving": {
+      "duplicate_edges": 0,
+      "fraction_edges_rewired": 0.9970052303020077,
+      "in_degree_preserved": true,
+      "n_edges_in": 23708,
+      "n_edges_out": 23708,
+      "out_degree_preserved": true,
+      "self_loops": 0
+    },
+    "source_edges": 23708,
+    "source_self_loops": 4
+  },
+  "arms": {
+    "block_preserving": {
+      "closest_grid_rate": 0.001727764423076923,
+      "curve": [
+        {
+          "gain": 0.05,
+          "pool_size": 468,
+          "pool_spikes": 0.0,
+          "rate": 0.0,
+          "steps": 256,
+          "syn_scale": 0.00040350574971951707
+        },
+        {
+          "gain": 0.12574334296829354,
+          "pool_size": 468,
+          "pool_spikes": 0.0,
+          "rate": 0.0,
+          "steps": 256,
+          "syn_scale": 0.0010147632375331929
+        },
+        {
+          "gain": 0.31622776601683794,
+          "pool_size": 468,
+          "pool_spikes": 0.0,
+          "rate": 0.0,
+          "steps": 256,
+          "syn_scale": 0.0025519944361750437
+        },
+        {
+          "gain": 0.7952707287670507,
+          "pool_size": 468,
+          "pool_spikes": 10.0,
+          "rate": 8.346688034188034e-05,
+          "steps": 256,
+          "syn_scale": 0.00641792623282271
+        },
+        {
+          "gain": 2.0000000000000004,
+          "pool_size": 468,
+          "pool_spikes": 92.0,
+          "rate": 0.0007678952991452991,
+          "steps": 256,
+          "syn_scale": 0.016140229988780685
+        },
+        {
+          "gain": 5.029733718731743,
+          "pool_size": 468,
+          "pool_spikes": 207.0,
+          "rate": 0.001727764423076923,
+          "steps": 256,
+          "syn_scale": 0.04059052950132772
+        },
+        {
+          "gain": 12.64911064067352,
+          "pool_size": 468,
+          "pool_spikes": 281.0,
+          "rate": 0.0023454193376068375,
+          "steps": 256,
+          "syn_scale": 0.10207977744700178
+        },
+        {
+          "gain": 31.810829150682036,
+          "pool_size": 468,
+          "pool_spikes": 305.0,
+          "rate": 0.0025457398504273505,
+          "steps": 256,
+          "syn_scale": 0.2567170493129084
+        },
+        {
+          "gain": 80.0,
+          "pool_size": 468,
+          "pool_spikes": 408.0,
+          "rate": 0.003405448717948718,
+          "steps": 256,
+          "syn_scale": 0.6456091995512272
+        }
+      ],
+      "relative_tolerance": 0.15,
+      "spectrum": {
+        "dominant_eigenvalue_imag": 0.0,
+        "dominant_eigenvalue_real": -634.413516578476,
+        "nnz": 23708,
+        "rho_abs": 743.483829433743,
+        "rho_signed": 634.413516578476
+      },
+      "target_rate": 0.002,
+      "target_reachable_on_grid": true
+    },
+    "connectome_signed": {
+      "closest_grid_rate": 0.0012520032051282052,
+      "curve": [
+        {
+          "gain": 0.05,
+          "pool_size": 468,
+          "pool_spikes": 0.0,
+          "rate": 0.0,
+          "steps": 256,
+          "syn_scale": 0.00013743431434662233
+        },
+        {
+          "gain": 0.12574334296829354,
+          "pool_size": 468,
+          "pool_spikes": 0.0,
+          "rate": 0.0,
+          "steps": 256,
+          "syn_scale": 0.0003456290024899919
+        },
+        {
+          "gain": 0.31622776601683794,
+          "pool_size": 468,
+          "pool_spikes": 0.0,
+          "rate": 0.0,
+          "steps": 256,
+          "syn_scale": 0.0008692109239977646
+        },
+        {
+          "gain": 0.7952707287670507,
+          "pool_size": 468,
+          "pool_spikes": 0.0,
+          "rate": 0.0,
+          "steps": 256,
+          "syn_scale": 0.0021859497465607654
+        },
+        {
+          "gain": 2.0000000000000004,
+          "pool_size": 468,
+          "pool_spikes": 2.0,
+          "rate": 1.669337606837607e-05,
+          "steps": 256,
+          "syn_scale": 0.005497372573864894
+        },
+        {
+          "gain": 5.029733718731743,
+          "pool_size": 468,
+          "pool_spikes": 31.0,
+          "rate": 0.00025874732905982906,
+          "steps": 256,
+          "syn_scale": 0.013825160099599679
+        },
+        {
+          "gain": 12.64911064067352,
+          "pool_size": 468,
+          "pool_spikes": 150.0,
+          "rate": 0.0012520032051282052,
+          "steps": 256,
+          "syn_scale": 0.034768436959910595
+        },
+        {
+          "gain": 31.810829150682036,
+          "pool_size": 468,
+          "pool_spikes": 435.0,
+          "rate": 0.003630809294871795,
+          "steps": 256,
+          "syn_scale": 0.08743798986243062
+        },
+        {
+          "gain": 80.0,
+          "pool_size": 468,
+          "pool_spikes": 1472.0,
+          "rate": 0.012286324786324786,
+          "steps": 256,
+          "syn_scale": 0.2198949029545957
+        }
+      ],
+      "relative_tolerance": 0.15,
+      "spectrum": {
+        "dominant_eigenvalue_imag": 0.0,
+        "dominant_eigenvalue_real": -2131.864051645932,
+        "nnz": 23708,
+        "rho_abs": 2182.860964717819,
+        "rho_signed": 2131.864051645932
+      },
+      "target_rate": 0.002,
+      "target_reachable_on_grid": false
+    },
+    "degree_preserving": {
+      "closest_grid_rate": 0.002871260683760684,
+      "curve": [
+        {
+          "gain": 0.05,
+          "pool_size": 468,
+          "pool_spikes": 0.0,
+          "rate": 0.0,
+          "steps": 256,
+          "syn_scale": 0.0007148851272757284
+        },
+        {
+          "gain": 0.12574334296829354,
+          "pool_size": 468,
+          "pool_spikes": 1.0,
+          "rate": 8.346688034188035e-06,
+          "steps": 256,
+          "syn_scale": 0.0017978409148392818
+        },
+        {
+          "gain": 0.31622776601683794,
+          "pool_size": 468,
+          "pool_spikes": 22.0,
+          "rate": 0.00018362713675213675,
+          "steps": 256,
+          "syn_scale": 0.0045213305351413284
+        },
+        {
+          "gain": 0.7952707287670507,
+          "pool_size": 468,
+          "pool_spikes": 46.0,
+          "rate": 0.00038394764957264956,
+          "steps": 256,
+          "syn_scale": 0.011370544323065886
+        },
+        {
+          "gain": 2.0000000000000004,
+          "pool_size": 468,
+          "pool_spikes": 128.0,
+          "rate": 0.0010683760683760685,
+          "steps": 256,
+          "syn_scale": 0.028595405091029143
+        },
+        {
+          "gain": 5.029733718731743,
+          "pool_size": 468,
+          "pool_spikes": 344.0,
+          "rate": 0.002871260683760684,
+          "steps": 256,
+          "syn_scale": 0.07191363659357129
+        },
+        {
+          "gain": 12.64911064067352,
+          "pool_size": 468,
+          "pool_spikes": 2584.0,
+          "rate": 0.02156784188034188,
+          "steps": 256,
+          "syn_scale": 0.1808532214056532
+        },
+        {
+          "gain": 31.810829150682036,
+          "pool_size": 468,
+          "pool_spikes": 21046.0,
+          "rate": 0.17566439636752137,
+          "steps": 256,
+          "syn_scale": 0.45482177292263554
+        },
+        {
+          "gain": 80.0,
+          "pool_size": 468,
+          "pool_spikes": 31789.0,
+          "rate": 0.2653328659188034,
+          "steps": 256,
+          "syn_scale": 1.1438162036411654
+        }
+      ],
+      "relative_tolerance": 0.15,
+      "spectrum": {
+        "dominant_eigenvalue_imag": 182.25111365668278,
+        "dominant_eigenvalue_real": -200.819257863566,
+        "nnz": 23708,
+        "rho_abs": 419.6478406862858,
+        "rho_signed": 271.18968040464694
+      },
+      "target_rate": 0.002,
+      "target_reachable_on_grid": false
+    }
+  },
+  "elapsed_seconds": 14.877,
+  "experiment": "ROUTING-002",
+  "gain_grid": [
+    0.05,
+    0.12574334296829354,
+    0.31622776601683794,
+    0.7952707287670507,
+    2.0000000000000004,
+    5.029733718731743,
+    12.64911064067352,
+    31.810829150682036,
+    80.0
+  ],
+  "seed": 8,
+  "selected_labels": [
+    "cb_intrinsic",
+    "ol_intrinsic"
+  ],
+  "source_edge_count": 23708,
+  "started_utc": "2026-09-16T20:06:41+00:00",
+  "status": "MEASURED"
+}

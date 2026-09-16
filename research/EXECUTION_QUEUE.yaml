@@ -1,5 +1,18 @@
 version: 1
 queue:
-  - {id: CIRCUIT-MINE-003, status: NEXT, reason: "Control annotation alignment for exact node degree pairs."}
-  - {id: PRIOR-ART-001, status: AFTER_CIRCUIT_MINE_003, reason: "Novelty requires primary-literature review against the surviving structural mechanism."}
-  - {id: FOLLOW-UP-UNSET, status: WAITING_FOR_ADVERSARIAL_REVIEW, reason: "Choose one falsifiable task only after degree control and prior art."}
+  - {id: ROUTING-002, status: COMPLETE, reason: "Calibration-only complete; reference target reachability connectome 0/12, degree 1/12, block 5/12; no task metric."}
+  - {id: ROUTING-003, status: COMPLETE, reason: "INCONCLUSIVE; four block calibration rows missing; no routing claim."}
+  - {id: MOTIF-MINE-001, status: INVALIDATED_IMPLEMENTATION, reason: "Historical signed-weight boolean graph dropped UNKNOWN edges; artifact preserved."}
+  - {id: FOLLOW-UP-UNSET, status: WAITING_FOR_REPLICATION, reason: "No ML abstraction until a complete paired routing result survives adversarial review."}
+
+  - {id: MOTIF-MINE-004, status: PARTIAL_INVALIDATED, reason: "Corrected unsigned topology: non-induced FFL enrichment, induced FFL/cycle depletion; structural only."}
+  - {id: SPECIALIZATION-001, status: COMPLETE, reason: "Preregistered signed-polarity composition screen on induced FFLs; full run follows corrected motif result."}
+  - {id: MOTIF-MINE-005, status: COMPLETE, reason: "Correct induced-edge orientation after M4 audit; no induced metric is carried forward until this run."}
+  - {id: MOTIF-MINE-006, status: COMPUTE_INFEASIBLE_SMOKE, reason: "Preserve degree + superclass blocks + reciprocity to test whether non-induced FFL enrichment is reciprocal closure."}
+  - {id: MOTIF-MINE-006B, status: INSTRUMENT_INSUFFICIENT, reason: "Efficient endpoint-permutation null preserves degree+block+reciprocity; M6 swap implementation failed cost gate before metrics."}
+  - {id: MOTIF-MINE-007, status: INSTRUMENT_INSUFFICIENT, reason: "Complementary degree+reciprocity null without block constraint; M6B mostly rigid."}
+  - {id: MOTIF-MINE-007B, status: COMPLETE, reason: "Global two-switch degree+reciprocity null; endpoint permutation nulls were rigid."}
+  - {id: MOTIF-FUNC-001, status: PASS_FUNCTIONAL_READOUT, reason: "Functional signed-weight comparison of observed topology against degree+reciprocity null; no topological claim until readout is alive."}
+  - {id: MOTIF-FUNC-002, status: PASS_FUNCTIONAL_READOUT, reason: "Observed exceeded global weight permutation on identical topology; narrow locked-readout result."}
+  - {id: MOTIF-FUNC-003, status: PASS_FUNCTIONAL_READOUT, reason: "Observed exceeded within-block weight permutation; coarse block composition alone did not account for M2."}
+  - {id: MOTIF-FUNC-004, status: NEXT, reason: "Sign-versus-magnitude placement control on the fixed topology."}

@@ -1,0 +1,229 @@
+{
+  "arms": {
+    "degree_reciprocity_null": {
+      "arm": "degree_reciprocity_null",
+      "calibration": {
+        "accepted": true,
+        "converged": true,
+        "gain": 25.034374999999997,
+        "pool_size": 468,
+        "rate": 0.012411525106837606,
+        "reason": "rate_matched",
+        "relative_tolerance": 0.15,
+        "spectrum": {
+          "dominant_eigenvalue_imag": 1389.9976146702695,
+          "dominant_eigenvalue_real": 0.4268723763068467,
+          "nnz": 23704,
+          "rho_abs": 1392.6590302170073,
+          "rho_signed": 1389.9976802171523
+        },
+        "target_rate": 0.013
+      },
+      "feature_shape": [
+        8,
+        256
+      ],
+      "liveness": {
+        "alive": true,
+        "test": {
+          "alive": true,
+          "feature_std": 1.7924566268920898,
+          "pool_spikes": 356.0,
+          "probe_a_spikes": 28.0,
+          "probe_a_state_std_max": 1.409806489944458,
+          "probe_b_spikes": 16.0,
+          "probe_b_state_std_max": 4.116390228271484,
+          "problems": [],
+          "unique_feature_rows": 4
+        },
+        "train": {
+          "alive": true,
+          "feature_std": 1.8556491136550903,
+          "pool_spikes": 360.0,
+          "probe_a_spikes": 30.0,
+          "probe_a_state_std_max": 1.8322443962097168,
+          "probe_b_spikes": 19.0,
+          "probe_b_state_std_max": 4.355313777923584,
+          "problems": [],
+          "unique_feature_rows": 4
+        }
+      },
+      "metrics": {
+        "chance_binary": 0.5,
+        "cross_A_from_B": 1.0,
+        "cross_B_from_A": 0.75,
+        "cross_mean": 0.875,
+        "routing_margin": 0.0,
+        "within_A_from_A": 1.0,
+        "within_B_from_B": 0.75,
+        "within_mean": 0.875
+      },
+      "n_trials": 8,
+      "seed": 0,
+      "status": "MEASURED",
+      "test_trials": 4,
+      "train_trials": 4
+    },
+    "observed_signed": {
+      "arm": "observed_signed",
+      "calibration": {
+        "accepted": true,
+        "converged": false,
+        "gain": 80.0,
+        "pool_size": 468,
+        "rate": 0.012795472756410256,
+        "reason": "rate_matched",
+        "relative_tolerance": 0.15,
+        "spectrum": {
+          "dominant_eigenvalue_imag": 0.0,
+          "dominant_eigenvalue_real": -2131.864051645915,
+          "nnz": 23704,
+          "rho_abs": 2182.8609647174594,
+          "rho_signed": 2131.864051645915
+        },
+        "target_rate": 0.013
+      },
+      "feature_shape": [
+        8,
+        256
+      ],
+      "liveness": {
+        "alive": true,
+        "test": {
+          "alive": true,
+          "feature_std": 5.708435535430908,
+          "pool_spikes": 524.0,
+          "probe_a_spikes": 0.0,
+          "probe_a_state_std_max": 10.470394134521484,
+          "probe_b_spikes": 168.0,
+          "probe_b_state_std_max": 6.999311923980713,
+          "problems": [],
+          "unique_feature_rows": 4
+        },
+        "train": {
+          "alive": true,
+          "feature_std": 5.183231353759766,
+          "pool_spikes": 324.0,
+          "probe_a_spikes": 0.0,
+          "probe_a_state_std_max": 11.557473182678223,
+          "probe_b_spikes": 110.0,
+          "probe_b_state_std_max": 4.959832191467285,
+          "problems": [],
+          "unique_feature_rows": 4
+        }
+      },
+      "metrics": {
+        "chance_binary": 0.5,
+        "cross_A_from_B": 0.75,
+        "cross_B_from_A": 1.0,
+        "cross_mean": 0.875,
+        "routing_margin": 0.125,
+        "within_A_from_A": 1.0,
+        "within_B_from_B": 1.0,
+        "within_mean": 1.0
+      },
+      "n_trials": 8,
+      "seed": 0,
+      "status": "MEASURED",
+      "test_trials": 4,
+      "train_trials": 4
+    }
+  },
+  "elapsed_seconds": 10.264,
+  "null_diagnostics": {
+    "block_counts_preserved": false,
+    "original_reciprocal_pairs": 6745,
+    "reciprocal": {
+      "accepted_swaps": 134900,
+      "attempts": 238927,
+      "complete": true,
+      "target_swaps": 134900,
+      "units": 6745
+    },
+    "reciprocal_pairs": 6745,
+    "single": {
+      "accepted_swaps": 204280,
+      "attempts": 365279,
+      "complete": true,
+      "target_swaps": 204280,
+      "units": 10214
+    },
+    "source_units": {
+      "reciprocal_pairs": 6745,
+      "single": 10214
+    }
+  },
+  "positive_control": {
+    "arm": "positive_control",
+    "calibration": {
+      "accepted": true,
+      "converged": true,
+      "gain": 0.674609375,
+      "pool_size": 468,
+      "rate": 0.013621794871794872,
+      "reason": "rate_matched",
+      "relative_tolerance": 0.15,
+      "spectrum": {
+        "dominant_eigenvalue_imag": 0.0,
+        "dominant_eigenvalue_real": 13.508464383496245,
+        "nnz": 23704,
+        "rho_abs": 13.508464383496245,
+        "rho_signed": 13.508464383496245
+      },
+      "target_rate": 0.013
+    },
+    "feature_shape": [
+      8,
+      256
+    ],
+    "liveness": {
+      "alive": true,
+      "test": {
+        "alive": true,
+        "feature_std": 0.03188398852944374,
+        "pool_spikes": 463.0,
+        "probe_a_spikes": 224.0,
+        "probe_a_state_std_max": 0.1556748002767563,
+        "probe_b_spikes": 239.0,
+        "probe_b_state_std_max": 0.1247776448726654,
+        "problems": [],
+        "unique_feature_rows": 4
+      },
+      "train": {
+        "alive": true,
+        "feature_std": 0.04112185165286064,
+        "pool_spikes": 400.0,
+        "probe_a_spikes": 192.0,
+        "probe_a_state_std_max": 0.15576526522636414,
+        "probe_b_spikes": 208.0,
+        "probe_b_state_std_max": 0.12146933376789093,
+        "problems": [],
+        "unique_feature_rows": 4
+      }
+    },
+    "metrics": {
+      "chance_binary": 0.5,
+      "cross_A_from_B": 1.0,
+      "cross_B_from_A": 0.75,
+      "cross_mean": 0.875,
+      "routing_margin": -0.125,
+      "within_A_from_A": 0.75,
+      "within_B_from_B": 0.75,
+      "within_mean": 0.75
+    },
+    "n_trials": 8,
+    "seed": 0,
+    "status": "MEASURED",
+    "test_trials": 4,
+    "train_trials": 4
+  },
+  "positive_control_pass": true,
+  "seed": 0,
+  "selected_labels": [
+    "cb_intrinsic",
+    "ol_intrinsic"
+  ],
+  "source_edges": 23704,
+  "source_reciprocal_pairs": 6745,
+  "status": "SMOKE_MEASURED_NOT_EVIDENCE"
+}

@@ -1,0 +1,59 @@
+{
+  "audit_type": "independent_fixed_topology_block_magnitude_permutation_audit",
+  "checks": {
+    "all_measured_train_test_liveness": true,
+    "block_absolute_weight_multisets_preserved": true,
+    "block_counts_preserved": true,
+    "block_sign_multisets_preserved": true,
+    "directed_edge_count_preserved": true,
+    "edge_set_preserved": true,
+    "magnitude_arm_measured_count": 7,
+    "metadata_edge_records_match": true,
+    "missing_not_negative": true,
+    "observed_all_measured": true,
+    "positive_control_all_pass": true,
+    "raw_and_derived_graph_untouched_declared_by_run": true,
+    "raw_subgraph_edge_records_before_self_loop_removal": 23708,
+    "reciprocal_pairs_preserved": true,
+    "source_self_loops_removed_matches_metadata": true,
+    "zero_positions_preserved": true
+  },
+  "classification": "INCONCLUSIVE",
+  "experiment": "MOTIF-FUNC-005",
+  "missing_magnitude_seeds": [
+    0,
+    3,
+    7,
+    8,
+    9
+  ],
+  "observed_source_edge_records": 23704,
+  "primary": {
+    "ci95": [
+      0.05652894661576626,
+      0.16966152957470984
+    ],
+    "mean": 0.11309523809523805,
+    "n": 7,
+    "sd": 0.0611629469912633,
+    "values": [
+      -0.02083333333333337,
+      0.12499999999999989,
+      0.14583333333333337,
+      0.125,
+      0.16666666666666652,
+      0.125,
+      0.125
+    ]
+  },
+  "protocol_sha256": "e30ebc7be0de9c7617a3468254cc86f6f7c675bc0f3dc7df98d0a7f2e219aede",
+  "raw_and_derived_graph_untouched": true,
+  "raw_selected_subgraph_records_before_self_loop_removal": 23708,
+  "reciprocal_pairs": 6745,
+  "run_artifact": "research/results/MOTIF-FUNC-005/FULL_20260916T225003Z_2ddf9b49748e/summary.json",
+  "run_summary_sha256": "3d5e87e0ef2854865aeb3054dda031cfe7c1c65e665a8445c928ab0c07d9e200",
+  "runner_sha256": "8b4b3d725b16b5f89b3ee3f4fa7fa2b33fea2524a1b3e84c15ffec226267ec4f",
+  "scope": "locked LIF readout comparison only; no motif attribution, biology, novelty, or ML transfer",
+  "self_loops_removed": 4,
+  "zero_weight_records": 14235
+}
