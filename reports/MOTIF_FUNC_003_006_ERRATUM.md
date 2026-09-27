@@ -33,3 +33,29 @@ an untouched confirmatory test.
 
 This erratum is about functional controls, not a memory curve. EXP-MEM-003
 remains `MEM_003_NO_PAIR`, with no valid paired memory curve.
+
+## Corrected Frankfurt reruns, 27 September 2026
+
+Each repaired control completed smoke, a one-seed operational sizing check,
+and a full 12-seed run on the Frankfurt VPS. The new audit recomputed block
+invariants using the actual selected global node IDs, checked the paired
+arithmetic and train/test liveness, and matched runner and protocol hashes.
+The protected graph archives retained their SHA-256 hashes. Each audit reports
+`AUDIT_PASSED_ENGINEERING_ONLY`.
+
+| Control | Measured pairs | Observed minus control margin | 95% paired t interval | Registered gate on repaired run |
+| --- | ---: | ---: | --- | --- |
+| [003 weight](../research/results/MOTIF-FUNC-003/FULL_20260927T132656Z_72ba11b467c0/summary.json) | 12 | +0.067708 | [+0.014723, +0.120693] | Positive direction under the fixed readout; post-result repair |
+| [004 sign](../research/results/MOTIF-FUNC-004/FULL_20260927T132811Z_72ba11b467c0/summary.json) | 6 | +0.097222 | [-0.026969, +0.221414] | Inconclusive; fewer than eight pairs |
+| [005 magnitude](../research/results/MOTIF-FUNC-005/FULL_20260927T132905Z_72ba11b467c0/summary.json) | 10 | -0.100000 | [-0.176896, -0.023104] | Control above observed under the fixed readout; post-result repair |
+| [006 lower target](../research/results/MOTIF-FUNC-006/FULL_20260927T133001Z_72ba11b467c0/summary.json) | 11 | -0.081439 | [-0.183994, +0.021115] | Inconclusive; interval crosses zero |
+
+All values above are rounded displays of the linked JSON, not new estimates.
+The [003 audit](../research/results/MOTIF-FUNC-003/AUDIT_REPAIR_20260927T133329Z_9b1665d0e421/summary.json),
+[004 audit](../research/results/MOTIF-FUNC-004/AUDIT_REPAIR_20260927T133335Z_9b1665d0e421/summary.json),
+[005 audit](../research/results/MOTIF-FUNC-005/AUDIT_REPAIR_20260927T133341Z_9b1665d0e421/summary.json), and
+[006 audit](../research/results/MOTIF-FUNC-006/AUDIT_REPAIR_20260927T133347Z_9b1665d0e421/summary.json)
+provide the checks. The full runs do **not** turn the archival results into
+independent confirmations: the earlier outcomes were known before the repair.
+Neither a functional readout difference nor paper-style repeated compute
+establishes biological memory or a connectome advantage.

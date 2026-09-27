@@ -1,5 +1,10 @@
 # RESEARCH_ROADMAP.md
 
+**27 September 2026 correction:** archived MOTIF-FUNC-003–006 block controls
+used incorrect superclass indices. See the
+[erratum](reports/MOTIF_FUNC_003_006_ERRATUM.md) for corrected exploratory
+runs and audits. The memory-curve gate remains open.
+
 **Owner role of this document:** research-engineer audit, not PI decree.  
 **Machine:** Ubuntu-1, 2 vCPU / 15 GiB RAM / no GPU.  
 **Object of study:** the connectome (MaleCNS v1.0), not a product. Applications are testbeds.  

@@ -1,0 +1,24 @@
+{
+  "checks": [
+    "global-to-local labels",
+    "block multiset",
+    "fixed edge coordinates",
+    "train/test liveness",
+    "paired arithmetic",
+    "source and protocol hashes",
+    "zero positions"
+  ],
+  "classification": "AUDIT_PASSED_ENGINEERING_ONLY",
+  "edge_records": 23704,
+  "experiment": "MOTIF-FUNC-005",
+  "git_tip": "72ba11b467c0862f4f54560d3f94b6eb6409d01e",
+  "paired_measured": 10,
+  "protocol_sha256": "e30ebc7be0de9c7617a3468254cc86f6f7c675bc0f3dc7df98d0a7f2e219aede",
+  "run_dir": "research/results/MOTIF-FUNC-005/FULL_20260927T132905Z_72ba11b467c0",
+  "run_summary_sha256": "c16a9e76ca0a13bfff32fc7d5d18d4e2bf154129f6bd1439880380f37c687c88",
+  "runner_sha256": "5d06d4af71c628ac13e93b5a8bad3f85e4e913d66a5f895eb62578f7e4ceb3cd",
+  "scope": "corrected post-result functional rerun; not independent confirmation or biology",
+  "seeds_checked": 12,
+  "selected_nodes": 500,
+  "true_superclass_blocks": 40
+}

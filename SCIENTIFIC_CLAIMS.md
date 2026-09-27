@@ -1,5 +1,12 @@
 # Scientific claims — Fly Lab
 
+**27 September 2026 correction:** MOTIF-FUNC-003 through 006 archival
+superclass-block claims are invalid due to a local/global index error.
+Corrected Frankfurt reruns and audits are documented in the
+[erratum](reports/MOTIF_FUNC_003_006_ERRATUM.md). They are disclosed
+post-result repairs, not independent confirmation. EXP-MEM-003 still has no
+valid paired memory curve.
+
 **Rule:** a claim is only as complete as its protocol. Code existing, a JSON existing, or a flag in `PROJECT_STATE.json` does not make a scientific result. This file lists only statements that can be tied to artifacts on this machine. Last inspection: git tip `3dbe1d9` (`cursor/exp-inst-001-c6ad`), Ubuntu-1, 2026-09-16.
 
 The connectome is the scientific object. Applications are testbeds. Negative results are valuable if valid. Do not assume Fly wins.

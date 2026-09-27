@@ -1,0 +1,218 @@
+{
+  "arms": {
+    "block_magnitude_permuted": {
+      "arm": "block_magnitude_permuted",
+      "calibration": {
+        "accepted": true,
+        "converged": true,
+        "gain": 12.542187499999999,
+        "pool_size": 468,
+        "rate": 0.0025540865384615385,
+        "reason": "rate_matched",
+        "relative_tolerance": 0.15,
+        "spectrum": {
+          "dominant_eigenvalue_imag": 0.0,
+          "dominant_eigenvalue_real": 613.0522101563116,
+          "nnz": 23704,
+          "rho_abs": 738.8122839995219,
+          "rho_signed": 613.0522101563116
+        },
+        "target_rate": 0.003
+      },
+      "feature_shape": [
+        80,
+        256
+      ],
+      "liveness": {
+        "alive": true,
+        "test": {
+          "alive": true,
+          "feature_std": 0.8903312683105469,
+          "pool_spikes": 466.0,
+          "probe_a_spikes": 0.0,
+          "probe_a_state_std_max": 0.6438670754432678,
+          "probe_b_spikes": 223.0,
+          "probe_b_state_std_max": 2.563514471054077,
+          "problems": [],
+          "unique_feature_rows": 24
+        },
+        "train": {
+          "alive": true,
+          "feature_std": 0.8866332173347473,
+          "pool_spikes": 1129.0,
+          "probe_a_spikes": 0.0,
+          "probe_a_state_std_max": 0.8596984148025513,
+          "probe_b_spikes": 533.0,
+          "probe_b_state_std_max": 2.392957925796509,
+          "problems": [],
+          "unique_feature_rows": 56
+        }
+      },
+      "metrics": {
+        "chance_binary": 0.5,
+        "cross_A_from_B": 0.7083333333333334,
+        "cross_B_from_A": 1.0,
+        "cross_mean": 0.8541666666666667,
+        "routing_margin": 0.14583333333333326,
+        "within_A_from_A": 1.0,
+        "within_B_from_B": 1.0,
+        "within_mean": 1.0
+      },
+      "n_trials": 80,
+      "seed": 1,
+      "status": "MEASURED",
+      "test_trials": 24,
+      "train_trials": 56
+    },
+    "observed_signed": {
+      "arm": "observed_signed",
+      "calibration": {
+        "accepted": true,
+        "converged": true,
+        "gain": 27.5328125,
+        "pool_size": 468,
+        "rate": 0.002963074252136752,
+        "reason": "rate_matched",
+        "relative_tolerance": 0.15,
+        "spectrum": {
+          "dominant_eigenvalue_imag": 0.0,
+          "dominant_eigenvalue_real": -2131.864051645915,
+          "nnz": 23704,
+          "rho_abs": 2182.8609647174594,
+          "rho_signed": 2131.864051645915
+        },
+        "target_rate": 0.003
+      },
+      "feature_shape": [
+        80,
+        256
+      ],
+      "liveness": {
+        "alive": true,
+        "test": {
+          "alive": true,
+          "feature_std": 1.8835021257400513,
+          "pool_spikes": 547.0,
+          "probe_a_spikes": 0.0,
+          "probe_a_state_std_max": 4.625007629394531,
+          "probe_b_spikes": 219.0,
+          "probe_b_state_std_max": 2.5671420097351074,
+          "problems": [],
+          "unique_feature_rows": 24
+        },
+        "train": {
+          "alive": true,
+          "feature_std": 1.8556227684020996,
+          "pool_spikes": 1241.0,
+          "probe_a_spikes": 0.0,
+          "probe_a_state_std_max": 4.383243083953857,
+          "probe_b_spikes": 504.0,
+          "probe_b_state_std_max": 2.5346052646636963,
+          "problems": [],
+          "unique_feature_rows": 56
+        }
+      },
+      "metrics": {
+        "chance_binary": 0.5,
+        "cross_A_from_B": 0.75,
+        "cross_B_from_A": 1.0,
+        "cross_mean": 0.875,
+        "routing_margin": 0.125,
+        "within_A_from_A": 1.0,
+        "within_B_from_B": 1.0,
+        "within_mean": 1.0
+      },
+      "n_trials": 80,
+      "seed": 1,
+      "status": "MEASURED",
+      "test_trials": 24,
+      "train_trials": 56
+    }
+  },
+  "elapsed_seconds": 2.092,
+  "permutation_diagnostics": {
+    "block_absolute_weight_multisets_preserved": true,
+    "block_counts_preserved": true,
+    "block_sign_multisets_preserved": true,
+    "edge_set_preserved": true,
+    "original_reciprocal_pairs": 6745,
+    "reciprocal_pairs": 6745,
+    "source_units": {
+      "edge_records": 23704
+    },
+    "zero_positions_preserved": true
+  },
+  "positive_control": {
+    "arm": "positive_control",
+    "calibration": {
+      "accepted": true,
+      "converged": true,
+      "gain": 0.20127258300781248,
+      "pool_size": 468,
+      "rate": 0.002670940170940171,
+      "reason": "rate_matched",
+      "relative_tolerance": 0.15,
+      "spectrum": {
+        "dominant_eigenvalue_imag": 0.0,
+        "dominant_eigenvalue_real": 13.576886436969396,
+        "nnz": 23704,
+        "rho_abs": 13.576886436969396,
+        "rho_signed": 13.576886436969396
+      },
+      "target_rate": 0.003
+    },
+    "feature_shape": [
+      80,
+      256
+    ],
+    "liveness": {
+      "alive": true,
+      "test": {
+        "alive": true,
+        "feature_std": 0.14091435074806213,
+        "pool_spikes": 462.0,
+        "probe_a_spikes": 214.0,
+        "probe_a_state_std_max": 0.2731262743473053,
+        "probe_b_spikes": 248.0,
+        "probe_b_state_std_max": 0.27381715178489685,
+        "problems": [],
+        "unique_feature_rows": 24
+      },
+      "train": {
+        "alive": true,
+        "feature_std": 0.13557344675064087,
+        "pool_spikes": 1138.0,
+        "probe_a_spikes": 637.0,
+        "probe_a_state_std_max": 0.27163875102996826,
+        "probe_b_spikes": 501.0,
+        "probe_b_state_std_max": 0.27038031816482544,
+        "problems": [],
+        "unique_feature_rows": 56
+      }
+    },
+    "metrics": {
+      "chance_binary": 0.5,
+      "cross_A_from_B": 0.625,
+      "cross_B_from_A": 0.375,
+      "cross_mean": 0.5,
+      "routing_margin": 0.5,
+      "within_A_from_A": 1.0,
+      "within_B_from_B": 1.0,
+      "within_mean": 1.0
+    },
+    "n_trials": 80,
+    "seed": 1,
+    "status": "MEASURED",
+    "test_trials": 24,
+    "train_trials": 56
+  },
+  "positive_control_pass": true,
+  "seed": 1,
+  "selected_labels": [
+    "cb_intrinsic",
+    "ol_intrinsic"
+  ],
+  "source_edges": 23704,
+  "source_reciprocal_pairs": 6745,
+  "status": "MEASURED"
+}

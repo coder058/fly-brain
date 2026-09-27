@@ -1,0 +1,60 @@
+{
+  "aggregate": {
+    "arms": {
+      "block_magnitude_permuted": {
+        "missing_seeds": [
+          7
+        ],
+        "n_measured": 11
+      },
+      "observed_signed": {
+        "missing_seeds": [],
+        "n_measured": 12
+      }
+    },
+    "classification": "INCONCLUSIVE",
+    "paired_primary": {
+      "ci95": [
+        -0.1839939715550209,
+        0.02111518367623301
+      ],
+      "mean": -0.08143939393939394,
+      "n": 11,
+      "sd": 0.15265433488635682,
+      "values": [
+        -0.29166666666666674,
+        -0.02083333333333326,
+        -0.20833333333333348,
+        -0.02083333333333326,
+        0.02083333333333348,
+        -0.20833333333333337,
+        -0.2500000000000001,
+        0.20833333333333326,
+        -0.04166666666666652,
+        -0.14583333333333337,
+        0.0625
+      ]
+    },
+    "positive_control_all_pass": true
+  },
+  "claim_scope": "locked LIF readout comparison only; no biology, general topology, novelty, or ML transfer",
+  "classification": "FUNCTIONAL_MEASURED",
+  "experiment": "MOTIF-FUNC-006",
+  "mode": "full",
+  "protocol_sha256": "fa564b12b7a97fa2b427d5fa2492008578604a84949720be304f89acb53923eb",
+  "runner_sha256": "b17724b39a24bb19d391a376122a9f67a02ba55d61df844b4a107c4cf92bd787",
+  "seeds_completed": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+  ]
+}

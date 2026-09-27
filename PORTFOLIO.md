@@ -7,6 +7,7 @@ This repository documents an independent research testbed. No entry is presented
 - **E0 / frozen object:** MaleCNS v1.0 is recorded as 165,122 neurons and 25,563,197 directed edges after the recorded filter. Source provenance and graph integrity are checked without rebuilding the protected graph.
 - **EXP-INST-001 / limited instrument result:** a post-LIF feature-injection effect was detected under its registered setup. This is not a topology or memory result.
 - **EXP-MEM-003 / `MEM_003_NO_PAIR`:** two registered maps wrote their cells, but no delay contained a live, rate-matched connectome/DP pair. No memory curve or paired contrast was produced.
+- **Functional control repair:** four archived superclass-block controls had a local/global index error. The public erratum preserves those artifacts, and corrected runs plus audits are available. Their outcomes are exploratory after the repair, not independent confirmation or a memory result.
 - **EXP-GLU-001 / `COMPLETE_METRIC_WITHHELD`:** all 12 seed checkpoints were written, but the preregistered aggregate polarity comparison was withheld because the validity gate was not met.
 - **EXP-IGNITE-001 / `NO_COIGNITE`:** no primary connectome/DP pair was found under the registered operating points.
 - **EXP-IGNITE-002 / `NO_COIGNITE`:** the authorized polarity sensitivity follow-up also found no primary pair. No further IGNITE ID is authorized.

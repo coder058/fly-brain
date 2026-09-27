@@ -13,8 +13,10 @@ This repository is a research testbed, not a claim that a simulation is a living
 - `EXP-GLU-001` is `COMPLETE_METRIC_WITHHELD`: all 12 checkpoints were written, but the preregistered aggregate comparison was withheld because the required validity gate was not met.
 - `EXP-IGNITE-001` and `EXP-IGNITE-002` are `NO_COIGNITE`: no primary pair was found under their registered operating points. They do not establish that the connectome has no memory or that topology has no value.
 - Archived `MOTIF-FUNC-003` through `006` full-run block comparisons are invalidated by a
-  local/global superclass-index error. The implementation is repaired and
-  regression-tested; see the [erratum](reports/MOTIF_FUNC_003_006_ERRATUM.md).
+  local/global superclass-index error. The implementation is repaired;
+  corrected 12-seed runs and engineering audits are documented in the
+  [erratum](reports/MOTIF_FUNC_003_006_ERRATUM.md). They are disclosed
+  post-result repairs, not independent scientific confirmation.
 
 These are instrument and operating-point outcomes. A missing or invalid liveness row is not a negative score for the connectome.
 
