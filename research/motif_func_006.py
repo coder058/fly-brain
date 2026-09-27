@@ -114,21 +114,36 @@ def swap_pair_units(present,weights,pairs,rng):
             weights[(c,d)]=wcd; weights[(d,c)]=wdc
     return {"units":len(pairs),"target_swaps":target,"accepted_swaps":accepted,"attempts":attempts,"complete":accepted==target}
 
-def magnitude_block_null(src,dst,w,labels,seed):
+def magnitude_block_null(src,dst,w,labels,selected_nodes,seed):
+    selected_nodes=np.asarray(selected_nodes,dtype=np.int64)
+    labels=np.asarray(labels)
+    src=np.asarray(src,dtype=np.int64)
+    dst=np.asarray(dst,dtype=np.int64)
+    original=np.asarray(w,dtype=np.float32)
+    if labels.ndim!=1 or selected_nodes.ndim!=1:
+        raise ValueError("labels and selected_nodes must be one-dimensional")
+    if len(np.unique(selected_nodes))!=len(selected_nodes):
+        raise ValueError("selected_nodes contains duplicate global node IDs")
+    if np.any(selected_nodes<0) or np.any(selected_nodes>=len(labels)):
+        raise ValueError("selected_nodes contains an ID outside the labels array")
+    if len(src)!=len(dst) or len(src)!=len(original):
+        raise ValueError("src, dst, and weights must have equal lengths")
+    if np.any(src<0) or np.any(dst<0) or np.any(src>=len(selected_nodes)) or np.any(dst>=len(selected_nodes)):
+        raise ValueError("edge endpoints must use local selected-node indices")
+    local_labels=labels[selected_nodes]
     source_edges=edge_set(src,dst)
     rng=np.random.default_rng([WEIGHT_STREAM,int(seed)])
-    original=np.asarray(w,dtype=np.float32)
     permuted=original.copy()
     blocks={}
     for i,(a,b) in enumerate(zip(src,dst)):
-        key=(str(labels[int(a)]),str(labels[int(b)]))
+        key=(str(local_labels[int(a)]),str(local_labels[int(b)]))
         blocks.setdefault(key,[]).append(i)
     for key in sorted(blocks):
         idx=np.asarray(blocks[key],dtype=np.int64)
         nonzero=idx[original[idx]!=0]
         magnitudes=np.abs(original[nonzero])
         permuted[nonzero]=np.sign(original[nonzero])*rng.permutation(magnitudes)
-    n=int(max(src.max(),dst.max())+1)
+    n=len(selected_nodes)
     W=observed_matrix(src,dst,permuted,n)
     sign_ok=True; abs_ok=True
     for idxs in blocks.values():
@@ -153,7 +168,7 @@ def observed_matrix(src,dst,w,n):
 def run_seed(g,nodes,degree,labels,streams,src,dst,w,seed,trials,smoke,outdir):
     started=time.perf_counter()
     W_obs=observed_matrix(src,dst,w,len(nodes))
-    W_null,nd,ns,nt,nw=magnitude_block_null(src,dst,w,labels,seed)
+    W_null,nd,ns,nt,nw=magnitude_block_null(src,dst,w,labels,nodes,seed)
     W_pos=R.positive_graph(len(nodes),streams,len(src),seed)
     pos=R.run_arm(W_pos,"positive_control",streams,seed,trials,do_metrics=True,smoke=smoke)
     pos_pass=(pos.get("status")=="MEASURED" and (smoke or pos.get("metrics",{}).get("routing_margin",-1.0)>=R.MIN_ROUTING_MARGIN))

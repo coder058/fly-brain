@@ -173,6 +173,10 @@ is carried forward until it completes.
 
 ## MOTIF-FUNC-003 — within-block weight placement
 
+**Invalidated:** this archived comparison used incorrect superclass blocks.
+The historical bullets below are provenance only; see
+[the erratum](../reports/MOTIF_FUNC_003_006_ERRATUM.md).
+
 - Observation: The observed assignment exceeded a weight permutation constrained within each source→destination superclass block in 12 paired seeds; mean routing-margin difference 0.12847222222222224, 95% CI [0.08232979134020302, 0.17461465310424146].
 - Mechanism licensed: coarse block weight composition alone did not explain the locked readout difference; within-block placement remains relevant under this control.
 - Alternatives: sign-vs-magnitude effects, finer spatial/neuropil organization, edge-level structure, task encoding, and readout-specific effects.
@@ -182,6 +186,8 @@ is carried forward until it completes.
 
 ## MOTIF-FUNC-004 — within-block sign placement
 
+**Invalidated:** same block-label error; historical bullets are provenance only.
+
 - Observation: Observed-minus-within-block sign-permuted margin was -0.029513888888888912, 95% CI [-0.06585597296303776, 0.006828195185259938], n=12; all liveness checks passed.
 - Decision: INCONCLUSIVE. The interval crosses zero, so sign placement is neither accepted nor ruled out for this readout.
 - Alternatives: magnitude placement, finer structure, task encoding, calibration/readout effects.
@@ -190,12 +196,16 @@ is carried forward until it completes.
 
 ## MOTIF-FUNC-005 — within-block magnitude placement
 
+**Invalidated:** same block-label error; historical bullets are provenance only.
+
 - Observation: 7 paired seeds were measured; 5 magnitude-arm seeds were MISSING from calibration. The 7-pair margin was 0.11309523809523805, 95% CI [0.05652894661576626, 0.16966152957470984].
 - Decision: INCONCLUSIVE instrument-limited because the preregistered minimum n=8 was not met. Missing rows are not negatives.
 - Next: one predeclared lower operating-point replication, then stop tuning this branch.
 
 
 ## MOTIF-FUNC-006 — lower operating-point replication
+
+**Invalidated:** same block-label error; historical bullets are provenance only.
 
 - Observation: At target 0.003, the magnitude arm measured 8/12 seeds; 4 were MISSING. The 8-pair margin was 0.08072916666666669, 95% CI [-0.03269711675051455, 0.19415545008384794].
 - Decision: INCONCLUSIVE. The interval crosses zero; close this target-tuning branch.

@@ -12,6 +12,9 @@ This repository is a research testbed, not a claim that a simulation is a living
 - `EXP-MEM-003` is `MEM_003_NO_PAIR`: two registered maps wrote their cells, but no delay contained a live, rate-matched connectome/DP pair. No memory curve was produced.
 - `EXP-GLU-001` is `COMPLETE_METRIC_WITHHELD`: all 12 checkpoints were written, but the preregistered aggregate comparison was withheld because the required validity gate was not met.
 - `EXP-IGNITE-001` and `EXP-IGNITE-002` are `NO_COIGNITE`: no primary pair was found under their registered operating points. They do not establish that the connectome has no memory or that topology has no value.
+- Archived `MOTIF-FUNC-003` through `006` full-run block comparisons are invalidated by a
+  local/global superclass-index error. The implementation is repaired and
+  regression-tested; see the [erratum](reports/MOTIF_FUNC_003_006_ERRATUM.md).
 
 These are instrument and operating-point outcomes. A missing or invalid liveness row is not a negative score for the connectome.
 

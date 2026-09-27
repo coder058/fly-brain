@@ -511,8 +511,10 @@ Current protocol SHA256 after wording correction: c8b01dc98458fbdcbd2d502b16be4d
 
 ## 24. MOTIF-FUNC-003 — within-block weight-placement control
 
-Status: PASS for the predeclared locked readout; claim-ready only at this narrow
-scope.
+**Status: INVALID / DO NOT CITE.** The archived runner indexed global
+superclass labels with local edge endpoints. The historical numbers and
+interpretation below are retained only to identify the affected artifact;
+they are superseded by the [erratum](reports/MOTIF_FUNC_003_006_ERRATUM.md).
 
 The run fixed the selected edge coordinates and topology and permuted signed
 weights independently within each source-superclass to destination-superclass
@@ -544,7 +546,8 @@ Runner SHA256: 3098a144326df11ddf345d657e39188740a6296abb453f3a62a8fa47c4abf3c2
 
 ## 25. MOTIF-FUNC-004 — within-block sign-placement control
 
-Status: INCONCLUSIVE; claim-ready: false.
+**Status: INVALID / DO NOT CITE.** The historical numbers below used incorrectly
+formed superclass blocks; see the [erratum](reports/MOTIF_FUNC_003_006_ERRATUM.md).
 
 The fixed-topology control preserved every edge coordinate, zero-weight
 position, block-level sign multiset, and block-level absolute-weight multiset,
@@ -574,7 +577,8 @@ Runner SHA256: a7343ab28ed9b0881afab67888b38548603ea3fc14518d50ab1e829016206302
 
 ## 26. MOTIF-FUNC-005 — within-block magnitude-placement control
 
-Status: INCONCLUSIVE instrument-limited; claim-ready: false.
+**Status: INVALID / DO NOT CITE.** The historical numbers below used incorrectly
+formed superclass blocks; see the [erratum](reports/MOTIF_FUNC_003_006_ERRATUM.md).
 
 The fixed-topology control kept edge coordinates, zero positions, signs at
 nonzero edges, block sign multisets, and block absolute-weight multisets fixed
@@ -600,7 +604,8 @@ Runner SHA256: 8b4b3d725b16b5f89b3ee3f4fa7fa2b33fea2524a1b3e84c15ffec226267ec4f
 
 ## 27. MOTIF-FUNC-006 — one-time lower operating-point replication
 
-Status: INCONCLUSIVE; claim-ready: false.
+**Status: INVALID / DO NOT CITE.** The historical numbers below used incorrectly
+formed superclass blocks; see the [erratum](reports/MOTIF_FUNC_003_006_ERRATUM.md).
 
 This preregistered single operating-point replication used target rate 0.003
 to test whether M5 missingness was operating-point limited. The positive

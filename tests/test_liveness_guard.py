@@ -1,5 +1,6 @@
 """The old guard only checked feature variance, so a silent reservoir read out through
 driven input neurons sailed past it. Liveness must mean non-input spikes."""
+import json
 import numpy as np
 import pytest
 from scipy import sparse
@@ -74,3 +75,52 @@ def test_disabled_feature_guard_still_requires_non_input_activity():
         "reject_dead_features": False,
     })
     assert rep["alive"] is False
+
+
+def _synthetic_valid_features():
+    guards = H.load_cfg()["harness_guards"]
+    rows = int(guards["min_unique_feature_rows"])
+    # SYNTHETIC fixture: row indices provide enough distinct, finite rows for the configured guard.
+    return np.arange(rows * 2, dtype=np.float32).reshape(rows, 2)
+
+
+@pytest.mark.parametrize("bad_count", [np.nan, np.inf, -np.inf], ids=["nan", "positive-infinity", "negative-infinity"])
+@pytest.mark.parametrize("field", ["pool_spikes", "probe_spikes"])
+def test_non_finite_spike_counts_fail_closed_even_with_variable_features(bad_count, field):
+    # PLACEHOLDER: SYNTHETIC non-finite values exercise input validation, not scientific data.
+    guards = dict(H.load_cfg()["harness_guards"])
+    guards["on_dead"] = "record"
+    stats = {
+        "pool_spikes": float(guards["min_non_input_spikes"]),
+        "probe_spikes": 0.0,  # SYNTHETIC fixture: no probe events.
+    }
+    stats[field] = bad_count
+
+    report = H.check_alive(_synthetic_valid_features(), stats, "synthetic-invalid-count", guards)
+
+    assert report["alive"] is False
+    assert "non-finite spike counts" in report["dead_reason"]
+    assert report["non_input_spikes" if field == "pool_spikes" else "probe_spikes"] is None
+    json.dumps(report, allow_nan=False)
+
+
+@pytest.mark.parametrize("bad_value", [np.nan, np.inf, -np.inf], ids=["nan", "positive-infinity", "negative-infinity"])
+def test_non_finite_features_fail_closed_even_when_optional_feature_guard_is_disabled(bad_value):
+    # PLACEHOLDER: SYNTHETIC non-finite values exercise input validation, not scientific data.
+    guards = H.load_cfg()["harness_guards"]
+    X = _synthetic_valid_features()
+    X[0, 0] = bad_value
+    stats = {
+        "pool_spikes": float(guards["min_non_input_spikes"]),
+        "probe_spikes": 0.0,  # SYNTHETIC fixture: no probe events.
+    }
+
+    report = H.check_alive(X, stats, "synthetic-invalid-feature", {
+        "reject_dead_features": False,
+        "on_dead": "record",
+    })
+
+    assert report["alive"] is False
+    assert "non-finite or empty feature matrix" in report["dead_reason"]
+    assert report["feature_std"] is None
+    json.dumps(report, allow_nan=False)

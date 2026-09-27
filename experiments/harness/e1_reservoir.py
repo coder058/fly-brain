@@ -369,17 +369,34 @@ def check_alive(X: np.ndarray, stats: dict, arm: str, guards: dict) -> dict:
     features vary wildly while every non-input neuron stays silent, which is exactly how the
     original variance-only guard was fooled into blessing a dead network.
     """
-    std = float(X.std())
-    nuniq = int(np.unique(np.round(X, 6), axis=0).shape[0])
     pool_spikes = float(stats["pool_spikes"])
+    probe_spikes = float(stats["probe_spikes"])
+    finite_features = bool(X.size and np.isfinite(X).all())
+    finite_pool_spikes = bool(np.isfinite(pool_spikes))
+    finite_probe_spikes = bool(np.isfinite(probe_spikes))
+    finite_spike_counts = finite_pool_spikes and finite_probe_spikes
+    # Non-finite and empty feature arrays cannot support a valid readout.
+    std = float(X.std()) if finite_features else None
+    nuniq = int(np.unique(np.round(X, 6), axis=0).shape[0]) if finite_features else 0
     report = {
-        "non_input_spikes": pool_spikes,
-        "probe_spikes": float(stats["probe_spikes"]),
+        "non_input_spikes": pool_spikes if finite_pool_spikes else None,
+        "probe_spikes": probe_spikes if finite_probe_spikes else None,
         "feature_std": std,
         "unique_feature_rows": nuniq,
-        "non_input_active": bool(pool_spikes > 0.0),
+        "non_input_active": bool(finite_pool_spikes and pool_spikes > 0.0),
         "alive": False,
     }
+    invalid_inputs = []
+    if not finite_spike_counts:
+        invalid_inputs.append("non-finite spike counts")
+    if not finite_features:
+        invalid_inputs.append("non-finite or empty feature matrix")
+    if invalid_inputs:
+        msg = f"invalid reservoir output for arm={arm}: " + ", ".join(invalid_inputs)
+        if str(guards.get("on_dead", "raise")).lower() == "raise":
+            raise RuntimeError(msg)
+        report["dead_reason"] = msg
+        return report
     if not guards.get("reject_dead_features", True):
         report["alive"] = report["non_input_active"]
         return report

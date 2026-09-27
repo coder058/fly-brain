@@ -598,6 +598,10 @@ explains the effect.
 
 ## MOTIF-FUNC-003 — within-block weight placement control
 
+**Invalidated 27 September 2026:** the archived control used local edge IDs
+against global superclass labels. The historical interpretation below is
+superseded by [the erratum](reports/MOTIF_FUNC_003_006_ERRATUM.md).
+
 The preregistered 12-seed control fixed topology and preserved each
 source-superclass to destination-superclass weight multiset while permuting
 weights within blocks. Both arms were measured in all seeds, liveness passed,
@@ -611,6 +615,10 @@ sign-versus-magnitude placement control.
 
 ## MOTIF-FUNC-004 — within-block sign placement control
 
+**Invalidated 27 September 2026:** same local/global superclass error. The
+historical contrast below is provenance only; see
+[the erratum](reports/MOTIF_FUNC_003_006_ERRATUM.md).
+
 The preregistered 12-seed control preserved topology, zero positions, block sign
 counts, and block absolute-weight multisets while permuting signs within blocks.
 All arms were measured and alive, but observed-minus-null was
@@ -622,6 +630,10 @@ and other within-block structure unresolved. Next: magnitude-placement control.
 
 ## MOTIF-FUNC-005 — within-block magnitude placement control
 
+**Invalidated 27 September 2026:** same local/global superclass error. The
+historical contrast below is provenance only; see
+[the erratum](reports/MOTIF_FUNC_003_006_ERRATUM.md).
+
 The full control preserved topology, signs, zero positions, and block
 distributions, but the magnitude-permuted arm calibrated in only 7/12 seeds;
 five rows were MISSING, not negatives. The 7-pair observed-minus-null mean was
@@ -632,6 +644,10 @@ operating-point replication is the next diagnostic; no indefinite tuning.
 
 
 ## MOTIF-FUNC-006 — one-time lower operating-point replication
+
+**Invalidated 27 September 2026:** same local/global superclass error. The
+historical contrast below is provenance only; see
+[the erratum](reports/MOTIF_FUNC_003_006_ERRATUM.md).
 
 The lower target 0.003 recovered 8/12 magnitude-arm pairs, with four rows
 MISSING rather than negative. The paired mean was 0.08072916666666669, but
