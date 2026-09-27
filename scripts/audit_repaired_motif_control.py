@@ -84,7 +84,10 @@ def main():
         require(matrix.shape == (len(selected), len(selected)), "matrix shape mismatch")
         require(np.array_equal(out_source, source), "source coordinates changed")
         require(np.array_equal(out_destination, destination), "destination coordinates changed")
-        require(np.array_equal(weights == 0, permuted == 0), "zero positions changed")
+        if experiment_id != "003":
+            # SOURCE: protocols 004-006 fix zero positions; 003 permutes full
+            # signed weights within blocks, so zeros may change coordinates.
+            require(np.array_equal(weights == 0, permuted == 0), "zero positions changed")
         for indices in blocks.values():
             original_block = weights[indices]
             permuted_block = permuted[indices]
@@ -141,9 +144,10 @@ def main():
         "true_superclass_blocks": len(blocks),
         "seeds_checked": len(rows),
         "paired_measured": len(paired),
-        "checks": ["global-to-local labels", "block multiset", "zero positions",
+        "checks": ["global-to-local labels", "block multiset",
                    "fixed edge coordinates", "train/test liveness", "paired arithmetic",
-                   "source and protocol hashes"],
+                   "source and protocol hashes"]
+                  + ([] if experiment_id == "003" else ["zero positions"]),
         "scope": "corrected post-result functional rerun; not independent confirmation or biology",
     }
     stamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
