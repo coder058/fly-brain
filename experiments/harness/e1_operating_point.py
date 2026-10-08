@@ -50,7 +50,7 @@ from null_ensemble import NULL_STREAM, make_trials_for
 from flylab.dynamics import LIFParams, LIFState, step_lif
 from flylab.graph import GRAPH_DIR, load_graph
 from flylab.nulls import degree_preserving_null, er_graph
-from flylab.slice import Slice, from_full_graph, load_slice
+from flylab.slice import SLICE_NPZ, Slice, from_full_graph, load_slice
 from flylab.spectral import gain_for_target_rate, spectral_radius, syn_scale_for_gain
 
 RESULTS = HERE.parents[1] / "experiments" / "results" / "EXP-E1-OP"
@@ -239,6 +239,14 @@ def paired_summary(rows: list[dict], seeds: list[int], matching: str, readout: s
     return out
 
 
+def _json_default(o):
+    if isinstance(o, (np.integer, np.floating, np.bool_)):
+        return o.item()
+    if isinstance(o, Path):
+        return str(o)
+    raise TypeError(f"not JSON serialisable: {type(o).__name__}")
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--seeds", required=True, help="comma list or a:b range (b exclusive)")
@@ -254,6 +262,9 @@ def main(argv=None):
                     help="comma list from {global, per_seed}")
     ap.add_argument("--dale", action="store_true",
                     help="add the Dale-preserving degree null (same swaps, weights follow pre)")
+    ap.add_argument("--slice-file", type=Path, default=None,
+                    help="bundled slice .npz (default: the E1 slice, data/e1_slice/e1_slice_500.npz)")
+    ap.add_argument("--out-dir", type=Path, default=RESULTS)
     ap.add_argument("--graph", choices=("slice", "full"), default="slice",
                     help="bundled 500-neuron slice (default) or re-extract from the full graph")
     args = ap.parse_args(argv)
@@ -274,7 +285,8 @@ def main(argv=None):
     if args.graph == "full":
         sl, source = from_full_graph(load_graph(), cfg["subgraph"]["n"]), str(GRAPH_DIR)
     else:
-        sl, source = load_slice(), "data/e1_slice/e1_slice_500.npz"
+        path = args.slice_file or SLICE_NPZ
+        sl, source = load_slice(path), str(path.resolve().relative_to(HERE.parents[1]))
     graphs = build_arms(sl, args.draws, args.swaps_per_edge, dale=args.dale)
     matchings = tuple(m for m in MATCHINGS if m in args.matchings.split(","))
     rhos = {k: [spectral_radius(W) for W in v] for k, v in graphs.items()}
@@ -288,8 +300,11 @@ def main(argv=None):
 
     _STATE.update(cfg=cfg, graphs=graphs, rhos=rhos, global_gain=global_gain, matchings=matchings,
                   target_rate=args.target_rate, tol=args.tol, n_probes=args.n_probes)
-    with mp.get_context("fork").Pool(args.workers) as pool:
-        rows = [r for chunk in pool.map(run_seed, seeds, chunksize=1) for r in chunk]
+    if args.workers == 1:
+        rows = [r for seed in seeds for r in run_seed(seed)]
+    else:
+        with mp.get_context("fork").Pool(args.workers) as pool:
+            rows = [r for chunk in pool.map(run_seed, seeds, chunksize=1) for r in chunk]
 
     cells = [paired_summary(rows, seeds, m, r, require_rate=(m == "per_seed"))
              for m in matchings for r in READOUTS]
@@ -303,11 +318,11 @@ def main(argv=None):
         "input_only": {"mean_acc": float(inp.mean()), "per_seed": inp.tolist()},
         "rows": rows, "seconds": time.time() - t0,
     }
-    RESULTS.mkdir(parents=True, exist_ok=True)
-    out = RESULTS / f"e1_op_{args.label}_{started['utc'][:19].replace('-', '').replace(':', '')}Z_{started['git_rev']}.json"
+    args.out_dir.mkdir(parents=True, exist_ok=True)
+    out = args.out_dir / f"e1_op_{args.label}_{started['utc'][:19].replace('-', '').replace(':', '')}Z_{started['git_rev']}.json"
     if out.exists():
         raise RuntimeError(f"refusing to overwrite {out}")
-    out.write_text(json.dumps(summary, indent=1, default=float) + "\n")
+    out.write_text(json.dumps(summary, indent=1, default=_json_default) + "\n")
     for c in cells:
         print(f"[{c['matching']:>8} / {c['readout']:>7}] "
               + "  ".join(f"{k}={v['mean_acc']:.3f}(n={v['n_seeds']})" for k, v in c["arms"].items()

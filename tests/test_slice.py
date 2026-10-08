@@ -27,3 +27,12 @@ def test_bundled_slice_equals_harness_extraction_from_full_graph():
     A, _ = induced_subgraph(g, H.select_nodes(g, 500))
     W_harness = post_pre_from_pre_post(A)
     assert (W_harness != load_slice().W()).nnz == 0
+
+
+def test_replication_slice_b_is_disjoint_from_e1_slice():
+    from flylab.slice import SLICE_DIR
+
+    a = load_slice()
+    b = load_slice(SLICE_DIR / "slice_b_rank501_1000.npz")
+    assert b.n == 500 and len(b.src) == 10_791
+    assert len(np.intersect1d(a.body_id, b.body_id)) == 0

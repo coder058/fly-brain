@@ -70,3 +70,17 @@ def test_dual_ridge_matches_primal_solution():
     Xb = np.concatenate([X, np.ones((30, 1))], axis=1)
     W_primal = np.linalg.solve(Xb.T @ Xb + 0.5 * np.eye(81), Xb.T @ np.eye(4)[y])
     np.testing.assert_allclose(W_dual, W_primal, rtol=1e-8, atol=1e-10)
+
+
+def test_runner_end_to_end_writes_json_with_path_arguments(tmp_path):
+    """Smallest real run: catches serialisation bugs that would only surface after a long run."""
+    import json
+
+    OP.main(["--seeds", "0", "--draws", "1", "--n-trials", "4", "--workers", "1",
+             "--matchings", "per_seed", "--dale", "--label", "test",
+             "--slice-file", str(OP.SLICE_NPZ), "--out-dir", str(tmp_path)])
+    (out,) = tmp_path.glob("e1_op_test_*.json")
+    res = json.loads(out.read_text())
+    assert {r["arm"] for r in res["rows"]} >= {"connectome_signed", "dale_preserving_null",
+                                               "degree_preserving_null", "er_null", "input_only"}
+    assert res["provenance"]["runner_sha256"]
