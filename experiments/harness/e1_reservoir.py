@@ -218,7 +218,12 @@ RIDGE_GRID = [1e-4, 1e-3, 1e-2, 1e-1, 1.0, 3.0, 10.0, 30.0, 100.0, 300.0, 1e3, 1
 
 def fit_readout(X, y, n_classes, ridge=10.0):
     Y = np.eye(n_classes, dtype=np.float64)[y]
-    Xb = np.concatenate([X, np.ones((X.shape[0], 1))], axis=1)
+    Xb = np.concatenate([X, np.ones((X.shape[0], 1))], axis=1).astype(np.float64)
+    if Xb.shape[1] > Xb.shape[0]:
+        # Dual form, identical solution: (X'X + rI)^-1 X'Y = X'(XX' + rI)^-1 Y. A full
+        # non-input readout has ~1,800 features for ~210 training trials.
+        K = Xb @ Xb.T + ridge * np.eye(Xb.shape[0])
+        return Xb.T @ np.linalg.solve(K, Y)
     A = Xb.T @ Xb + ridge * np.eye(Xb.shape[1])
     B = Xb.T @ Y
     return np.linalg.solve(A, B)
