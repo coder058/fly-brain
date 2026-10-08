@@ -60,8 +60,13 @@ READOUTS = ("probe48", "full")
 MATCHINGS = ("global", "per_seed")
 
 
-def build_arms(sl: Slice, draws: int, swaps_per_edge: int) -> dict:
-    """Connectome + null draws on the E1 slice, with null_ensemble.py's RNG streams."""
+def build_arms(sl: Slice, draws: int, swaps_per_edge: int, dale: bool = False) -> dict:
+    """Connectome + null draws on the E1 slice, with null_ensemble.py's RNG streams.
+
+    With `dale`, adds a Dale-preserving null built from the *same* swap stream as each
+    legacy degree-preserving draw: identical rewired edge set, only the weight assignment
+    differs (outgoing weights stay with their presynaptic neuron).
+    """
     W_conn = sl.W()
     n, nnz = sl.n, int(W_conn.nnz)
     graphs = {"connectome_signed": [W_conn], "degree_preserving_null": [], "er_null": []}
@@ -70,6 +75,11 @@ def build_arms(sl: Slice, draws: int, swaps_per_edge: int) -> dict:
                                        np.random.default_rng([NULL_STREAM, d]), swaps_per_edge)
         graphs["degree_preserving_null"].append(Wd)
         graphs["er_null"].append(er_graph(n, nnz, np.random.default_rng([NULL_STREAM + 1, d])))
+        if dale:
+            Wp, _ = degree_preserving_null(sl.src, sl.dst, sl.signed_weight, n,
+                                           np.random.default_rng([NULL_STREAM, d]),
+                                           swaps_per_edge, weights_follow="pre")
+            graphs.setdefault("dale_preserving_null", []).append(Wp)
     return graphs
 
 
@@ -159,11 +169,14 @@ def run_seed(seed: int) -> list[dict]:
     for arm, Ws in graphs.items():
         for d, W in enumerate(Ws):
             rho = rhos[arm][d]
-            per_seed = match_gain(W, rho, I_list, inputs, cfg, seed, target, tol)
-            for matching, gain, converged in (
-                ("global", global_gain[arm][d]["gain"], global_gain[arm][d]["converged"]),
-                ("per_seed", per_seed["gain"], per_seed["converged"]),
-            ):
+            settings = []
+            if "global" in _STATE["matchings"]:
+                settings.append(("global", global_gain[arm][d]["gain"],
+                                 global_gain[arm][d]["converged"]))
+            if "per_seed" in _STATE["matchings"]:
+                m = match_gain(W, rho, I_list, inputs, cfg, seed, target, tol)
+                settings.append(("per_seed", m["gain"], m["converged"]))
+            for matching, gain, converged in settings:
                 feats, st = simulate_features(W, I_list, lif_at(rho, gain, cfg), seed, inputs,
                                               n_probes)
                 n_pool = W.shape[0] - len(inputs)
@@ -195,24 +208,25 @@ def paired_summary(rows: list[dict], seeds: list[int], matching: str, readout: s
                 and (not require_rate or r["rate_within_tol"]))
 
     sel = [r for r in rows if r["matching"] == matching and r["readout"] == readout]
+    nulls = sorted({r["arm"] for r in sel} - {"connectome_signed"})
     out = {"matching": matching, "readout": readout, "rate_gate": require_rate, "arms": {},
            "comparisons": {}, "excluded_seeds": []}
     per_seed = {}
     for seed in seeds:
         c = [r for r in sel if r["seed"] == seed and r["arm"] == "connectome_signed"]
         entry = {"connectome_signed": c[0]["acc"] if c and valid(c[0]) else None}
-        for null in ("degree_preserving_null", "er_null"):
+        for null in nulls:
             v = [r["acc"] for r in sel if r["seed"] == seed and r["arm"] == null and valid(r)]
             entry[null] = float(np.mean(v)) if v else None
             entry[f"{null}_valid_draws"] = len(v)
         per_seed[seed] = entry
         if entry["connectome_signed"] is None:
             out["excluded_seeds"].append({"seed": seed, "connectome_row": c[0] if c else None})
-    for arm in ("connectome_signed", "degree_preserving_null", "er_null"):
+    for arm in ["connectome_signed", *nulls]:
         v = np.array([e[arm] for e in per_seed.values() if e[arm] is not None], dtype=float)
         out["arms"][arm] = {"mean_acc": float(v.mean()) if len(v) else None,
                             "n_seeds": int(len(v)), "per_seed": v.tolist()}
-    for null in ("degree_preserving_null", "er_null"):
+    for null in nulls:
         diff = np.array([e["connectome_signed"] - e[null] for e in per_seed.values()
                          if e["connectome_signed"] is not None and e[null] is not None])
         if len(diff) > 1:
@@ -236,6 +250,10 @@ def main(argv=None):
     ap.add_argument("--swaps-per-edge", type=int, default=5)
     ap.add_argument("--workers", type=int, default=4)
     ap.add_argument("--label", required=True, help="diagnostic | confirmatory")
+    ap.add_argument("--matchings", default="global,per_seed",
+                    help="comma list from {global, per_seed}")
+    ap.add_argument("--dale", action="store_true",
+                    help="add the Dale-preserving degree null (same swaps, weights follow pre)")
     ap.add_argument("--graph", choices=("slice", "full"), default="slice",
                     help="bundled 500-neuron slice (default) or re-extract from the full graph")
     args = ap.parse_args(argv)
@@ -257,29 +275,30 @@ def main(argv=None):
         sl, source = from_full_graph(load_graph(), cfg["subgraph"]["n"]), str(GRAPH_DIR)
     else:
         sl, source = load_slice(), "data/e1_slice/e1_slice_500.npz"
-    graphs = build_arms(sl, args.draws, args.swaps_per_edge)
+    graphs = build_arms(sl, args.draws, args.swaps_per_edge, dale=args.dale)
+    matchings = tuple(m for m in MATCHINGS if m in args.matchings.split(","))
     rhos = {k: [spectral_radius(W) for W in v] for k, v in graphs.items()}
     n = graphs["connectome_signed"][0].shape[0]
     I0, _, in0, _, _ = make_trials_for(cfg, n, MATCH_SEED)
     global_gain = {k: [match_gain(W, rhos[k][i], I0, in0, cfg, MATCH_SEED, args.target_rate,
                                   args.tol) for i, W in enumerate(v)]
-                   for k, v in graphs.items()}
-    print(f"graphs + global gains ready at {time.time() - t0:.0f}s "
-          f"(connectome gain {global_gain['connectome_signed'][0]['gain']:.3f})", flush=True)
+                   for k, v in graphs.items()} if "global" in matchings else {}
+    print(f"graphs ready at {time.time() - t0:.0f}s; arms {list(graphs)}; matchings {matchings}",
+          flush=True)
 
-    _STATE.update(cfg=cfg, graphs=graphs, rhos=rhos, global_gain=global_gain,
+    _STATE.update(cfg=cfg, graphs=graphs, rhos=rhos, global_gain=global_gain, matchings=matchings,
                   target_rate=args.target_rate, tol=args.tol, n_probes=args.n_probes)
     with mp.get_context("fork").Pool(args.workers) as pool:
         rows = [r for chunk in pool.map(run_seed, seeds, chunksize=1) for r in chunk]
 
     cells = [paired_summary(rows, seeds, m, r, require_rate=(m == "per_seed"))
-             for m in MATCHINGS for r in READOUTS]
+             for m in matchings for r in READOUTS]
     inp = np.array([r["acc"] for r in rows if r["arm"] == "input_only"])
     summary = {
         "experiment": "EXP-E1-OP", "label": args.label, "provenance": started,
         "written_utc": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
         "settings": vars(args), "graph_source": source, "seeds": seeds, "n": n,
-        "global_gains": {k: [m["gain"] for m in v] for k, v in global_gain.items()},
+        "global_gains": {k: [g["gain"] for g in v] for k, v in global_gain.items()},
         "cells": cells,
         "input_only": {"mean_acc": float(inp.mean()), "per_seed": inp.tolist()},
         "rows": rows, "seconds": time.time() - t0,
