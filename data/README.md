@@ -3,7 +3,8 @@
 | path | what | tracked |
 |---|---|---|
 | `manifests/source.lock.json` | URLs and SHA-256 of the three MaleCNS v1.0 raw files | yes |
-| `e1_slice/` | the 500-neuron slice every E1 experiment runs on (70 KB) + neuron annotations | yes |
+| `e1_slice/e1_slice_500.*` | the 500-neuron slice every E1 experiment runs on (70 KB) + neuron annotations | yes |
+| `e1_slice/slice_b_rank501_1000.*` | replication slice: neurons ranked 501–1000 by out-degree, disjoint from the E1 slice | yes |
 | `derived/neurons/` | per-neuron polarity table used by `flylab.polarity` | yes |
 | `raw/malecns_v1/` | raw feathers, 1.1 GB — `python scripts/download_malecns.py` | no |
 | `derived/graph/` | full sparse graph, ~250 MB — `python scripts/build_graph.py --out-dir …` | no |
