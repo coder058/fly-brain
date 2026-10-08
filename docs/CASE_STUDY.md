@@ -116,7 +116,7 @@ the old harness.
 
 ![result](../figures/fig4_e1_op_result.png)
 
-## Round 4: the answer
+## Round 4: a sharper negative
 
 The confirmatory run took 17 minutes with three worker processes. In the preregistered cell (per-seed gain,
 full readout), with no seed excluded:
@@ -166,8 +166,6 @@ reproduces, and **preregistered** [EXP-E1-DALE](../experiments/results/EXP-E1-DA
 on 24 new seeds. The Dale null uses the *same* random swaps as the legacy one: identical
 edges, only the weight assignment differs.
 
-![dale](../figures/fig5_dale.png)
-
 | comparison | difference | 95% CI | seeds |
 |---|---|---|---|
 | legacy (sign-mixing) null − Dale null | **+0.048** | [+0.038, +0.059] | 24/24 in favour |
@@ -177,39 +175,80 @@ edges, only the weight assignment differs.
 
 Mixing output signs alone was worth five points to the control, on every seed — enough to
 flip the sign of the comparison. Against a control that obeys the same constraint as the
-brain, the real wiring wins by 2.8 points — about a quarter the size of its lead over a
-random graph, and attributable to *who is connected to whom*, since the two share every
-per-neuron degree, outgoing weight and sign.
+brain, the real wiring won by 2.8 points.
 
-Full report: [`reports/EXP_E1_DALE.md`](../reports/EXP_E1_DALE.md).
+That was the result I had wanted from the start. Its own report said it needed replication
+on other neurons before it meant anything. So that is what I did next.
+
+## Round 6: the replication that couldn't measure
+
+I extracted a second, disjoint slice — neurons ranked 501–1000 by out-degree — checked
+(accuracy-blind, rates only) that every arm could be driven to the target firing rate, and
+preregistered the identical comparison on 24 new seeds
+([EXP-E1-REPL](../reports/EXP_E1_REPL.md)).
+
+It came back `INSTRUMENT_INCOMPLETE`: only 13 of 24 connectome seeds landed in the firing-rate
+band. The matcher tuned gain on 20 sample trials and stopped at ±15%; on slice B the
+connectome's activity varies so much from trial to trial that its full-set rate then landed
+anywhere from 0.7× to 4.4× of target. The nulls were fine (458–460 of 480 in band). Another bug
+of the same shape: an instrument limitation that hurts the heterogeneous graph more.
+
+The 13 valid seeds pointed the other way (−0.061). The protocol said not to read that as a
+result, so I didn't.
+
+## Round 7: the last run
+
+I fixed the matcher — tune on all 210 training trials, stop at ±5%; test trials never used —
+and checked, again on rates only, that it put the connectome in band on both slices. Then I
+preregistered [EXP-E1-MATCH](../experiments/results/EXP-E1-MATCH/protocol.md) on 48 fresh
+seeds across both slices, with a headline rule fixed in advance and a sentence I wrote before
+seeing anything: *this is the last comparison in the E1 lineage, and the README reports it as
+the current answer.*
+
+![all comparisons](../figures/fig5_all_comparisons.png)
+
+| slice | connectome − Dale null | connectome − Erdős–Rényi | valid seeds |
+|---|---|---|---|
+| A (top 500) | **+0.004 [−0.014, +0.022]** | +0.080 [+0.060, +0.099] | 24/24 |
+| B (ranks 501–1000) | **−0.116 [−0.163, −0.069]** | −0.051 [−0.098, −0.004] | 23/24 |
+
+Headline by the preregistered rule: **not supported.** On slice A the +0.028 shrank to
+nothing under the tighter matcher (the looser one had let the connectome run about 5% hotter
+than its control — a plausible, unproven contributor). On slice B the connectome loses to its
+rewiring, to a random graph, and to no network at all. Its lead over random graphs, which
+had replicated three times on slice A, is a property of those 500 neurons, not of fly wiring.
+
+Full report: [`reports/EXP_E1_MATCH.md`](../reports/EXP_E1_MATCH.md).
 
 ## What I would tell a reviewer
 
 - **The interesting skill here is not the simulator.** It is noticing that a result is too
   convenient — in either direction — and having the tooling to find out why in an afternoon:
-  pinned data, versioned results, a slice small enough to ship in the repo, and tests that
-  pin the old behaviour so the new one can be compared against it.
-- **Negative results need audits too.** Round 2 was treated as the honest answer because it
-  was unflattering. It had two artifacts in it, both biased against the hypothesis — and the
-  control that Round 4 lost to was breaking Dale's law.
+  pinned data, versioned results, slices small enough to ship in the repo, and tests that pin
+  the old behaviour so the new one can be compared against it.
+- **Audit the result you like hardest.** Round 2's negative had two artifacts biased against
+  the hypothesis; Round 5's positive did not survive a tighter matcher that removed a few
+  percent of extra connectome activity. Both looked like the honest answer when they arrived.
 - **Read the code, not the docstring.** The null's comment said the opposite of what it did,
   and every test checked degrees, none checked signs. The new test checks both conventions.
-- **Preregistration is cheap.** A Markdown file and a commit timestamp turned a post-hoc
-  rescue into a test that could have failed.
+- **Replicate on different data, not just different seeds.** Every slice-A result replicated
+  across fresh seeds. None of the interesting ones survived slice B.
+- **Preregistration is cheap, and it has to include when to stop.** A Markdown file and a
+  commit timestamp turned each post-hoc fix into a test that could fail — and the last one
+  said in advance that it was the last one.
 
 ## Limits, stated plainly
 
-- One task, one neuron model, one 500-neuron slice — the highest out-degree neurons, 0.3% of
-  the CNS. It is mostly optic-lobe and central-brain interneurons; 243 of the 500 have no
-  confidently predicted transmitter, so their outgoing weights are zero, 188 are inhibitory and 69
-  excitatory, so this is an inhibition-dominated sub-network.
+- One task, one neuron model, two hub-selected 500-neuron slices (0.3% of the CNS each).
+  Slice A is mostly optic-lobe and central-brain interneurons; 243 of its 500 neurons have no
+  confidently predicted transmitter, so their outgoing weights are zero, 188 are inhibitory and
+  69 excitatory.
 - Synapse count is used as weight; real synaptic strength, dynamics, gap junctions and
   neuromodulation are absent.
-- The task is easy: a readout of the raw input with no network at all is competitive
-  (connectome +0.05 over it). The comparison is between graphs as signal *carriers*.
-- Three preregistered comparisons, each prompted by auditing the one before. Each primary was
-  fixed before its run, but the sequence matters: the +0.028 needs replication on another
-  slice and task before it is more than a well-controlled single result.
+- The task is easy: a readout of the raw input with no network at all scores 0.83. The
+  comparison is between graphs as signal *carriers*, not as memories or computers.
+- A negative here is about this probe. It does not show connectome wiring is useless — a task
+  that needs recurrent memory, or slices chosen by anatomy rather than degree, could differ.
 - Nothing here says anything about fly intelligence or biological computation.
 
 ## Repo pointers
@@ -218,7 +257,7 @@ Full report: [`reports/EXP_E1_DALE.md`](../reports/EXP_E1_DALE.md).
 |---|---|
 | one-command tour on real data | `python -m flylab.demo` |
 | preregistered 2×2 | [`experiments/results/EXP-E1-OP/protocol.md`](../experiments/results/EXP-E1-OP/protocol.md) |
-| Dale follow-up | [`experiments/results/EXP-E1-DALE/protocol.md`](../experiments/results/EXP-E1-DALE/protocol.md) · [`reports/EXP_E1_DALE.md`](../reports/EXP_E1_DALE.md) |
+| follow-ups | [`EXP_E1_DALE.md`](../reports/EXP_E1_DALE.md) · [`EXP_E1_REPL.md`](../reports/EXP_E1_REPL.md) · [`EXP_E1_MATCH.md`](../reports/EXP_E1_MATCH.md) |
 | runner for both | [`experiments/harness/e1_operating_point.py`](../experiments/harness/e1_operating_point.py) |
 | nulls (and the bug history) | [`flylab/nulls.py`](../flylab/nulls.py) |
 | first audit | [`reports/E1_audit_fixes.md`](../reports/E1_audit_fixes.md) |

@@ -6,6 +6,10 @@ committed and pushed as `1752800` (2026-10-08 13:45:11 UTC); the run started at
 `experiments/results/EXP-E1-DALE/e1_op_dale-confirmatory_20261008T134522Z_1752800.json`
 (written by the runner into `EXP-E1-OP/`, moved unchanged).
 
+> **Superseded by [EXP-E1-MATCH](EXP_E1_MATCH.md).** On fresh slice-A seeds with a tighter
+> rate matcher the primary became +0.004 [−0.014, +0.022]; on slice B, −0.116 [−0.163, −0.069].
+> The sign-mixing finding below (+0.048, 24/24 seeds) is unaffected.
+
 ## The bug that motivated it
 
 `flylab.nulls.degree_preserving_null` was documented as moving each weight "with its

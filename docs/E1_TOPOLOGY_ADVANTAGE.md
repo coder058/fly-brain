@@ -24,3 +24,7 @@ A second follow-up, [EXP-E1-DALE](../reports/EXP_E1_DALE.md), found that the deg
 here and in EXP-E1-OP keeps incoming rather than outgoing weights, so 479/500 neurons get
 mixed-sign outputs. Against a Dale-preserving rewiring the connectome wins:
 +0.028 [+0.008, +0.049] (n = 22 fresh seeds).
+
+Final (EXP-E1-MATCH, preregistered as the last comparison in this lineage): with train-set
+rate matching, connectome − Dale-preserving null = +0.004 [−0.014, +0.022] on slice A and
+−0.116 [−0.163, −0.069] on a disjoint slice B. Topology advantage: **not supported**.

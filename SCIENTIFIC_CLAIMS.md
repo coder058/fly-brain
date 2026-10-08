@@ -1,21 +1,24 @@
 # Scientific claims — Fly Lab
 
-**8 October 2026 — headline claims (preregistered, confirmatory), E1 task, 500-neuron slice,
-per-seed matched firing rate, full non-input readout:**
+**8 October 2026 — E1 lineage closed (EXP-E1-MATCH, preregistered as the last comparison):**
+the hypothesis that the connectome's specific wiring carries the E1 signal better than a
+rewiring with the same degrees, outgoing weights and sign is **NOT SUPPORTED**.
 
-- EXP-E1-OP (seeds 1000–1023): connectome − Erdős–Rényi = +0.081 [+0.063, +0.100];
-  connectome − legacy degree-preserving null = −0.036 [−0.057, −0.016].
-  Report: [`reports/EXP_E1_OP.md`](reports/EXP_E1_OP.md).
-- EXP-E1-DALE (seeds 2000–2023): connectome − **Dale-preserving** degree null =
-  **+0.028 [+0.008, +0.049]** (n = 22); legacy null − Dale null = +0.048 [+0.038, +0.059],
-  24/24 seeds. Report: [`reports/EXP_E1_DALE.md`](reports/EXP_E1_DALE.md).
+| experiment | slice | connectome − Dale null | connectome − ER | status |
+|---|---|---|---|---|
+| EXP-E1-DALE | A | +0.028 [+0.008, +0.049] | +0.101 [+0.080, +0.123] | MEASURED, superseded |
+| EXP-E1-REPL | B | — | — | INSTRUMENT_INCOMPLETE (13/24) |
+| EXP-E1-MATCH | A | +0.004 [−0.014, +0.022] | +0.080 [+0.060, +0.099] | MEASURED, final |
+| EXP-E1-MATCH | B | −0.116 [−0.163, −0.069] | −0.051 [−0.098, −0.004] | MEASURED, final |
 
-Status: **MEASURED, CLAIM-READY** within that scope. The legacy degree null keeps each
-neuron's degrees and *incoming* signed weights and gives 479/500 neurons mixed-sign outputs;
-results that use it (E1 powered, EXP-E1-OP, `research/` routing and specialization tracks)
-compare the connectome against a Dale-violating control. Not claimed: anything about fly
-intelligence, the full CNS, or other tasks; which per-neuron statistic carries the
-advantage over ER is not separated.
+Claim-ready: (1) the legacy degree-preserving null keeps incoming rather than outgoing weights
+and gives 479/500 slice-A neurons mixed-sign outputs, worth +0.048 [+0.038, +0.059] to the null
+(24/24 seeds); (2) the connectome beats Erdős–Rényi on slice A (three experiments) but not on
+slice B; (3) no evidence on either slice that the specific wiring beats its Dale-preserving
+rewiring. Reports: `reports/EXP_E1_OP.md`, `EXP_E1_DALE.md`, `EXP_E1_REPL.md`, `EXP_E1_MATCH.md`.
+Not claimed: anything about fly intelligence, the full CNS, other tasks or neuron models.
+Results that use the legacy null (E1 powered, EXP-E1-OP, `research/` routing and
+specialization) compare against a Dale-violating control.
 
 **8 October 2026 — withdrawn:** a README note of 4 October described `EXP-ANN-MB-MEM-001`
 and `EXP-ANN-MB-MEM-002` as "closed positive". No code, protocol or artifact for those IDs

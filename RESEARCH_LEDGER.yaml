@@ -210,6 +210,36 @@ experiments:
       connectome_minus_er: {mean: 0.101, ci95: [0.080, 0.123], n: 22}
       connectome_minus_input_only: {mean: 0.051, ci95: [0.026, 0.075], n: 22}
     invalid_statement: Fly wiring is a better computer / the result generalises beyond this slice and task.
+    superseded_by: EXP-E1-MATCH (slice A +0.004 [-0.014, 0.022] with train-set matching)
+  - id: EXP-E1-REPL
+    status: INSTRUMENT_INCOMPLETE
+    claim_ready: false
+    protocol: experiments/results/EXP-E1-REPL/protocol.md
+    protocol_commit: 9890393
+    report: reports/EXP_E1_REPL.md
+    artifact: experiments/results/EXP-E1-REPL/e1_op_repl-confirmatory_20261008T141234Z_9890393.json
+    slice: data/e1_slice/slice_b_rank501_1000.npz
+    seeds: 3000-3023
+    valid_connectome_seeds: 13
+    cause: 20-trial subsample matching; connectome full-set rate 0.69x-4.43x of target on slice B
+  - id: EXP-E1-MATCH
+    status: CLOSED_CONFIRMATORY
+    claim_ready: true
+    lineage: last E1 comparison (stated in protocol before the run)
+    protocol: experiments/results/EXP-E1-MATCH/protocol.md
+    protocol_commit: fa5dd23  # pushed 2026-10-08T14:27:46Z
+    report: reports/EXP_E1_MATCH.md
+    artifacts:
+      - experiments/results/EXP-E1-MATCH/e1_op_match-sliceA_20261008T142754Z_fa5dd23.json
+      - experiments/results/EXP-E1-MATCH/e1_op_match-sliceB_20261008T150424Z_ded85d8.json
+    matcher: all 210 training trials, bisection stop 5%, validity band 15%
+    slice_A: {seeds: 4000-4023, conn_minus_dale: {mean: 0.004, ci95: [-0.014, 0.022], n: 24}, conn_minus_er: {mean: 0.080, ci95: [0.060, 0.099], n: 24}}
+    slice_B: {seeds: 5000-5023, conn_minus_dale: {mean: -0.116, ci95: [-0.163, -0.069], n: 23}, conn_minus_er: {mean: -0.051, ci95: [-0.098, -0.004], n: 23}}
+    headline: NOT_SUPPORTED
+    valid_statement: >
+      Under this task, LIF model and matched per-seed firing rate, there is no evidence on either
+      of two disjoint 500-neuron slices that the connectome's wiring beats a Dale-preserving
+      degree rewiring; its advantage over Erdos-Renyi holds on slice A and reverses on slice B.
     invalid_statement: Fly wiring is worse than random / fly brains compute poorly.
   - id: e1_polarity_glutamate_arms
     status: ran_underpowered

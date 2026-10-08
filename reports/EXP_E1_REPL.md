@@ -35,6 +35,9 @@ This is the fifth instrument limitation in this lineage that falls harder on the
 than on random graphs (after global gain, sparse probes, the duplicate-merging shuffle and
 the Dale-violating null).
 
+> Follow-up: [EXP-E1-MATCH](EXP_E1_MATCH.md) fixed the matcher; slice B then lost 1/24 seeds
+> and the connectome was worse than its Dale-preserving rewiring (−0.116 [−0.163, −0.069]).
+
 ## What this changes
 
 - The EXP-E1-DALE claim stays scoped to the E1 slice. It should not be described as a general

@@ -262,6 +262,10 @@ def step_dale(plt):
          "E1-MATCH · slice A"),
         ("connectome − Dale null", "MATCH-B", "connectome_signed", "dale_preserving_null",
          "E1-MATCH · slice B"),
+        ("connectome − Erdős–Rényi", "MATCH-A", "connectome_signed", "er_null",
+         "E1-MATCH · slice A"),
+        ("connectome − Erdős–Rényi", "MATCH-B", "connectome_signed", "er_null",
+         "E1-MATCH · slice B"),
     ]
     items = []
     for label, key, a, b, tag in spec:
@@ -282,17 +286,18 @@ def step_dale(plt):
         ax.plot([lo, hi], [y, y], color=color, linewidth=2.5, solid_capstyle="round")
         ax.scatter([m], [y], s=70, color=SURFACE if not complete else color, edgecolor=color,
                    linewidth=2, zorder=3)
-        ax.text(hi + 0.004, y, f"{m:+.3f}  (n={n})", va="center", color=INK, fontsize=9)
+        ax.text(hi + 0.004, y, f"{m:+.3f}  (n={n})", va="center", color=INK, fontsize=9,
+                bbox={"facecolor": SURFACE, "edgecolor": "none", "pad": 1.5}, zorder=4)
     ax.set_yticks(range(len(items)), [f"{lb}\n{tg}" for lb, tg, _, _ in items[::-1]], fontsize=8.8)
-    ax.set_xlim(-0.16, 0.16)
+    ax.set_xlim(-0.18, 0.16)
     ax.set_xticks(np.arange(-0.16, 0.161, 0.04))
     ax.xaxis.set_major_formatter(lambda v, _: f"{v:+.2f}" if abs(v) > 1e-9 else "0")
-    ax.set_xlabel("paired accuracy difference with 95% CI (fresh seeds per experiment; "
-                  "hollow grey = instrument incomplete, not a result)", fontsize=9.5)
-    ax.set_title("Every preregistered comparison in the E1 lineage", fontsize=12)
+    ax.set_xlabel("paired accuracy difference, 95% CI, fresh seeds per experiment\n"
+                  "hollow grey = instrument incomplete (not a result)", fontsize=9.5)
+    ax.set_title("Every preregistered comparison: the connectome's edge does not survive", fontsize=12)
     ax.grid(axis="y", visible=False)
     fig.tight_layout()
-    fig.savefig(FIG_DIR / "fig5_dale.png")
+    fig.savefig(FIG_DIR / "fig5_all_comparisons.png")
     plt.close(fig)
 
 
