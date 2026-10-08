@@ -1,11 +1,21 @@
 # Scientific claims — Fly Lab
 
-**8 October 2026 — headline claim (EXP-E1-OP, preregistered, confirmatory):** on the E1
-task and 500-neuron slice, at per-seed matched firing rate with a full non-input readout,
-the connectome beats a size-matched Erdős–Rényi graph (+0.081 [+0.063, +0.100]) and trails a
-degree-preserving rewiring of itself (−0.036 [−0.057, −0.016]), n = 24 fresh seeds. Status:
-**MEASURED, CLAIM-READY** within that scope. Report: [`reports/EXP_E1_OP.md`](reports/EXP_E1_OP.md).
-Not claimed: anything about fly intelligence, the full CNS, or other tasks.
+**8 October 2026 — headline claims (preregistered, confirmatory), E1 task, 500-neuron slice,
+per-seed matched firing rate, full non-input readout:**
+
+- EXP-E1-OP (seeds 1000–1023): connectome − Erdős–Rényi = +0.081 [+0.063, +0.100];
+  connectome − legacy degree-preserving null = −0.036 [−0.057, −0.016].
+  Report: [`reports/EXP_E1_OP.md`](reports/EXP_E1_OP.md).
+- EXP-E1-DALE (seeds 2000–2023): connectome − **Dale-preserving** degree null =
+  **+0.028 [+0.008, +0.049]** (n = 22); legacy null − Dale null = +0.048 [+0.038, +0.059],
+  24/24 seeds. Report: [`reports/EXP_E1_DALE.md`](reports/EXP_E1_DALE.md).
+
+Status: **MEASURED, CLAIM-READY** within that scope. The legacy degree null keeps each
+neuron's degrees and *incoming* signed weights and gives 479/500 neurons mixed-sign outputs;
+results that use it (E1 powered, EXP-E1-OP, `research/` routing and specialization tracks)
+compare the connectome against a Dale-violating control. Not claimed: anything about fly
+intelligence, the full CNS, or other tasks; which per-neuron statistic carries the
+advantage over ER is not separated.
 
 **8 October 2026 — withdrawn:** a README note of 4 October described `EXP-ANN-MB-MEM-001`
 and `EXP-ANN-MB-MEM-002` as "closed positive". No code, protocol or artifact for those IDs

@@ -42,10 +42,16 @@ were excluded per protocol (each seed kept ≥ 1 valid draw of each null).
 
 ## Interpretation
 
-1. **Per-neuron statistics, not wiring.** The connectome beats an Erdős–Rényi graph with the
+> **Superseded in part by [EXP-E1-DALE](EXP_E1_DALE.md).** Point 1 below was written before
+> the degree null was found to keep *incoming* rather than outgoing weights, giving 479/500
+> neurons mixed-sign outputs. Against a Dale-preserving rewiring the connectome wins
+> (+0.028 [+0.008, +0.049]). Point 1 is kept as written, with this correction.
+
+1. **Per-neuron statistics, not wiring** *(superseded)*. The connectome beats an Erdős–Rényi graph with the
    same number of edges by 8 points, and loses by 3.6 points to a rewiring of itself that
-   keeps every neuron's in/out-degree and outgoing weights and sign. The particular pattern of
-   who-connects-to-whom is, if anything, slightly harmful for this task. The ER null differs
+   keeps every neuron's in/out-degree (and, as later found, incoming — not outgoing — weights).
+   This read as: the pattern of who-connects-to-whom is, if anything, slightly harmful for
+   this task. The ER null differs
    from the connectome in degrees, weight distribution (uniform 1–10 vs synapse counts with
    60% zeroed) *and* sign structure, so this experiment does not say which of those carries
    the advantage over ER; a weight-permutation and a sign-shuffle null would.

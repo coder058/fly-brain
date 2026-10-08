@@ -31,7 +31,7 @@ instrument that cannot fool itself, and then checking whether it had.
 - **Task.** Five classes of noisy temporal pulse patterns are injected into a random 10% of
   neurons; a ridge readout on binned spiking of the *other* neurons must name the class.
 - **Controls.** A degree-preserving null (directed double-edge swap, exact in- and
-  out-degrees, weights travel with their presynaptic neuron), an Erdős–Rényi null with the
+  out-degrees — see Round 5 for what it did with the weights), an Erdős–Rényi null with the
   same edge count, a parameter-matched MLP, a no-network baseline, and a positive control
   (ring lattice vs random graph) the instrument must pass before any comparison counts.
 - **Discipline.** Preregistered protocols, append-only results named
@@ -139,10 +139,9 @@ specific shape than before:
 - **Against random wiring, the connectome wins.** It carries the temporal signal better than
   an Erdős–Rényi graph with the same number of edges.
 - **Against its own rewiring, it loses.** Shuffle who-connects-to-whom while keeping every
-  neuron's in- and out-degree and its outgoing weights and sign, and accuracy goes *up* by
-  3.6 points. On this task, everything useful about the fly's wiring is in those per-neuron
-  statistics. Which one matters — degrees, the heavy-tailed weights, or the E/I signs (the
-  ER null has none of them) — is the next experiment, not a conclusion.
+  neuron's in- and out-degree, and accuracy goes *up* by 3.6 points. I wrote that up as
+  "everything useful is in the per-neuron statistics, not the wiring". That sentence did not
+  survive the next audit.
 - **The old readout hid the network.** With 48 probes the connectome scored 0.117 *below* a
   readout of the raw input; with every neuron read it scores 0.039 above.
 
@@ -151,6 +150,39 @@ Re-running seeds 0–11 through the new runner also reproduced the September num
 files on a different machine. That is what the versioned results and pinned RNG streams were
 for. Full tables: [`reports/EXP_E1_OP.md`](../reports/EXP_E1_OP.md).
 
+## Round 5: the control was breaking a law of biology
+
+Writing "the rewiring keeps each neuron's outgoing weights and sign" in the report, I checked
+it instead of trusting the docstring that said so. In the double-edge swap (a→b),(c→d) →
+(a→d),(c→b), the weight permutation travelled with the *target*. Each neuron kept its incoming
+weights, and its outputs inherited other neurons' signs: **479 of 500 neurons in a null draw
+sent both excitatory and inhibitory signals.** In the connectome — and in any real nervous
+system obeying Dale's law — that number is 0.
+
+That made the "loss" ambiguous: was the real wiring worse, or was the control cheating? I
+added a `weights_follow="pre"` mode that keeps each neuron's outgoing weights (so its sign
+and out-strength), left the old behaviour as the default so every earlier result still
+reproduces, and **preregistered** [EXP-E1-DALE](../experiments/results/EXP-E1-DALE/protocol.md)
+on 24 new seeds. The Dale null uses the *same* random swaps as the legacy one: identical
+edges, only the weight assignment differs.
+
+![dale](../figures/fig5_dale.png)
+
+| comparison | difference | 95% CI | seeds |
+|---|---|---|---|
+| legacy (sign-mixing) null − Dale null | **+0.048** | [+0.038, +0.059] | 24/24 in favour |
+| **connectome − Dale null** *(primary)* | **+0.028** | **[+0.008, +0.049]** | 15/22 in favour |
+| connectome − legacy null (replication) | −0.021 | [−0.045, +0.002] | |
+| connectome − Erdős–Rényi | +0.101 | [+0.080, +0.123] | |
+
+Mixing output signs alone was worth five points to the control, on every seed — enough to
+flip the sign of the comparison. Against a control that obeys the same constraint as the
+brain, the real wiring wins by 2.8 points — about a quarter the size of its lead over a
+random graph, and attributable to *who is connected to whom*, since the two share every
+per-neuron degree, outgoing weight and sign.
+
+Full report: [`reports/EXP_E1_DALE.md`](../reports/EXP_E1_DALE.md).
+
 ## What I would tell a reviewer
 
 - **The interesting skill here is not the simulator.** It is noticing that a result is too
@@ -158,7 +190,10 @@ for. Full tables: [`reports/EXP_E1_OP.md`](../reports/EXP_E1_OP.md).
   pinned data, versioned results, a slice small enough to ship in the repo, and tests that
   pin the old behaviour so the new one can be compared against it.
 - **Negative results need audits too.** Round 2 was treated as the honest answer because it
-  was unflattering. It had two artifacts in it, both biased against the hypothesis.
+  was unflattering. It had two artifacts in it, both biased against the hypothesis — and the
+  control that Round 4 lost to was breaking Dale's law.
+- **Read the code, not the docstring.** The null's comment said the opposite of what it did,
+  and every test checked degrees, none checked signs. The new test checks both conventions.
 - **Preregistration is cheap.** A Markdown file and a commit timestamp turned a post-hoc
   rescue into a test that could have failed.
 
@@ -170,8 +205,11 @@ for. Full tables: [`reports/EXP_E1_OP.md`](../reports/EXP_E1_OP.md).
   excitatory, so this is an inhibition-dominated sub-network.
 - Synapse count is used as weight; real synaptic strength, dynamics, gap junctions and
   neuromodulation are absent.
-- The task is easy: a readout of the raw input with no network at all is competitive. The
-  comparison is therefore between graphs as signal *carriers*, not between computers.
+- The task is easy: a readout of the raw input with no network at all is competitive
+  (connectome +0.05 over it). The comparison is between graphs as signal *carriers*.
+- Three preregistered comparisons, each prompted by auditing the one before. Each primary was
+  fixed before its run, but the sequence matters: the +0.028 needs replication on another
+  slice and task before it is more than a well-controlled single result.
 - Nothing here says anything about fly intelligence or biological computation.
 
 ## Repo pointers
@@ -180,7 +218,8 @@ for. Full tables: [`reports/EXP_E1_OP.md`](../reports/EXP_E1_OP.md).
 |---|---|
 | one-command tour on real data | `python -m flylab.demo` |
 | preregistered 2×2 | [`experiments/results/EXP-E1-OP/protocol.md`](../experiments/results/EXP-E1-OP/protocol.md) |
-| 2×2 runner | [`experiments/harness/e1_operating_point.py`](../experiments/harness/e1_operating_point.py) |
+| Dale follow-up | [`experiments/results/EXP-E1-DALE/protocol.md`](../experiments/results/EXP-E1-DALE/protocol.md) · [`reports/EXP_E1_DALE.md`](../reports/EXP_E1_DALE.md) |
+| runner for both | [`experiments/harness/e1_operating_point.py`](../experiments/harness/e1_operating_point.py) |
 | nulls (and the bug history) | [`flylab/nulls.py`](../flylab/nulls.py) |
 | first audit | [`reports/E1_audit_fixes.md`](../reports/E1_audit_fixes.md) |
 | full experiment ledger | [`RESEARCH_LEDGER.yaml`](../RESEARCH_LEDGER.yaml) |

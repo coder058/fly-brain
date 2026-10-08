@@ -17,4 +17,10 @@ interval came from operating-point artifacts: gain matched on one seed's input m
 48-probe readout. This ID stays closed. The question was retested under a new preregistered
 ID, [EXP-E1-OP](../reports/EXP_E1_OP.md): with both artifacts removed the direction holds and
 sharpens — connectome − degree-preserving null = −0.036 [−0.057, −0.016] on 24 fresh seeds —
-while the connectome beats Erdős–Rényi by +0.081 [+0.063, +0.100].
+while the connectome beats Erdős–Rényi by +0.081 [+0.063, +0.100] (ER differs in degrees,
+weights and signs, so the source of that advantage is not separated).
+
+A second follow-up, [EXP-E1-DALE](../reports/EXP_E1_DALE.md), found that the degree null used
+here and in EXP-E1-OP keeps incoming rather than outgoing weights, so 479/500 neurons get
+mixed-sign outputs. Against a Dale-preserving rewiring the connectome wins:
++0.028 [+0.008, +0.049] (n = 22 fresh seeds).

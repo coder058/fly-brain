@@ -35,6 +35,7 @@ from flylab.spectral import gain_for_target_rate, spectral_radius, syn_scale_for
 
 FIG_DIR = ROOT / "figures"
 E1_OP_DIR = ROOT / "experiments" / "results" / "EXP-E1-OP"
+E1_DALE_DIR = ROOT / "experiments" / "results" / "EXP-E1-DALE"
 TARGET_RATE = 0.002
 
 # Reference categorical palette, light mode (validated slots 1-3) + neutral for baselines.
@@ -193,9 +194,75 @@ def step_probe_bug(sl, cfg, seeds, plt):
     plt.close(fig)
 
 
-def latest_result(label: str) -> Path | None:
-    files = sorted(E1_OP_DIR.glob(f"e1_op_{label}_*.json"))
+def latest_result(label: str, directory: Path = E1_OP_DIR) -> Path | None:
+    files = sorted(directory.glob(f"e1_op_{label}_*.json"))
     return files[-1] if files else None
+
+
+def _paired(rows, a: str, b: str) -> tuple[float, float, float, int]:
+    """Mean and 95% t-CI of arm a - arm b, per seed, valid per-seed/full cells only."""
+    from scipy import stats
+
+    def val(arm, seed):
+        v = [r["acc"] for r in rows if r["arm"] == arm and r["seed"] == seed
+             and r["matching"] == "per_seed" and r["readout"] == "full"
+             and r["acc"] is not None and r["alive"] and r["rate_within_tol"]]
+        return float(np.mean(v)) if v else None
+
+    seeds = sorted({r["seed"] for r in rows})
+    d = np.array([val(a, s) - val(b, s) for s in seeds
+                  if val(a, s) is not None and val(b, s) is not None])
+    h = float(stats.t.ppf(0.975, len(d) - 1) * d.std(ddof=1) / np.sqrt(len(d)))
+    return float(d.mean()), float(d.mean() - h), float(d.mean() + h), len(d)
+
+
+def step_dale(plt):
+    header(6, "Bug 4: the degree null mixed excitation and inhibition (EXP-E1-DALE)")
+    sl = load_slice()
+    for follow in ("post", "pre"):
+        A, _ = degree_preserving_null(sl.src, sl.dst, sl.signed_weight, sl.n,
+                                      np.random.default_rng([90_000, 0]), 5, weights_follow=follow)
+        C = A.tocoo()
+        mixed = sum(len(np.unique(np.sign(C.data[(C.col == s) & (C.data != 0)]))) > 1
+                    for s in np.unique(C.col))
+        label = "legacy (weights follow target)" if follow == "post" else "Dale (weights follow source)"
+        print(f"  {label:<32} neurons with both E and I outputs: {mixed} of {sl.n} (connectome: 0)")
+    op, dale = latest_result("confirmatory"), latest_result("dale-confirmatory", E1_DALE_DIR)
+    if op is None or dale is None:
+        print("  result files missing; skipping figure")
+        return
+    r_op = json.loads(op.read_text())["rows"]
+    r_dale = json.loads(dale.read_text())["rows"]
+    items = [
+        ("connectome − Erdős–Rényi", "EXP-E1-OP", _paired(r_op, "connectome_signed", "er_null")),
+        ("connectome − degree null, signs mixed", "EXP-E1-OP",
+         _paired(r_op, "connectome_signed", "degree_preserving_null")),
+        ("connectome − degree null, signs mixed", "EXP-E1-DALE",
+         _paired(r_dale, "connectome_signed", "degree_preserving_null")),
+        ("connectome − degree null, Dale's law kept", "EXP-E1-DALE (primary)",
+         _paired(r_dale, "connectome_signed", "dale_preserving_null")),
+        ("sign-mixed null − Dale null", "EXP-E1-DALE",
+         _paired(r_dale, "degree_preserving_null", "dale_preserving_null")),
+    ]
+    for name, exp, (m, lo, hi, n) in items:
+        print(f"  {name:<42} {m:+.3f} [{lo:+.3f}, {hi:+.3f}]  n={n:<2} {exp}")
+    fig, ax = plt.subplots(figsize=(9.2, 3.9))
+    ax.axvline(0, color=INK_2, linewidth=1)
+    for y, (name, exp, (m, lo, hi, n)) in enumerate(items[::-1]):
+        color = C_CONN if name.startswith("connectome") else C_DP
+        ax.plot([lo, hi], [y, y], color=color, linewidth=2.5, solid_capstyle="round")
+        ax.scatter([m], [y], s=70, color=color, edgecolor=SURFACE, linewidth=2, zorder=3)
+        ax.text(hi + 0.004, y, f"{m:+.3f}", va="center", color=INK, fontsize=9.5)
+    ax.set_yticks(range(len(items)), [f"{nm}\n{exp}" for nm, exp, _ in items[::-1]], fontsize=9)
+    ax.set_xlim(-0.08, 0.14)
+    ax.set_xticks(np.arange(-0.08, 0.141, 0.02))
+    ax.xaxis.set_major_formatter(lambda v, _: f"{v:+.2f}" if abs(v) > 1e-9 else "0")
+    ax.set_xlabel("paired accuracy difference with 95% CI (fresh seeds, paired by seed)")
+    ax.set_title("With a null that respects Dale's law, the real wiring wins", fontsize=12)
+    ax.grid(axis="y", visible=False)
+    fig.tight_layout()
+    fig.savefig(FIG_DIR / "fig5_dale.png")
+    plt.close(fig)
 
 
 def step_result(plt):
@@ -271,6 +338,7 @@ def main(argv=None):
     step_rate_bug(sl, cfg, seeds, plt)
     step_probe_bug(sl, cfg, seeds, plt)
     step_result(plt)
+    step_dale(plt)
     print(f"\nfigures written to {FIG_DIR.relative_to(ROOT)}/")
 
 

@@ -189,7 +189,27 @@ experiments:
     mechanistic_predictions_held: [rate_band_global_4_of_24_vs_per_seed_24_of_24, probe48_refusals_with_active_pool_0_with_full_readout]
     valid_statement: >
       On the E1 task and 500-neuron slice, at matched per-seed firing rate with a full non-input readout,
-      the connectome beats a size-matched Erdos-Renyi graph and trails a degree-preserving rewiring of itself.
+      the connectome beats a size-matched Erdos-Renyi graph and trails the legacy degree-preserving null,
+      which keeps incoming (not outgoing) weights and so violates Dale's law (see EXP-E1-DALE).
+  - id: EXP-E1-DALE
+    status: CLOSED_CONFIRMATORY
+    claim_ready: true
+    protocol: experiments/results/EXP-E1-DALE/protocol.md
+    protocol_commit: 1752800  # pushed 2026-10-08T13:45:11Z; run started 13:45:22Z
+    report: reports/EXP_E1_DALE.md
+    artifact: experiments/results/EXP-E1-DALE/e1_op_dale-confirmatory_20261008T134522Z_1752800.json
+    seeds: 2000-2023
+    motivation: legacy degree null gives 479/500 slice neurons mixed-sign outputs (connectome 0)
+    primary:
+      cell: per_seed_gain / full_readout
+      connectome_minus_dale_null: {mean: 0.028, ci95: [0.008, 0.049], n: 22, excluded: [2007, 2012]}
+      verdict: connectome beats its Dale-preserving rewiring under this task and operating point
+    secondary:
+      legacy_null_minus_dale_null: {mean: 0.048, ci95: [0.038, 0.059], n: 24, seeds_positive: 24}
+      connectome_minus_legacy_null: {mean: -0.021, ci95: [-0.045, 0.002], n: 22}
+      connectome_minus_er: {mean: 0.101, ci95: [0.080, 0.123], n: 22}
+      connectome_minus_input_only: {mean: 0.051, ci95: [0.026, 0.075], n: 22}
+    invalid_statement: Fly wiring is a better computer / the result generalises beyond this slice and task.
     invalid_statement: Fly wiring is worse than random / fly brains compute poorly.
   - id: e1_polarity_glutamate_arms
     status: ran_underpowered
