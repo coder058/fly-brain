@@ -46,9 +46,10 @@ sys.path.insert(0, str(HERE.parents[1]))
 
 import e1_reservoir as H
 from null_ensemble import NULL_STREAM, make_trials_for
-from flylab.dynamics import LIFParams, LIFState, post_pre_from_pre_post, step_lif
-from flylab.graph import induced_subgraph, load_graph
+from flylab.dynamics import LIFParams, LIFState, step_lif
+from flylab.graph import GRAPH_DIR, load_graph
 from flylab.nulls import degree_preserving_null, er_graph
+from flylab.slice import Slice, from_full_graph, load_slice
 from flylab.spectral import gain_for_target_rate, spectral_radius, syn_scale_for_gain
 
 RESULTS = HERE.parents[1] / "experiments" / "results" / "EXP-E1-OP"
@@ -58,21 +59,14 @@ READOUTS = ("probe48", "full")
 MATCHINGS = ("global", "per_seed")
 
 
-def build_arms(g, cfg: dict, draws: int, swaps_per_edge: int) -> dict:
-    """Connectome + null draws, built exactly as null_ensemble.py builds them."""
-    nodes = H.select_nodes(g, cfg["subgraph"]["n"])
-    A, nodes = induced_subgraph(g, nodes)
-    W_conn = post_pre_from_pre_post(A)
-    n, nnz = A.shape[0], int(W_conn.nnz)
-    mask = np.isin(g.src, nodes) & np.isin(g.dst, nodes)
-    remap = -np.ones(g.n, dtype=np.int64)
-    remap[nodes] = np.arange(n)
-    s, t = remap[g.src[mask]], remap[g.dst[mask]]
-    sw = g.signed_weight[mask]
+def build_arms(sl: Slice, draws: int, swaps_per_edge: int) -> dict:
+    """Connectome + null draws on the E1 slice, with null_ensemble.py's RNG streams."""
+    W_conn = sl.W()
+    n, nnz = sl.n, int(W_conn.nnz)
     graphs = {"connectome_signed": [W_conn], "degree_preserving_null": [], "er_null": []}
     for d in range(draws):
-        Wd, _ = degree_preserving_null(s, t, sw, n, np.random.default_rng([NULL_STREAM, d]),
-                                       swaps_per_edge)
+        Wd, _ = degree_preserving_null(sl.src, sl.dst, sl.signed_weight, n,
+                                       np.random.default_rng([NULL_STREAM, d]), swaps_per_edge)
         graphs["degree_preserving_null"].append(Wd)
         graphs["er_null"].append(er_graph(n, nnz, np.random.default_rng([NULL_STREAM + 1, d])))
     return graphs
@@ -241,6 +235,8 @@ def main(argv=None):
     ap.add_argument("--swaps-per-edge", type=int, default=5)
     ap.add_argument("--workers", type=int, default=4)
     ap.add_argument("--label", required=True, help="diagnostic | confirmatory")
+    ap.add_argument("--graph", choices=("slice", "full"), default="slice",
+                    help="bundled 500-neuron slice (default) or re-extract from the full graph")
     args = ap.parse_args(argv)
     if ":" in args.seeds:
         a, b = (int(x) for x in args.seeds.split(":"))
@@ -252,9 +248,11 @@ def main(argv=None):
     cfg = H.load_cfg()
     cfg.setdefault("harness_guards", {})["on_dead"] = "record"
     cfg["dynamics"]["n_trials_per_class"] = args.n_trials
-    g = load_graph(load_neurons=False)
-    graphs = build_arms(g, cfg, args.draws, args.swaps_per_edge)
-    del g
+    if args.graph == "full":
+        sl, source = from_full_graph(load_graph(), cfg["subgraph"]["n"]), str(GRAPH_DIR)
+    else:
+        sl, source = load_slice(), "data/e1_slice/e1_slice_500.npz"
+    graphs = build_arms(sl, args.draws, args.swaps_per_edge)
     rhos = {k: [spectral_radius(W) for W in v] for k, v in graphs.items()}
     n = graphs["connectome_signed"][0].shape[0]
     I0, _, in0, _, _ = make_trials_for(cfg, n, MATCH_SEED)
@@ -274,7 +272,7 @@ def main(argv=None):
     inp = np.array([r["acc"] for r in rows if r["arm"] == "input_only"])
     summary = {
         "experiment": "EXP-E1-OP", "label": args.label, "provenance": H.provenance(),
-        "settings": vars(args), "seeds": seeds, "n": n,
+        "settings": vars(args), "graph_source": source, "seeds": seeds, "n": n,
         "global_gains": {k: [m["gain"] for m in v] for k, v in global_gain.items()},
         "cells": cells,
         "input_only": {"mean_acc": float(inp.mean()), "per_seed": inp.tolist()},

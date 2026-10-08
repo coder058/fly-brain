@@ -20,6 +20,7 @@ TERMINAL = {"TASK_STATE_COMPLETED", "TASK_STATE_FAILED", "TASK_STATE_CANCELED",
             "TASK_STATE_REJECTED"}
 # GUESS: local prototype request cap; adjust only after measuring real artifact payloads.
 MAX_BODY_BYTES = 1_048_576
+DRAIN_LIMIT_BYTES = 4 * MAX_BODY_BYTES
 # GUESS: local single-user lock-wait budget; server is loopback-only.
 DB_TIMEOUT_SECONDS = 15.0
 # GUESS: prototype pagination defaults/cap; tune from observed task volume.
@@ -304,10 +305,22 @@ class A2AHandler(BaseHTTPRequestHandler):
         self.end_headers()
         self.wfile.write(raw)
 
+    def _discard_body(self, n: int) -> None:
+        while n > 0:
+            chunk = self.rfile.read(min(n, 65536))
+            if not chunk:
+                return
+            n -= len(chunk)
+
     def read_json(self) -> dict:
         try:
             size = int(self.headers.get("Content-Length", "0"))
             if size <= 0 or size > MAX_BODY_BYTES:
+                if size > MAX_BODY_BYTES:
+                    # Drain a bounded amount before replying: closing on an unread body makes
+                    # the client hit EPIPE mid-upload instead of reading the 400.
+                    self._discard_body(min(size, DRAIN_LIMIT_BYTES))
+                    self.close_connection = True
                 raise HubError("request body size is invalid or exceeds the local cap")
             payload = json.loads(self.rfile.read(size))
             if not isinstance(payload, dict):
