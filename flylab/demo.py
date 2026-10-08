@@ -125,7 +125,7 @@ def step_rate_bug(sl, cfg, seeds, plt):
         I0, _, in0, _, _ = make_trials_for(cfg, sl.n, 0)
         sub0 = I0[::15]
 
-        def rate_fn(g, W=W, rho=rho):
+        def rate_fn(g, W=W, rho=rho, sub0=sub0, in0=in0):
             return _rate(W, rho, g, sub0, in0, cfg, 0)[1]
 
         gain = gain_for_target_rate(rate_fn, TARGET_RATE, lo=0.05, hi=80.0)["gain"]
@@ -216,6 +216,17 @@ def _paired(rows, a: str, b: str) -> tuple[float, float, float, int]:
     return float(d.mean()), float(d.mean() - h), float(d.mean() + h), len(d)
 
 
+def _load_rows(directory: Path, label: str):
+    path = latest_result(label, directory)
+    return json.loads(path.read_text())["rows"] if path else None
+
+
+def _valid_connectome_seeds(rows) -> int:
+    return sum(1 for r in rows if r["arm"] == "connectome_signed" and r["matching"] == "per_seed"
+               and r["readout"] == "full" and r["acc"] is not None and r["alive"]
+               and r["rate_within_tol"])
+
+
 def step_dale(plt):
     header(6, "Bug 4: the degree null mixed excitation and inhibition (EXP-E1-DALE)")
     sl = load_slice()
@@ -227,38 +238,58 @@ def step_dale(plt):
                     for s in np.unique(C.col))
         label = "legacy (weights follow target)" if follow == "post" else "Dale (weights follow source)"
         print(f"  {label:<32} neurons with both E and I outputs: {mixed} of {sl.n} (connectome: 0)")
-    op, dale = latest_result("confirmatory"), latest_result("dale-confirmatory", E1_DALE_DIR)
-    if op is None or dale is None:
-        print("  result files missing; skipping figure")
-        return
-    r_op = json.loads(op.read_text())["rows"]
-    r_dale = json.loads(dale.read_text())["rows"]
-    items = [
-        ("connectome − Erdős–Rényi", "EXP-E1-OP", _paired(r_op, "connectome_signed", "er_null")),
-        ("connectome − degree null, signs mixed", "EXP-E1-OP",
-         _paired(r_op, "connectome_signed", "degree_preserving_null")),
-        ("connectome − degree null, signs mixed", "EXP-E1-DALE",
-         _paired(r_dale, "connectome_signed", "degree_preserving_null")),
-        ("connectome − degree null, Dale's law kept", "EXP-E1-DALE (primary)",
-         _paired(r_dale, "connectome_signed", "dale_preserving_null")),
-        ("sign-mixed null − Dale null", "EXP-E1-DALE",
-         _paired(r_dale, "degree_preserving_null", "dale_preserving_null")),
+
+    header(7, "Every preregistered comparison, from the committed result files")
+    res = ROOT / "experiments" / "results"
+    sources = {
+        "OP": _load_rows(E1_OP_DIR, "confirmatory"),
+        "DALE": _load_rows(E1_DALE_DIR, "dale-confirmatory"),
+        "REPL": _load_rows(res / "EXP-E1-REPL", "repl-confirmatory"),
+        "MATCH-A": _load_rows(res / "EXP-E1-MATCH", "match-sliceA"),
+        "MATCH-B": _load_rows(res / "EXP-E1-MATCH", "match-sliceB"),
+    }
+    spec = [  # (label, source key, arm a, arm b, experiment tag)
+        ("connectome − Erdős–Rényi", "OP", "connectome_signed", "er_null", "E1-OP · slice A"),
+        ("connectome − sign-mixing degree null", "OP", "connectome_signed",
+         "degree_preserving_null", "E1-OP · slice A"),
+        ("sign-mixing null − Dale null", "DALE", "degree_preserving_null",
+         "dale_preserving_null", "E1-DALE · slice A"),
+        ("connectome − Dale null", "DALE", "connectome_signed", "dale_preserving_null",
+         "E1-DALE · slice A"),
+        ("connectome − Dale null", "REPL", "connectome_signed", "dale_preserving_null",
+         "E1-REPL · slice B"),
+        ("connectome − Dale null", "MATCH-A", "connectome_signed", "dale_preserving_null",
+         "E1-MATCH · slice A"),
+        ("connectome − Dale null", "MATCH-B", "connectome_signed", "dale_preserving_null",
+         "E1-MATCH · slice B"),
     ]
-    for name, exp, (m, lo, hi, n) in items:
-        print(f"  {name:<42} {m:+.3f} [{lo:+.3f}, {hi:+.3f}]  n={n:<2} {exp}")
-    fig, ax = plt.subplots(figsize=(9.2, 3.9))
+    items = []
+    for label, key, a, b, tag in spec:
+        rows = sources[key]
+        if rows is None:
+            continue
+        complete = _valid_connectome_seeds(rows) >= 18
+        items.append((label, tag + ("" if complete else " — INCOMPLETE"), complete,
+                      _paired(rows, a, b)))
+    for label, tag, _complete, (m, lo, hi, n) in items:
+        print(f"  {label:<38} {m:+.3f} [{lo:+.3f}, {hi:+.3f}]  n={n:<2} {tag}")
+    if not items:
+        return
+    fig, ax = plt.subplots(figsize=(9.4, 0.62 * len(items) + 1.3))
     ax.axvline(0, color=INK_2, linewidth=1)
-    for y, (name, exp, (m, lo, hi, n)) in enumerate(items[::-1]):
-        color = C_CONN if name.startswith("connectome") else C_DP
+    for y, (label, _tag, complete, (m, lo, hi, n)) in enumerate(items[::-1]):
+        color = (C_CONN if label.startswith("connectome") else C_DP) if complete else MUTED
         ax.plot([lo, hi], [y, y], color=color, linewidth=2.5, solid_capstyle="round")
-        ax.scatter([m], [y], s=70, color=color, edgecolor=SURFACE, linewidth=2, zorder=3)
-        ax.text(hi + 0.004, y, f"{m:+.3f}", va="center", color=INK, fontsize=9.5)
-    ax.set_yticks(range(len(items)), [f"{nm}\n{exp}" for nm, exp, _ in items[::-1]], fontsize=9)
-    ax.set_xlim(-0.08, 0.14)
-    ax.set_xticks(np.arange(-0.08, 0.141, 0.02))
+        ax.scatter([m], [y], s=70, color=SURFACE if not complete else color, edgecolor=color,
+                   linewidth=2, zorder=3)
+        ax.text(hi + 0.004, y, f"{m:+.3f}  (n={n})", va="center", color=INK, fontsize=9)
+    ax.set_yticks(range(len(items)), [f"{lb}\n{tg}" for lb, tg, _, _ in items[::-1]], fontsize=8.8)
+    ax.set_xlim(-0.16, 0.16)
+    ax.set_xticks(np.arange(-0.16, 0.161, 0.04))
     ax.xaxis.set_major_formatter(lambda v, _: f"{v:+.2f}" if abs(v) > 1e-9 else "0")
-    ax.set_xlabel("paired accuracy difference with 95% CI (fresh seeds, paired by seed)")
-    ax.set_title("With a null that respects Dale's law, the real wiring wins", fontsize=12)
+    ax.set_xlabel("paired accuracy difference with 95% CI (fresh seeds per experiment; "
+                  "hollow grey = instrument incomplete, not a result)", fontsize=9.5)
+    ax.set_title("Every preregistered comparison in the E1 lineage", fontsize=12)
     ax.grid(axis="y", visible=False)
     fig.tight_layout()
     fig.savefig(FIG_DIR / "fig5_dale.png")
@@ -295,7 +326,7 @@ def step_result(plt):
                                    (0.24, "er_null", C_ER, "Erdős–Rényi null")):
         means = [cells[k]["arms"][arm]["mean_acc"] or 0.0 for k in order]
         ax.bar(x + off, means, width=0.22, color=color, label=label, zorder=2)
-        for xi, k in zip(x + off, order):
+        for xi, k in zip(x + off, order, strict=True):
             pts = cells[k]["arms"][arm]["per_seed"]
             ax.scatter(np.full(len(pts), xi), pts, s=9, color=INK, alpha=0.35, zorder=3, linewidth=0)
     inp = res["input_only"]["mean_acc"]
