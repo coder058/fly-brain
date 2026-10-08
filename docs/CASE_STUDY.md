@@ -75,8 +75,9 @@ something it could not defend.
 
 In October 2026 I re-read the negative result the way I had read the first fake positive.
 Two numbers did not fit: the connectome's interval was **seven times wider** than the
-nulls', and its per-seed scores were 0.67–0.82 on ten seeds and **0.21 and 0.20** — chance —
-on seeds 5 and 9. Two seeds were carrying the whole negative.
+nulls', and its per-seed scores were 0.51–0.82 on ten seeds and **0.21 and 0.20** — chance —
+on seeds 5 and 9. Without those two, the connectome and the degree-preserving null were
+tied (−0.002); two seeds were carrying the negative mean.
 
 I rebuilt the graph from the raw Janelia files on a fresh machine (identical totals) and
 traced each failure.
@@ -95,8 +96,9 @@ and the liveness guard passed it because its threshold was one spike.
 random "probe" neurons. On seed 5 the connectome fired 20,231 non-input spikes and **18**
 landed on the probes. At a matched firing rate, the connectome's activity runs through a median
 37 of 450 non-input neurons, a random graph's through about 100; 48 random probes catch
-about 4 of the former. The positive control had in fact only passed with a 450-neuron readout — the powered
-comparison then ran with 48, a configuration the control never validated.
+about 4 of the former. The stock positive control (ring lattice vs random graph) had only passed with a 450-neuron
+readout; the powered comparison ran with 48, which was validated only later and only by a
+constructed feature-injection gate.
 
 ![probe coverage](../figures/fig3_probe_coverage.png)
 
@@ -130,14 +132,17 @@ firing-rate band on only 4 of 24 seeds (0.10×–3.32× of target), under per-se
 24 of 24; the 48-probe readout produced refusals on four seeds whose networks were firing
 11,870–18,306 spikes, the full readout produced none.
 
-So the rescue failed, and that is the result. Fixing the instrument made it about five times
-more precise and the negative *sharper*, with a more specific shape than before:
+So the rescue failed, and that is the result. Fixing the instrument cut the seed-to-seed
+noise on the key comparison about fourfold and made the negative *sharper*, with a more
+specific shape than before:
 
-- **Against random wiring, the connectome wins.** A graph with the fly's hub structure carries
-  the temporal signal better than an Erdős–Rényi graph of the same size.
-- **Against its own degree-matched rewiring, it loses.** Shuffle who-connects-to-whom while
-  keeping every neuron's in- and out-degree, and accuracy goes *up* by 3.6 points. On this
-  task, everything useful about the fly's wiring is in its degree sequence.
+- **Against random wiring, the connectome wins.** It carries the temporal signal better than
+  an Erdős–Rényi graph with the same number of edges.
+- **Against its own rewiring, it loses.** Shuffle who-connects-to-whom while keeping every
+  neuron's in- and out-degree and its outgoing weights and sign, and accuracy goes *up* by
+  3.6 points. On this task, everything useful about the fly's wiring is in those per-neuron
+  statistics. Which one matters — degrees, the heavy-tailed weights, or the E/I signs (the
+  ER null has none of them) — is the next experiment, not a conclusion.
 - **The old readout hid the network.** With 48 probes the connectome scored 0.117 *below* a
   readout of the raw input; with every neuron read it scores 0.039 above.
 

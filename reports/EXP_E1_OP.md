@@ -12,7 +12,8 @@ Under the preregistered rule: *the connectome is worse than the degree-preservin
 this task and operating point.* 19 of 24 seeds point the same way.
 
 `E1_TOPOLOGY_ADVANTAGE` remains CLOSED. This is a new ID, not a rerun of the closed one,
-and it reaches the same direction with an interval ~5× narrower.
+and it reaches the same direction with an interval ~5× narrower (≈4× from lower seed-to-seed
+variance of the paired difference, ≈1.4× from doubling the seeds).
 
 ## Confirmatory table
 
@@ -41,10 +42,13 @@ were excluded per protocol (each seed kept ≥ 1 valid draw of each null).
 
 ## Interpretation
 
-1. **Degree sequence, not wiring.** The connectome beats a random graph with the same number
-   of edges by 8 points, and loses to a random graph with the same *degrees* by 3.6 points.
-   Everything that helps here is explained by which neurons are hubs; the particular
-   pattern of who-connects-to-whom is, if anything, slightly harmful for this task.
+1. **Per-neuron statistics, not wiring.** The connectome beats an Erdős–Rényi graph with the
+   same number of edges by 8 points, and loses by 3.6 points to a rewiring of itself that
+   keeps every neuron's in/out-degree and outgoing weights and sign. The particular pattern of
+   who-connects-to-whom is, if anything, slightly harmful for this task. The ER null differs
+   from the connectome in degrees, weight distribution (uniform 1–10 vs synapse counts with
+   60% zeroed) *and* sign structure, so this experiment does not say which of those carries
+   the advantage over ER; a weight-permutation and a sign-shuffle null would.
 2. **The original instrument hid a usable network.** With the 48-probe readout the connectome
    was 0.117 *below* reading the input directly. With a full readout it is 0.039 above. The
    E1 reservoir only becomes a computer at all once you look at the neurons doing the work.
@@ -56,6 +60,9 @@ null destroys reciprocity, clustering and the 4 autapses, which may concentrate 
 fewer neurons in the real graph and reduce the readout's effective dimensionality.
 
 ## Provenance notes
+
+- Erratum to the protocol text: it says the connectome scored "0.67–0.82 on 10 of 12 seeds";
+  seed 11 scored 0.511, so the range is 0.51–0.82. The protocol file is left as committed.
 
 - The confirmatory JSON's `provenance.git_rev` reads `fe40667`. The run **executed** the
   runner at `214c7c7`: `provenance()` reads `HEAD` when the result is written, and
