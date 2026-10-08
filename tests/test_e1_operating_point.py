@@ -84,3 +84,17 @@ def test_runner_end_to_end_writes_json_with_path_arguments(tmp_path):
     assert {r["arm"] for r in res["rows"]} >= {"connectome_signed", "dale_preserving_null",
                                                "degree_preserving_null", "er_null", "input_only"}
     assert res["provenance"]["runner_sha256"]
+
+
+def test_runner_train_matching_and_arm_filter(tmp_path):
+    import json
+
+    OP.main(["--seeds", "0", "--draws", "1", "--n-trials", "4", "--workers", "1",
+             "--matchings", "per_seed", "--dale", "--arms", "dale_preserving_null,er_null",
+             "--match-on", "train", "--match-tol", "0.05", "--label", "test",
+             "--out-dir", str(tmp_path)])
+    (out,) = tmp_path.glob("e1_op_test_*.json")
+    res = json.loads(out.read_text())
+    assert {r["arm"] for r in res["rows"]} == {"connectome_signed", "dale_preserving_null",
+                                               "er_null", "input_only"}
+    assert res["settings"]["match_on"] == "train"

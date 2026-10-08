@@ -131,9 +131,13 @@ def lif_at(rho: float, gain: float, cfg: dict) -> LIFParams:
                                                                 base.get("dt", 1.0))})
 
 
-def match_gain(W, rho, I_list, inputs, cfg, seed, target_rate, tol):
+def match_gain(W, rho, I_list, inputs, cfg, seed, target_rate, tol, subsample: bool = True):
+    """Bisect gain to the target non-input rate on `I_list` (every 15th trial if `subsample`).
+
+    The 20-trial subsample is what every run before EXP-E1-MATCH used. On slice B it let the
+    connectome's full-set rate land at 0.69x-4.43x of target (EXP-E1-REPL)."""
     n_pool = W.shape[0] - len(inputs)
-    stride = max(1, len(I_list) // 20)
+    stride = max(1, len(I_list) // 20) if subsample else 1
     I_match = I_list[::stride]
     T = cfg["dynamics"]["n_steps"]
 
@@ -174,7 +178,11 @@ def run_seed(seed: int) -> list[dict]:
                 settings.append(("global", global_gain[arm][d]["gain"],
                                  global_gain[arm][d]["converged"]))
             if "per_seed" in _STATE["matchings"]:
-                m = match_gain(W, rho, I_list, inputs, cfg, seed, target, tol)
+                if _STATE.get("match_on", "subset") == "train":
+                    m = match_gain(W, rho, [I_list[i] for i in tr], inputs, cfg, seed, target,
+                                   _STATE["match_tol"], subsample=False)
+                else:
+                    m = match_gain(W, rho, I_list, inputs, cfg, seed, target, tol)
                 settings.append(("per_seed", m["gain"], m["converged"]))
             for matching, gain, converged in settings:
                 feats, st = simulate_features(W, I_list, lif_at(rho, gain, cfg), seed, inputs,
@@ -260,6 +268,13 @@ def main(argv=None):
     ap.add_argument("--label", required=True, help="diagnostic | confirmatory")
     ap.add_argument("--matchings", default="global,per_seed",
                     help="comma list from {global, per_seed}")
+    ap.add_argument("--match-on", choices=("subset", "train"), default="subset",
+                    help="per-seed rate matching on a 20-trial subsample (legacy) or on every "
+                         "training trial (never test trials)")
+    ap.add_argument("--match-tol", type=float, default=None,
+                    help="bisection tolerance when --match-on train (default: --tol)")
+    ap.add_argument("--arms", default=None,
+                    help="comma list of arms to keep (default: all built); connectome is always kept")
     ap.add_argument("--dale", action="store_true",
                     help="add the Dale-preserving degree null (same swaps, weights follow pre)")
     ap.add_argument("--slice-file", type=Path, default=None,
@@ -289,6 +304,9 @@ def main(argv=None):
         sl, source = load_slice(path), str(path.resolve().relative_to(HERE.parents[1]))
     graphs = build_arms(sl, args.draws, args.swaps_per_edge, dale=args.dale)
     matchings = tuple(m for m in MATCHINGS if m in args.matchings.split(","))
+    if args.arms:
+        keep = {"connectome_signed", *args.arms.split(",")}
+        graphs = {k: v for k, v in graphs.items() if k in keep}
     rhos = {k: [spectral_radius(W) for W in v] for k, v in graphs.items()}
     n = graphs["connectome_signed"][0].shape[0]
     I0, _, in0, _, _ = make_trials_for(cfg, n, MATCH_SEED)
@@ -299,6 +317,8 @@ def main(argv=None):
           flush=True)
 
     _STATE.update(cfg=cfg, graphs=graphs, rhos=rhos, global_gain=global_gain, matchings=matchings,
+                  match_on=args.match_on,
+                  match_tol=args.match_tol if args.match_tol is not None else args.tol,
                   target_rate=args.target_rate, tol=args.tol, n_probes=args.n_probes)
     if args.workers == 1:
         rows = [r for seed in seeds for r in run_seed(seed)]
