@@ -21,8 +21,19 @@ def sha256(path: Path) -> str:
     return digest.hexdigest()
 
 
-def git_blob_hash(revision: str, path: str) -> str:
-    data = subprocess.check_output(["git", "show", f"{revision}:{path}"], cwd=ROOT)
+# The INST-001 conclusion was frozen at a01037d in the private lab history. That history was
+# squashed into the public snapshot 6a60ff3, so a public clone cannot resolve a01037d; the
+# audit then compares against the first public commit instead and says so in its output.
+INST_BASELINE_REVS = ("a01037d", "6a60ff3")
+
+
+def git_blob_hash(revision: str, path: str) -> str | None:
+    """SHA-256 of `path` at `revision`, or None if the revision is not in this clone."""
+    try:
+        data = subprocess.check_output(["git", "show", f"{revision}:{path}"], cwd=ROOT,
+                                       stderr=subprocess.DEVNULL)
+    except subprocess.CalledProcessError:
+        return None
     return hashlib.sha256(data).hexdigest()
 
 
@@ -65,8 +76,14 @@ def audit() -> dict:
     runs = [path for path in sorted(MEM_ROOT.glob("q0_*")) if (path / "q0/summary.json").is_file()]
     run_rows = [audit_run(path) for path in runs]
     inst_current = sha256(INST_CONCLUSION)
-    inst_baseline = git_blob_hash("a01037d", "experiments/results/EXP-INST-001/conclusion.json")
-    ok = bool(run_rows) and all(
+    rel = "experiments/results/EXP-INST-001/conclusion.json"
+    baseline_rev, inst_baseline = None, None
+    for rev in INST_BASELINE_REVS:
+        inst_baseline = git_blob_hash(rev, rel)
+        if inst_baseline is not None:
+            baseline_rev = rev
+            break
+    ok = inst_baseline is not None and bool(run_rows) and all(
         row["status"] == "INSTRUMENT_INCOMPLETE"
         and row["cells"] == row["expected_cells"] == 72
         and row["complete_delays"] == []
@@ -78,7 +95,8 @@ def audit() -> dict:
         "status": "PASS_PROVENANCE_AUDIT" if ok else "FAIL",
         "runs": run_rows,
         "inst_conclusion_sha256_current": inst_current,
-        "inst_conclusion_sha256_a01037d": inst_baseline,
+        "inst_conclusion_baseline_rev": baseline_rev,
+        "inst_conclusion_sha256_baseline": inst_baseline,
         "inst_conclusion_unchanged": inst_current == inst_baseline,
         "read_only": True,
     }

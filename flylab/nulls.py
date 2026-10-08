@@ -43,7 +43,7 @@ def directed_edge_swap(
     if m < 2:
         return src, dst, np.arange(m)
     perm = np.arange(m)
-    present = set(zip(src.tolist(), dst.tolist()))
+    present = set(zip(src.tolist(), dst.tolist(), strict=True))
     target = m * n_swaps_per_edge
     attempts = 0
     accepted = 0
@@ -200,7 +200,7 @@ def remove_topk_hubs(
     out_deg = np.bincount(src, minlength=n)
     hubs = np.argsort(out_deg)[-k:] if k else np.array([], dtype=np.int64)
     hub_set = set(hubs.tolist())
-    keep = np.array([(int(a) not in hub_set and int(b) not in hub_set) for a, b in zip(src, dst)])
+    keep = np.array([(int(a) not in hub_set and int(b) not in hub_set) for a, b in zip(src, dst, strict=True)])
     A = sparse.csr_matrix((w[keep], (dst[keep], src[keep])), shape=(n, n))
     diag = {
         "k": k,

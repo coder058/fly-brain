@@ -4,8 +4,6 @@ The original implementation permuted the destination array and rebuilt a COO mat
 scipy silently summed colliding duplicates: 7.93% of edges vanished and self-loops appeared.
 """
 import numpy as np
-import pytest
-from scipy import sparse
 
 import e1_reservoir as H
 from flylab.nulls import degree_preserving_null, degree_sequences, directed_edge_swap

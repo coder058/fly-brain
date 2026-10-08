@@ -75,7 +75,7 @@ def polarity_lookup(df: pd.DataFrame | None = None) -> dict[int, int]:
     """body_id → sign (+1/-1/0)."""
     if df is None:
         df = load_body_polarity()
-    return dict(zip(df["body_id"].tolist(), df["sign"].astype(int).tolist()))
+    return dict(zip(df["body_id"].tolist(), df["sign"].astype(int).tolist(), strict=True))
 
 
 def classify_nt(nt_name: str, policy: str | dict = DEFAULT_POLICY_NAME) -> str:
