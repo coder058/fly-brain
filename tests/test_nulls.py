@@ -4,8 +4,6 @@ The original implementation permuted the destination array and rebuilt a COO mat
 scipy silently summed colliding duplicates: 7.93% of edges vanished and self-loops appeared.
 """
 import numpy as np
-import pytest
-from scipy import sparse
 
 import e1_reservoir as H
 from flylab.nulls import degree_preserving_null, degree_sequences, directed_edge_swap
@@ -117,3 +115,31 @@ def test_remove_topk_hubs_drops_incident_edges(toy_graph):
     if A.nnz:
         assert not set(coo.col.tolist()) & hubs
         assert not set(coo.row.tolist()) & hubs
+
+
+def _mixed_sign_sources(src, w):
+    return sum(len(np.unique(np.sign(w[(src == s) & (w != 0)]))) > 1 for s in np.unique(src))
+
+
+def test_dale_null_keeps_presynaptic_sign_and_out_strength():
+    from flylab.nulls import degree_preserving_null
+    from flylab.slice import load_slice
+
+    sl = load_slice()
+    for follow, dale_kept in (("pre", True), ("post", False)):
+        A, diag = degree_preserving_null(sl.src, sl.dst, sl.signed_weight, sl.n,
+                                         np.random.default_rng([90_000, 0]), 5,
+                                         weights_follow=follow)
+        C = A.tocoo()
+        mixed = _mixed_sign_sources(C.col, C.data)
+        out_kept = np.allclose(np.bincount(C.col, C.data, sl.n),
+                               np.bincount(sl.src, sl.signed_weight, sl.n))
+        in_kept = np.allclose(np.bincount(C.row, C.data, sl.n),
+                              np.bincount(sl.dst, sl.signed_weight, sl.n))
+        assert diag["weights_follow"] == follow
+        if dale_kept:
+            assert mixed == 0 and out_kept
+        else:
+            # legacy convention, kept bit-for-bit so historical results reproduce
+            assert mixed > 400 and in_kept and not out_kept
+    assert _mixed_sign_sources(sl.src, sl.signed_weight) == 0

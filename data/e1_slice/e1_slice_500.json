@@ -1,0 +1,14 @@
+{
+  "source": "MaleCNS v1.0 (Janelia FlyEM), CC-BY 4.0",
+  "filter": "status==Traced both ends",
+  "polarity_policy": "glutamate_unknown",
+  "selection": "top 500 by out-degree in the full traced graph",
+  "n": 500,
+  "n_edges": 23708,
+  "full_graph": {
+    "n_neurons": 165122,
+    "n_edges": 25563197,
+    "weight_sum": 124025046
+  },
+  "sha256": "03918821bc002f283f0fc26cf32648bc126955547f1b6aadfe9ae3325809c05d"
+}

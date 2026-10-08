@@ -32,8 +32,10 @@ def directed_edge_swap(
     a self-loop or duplicate an existing edge, so edge count, both degree sequences and
     simplicity are all exactly preserved.
 
-    Returns (new_src, new_dst, perm) where perm[i] is the index of the original edge whose
-    weight belongs on new edge i, so weights travel with their presynaptic neuron.
+    Returns (new_src, new_dst, perm) where perm[i] is the original edge whose weight moves to
+    new edge i under the legacy convention. Slot i keeps its source and takes edge j's target,
+    and perm swaps with the target, so under `perm` a weight follows its *postsynaptic*
+    neuron. Slot i itself (identity) is the presynaptic convention.
     """
     src = np.asarray(src, dtype=np.int64).copy()
     dst = np.asarray(dst, dtype=np.int64).copy()
@@ -41,7 +43,7 @@ def directed_edge_swap(
     if m < 2:
         return src, dst, np.arange(m)
     perm = np.arange(m)
-    present = set(zip(src.tolist(), dst.tolist()))
+    present = set(zip(src.tolist(), dst.tolist(), strict=True))
     target = m * n_swaps_per_edge
     attempts = 0
     accepted = 0
@@ -67,18 +69,38 @@ def directed_edge_swap(
     return src, dst, perm
 
 
+WEIGHTS_FOLLOW = ("post", "pre")
+
+
 def degree_preserving_null(
-    src, dst, signed_w, n: int, rng: np.random.Generator, n_swaps_per_edge: int = 20
+    src, dst, signed_w, n: int, rng: np.random.Generator, n_swaps_per_edge: int = 20,
+    weights_follow: str = "post",
 ) -> tuple[sparse.csr_matrix, dict]:
-    """Rewired graph with both degree sequences preserved exactly, as a (post, pre) CSR."""
+    """Rewired graph with both degree sequences preserved exactly, as a (post, pre) CSR.
+
+    `weights_follow` decides which endpoint keeps its weights through the rewiring:
+
+    - "post" (default; every result before 2026-10-08 used it): each neuron keeps the
+      multiset of *incoming* signed weights. Outgoing signs get mixed, so the null breaks
+      Dale's law: on the E1 slice 479 of 500 presynaptic neurons end up with both
+      excitatory and inhibitory outputs, against 0 in the connectome. The original comment
+      here claimed the opposite; see reports/EXP_E1_DALE.md.
+    - "pre": each neuron keeps its *outgoing* weights, hence its sign (Dale's law) and
+      out-strength; incoming strength is what gets shuffled.
+    """
+    if weights_follow not in WEIGHTS_FOLLOW:
+        raise ValueError(f"weights_follow must be one of {WEIGHTS_FOLLOW}, got {weights_follow!r}")
     src = np.asarray(src, dtype=np.int64)
     dst = np.asarray(dst, dtype=np.int64)
     w = np.asarray(signed_w, dtype=np.float32)
     out0, in0 = degree_sequences(src, dst, n)
     ns, nd, perm = directed_edge_swap(src, dst, n, rng, n_swaps_per_edge)
-    # weights follow the edge slot; the presynaptic node is unchanged by the swap so the
-    # sign of each edge still belongs to its source neuron.
-    nw = w[perm] if len(w) == len(perm) else w
+    if len(w) != len(perm):
+        nw = w
+    elif weights_follow == "post":
+        nw = w[perm]
+    else:
+        nw = w  # slot i keeps its source and its original weight
     out1, in1 = degree_sequences(ns, nd, n)
     diag = {
         "n_edges_in": int(len(src)),
@@ -88,6 +110,7 @@ def degree_preserving_null(
         "out_degree_preserved": bool(np.array_equal(out0, out1)),
         "in_degree_preserved": bool(np.array_equal(in0, in1)),
         "fraction_edges_rewired": float((dst != nd).mean()),
+        "weights_follow": weights_follow,
     }
     if not (diag["out_degree_preserved"] and diag["in_degree_preserved"]):
         raise RuntimeError(f"degree-preserving null did not preserve degrees: {diag}")
@@ -177,7 +200,7 @@ def remove_topk_hubs(
     out_deg = np.bincount(src, minlength=n)
     hubs = np.argsort(out_deg)[-k:] if k else np.array([], dtype=np.int64)
     hub_set = set(hubs.tolist())
-    keep = np.array([(int(a) not in hub_set and int(b) not in hub_set) for a, b in zip(src, dst)])
+    keep = np.array([(int(a) not in hub_set and int(b) not in hub_set) for a, b in zip(src, dst, strict=True)])
     A = sparse.csr_matrix((w[keep], (dst[keep], src[keep])), shape=(n, n))
     diag = {
         "k": k,

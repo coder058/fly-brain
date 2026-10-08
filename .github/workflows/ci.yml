@@ -1,0 +1,30 @@
+name: tests
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.12", "3.13"]
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # the provenance audit reads a historical commit
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+      - run: pip install -r requirements.txt
+      - run: python -m pytest -q
+      - name: Provenance audit of the MEM-002 / INST-001 artifacts
+        run: python scripts/verify_experiment_provenance.py | grep -q PASS_PROVENANCE_AUDIT
+      - name: Demo on the bundled 500-neuron slice
+        run: |
+          pip install matplotlib
+          python -m flylab.demo --quick

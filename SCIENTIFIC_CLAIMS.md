@@ -1,5 +1,30 @@
 # Scientific claims — Fly Lab
 
+**8 October 2026 — E1 lineage closed (EXP-E1-MATCH, preregistered as the last comparison):**
+the hypothesis that the connectome's specific wiring carries the E1 signal better than a
+rewiring with the same degrees, outgoing weights and sign is **NOT SUPPORTED**.
+
+| experiment | slice | connectome − Dale null | connectome − ER | status |
+|---|---|---|---|---|
+| EXP-E1-DALE | A | +0.028 [+0.008, +0.049] | +0.101 [+0.080, +0.123] | MEASURED, superseded |
+| EXP-E1-REPL | B | — | — | INSTRUMENT_INCOMPLETE (13/24) |
+| EXP-E1-MATCH | A | +0.004 [−0.014, +0.022] | +0.080 [+0.060, +0.099] | MEASURED, final |
+| EXP-E1-MATCH | B | −0.116 [−0.163, −0.069] | −0.051 [−0.098, −0.004] | MEASURED, final |
+
+Claim-ready: (1) the legacy degree-preserving null keeps incoming rather than outgoing weights
+and gives 479/500 slice-A neurons mixed-sign outputs, worth +0.048 [+0.038, +0.059] to the null
+(24/24 seeds); (2) the connectome beats Erdős–Rényi on slice A (three experiments) but not on
+slice B; (3) no evidence on either slice that the specific wiring beats its Dale-preserving
+rewiring. Reports: `reports/EXP_E1_OP.md`, `EXP_E1_DALE.md`, `EXP_E1_REPL.md`, `EXP_E1_MATCH.md`.
+Not claimed: anything about fly intelligence, the full CNS, other tasks or neuron models.
+Results that use the legacy null (E1 powered, EXP-E1-OP, `research/` routing and
+specialization) compare against a Dale-violating control.
+
+**8 October 2026 — withdrawn:** a README note of 4 October described `EXP-ANN-MB-MEM-001`
+and `EXP-ANN-MB-MEM-002` as "closed positive". No code, protocol or artifact for those IDs
+exists in this repository, and the ledger records EXP-MEM-001 as `INVALIDATED` and
+EXP-MEM-002 as `INSTRUMENT_INCOMPLETE`. The note was removed. Status: **NOT A RESULT**.
+
 **27 September 2026 correction:** MOTIF-FUNC-003 through 006 archival
 superclass-block claims are invalid due to a local/global index error.
 Corrected Frankfurt reruns and audits are documented in the
@@ -33,7 +58,9 @@ The connectome is the scientific object. Applications are testbeds. Negative res
 - **Status:** MEASURED on disk. Engineering pipeline exists (`scripts/build_graph.py`).
 - **Evidence:** `data/manifests/source.lock.json`, `data/manifests/e0_diagnosis.json`, `data/derived/graph/graph_meta.json`, `system/build_graph.log`.
 - **Not claimed:** identity with published ~166,700 / ~25,582,938 (documented deltas; not forced).
-- **Hole:** `graph_meta.json` is gitignored. It predates the restored `build_graph.py` (mtime 10:28 vs script 12:52). Current script would write extra keys (`polarity_policy`, `validation_targets`, `delta`, `artifacts`) that the on-disk meta lacks. Rebuild against the default out-dir would overwrite every result’s graph. Reproducibility of the derived graph from the script in git is **OPEN**.
+- **Hole:** `graph_meta.json` is gitignored. It predates the restored `build_graph.py` (mtime 10:28 vs script 12:52). Current script would write extra keys (`polarity_policy`, `validation_targets`, `delta`, `artifacts`) that the on-disk meta lacks. Rebuild against the default out-dir would overwrite every result’s graph. Reproducibility of the derived graph from the script in git was **OPEN**; on 2026-10-08 a
+  fresh download + `build_graph.py` reproduced all totals and E/I/U sign counts exactly
+  (`RESEARCH_LEDGER.yaml` → `dataset.e0.rebuild_2026_10_08`). Now **MEASURED**.
 
 ---
 

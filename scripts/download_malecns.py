@@ -106,6 +106,7 @@ def main() -> int:
     results = []
     for name, meta in lock["files"].items():
         results.append(download_one(name, meta["url"], meta["sha256"]))
+    CHECKSUM_OUT.parent.mkdir(parents=True, exist_ok=True)
     CHECKSUM_OUT.write_text(json.dumps({"verified_at": time.time(), "files": results}, indent=2) + "\n")
     print("ALL RAW FILES VERIFIED")
     return 0
