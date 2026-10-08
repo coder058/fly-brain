@@ -14,12 +14,13 @@ six bugs in my own instrument, and an answer I did not want.**
 - I turned the Janelia **MaleCNS v1.0** connectome into a spiking recurrent network and asked
   whether its real wiring carries a temporal signal better than random graphs.
 - Every time I got an answer, I audited the instrument, and six times I found a bug that
-  changed it: a readout peeking at the stimulus, a "random" control that deleted 8% of the brain, one gain setting reused across
-  inputs it didn't fit, a readout watching the wrong neurons, a control that let 479 of 500
-  neurons both excite and inhibit (biologically impossible — Dale's law), and a rate matcher
-  too coarse for the connectome's trial-to-trial variability.
-- Each fix was **preregistered and pushed to GitHub before it ran**, on seeds never used
-  before. Along the way the connectome looked like it lost (−0.036), then like it won
+  changed it: a readout peeking at the stimulus, a "random" control that deleted 8% of the
+  brain, one gain setting reused across inputs it didn't fit, a readout watching the wrong
+  neurons, a control that let 479 of 500 neurons both excite and inhibit (biologically
+  impossible — Dale's law), and a rate matcher too coarse for the connectome's
+  trial-to-trial variability.
+- From the second audit on, every fix was **preregistered and pushed to GitHub before it
+  ran**, on seeds never used before. Along the way the connectome looked like it lost (−0.036), then like it won
   (+0.028, 95% CI [+0.008, +0.049]).
 - **The final, preregistered answer is "not supported".** With every fix in place, on two
   disjoint 500-neuron slices: no detectable difference from a Dale-preserving rewiring on one
