@@ -28,6 +28,12 @@ that kept changing the answer.**
   breaking Dale's law alone gave the null **+0.048 accuracy on 24/24 seeds**, and against a
   null that respects it the **connectome wins, +0.028 [95% CI +0.008, +0.049]**.
 
+> **Status, 8 Oct 2026:** a preregistered replication on 500 *different* neurons
+> ([EXP-E1-REPL](reports/EXP_E1_REPL.md)) was `INSTRUMENT_INCOMPLETE` — 11 of 24 seeds failed
+> rate matching, and the 13 valid ones leaned the other way. A final preregistered run with
+> a fixed matcher on both slices ([EXP-E1-MATCH](experiments/results/EXP-E1-MATCH/protocol.md))
+> is in progress. Until it lands, treat the +0.028 as specific to one slice.
+
 The effect is modest and the scope is narrow (below). The point of the project is the
 method: every answer above came from a control I had trusted and then checked.
 
