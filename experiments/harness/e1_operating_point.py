@@ -31,6 +31,7 @@ for _var in ("OPENBLAS_NUM_THREADS", "OMP_NUM_THREADS", "MKL_NUM_THREADS"):
     os.environ.setdefault(_var, "1")
 
 import argparse
+import hashlib
 import json
 import multiprocessing as mp
 import sys
@@ -245,6 +246,10 @@ def main(argv=None):
         seeds = [int(s) for s in args.seeds.split(",")]
 
     t0 = time.time()
+    # Captured before any work: provenance read at write time once mislabelled a 17-minute
+    # run with a commit made while it was running.
+    started = {**H.provenance(),
+               "runner_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest()[:16]}
     cfg = H.load_cfg()
     cfg.setdefault("harness_guards", {})["on_dead"] = "record"
     cfg["dynamics"]["n_trials_per_class"] = args.n_trials
@@ -271,7 +276,8 @@ def main(argv=None):
              for m in MATCHINGS for r in READOUTS]
     inp = np.array([r["acc"] for r in rows if r["arm"] == "input_only"])
     summary = {
-        "experiment": "EXP-E1-OP", "label": args.label, "provenance": H.provenance(),
+        "experiment": "EXP-E1-OP", "label": args.label, "provenance": started,
+        "written_utc": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
         "settings": vars(args), "graph_source": source, "seeds": seeds, "n": n,
         "global_gains": {k: [m["gain"] for m in v] for k, v in global_gain.items()},
         "cells": cells,
@@ -279,7 +285,9 @@ def main(argv=None):
         "rows": rows, "seconds": time.time() - t0,
     }
     RESULTS.mkdir(parents=True, exist_ok=True)
-    out = H.versioned_path(f"e1_op_{args.label}", results_dir=RESULTS)
+    out = RESULTS / f"e1_op_{args.label}_{started['utc'][:19].replace('-', '').replace(':', '')}Z_{started['git_rev']}.json"
+    if out.exists():
+        raise RuntimeError(f"refusing to overwrite {out}")
     out.write_text(json.dumps(summary, indent=1, default=float) + "\n")
     for c in cells:
         print(f"[{c['matching']:>8} / {c['readout']:>7}] "

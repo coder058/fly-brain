@@ -1,5 +1,6 @@
 # Fly Lab — research ledger
 # Canonical state assembled from tracked files and preserved artifacts (2026-09-16).
+# 2026-10-08: EXP-E1-OP added; E0 rebuild reproduced on a clean machine (see dataset.e0.rebuild_2026_10_08).
 # Status is evidence status, not "code exists".
 # Do not treat CLOSED hypothesis IDs as scientifically complete.
 
@@ -32,6 +33,12 @@ dataset:
       batches. CSR/CSC/COO bytes and key counts match; body_id/sign columns match.
       The original data/derived/graph/ was never written. Exact raw weight sum is
       124025046; the builder now accumulates it before float32 conversion.
+    rebuild_2026_10_08:
+      status: reproduced_exactly
+      machine: fresh cloud container, 4 vCPU / 16 GiB
+      steps: [scripts/download_malecns.py (all three SHA-256 match), scripts/build_graph.py --out-dir]
+      result: {n_neurons: 165122, n_edges: 25563197, weight_sum: 124025046, sign_counts: {E: 103718, I: 27965, U: 33439}}
+      seconds: 91
 
 hypotheses:
   E1_TOPOLOGY_ADVANTAGE:
@@ -152,10 +159,38 @@ experiments:
     failing_48probe_artifact: experiments/results/e1_positive_control_20260915T122213Z_3bd93f0.json
     failing_48probe_config: {n_probes: 48, target_rate: 0.01, seeds: 5, trials: 20, gate_passed: false}
     missing: stock all-excitatory PC-B at n_probes=48 / target_rate=0.002 (not run; EXP-INST-001 used constructed injection instead)
+    audit_2026_10_08: >
+      Connectome scored chance on seeds 5 and 9 only. Seed 9: gain was matched once on task seed 0,
+      but each seed drives different input neurons; connectome rate across seeds 0-11 at that gain
+      is 0.01x-1.97x of target. Seed 5: 20,231 pool spikes, 18 on the 48 probes. Both artifacts
+      bias against the connectome. Not reopened; tested under new ID EXP-E1-OP.
   - id: e1_null_ensemble_powered
     status: ran_but_scientifically_incomplete
     artifact: experiments/results/e1_null_ensemble_powered_20260915T130422Z_fe089d3.json
     git_tracked: false
+  - id: EXP-E1-OP
+    status: CLOSED_CONFIRMATORY
+    claim_ready: true
+    protocol: experiments/results/EXP-E1-OP/protocol.md
+    protocol_commit: 214c7c7  # pushed 2026-10-08T13:11:17Z, before the confirmatory run started
+    runner: experiments/harness/e1_operating_point.py
+    report: reports/EXP_E1_OP.md
+    artifact: experiments/results/EXP-E1-OP/e1_op_confirmatory_20261008T132853Z_fe40667.json
+    artifact_note: provenance.git_rev reads fe40667 (HEAD at write time); executed code was 214c7c7 + identical-graph loader; see report
+    seeds: 1000-1023
+    primary:
+      cell: per_seed_gain / full_readout
+      connectome_minus_dp: {mean: -0.036, ci95: [-0.057, -0.016], n: 24, excluded: 0}
+      verdict: connectome worse than degree-preserving null under this task and operating point
+    secondary:
+      connectome_minus_er: {mean: 0.081, ci95: [0.063, 0.100], n: 24}
+      connectome_minus_input_only: {mean: 0.039, ci95: [0.016, 0.063], n: 24}
+      original_cell_global_probe48_connectome_minus_dp: {mean: 0.042, ci95: [-0.041, 0.126], n: 20}
+    mechanistic_predictions_held: [rate_band_global_4_of_24_vs_per_seed_24_of_24, probe48_refusals_with_active_pool_0_with_full_readout]
+    valid_statement: >
+      On the E1 task and 500-neuron slice, at matched per-seed firing rate with a full non-input readout,
+      the connectome beats a size-matched Erdos-Renyi graph and trails a degree-preserving rewiring of itself.
+    invalid_statement: Fly wiring is worse than random / fly brains compute poorly.
   - id: e1_polarity_glutamate_arms
     status: ran_underpowered
     artifact: experiments/results/e1_polarity_arms_20260915T140857Z_fe089d3.json

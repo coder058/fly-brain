@@ -93,9 +93,9 @@ and the liveness guard passed it because its threshold was one spike.
 
 **Seed 5 — the readout was looking at the wrong neurons.** Features came from 48 fixed
 random "probe" neurons. On seed 5 the connectome fired 20,231 non-input spikes and **18**
-landed on the probes. At a matched firing rate, the connectome's activity runs through about
-33 of 450 neurons, a random graph's through about 70; 48 random probes catch about 4 of the
-former. The positive control had in fact only passed with a 450-neuron readout — the powered
+landed on the probes. At a matched firing rate, the connectome's activity runs through a median
+37 of 450 non-input neurons, a random graph's through about 100; 48 random probes catch
+about 4 of the former. The positive control had in fact only passed with a 450-neuron readout — the powered
 comparison then ran with 48, a configuration the control never validated.
 
 ![probe coverage](../figures/fig3_probe_coverage.png)
@@ -112,7 +112,39 @@ connectome, 20 degree-preserving and 20 random nulls, and a no-network baseline.
 original measurement is one cell of that grid and is unit-tested to be bit-identical to
 the old harness.
 
-<!-- RESULTS -->
+![result](../figures/fig4_e1_op_result.png)
+
+## Round 4: the answer
+
+The confirmatory run took 17 minutes with three worker processes. In the preregistered cell (per-seed gain,
+full readout), with no seed excluded:
+
+| comparison | difference | 95% CI |
+|---|---|---|
+| connectome − Erdős–Rényi null | **+0.081** | [+0.063, +0.100] |
+| connectome − degree-preserving null | **−0.036** | [−0.057, −0.016] |
+| connectome − no network | +0.039 | [+0.016, +0.063] |
+
+Both mechanistic predictions held: under the old global gain the connectome sat inside the
+firing-rate band on only 4 of 24 seeds (0.10×–3.32× of target), under per-seed matching on
+24 of 24; the 48-probe readout produced refusals on four seeds whose networks were firing
+11,870–18,306 spikes, the full readout produced none.
+
+So the rescue failed, and that is the result. Fixing the instrument made it about five times
+more precise and the negative *sharper*, with a more specific shape than before:
+
+- **Against random wiring, the connectome wins.** A graph with the fly's hub structure carries
+  the temporal signal better than an Erdős–Rényi graph of the same size.
+- **Against its own degree-matched rewiring, it loses.** Shuffle who-connects-to-whom while
+  keeping every neuron's in- and out-degree, and accuracy goes *up* by 3.6 points. On this
+  task, everything useful about the fly's wiring is in its degree sequence.
+- **The old readout hid the network.** With 48 probes the connectome scored 0.117 *below* a
+  readout of the raw input; with every neuron read it scores 0.039 above.
+
+Re-running seeds 0–11 through the new runner also reproduced the September numbers
+**to every digit** — 10 connectome scores and 223 null draws — from a graph rebuilt from raw
+files on a different machine. That is what the versioned results and pinned RNG streams were
+for. Full tables: [`reports/EXP_E1_OP.md`](../reports/EXP_E1_OP.md).
 
 ## What I would tell a reviewer
 
@@ -129,7 +161,7 @@ the old harness.
 
 - One task, one neuron model, one 500-neuron slice — the highest out-degree neurons, 0.3% of
   the CNS. It is mostly optic-lobe and central-brain interneurons; 243 of the 500 have no
-  confidently predicted transmitter and are silenced (weight 0), 188 are inhibitory and 69
+  confidently predicted transmitter, so their outgoing weights are zero, 188 are inhibitory and 69
   excitatory, so this is an inhibition-dominated sub-network.
 - Synapse count is used as weight; real synaptic strength, dynamics, gap junctions and
   neuromodulation are absent.

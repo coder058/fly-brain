@@ -94,10 +94,11 @@ def step_null_bug(sl, plt):
     labels = ["Connectome", "Shuffle null\n(original)", "Edge-swap null\n(fixed)"]
     vals = [len(sl.src), broken.nnz, diag["n_edges_out"]]
     ax.barh(labels[::-1], vals[::-1], color=[C_DP, MUTED, C_CONN], height=0.55)
-    ax.set_xlim(20_000, 24_500)
+    ax.set_xlim(0, 27_500)
     for y, v in enumerate(vals[::-1]):
-        ax.text(v + 60, y, f"{v:,}", va="center", color=INK, fontsize=10)
-    ax.set_xlabel("distinct connections (x-axis starts at 20,000)")
+        ax.text(v + 300, y, f"{v:,}", va="center", color=INK, fontsize=10)
+    ax.xaxis.set_major_formatter(lambda v, _: f"{v:,.0f}")
+    ax.set_xlabel("distinct connections in the 500-neuron slice")
     ax.set_title(f"A shuffle null that loses {lost / len(sl.src):.1%} of connections is not a null")
     ax.grid(axis="y", visible=False)
     fig.tight_layout()
@@ -220,7 +221,7 @@ def step_result(plt):
               f"ER {a['er_null']['mean_acc']:.3f}  {ci}")
     print(f"  input-only baseline (no network at all): {res['input_only']['mean_acc']:.3f}")
 
-    fig, ax = plt.subplots(figsize=(8.6, 4.2))
+    fig, ax = plt.subplots(figsize=(9.2, 4.4))
     x = np.arange(len(order))
     for off, arm, color, label in ((-0.24, "connectome_signed", C_CONN, "connectome"),
                                    (0.0, "degree_preserving_null", C_DP, "degree-preserving null"),
@@ -230,16 +231,21 @@ def step_result(plt):
         for xi, k in zip(x + off, order):
             pts = cells[k]["arms"][arm]["per_seed"]
             ax.scatter(np.full(len(pts), xi), pts, s=9, color=INK, alpha=0.35, zorder=3, linewidth=0)
-    ax.axhline(res["input_only"]["mean_acc"], color=C_BASE, linewidth=1.5, linestyle=(0, (5, 3)))
-    ax.text(3.45, res["input_only"]["mean_acc"] + 0.012, "no network (input only)", ha="right",
-            color=INK_2, fontsize=9)
-    ax.axhline(0.2, color=GRID, linewidth=1)
-    ax.text(-0.45, 0.205, "chance", color=INK_2, fontsize=9, va="bottom")
+    inp = res["input_only"]["mean_acc"]
+    ax.axhline(inp, color=C_BASE, linewidth=1.5, linestyle=(0, (5, 3)), zorder=4)
+    ax.axhline(0.2, color=INK_2, linewidth=1, linestyle=(0, (1, 2)), zorder=1)
+    trans = ax.get_yaxis_transform()
+    ax.text(1.01, inp, f"no network\n(input only) {inp:.2f}", transform=trans, va="center",
+            color=INK_2, fontsize=9, clip_on=False)
+    ax.text(1.01, 0.2, "chance 0.20", transform=trans, va="center", color=INK_2, fontsize=9,
+            clip_on=False)
     ax.set_xticks(x, names, fontsize=9.5)
-    ax.set_ylim(0, 1)
+    ax.set_ylim(0, 1.12)
+    ax.set_yticks(np.arange(0, 1.01, 0.2))
     ax.set_ylabel("test accuracy (5 classes)")
-    ax.set_title("Fixing the instrument changes the answer, not just the error bars")
-    ax.legend(frameon=False, ncol=3, loc="upper left", fontsize=9.5)
+    ax.set_title("Fixed instrument: beats random wiring, not its own degree-matched rewiring",
+                 fontsize=12)
+    ax.legend(frameon=False, ncol=3, loc="upper left", fontsize=9.5, bbox_to_anchor=(0, 1.02))
     ax.grid(axis="x", visible=False)
     fig.tight_layout()
     fig.savefig(FIG_DIR / "fig4_e1_op_result.png")
@@ -250,8 +256,11 @@ def main(argv=None):
     ap = argparse.ArgumentParser(description="Fly Lab tour on real MaleCNS data")
     ap.add_argument("--quick", action="store_true", help="fewer seeds and trials (CI)")
     args = ap.parse_args(argv)
+    global FIG_DIR
+    if args.quick:  # keep the committed full-run figures untouched
+        FIG_DIR = FIG_DIR / "quick"
     plt = _style()
-    FIG_DIR.mkdir(exist_ok=True)
+    FIG_DIR.mkdir(parents=True, exist_ok=True)
     cfg = H.load_cfg()
     cfg["dynamics"]["n_trials_per_class"] = 12 if args.quick else 60
     seeds = list(range(4)) if args.quick else list(range(12))

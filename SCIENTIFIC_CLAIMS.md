@@ -1,5 +1,17 @@
 # Scientific claims — Fly Lab
 
+**8 October 2026 — headline claim (EXP-E1-OP, preregistered, confirmatory):** on the E1
+task and 500-neuron slice, at per-seed matched firing rate with a full non-input readout,
+the connectome beats a size-matched Erdős–Rényi graph (+0.081 [+0.063, +0.100]) and trails a
+degree-preserving rewiring of itself (−0.036 [−0.057, −0.016]), n = 24 fresh seeds. Status:
+**MEASURED, CLAIM-READY** within that scope. Report: [`reports/EXP_E1_OP.md`](reports/EXP_E1_OP.md).
+Not claimed: anything about fly intelligence, the full CNS, or other tasks.
+
+**8 October 2026 — withdrawn:** a README note of 4 October described `EXP-ANN-MB-MEM-001`
+and `EXP-ANN-MB-MEM-002` as "closed positive". No code, protocol or artifact for those IDs
+exists in this repository, and the ledger records EXP-MEM-001 as `INVALIDATED` and
+EXP-MEM-002 as `INSTRUMENT_INCOMPLETE`. The note was removed. Status: **NOT A RESULT**.
+
 **27 September 2026 correction:** MOTIF-FUNC-003 through 006 archival
 superclass-block claims are invalid due to a local/global index error.
 Corrected Frankfurt reruns and audits are documented in the
@@ -33,7 +45,9 @@ The connectome is the scientific object. Applications are testbeds. Negative res
 - **Status:** MEASURED on disk. Engineering pipeline exists (`scripts/build_graph.py`).
 - **Evidence:** `data/manifests/source.lock.json`, `data/manifests/e0_diagnosis.json`, `data/derived/graph/graph_meta.json`, `system/build_graph.log`.
 - **Not claimed:** identity with published ~166,700 / ~25,582,938 (documented deltas; not forced).
-- **Hole:** `graph_meta.json` is gitignored. It predates the restored `build_graph.py` (mtime 10:28 vs script 12:52). Current script would write extra keys (`polarity_policy`, `validation_targets`, `delta`, `artifacts`) that the on-disk meta lacks. Rebuild against the default out-dir would overwrite every result’s graph. Reproducibility of the derived graph from the script in git is **OPEN**.
+- **Hole:** `graph_meta.json` is gitignored. It predates the restored `build_graph.py` (mtime 10:28 vs script 12:52). Current script would write extra keys (`polarity_policy`, `validation_targets`, `delta`, `artifacts`) that the on-disk meta lacks. Rebuild against the default out-dir would overwrite every result’s graph. Reproducibility of the derived graph from the script in git was **OPEN**; on 2026-10-08 a
+  fresh download + `build_graph.py` reproduced all totals and E/I/U sign counts exactly
+  (`RESEARCH_LEDGER.yaml` → `dataset.e0.rebuild_2026_10_08`). Now **MEASURED**.
 
 ---
 
