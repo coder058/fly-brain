@@ -1,8 +1,9 @@
 # Fly Lab
 
 **Does a real brain's wiring compute better than random wiring? An auditable test on the
-fruit-fly connectome (165,122 neurons, 25.6 M connections): four preregistered experiments,
-six bugs in my own instrument, and an answer I did not want.**
+fruit-fly connectome (165,122 neurons, 25.6 M connections): five preregistered experiments,
+six bugs in my own instrument, a "no" for generic wiring and a clear "yes" where anatomy
+predicts one.**
 
 [![tests](https://github.com/coder058/fly-brain/actions/workflows/ci.yml/badge.svg)](https://github.com/coder058/fly-brain/actions/workflows/ci.yml)
 · Python 3.12/3.13 · CPU-only · MIT (code) / CC-BY 4.0 (data)
@@ -20,15 +21,21 @@ six bugs in my own instrument, and an answer I did not want.**
   impossible — Dale's law), and a rate matcher too coarse for the connectome's
   trial-to-trial variability.
 - From the second audit on, every fix was **preregistered and pushed to GitHub before it
-  ran**, on seeds never used before. Along the way the connectome looked like it lost (−0.036), then like it won
-  (+0.028, 95% CI [+0.008, +0.049]).
+  ran**, on seeds never used before. Along the way the connectome looked like it lost
+  (−0.036), then like it won (+0.028, 95% CI [+0.008, +0.049]).
 - **The final, preregistered answer is "not supported".** With every fix in place, on two
   disjoint 500-neuron slices: no detectable difference from a Dale-preserving rewiring on one
   (+0.004 [−0.014, +0.022]), clearly worse on the other (−0.116 [−0.163, −0.069]). Even its
   solid lead over a random graph on slice A (+0.08, three times) reverses on slice B (−0.05).
+- **Then I checked the instrument could see a real effect at all.** On the fly's
+  head-direction circuit (152 neurons whose wiring is a known map of heading), the real
+  wiring carries a position signal far better than the same circuit with its map shuffled:
+  **0.98 vs 0.84, +0.143 [+0.135, +0.151], 24 of 24 seeds** — and the advantage disappears
+  after 30 steps, so it is signal transmission, not memory.
 
 What this project demonstrates is not a discovery about flies. It is a measurement pipeline
-that kept catching its own convincing results — including the one I was hoping for.
+that kept catching its own convincing results — including the one I was hoping for — and
+that still detects structure where structure should matter.
 
 Full story: **[docs/CASE_STUDY.md](docs/CASE_STUDY.md)**.
 
@@ -109,13 +116,34 @@ How much each instrument fix mattered on slice A is shown in the
 [EXP-E1-OP 2×2](reports/EXP_E1_OP.md) and in
 [`figures/fig4_e1_op_result.png`](figures/fig4_e1_op_result.png).
 
+## Sensitivity check: a circuit with a known function
+
+![head-direction circuit](figures/fig6_hd_circuit.png)
+
+A degree-ranked slice has no reason to compute anything in particular, so a "no" there could
+just mean the instrument is blind. [EXP-E2-HD](reports/EXP_E2_HD.md) tests the same pipeline on
+the head-direction circuit (EPG, PEN, PEG and Delta7 neurons, with Delta7 inhibition kept), in
+which neurons are wired according to the heading they represent. A pulse marks one of eight
+positions; a readout that never sees the stimulated neurons must recover it later. Every graph
+gets the same tuning budget (a fixed gain grid, chosen on training trials only).
+
+| time after pulse | connectome | Dale degree null | map-shuffled null (keeps every type→type count) | connectome − map-shuffled |
+|---|---|---|---|---|
+| 5 steps | **0.984** | 0.844 | 0.841 | **+0.143 [+0.135, +0.151]**, 24/24 seeds |
+| 15 steps | 0.322 | 0.267 | 0.231 | +0.091 [+0.073, +0.108] |
+| 30 / 60 steps | 0.22 / 0.23 | 0.22 / 0.21 | 0.23 / 0.23 | ≈ 0 |
+
+Chance is 0.125. A finer gain grid (post hoc) gives the same answer. Under this simple neuron
+model the circuit never holds a persistent "bump" of activity, so this is a transmission result:
+the map makes neurons that encode the same position converge on shared targets.
+
 ## Repository map
 
 | path | what |
 |---|---|
-| [`flylab/`](flylab) | library: graph loading, LIF dynamics, nulls, spectral gain, bundled slices, the demo |
-| [`experiments/harness/`](experiments/harness) | runners; [`e1_operating_point.py`](experiments/harness/e1_operating_point.py) runs every preregistered experiment |
-| [`experiments/results/`](experiments/results) | append-only results with their protocols (`EXP-E1-OP`, `-DALE`, `-REPL`, `-MATCH`) |
+| [`flylab/`](flylab) | library: graph loading, LIF dynamics, nulls (degree, Dale, map-shuffling block null), spectral gain, bundled slices and circuit, the demo |
+| [`experiments/harness/`](experiments/harness) | runners: [`e1_operating_point.py`](experiments/harness/e1_operating_point.py) (all E1 experiments), [`hd_memory.py`](experiments/harness/hd_memory.py) (EXP-E2-HD) |
+| [`experiments/results/`](experiments/results) | append-only results with their protocols (`EXP-E1-OP`, `-DALE`, `-REPL`, `-MATCH`, `EXP-E2-HD`) |
 | [`reports/`](reports) | audits, errata and one report per experiment |
 | [`tests/`](tests) | unit tests for nulls (both weight conventions), leakage, liveness, determinism, slices and the runner |
 | [`RESEARCH_LEDGER.yaml`](RESEARCH_LEDGER.yaml) · [`SCIENTIFIC_CLAIMS.md`](SCIENTIFIC_CLAIMS.md) | every experiment ID and what may be claimed from it |

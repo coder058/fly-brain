@@ -36,6 +36,7 @@ from flylab.spectral import gain_for_target_rate, spectral_radius, syn_scale_for
 FIG_DIR = ROOT / "figures"
 E1_OP_DIR = ROOT / "experiments" / "results" / "EXP-E1-OP"
 E1_DALE_DIR = ROOT / "experiments" / "results" / "EXP-E1-DALE"
+E2_HD_DIR = ROOT / "experiments" / "results" / "EXP-E2-HD"
 TARGET_RATE = 0.002
 
 # Reference categorical palette, light mode (validated slots 1-3) + neutral for baselines.
@@ -355,6 +356,58 @@ def step_result(plt):
     plt.close(fig)
 
 
+def step_hd(plt):
+    header(8, "Sensitivity check: the head-direction circuit (EXP-E2-HD)")
+    from flylab.slice import load_hd_circuit
+
+    sl, neurons = load_hd_circuit()
+    print(f"  {sl.n} neurons ({', '.join(f'{k} {v}' for k, v in neurons['type'].value_counts().items())}),"
+          f" {len(sl.src):,} connections")
+    files = sorted(E2_HD_DIR.glob("hd_confirmatory_*.json"))
+    if not files:
+        print("  no confirmatory result committed yet")
+        return
+    res = json.loads(files[-1].read_text())
+    delays = [int(d) for d in res["summary"]]
+    arms = [("connectome", C_CONN, "connectome"), ("dale_degree_null", C_ER, "Dale degree null"),
+            ("topography_null", C_DP, "topography null (map shuffled)")]
+    for d in delays:
+        c = res["summary"][str(d)]
+        cmp_ = c["comparisons"]["connectome_vs_topography_null"]
+        print(f"  delay {d:>2}: " + "  ".join(f"{a} {c['means'][a]['mean']:.3f}" for a, _, _ in arms)
+              + f"   connectome − topography {cmp_['mean']:+.3f} "
+              f"[{cmp_['ci95'][0]:+.3f}, {cmp_['ci95'][1]:+.3f}]")
+    fig, ax = plt.subplots(figsize=(8.2, 3.9))
+    for k, (arm, color, label) in enumerate(arms):
+        per_seed = {}
+        for r in res["rows"]:
+            if r["arm"] == arm and r["acc"] is not None:
+                per_seed.setdefault((r["delay"], r["seed"]), []).append(r["acc"])
+        means, his, los = [], [], []
+        for d in delays:
+            v = np.array([np.mean(x) for (dd, _), x in per_seed.items() if dd == d])
+            h = 1.96 * v.std(ddof=1) / np.sqrt(len(v))
+            means.append(v.mean())
+            los.append(v.mean() - h)
+            his.append(v.mean() + h)
+        x = np.arange(len(delays)) + (k - 1) * 0.06
+        ax.plot(x, means, color=color, linewidth=2, marker="o", markersize=7,
+                markeredgecolor=SURFACE, markeredgewidth=1.5, label=label, zorder=3)
+        ax.vlines(x, los, his, color=color, linewidth=2, zorder=2)
+    ax.axhline(1 / 8, color=INK_2, linewidth=1, linestyle=(0, (1, 2)))
+    ax.text(len(delays) - 0.55, 1 / 8 + 0.015, "chance 0.125", color=INK_2, fontsize=9, ha="right")
+    ax.set_xticks(range(len(delays)), [f"{d} steps" for d in delays])
+    ax.set_xlabel("time after the pulse ends")
+    ax.set_ylabel("position decoded (8 classes)")
+    ax.set_ylim(0, 1.05)
+    ax.set_title("Head-direction circuit: the real map carries position further;\n"
+                 "long-delay traces are weak and the same for every wiring", fontsize=11)
+    ax.legend(frameon=False, loc="upper right", fontsize=9.5)
+    fig.tight_layout()
+    fig.savefig(FIG_DIR / "fig6_hd_circuit.png")
+    plt.close(fig)
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser(description="Fly Lab tour on real MaleCNS data")
     ap.add_argument("--quick", action="store_true", help="fewer seeds and trials (CI)")
@@ -375,6 +428,7 @@ def main(argv=None):
     step_probe_bug(sl, cfg, seeds, plt)
     step_result(plt)
     step_dale(plt)
+    step_hd(plt)
     print(f"\nfigures written to {FIG_DIR.relative_to(ROOT)}/")
 
 

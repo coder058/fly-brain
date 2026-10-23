@@ -914,6 +914,29 @@ experiments:
     next: publish reproducible research artifacts to fly-brain.
 
 
+  - id: EXP-E2-HD
+    status: CLOSED_CONFIRMATORY
+    claim_ready: true
+    protocol: experiments/results/EXP-E2-HD/protocol.md
+    protocol_commit: 4bd743c  # pushed 2026-10-23T00:11:47Z; run started 00:11:56Z
+    runner: experiments/harness/hd_memory.py
+    report: reports/EXP_E2_HD.md
+    artifact: experiments/results/EXP-E2-HD/hd_confirmatory_20261023T001156Z_4bd743c.json
+    robustness_artifact: experiments/results/EXP-E2-HD/hd_robustness-finegrid_20261023T002832Z_b61d961.json
+    circuit: data/e1_slice/hd_circuit.npz  # 152 neurons, 9,160 connections, glutamate inhibitory
+    seeds: 6000-6023
+    fairness: equal tuning budget (12-gain grid, selection on training validation only)
+    primary:
+      delay: 5
+      connectome_minus_topography_null: {mean: 0.143, ci95: [0.135, 0.151], n: 24, seeds_positive: 24}
+      verdict: the head-direction map carries position better than the same circuit with its map shuffled
+    secondary:
+      delay5_connectome_minus_dale_null: {mean: 0.140, ci95: [0.131, 0.149], n: 24}
+      delay15_connectome_minus_topography_null: {mean: 0.091, ci95: [0.073, 0.108], n: 24}
+      delay30_connectome_minus_topography_null: {mean: -0.006, ci95: [-0.027, 0.015], n: 24}
+      delay60_connectome_minus_topography_null: {mean: -0.000, ci95: [-0.016, 0.016], n: 24}
+    calibration: no_network produced no measurement at any delay
+    invalid_statement: The fly head-direction circuit stores heading in this model / ring-attractor memory was shown.
 tests:
   previous_pytest: "58 passed (2026-09-15, .venv/bin/python -m pytest -q)"
   current: "74 passed (2026-09-16, .venv/bin/python -m pytest -q)"

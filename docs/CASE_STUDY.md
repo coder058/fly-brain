@@ -220,6 +220,38 @@ had replicated three times on slice A, is a property of those 500 neurons, not o
 
 Full report: [`reports/EXP_E1_MATCH.md`](../reports/EXP_E1_MATCH.md).
 
+## Round 8: can the instrument see anything at all?
+
+A string of negatives invites an obvious objection: maybe the pipeline is simply blind to
+wiring. So I pointed it at a circuit whose anatomy predicts an effect — the fly's
+head-direction system. EPG neurons tile the protocerebral bridge by heading, PEN neurons
+shift the representation, Delta7 neurons inhibit across the ring. The MaleCNS annotations
+label every EPG by its bridge glomerulus, which gives each neuron a position.
+
+Building it surfaced one more trap: Delta7 neurons are glutamatergic, and the default sign
+policy from E1 maps glutamate to zero — it would have silently deleted the ring's inhibition.
+The circuit dataset signs each neuron by its own transmitter, glutamate inhibitory.
+
+I also needed a sharper control: a null that keeps degrees, Dale's law *and* every
+cell-type-to-cell-type edge count, and shuffles only which neuron within a type connects to
+which — the map itself. A pilot on two development seeds showed the circuit is bistable under
+this neuron model (silent or saturated after a pulse), so rate matching was out; every graph
+got the same tuning budget instead. Then the protocol was pushed and 24 fresh seeds were run
+([EXP-E2-HD](../reports/EXP_E2_HD.md)).
+
+![head-direction circuit](../figures/fig6_hd_circuit.png)
+
+Five steps after the pulse, the real circuit lets a readout recover the position 98% of the
+time; with its map shuffled, 84% — **+0.143 [+0.135, +0.151], on all 24 seeds**. By 30
+steps every wiring is equally poor: the advantage is transmission (same-position neurons
+converge on shared targets), not memory. One more hostile check — the shuffled-map null had
+picked the same grid gain every time, so I reran with a four-times finer grid; nothing
+changed.
+
+That changes how to read Rounds 2–7. The same instrument that said "not supported" for
+degree-ranked slices sees a large, unanimous effect where the biology says it should. The E1
+negative is a statement about those slices and that task, not a blind spot.
+
 ## What I would tell a reviewer
 
 - **The interesting skill here is not the simulator.** It is noticing that a result is too
@@ -233,6 +265,9 @@ Full report: [`reports/EXP_E1_MATCH.md`](../reports/EXP_E1_MATCH.md).
   and every test checked degrees, none checked signs. The new test checks both conventions.
 - **Replicate on different data, not just different seeds.** Every slice-A result replicated
   across fresh seeds. None of the interesting ones survived slice B.
+- **Show your instrument can say yes.** A negative only means something if the same
+  pipeline detects a real effect where one is expected. The head-direction circuit is that
+  check.
 - **Preregistration is cheap, and it has to include when to stop.** A Markdown file and a
   commit timestamp turned each post-hoc fix into a test that could fail — and the last one
   said in advance that it was the last one.
@@ -258,6 +293,7 @@ Full report: [`reports/EXP_E1_MATCH.md`](../reports/EXP_E1_MATCH.md).
 | one-command tour on real data | `python -m flylab.demo` |
 | preregistered 2×2 | [`experiments/results/EXP-E1-OP/protocol.md`](../experiments/results/EXP-E1-OP/protocol.md) |
 | follow-ups | [`EXP_E1_DALE.md`](../reports/EXP_E1_DALE.md) · [`EXP_E1_REPL.md`](../reports/EXP_E1_REPL.md) · [`EXP_E1_MATCH.md`](../reports/EXP_E1_MATCH.md) |
+| head-direction circuit | [`EXP_E2_HD.md`](../reports/EXP_E2_HD.md) · [`hd_memory.py`](../experiments/harness/hd_memory.py) |
 | runner for both | [`experiments/harness/e1_operating_point.py`](../experiments/harness/e1_operating_point.py) |
 | nulls (and the bug history) | [`flylab/nulls.py`](../flylab/nulls.py) |
 | first audit | [`reports/E1_audit_fixes.md`](../reports/E1_audit_fixes.md) |

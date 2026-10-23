@@ -1,5 +1,12 @@
 # Scientific claims — Fly Lab
 
+**23 October 2026 — EXP-E2-HD (preregistered, confirmatory), head-direction circuit:**
+five steps after a position pulse, connectome − topography-shuffled null = **+0.143
+[+0.135, +0.151]**, 24/24 seeds (connectome 0.984, null 0.841, chance 0.125); connectome −
+Dale degree null +0.140 [+0.131, +0.149]. No difference at 30 or 60 steps. Status:
+**MEASURED, CLAIM-READY** as a transmission (not memory) result on this circuit, task and LIF
+model; a post-hoc fine-gain-grid rerun agrees. Report: `reports/EXP_E2_HD.md`.
+
 **8 October 2026 — E1 lineage closed (EXP-E1-MATCH, preregistered as the last comparison):**
 the hypothesis that the connectome's specific wiring carries the E1 signal better than a
 rewiring with the same degrees, outgoing weights and sign is **NOT SUPPORTED**.
