@@ -53,3 +53,21 @@ def from_full_graph(g, n: int = 500) -> Slice:
     body = g.body_ids[nodes] if g.body_ids is not None else nodes
     return Slice(src=remap[g.src[mask]], dst=remap[g.dst[mask]],
                  signed_weight=g.signed_weight[mask].astype(np.float32), body_id=body, n=n)
+
+
+HD_NPZ = SLICE_DIR / "hd_circuit.npz"
+
+
+def load_hd_circuit(verify: bool = True):
+    """Head-direction circuit (EPG, EPGt, PEN_a, PEN_b, PEG, Delta7) and its neuron table.
+
+    Signs come from each presynaptic neuron's transmitter with glutamate inhibitory, so the
+    Delta7 ring inhibition is present (under the E1 default policy it would be zero).
+    """
+    import pandas as pd
+
+    sl = load_slice(HD_NPZ, verify=verify)
+    neurons = pd.read_csv(SLICE_DIR / "hd_circuit_neurons.csv", keep_default_na=False)
+    if len(neurons) != sl.n or not (neurons["body_id"].to_numpy() == sl.body_id).all():
+        raise RuntimeError("hd_circuit_neurons.csv does not match hd_circuit.npz")
+    return sl, neurons

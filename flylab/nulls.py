@@ -120,6 +120,68 @@ def degree_preserving_null(
     return A, diag
 
 
+def block_preserving_null(
+    src, dst, signed_w, n: int, labels, rng: np.random.Generator, n_swaps_per_edge: int = 20,
+) -> tuple[sparse.csr_matrix, dict]:
+    """Degree- and block-preserving rewiring with Dale's law kept.
+
+    Double-edge swaps (a->b),(c->d) -> (a->d),(c->b) are only proposed between two edges of the
+    same (label[pre], label[post]) block, so every neuron keeps its in- and out-degree, every
+    block keeps its edge count, and each slot keeps its source and weight (outgoing weights,
+    signs and out-strength stay with the presynaptic neuron). What it destroys is which
+    neuron *within* a cell type connects to which: in a topographic circuit, the map.
+    Self-loops present in the input are left in place; none are created.
+    """
+    src = np.asarray(src, dtype=np.int64).copy()
+    dst = np.asarray(dst, dtype=np.int64).copy()
+    w = np.asarray(signed_w, dtype=np.float32)
+    labels = np.asarray(labels)
+    src0, dst0 = src.copy(), dst.copy()
+    out0, in0 = degree_sequences(src0, dst0, n)
+    lab_codes = np.unique(labels, return_inverse=True)[1]
+    block = lab_codes[src] * (lab_codes.max() + 1) + lab_codes[dst]
+    members = {b: np.flatnonzero(block == b) for b in np.unique(block)}
+    swappable = np.flatnonzero((src != dst) & np.array([len(members[b]) > 1 for b in block]))
+    present = set(zip(src.tolist(), dst.tolist(), strict=True))
+    target = len(swappable) * n_swaps_per_edge
+    accepted = attempts = 0
+    while accepted < target and attempts < target * 20 and len(swappable):
+        attempts += 1
+        i = swappable[rng.integers(len(swappable))]
+        group = members[block[i]]
+        j = group[rng.integers(len(group))]
+        if i == j or src[j] == dst[j]:
+            continue
+        a, b, c, d = src[i], dst[i], src[j], dst[j]
+        if a == d or c == b or (a, d) in present or (c, b) in present:
+            continue
+        present.discard((a, b))
+        present.discard((c, d))
+        present.add((a, d))
+        present.add((c, b))
+        dst[i], dst[j] = d, b
+        accepted += 1
+    out1, in1 = degree_sequences(src, dst, n)
+    new_block = lab_codes[src] * (lab_codes.max() + 1) + lab_codes[dst]
+    diag = {
+        "n_edges": int(len(src)),
+        "swaps_accepted": int(accepted),
+        "swap_attempts": int(attempts),
+        "fraction_edges_rewired": float((dst != dst0).mean()) if len(dst) else 0.0,
+        "out_degree_preserved": bool(np.array_equal(out0, out1)),
+        "in_degree_preserved": bool(np.array_equal(in0, in1)),
+        "block_counts_preserved": bool(np.array_equal(np.sort(block), np.sort(new_block))),
+        "duplicate_edges": int(len(src) - len(np.unique(np.stack([src, dst], 1), axis=0))),
+        "self_loops_in": int((src0 == dst0).sum()),
+        "self_loops_out": int((src == dst).sum()),
+    }
+    if not (diag["out_degree_preserved"] and diag["in_degree_preserved"]
+            and diag["block_counts_preserved"]) or diag["duplicate_edges"] \
+            or diag["self_loops_out"] != diag["self_loops_in"]:
+        raise RuntimeError(f"block-preserving null broke an invariant: {diag}")
+    return sparse.csr_matrix((w, (dst, src)), shape=(n, n)), diag  # (post, pre)
+
+
 def ring_lattice(n: int, nnz: int, rng: np.random.Generator, excitatory_only: bool = True,
                  w_lo: float = 1.0, w_hi: float = 10.0) -> sparse.csr_matrix:
     """Directed ring lattice: i -> i+1 .. i+k (mod n). A delay line, so it has obvious
