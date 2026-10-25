@@ -1,41 +1,52 @@
 # Fly Lab
 
-**Does a real brain's wiring compute better than random wiring? An auditable test on the
-fruit-fly connectome (165,122 neurons, 25.6 M connections): five preregistered experiments,
-six bugs in my own instrument, a "no" for generic wiring and a clear "yes" where anatomy
-predicts one.**
+**Does the fruit fly's wiring diagram compute anything a random one wouldn't? Six
+preregistered experiments on two connectomes (MaleCNS, 165,122 neurons; FlyWire, 127,400): a "no"
+for generic wiring, a clear "yes" where anatomy predicts one, and a published whole-brain model
+prediction replicated on an independent connectome — with the audits that kept each answer
+honest.**
 
 [![tests](https://github.com/coder058/fly-brain/actions/workflows/ci.yml/badge.svg)](https://github.com/coder058/fly-brain/actions/workflows/ci.yml)
 · Python 3.12/3.13 · CPU-only · MIT (code) / CC-BY 4.0 (data)
 
-![every preregistered comparison](figures/fig5_all_comparisons.png)
+![sugar to MN9 on two connectomes](figures/fig8_sugar_mn9.png)
 
 ## In 60 seconds
 
-- I turned the Janelia **MaleCNS v1.0** connectome into a spiking recurrent network and asked
-  whether its real wiring carries a temporal signal better than random graphs.
-- Every time I got an answer, I audited the instrument, and six times I found a bug that
-  changed it: a readout peeking at the stimulus, a "random" control that deleted 8% of the
-  brain, one gain setting reused across inputs it didn't fit, a readout watching the wrong
-  neurons, a control that let 479 of 500 neurons both excite and inhibit (biologically
-  impossible — Dale's law), and a rate matcher too coarse for the connectome's
-  trial-to-trial variability.
-- From the second audit on, every fix was **preregistered and pushed to GitHub before it
-  ran**, on seeds never used before. Along the way the connectome looked like it lost
-  (−0.036), then like it won (+0.028, 95% CI [+0.008, +0.049]).
-- **The final, preregistered answer is "not supported".** With every fix in place, on two
-  disjoint 500-neuron slices: no detectable difference from a Dale-preserving rewiring on one
-  (+0.004 [−0.014, +0.022]), clearly worse on the other (−0.116 [−0.163, −0.069]). Even its
-  solid lead over a random graph on slice A (+0.08, three times) reverses on slice B (−0.05).
-- **Then I checked the instrument could see a real effect at all.** On the fly's
-  head-direction circuit (152 neurons whose wiring is a known map of heading), the real
-  wiring carries a position signal far better than the same circuit with its map shuffled:
-  **0.98 vs 0.84, +0.143 [+0.135, +0.151], 24 of 24 seeds** — and the advantage disappears
-  after 30 steps, so it is signal transmission, not memory.
+**1. A whole-brain model, rebuilt and checked against the original.** I re-implemented the
+spiking whole-brain model of [Shiu et al., *Nature* 2024](https://doi.org/10.1038/s41586-024-07763-9)
+in vectorised NumPy ([`flylab/brain.py`](flylab/brain.py)). It is **spike-for-spike identical
+to their Brian 2 equations** (tested in CI), and on their FlyWire data it **reproduces their
+published simulations neuron by neuron (r = 0.9998; MN9 92.5 vs 93.3 Hz)**. Getting to exact
+equality surfaced two Brian 2 semantics that a re-implementation from the paper alone gets
+wrong. → [validation](reports/SIMULATOR_VALIDATION.md)
 
-What this project demonstrates is not a discovery about flies. It is a measurement pipeline
-that kept catching its own convincing results — including the one I was hoping for — and
-that still detects structure where structure should matter.
+**2. A published prediction, tested on a second fly.** Shiu et al. predicted from FlyWire
+(one female brain) that sugar-sensing neurons drive MN9, the motor neuron that extends the
+proboscis. I preregistered the same test on MaleCNS — a different animal, sex, lab and
+pipeline. **It replicates: MN9 95.4 Hz [91.5, 99.3] vs 0 Hz unstimulated**, and on three
+whole-brain rewirings that keep every neuron's degrees, weights and transmitter sign it drops
+to **0.0 Hz**. Then I audited the win: on MaleCNS the same model excites ~20,500 neurons
+instead of ~490, one of the two MN9s is an incompletely traced reconstruction, and one of my
+own endpoints matched cell types by name when the two datasets name them differently. All
+three are in the report, next to the verdict. → [EXP-W1-SUGAR](reports/EXP_W1_SUGAR.md)
+
+**3. Before that: the generic question, answered "no".** Turning hub-selected 500-neuron
+slices of MaleCNS into reservoirs, I asked whether real wiring carries a temporal signal better
+than random graphs. Six audits each found a bug in my own instrument that changed the answer
+(a leaking readout, a null that deleted 8% of edges, a control that broke Dale's law, …). From
+the second audit on, every fix was preregistered and pushed before it ran. **Final answer: not
+supported** (+0.004 [−0.014, +0.022] vs a Dale-preserving rewiring on one slice, −0.116 on the
+other).
+
+**4. …and the same instrument does see structure where anatomy predicts it.** On the
+head-direction circuit (152 neurons wired as a map of heading), real wiring carries position
+far better than the same circuit with its map shuffled: **+0.143 [+0.135, +0.151], 24/24 seeds.**
+
+What this project demonstrates is not a discovery about flies. It is a measurement practice:
+validate the instrument against ground truth, preregister, use null models that keep
+everything but the thing being tested, and keep auditing a result after it comes out the way
+you hoped.
 
 Full story: **[docs/CASE_STUDY.md](docs/CASE_STUDY.md)**.
 
@@ -55,7 +66,7 @@ data gives.
 git clone https://github.com/coder058/fly-brain && cd fly-brain
 pip install -r requirements.txt matplotlib
 python -m flylab.demo           # ~30 s: reproduces the bugs on real connectome data, redraws every figure
-python -m pytest -q             # ~100 tests
+python -m pytest -q             # ~120 tests
 ```
 
 The demo runs on [`data/e1_slice/`](data/e1_slice): the exact 500-neuron slices the experiments
@@ -74,7 +85,22 @@ python scripts/build_graph.py --out-dir data/derived/graph_check
 # -> 165,122 neurons, 25,563,197 connections, 124,025,046 synapses (matches the record exactly)
 ```
 
-## What the bugs looked like
+## Whole-brain model: validation and cross-connectome replication
+
+| check | result |
+|---|---|
+| vs Brian 2 (the original simulator), 3 random signed networks | every spike on the same 0.1 ms step ([test](tests/test_brain.py)) |
+| vs Shiu et al.'s published FlyWire outputs, sugar 200 Hz / 100 Hz | MN9 92.5 vs 93.3 / 67.5 vs 67.0 Hz; per-neuron r = 0.99985 / 0.99978; 49/50 and 50/50 top responders shared ([SHIU-REPRO](reports/SIMULATOR_VALIDATION.md)) |
+| **EXP-W1-SUGAR** (preregistered): MaleCNS, LB3c sugar GRNs 200 Hz | **MN9 95.4 Hz [91.5, 99.3]**; 0 Hz input → 0.0 Hz; monotone dose response |
+| same, three whole-brain Dale-preserving rewirings | MN9 **0.0 / 0.0 / 0.0 Hz** — the pathway is in the wiring |
+| FlyWire's 30 strongest responder types, matched through MaleCNS's `flywireType` (post hoc) | **30 / 30 fire** in MaleCNS (by name only, as preregistered: 4 / 30) |
+| how far activity spreads, 200 Hz | MaleCNS ~20,500 neurons vs FlyWire ~490: the transferred model is much more excitable |
+
+Reproduce: `bash scripts/fetch_shiu_flywire.sh` (Shiu et al.'s FlyWire table, not
+redistributed here), then the commands in the [protocol](experiments/results/EXP-W1-SUGAR/protocol.md)
+(≈ 10 min per MaleCNS condition on 4 cores; FlyWire ≈ 1–2 min).
+
+## Reservoir experiments (E1): what the bugs looked like
 
 | | |
 |---|---|
@@ -84,7 +110,7 @@ python scripts/build_graph.py --out-dir data/derived/graph_check
 | | **A control that broke Dale's law.** The degree null's weights followed the receiving neuron, not the sender, so 479 of 500 neurons ended up both exciting and inhibiting. Same edges, weights kept on the sender: the null loses 5 points on 24/24 seeds ([`weights_follow="pre"`](flylab/nulls.py)). |
 | | **A matcher too coarse for the connectome.** Gain was tuned on 20 trials to ±15%; on slice B the connectome's full-set rate then landed at 0.7×–4.4× of target and 11/24 seeds were lost. Matching on all training trials to ±5% lost 1/24. |
 
-## Results
+## Reservoir experiments (E1): results
 
 Every confirmatory comparison, preregistered, 24 fresh seeds each, 20 draws of every null,
 firing rate matched per seed (±15%), full non-input readout. Accuracy on a 5-class task
@@ -141,9 +167,10 @@ the map makes neurons that encode the same position converge on shared targets.
 
 | path | what |
 |---|---|
+| [`flylab/brain.py`](flylab/brain.py), [`connectomes.py`](flylab/connectomes.py) | whole-brain LIF model (Shiu et al.), batched and active-set kernels; FlyWire 630 and MaleCNS loaders |
 | [`flylab/`](flylab) | library: graph loading, LIF dynamics, nulls (degree, Dale, map-shuffling block null), spectral gain, bundled slices and circuit, the demo |
-| [`experiments/harness/`](experiments/harness) | runners: [`e1_operating_point.py`](experiments/harness/e1_operating_point.py) (all E1 experiments), [`hd_memory.py`](experiments/harness/hd_memory.py) (EXP-E2-HD) |
-| [`experiments/results/`](experiments/results) | append-only results with their protocols (`EXP-E1-OP`, `-DALE`, `-REPL`, `-MATCH`, `EXP-E2-HD`) |
+| [`experiments/harness/`](experiments/harness) | runners: [`e1_operating_point.py`](experiments/harness/e1_operating_point.py) (all E1 experiments), [`hd_memory.py`](experiments/harness/hd_memory.py) (EXP-E2-HD), [`shiu_reproduction.py`](experiments/harness/shiu_reproduction.py), [`sugar_mn9.py`](experiments/harness/sugar_mn9.py) + [`sugar_analysis.py`](experiments/harness/sugar_analysis.py) (EXP-W1-SUGAR) |
+| [`experiments/results/`](experiments/results) | append-only results with their protocols (`EXP-E1-OP`, `-DALE`, `-REPL`, `-MATCH`, `EXP-E2-HD`, `SHIU-REPRO`, `EXP-W1-SUGAR`) |
 | [`reports/`](reports) | audits, errata and one report per experiment |
 | [`tests/`](tests) | unit tests for nulls (both weight conventions), leakage, liveness, determinism, slices and the runner |
 | [`RESEARCH_LEDGER.yaml`](RESEARCH_LEDGER.yaml) · [`SCIENTIFIC_CLAIMS.md`](SCIENTIFIC_CLAIMS.md) | every experiment ID and what may be claimed from it |
