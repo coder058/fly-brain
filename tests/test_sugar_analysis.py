@@ -47,3 +47,18 @@ def test_no_drive_does_not_replicate(tmp_path):
     conds = {f"lb3c_both@{r}": _cond("lb3c_both", r, [0.0] * 30) for r in (0, 200)}
     _write(tmp_path, "malecns-both", conds)
     assert A.primary(A.latest("malecns-both", tmp_path))["verdict"] == "does not replicate"
+
+
+def test_lb3c_inputs_split_by_side():
+    import sugar_mn9 as S
+
+    class C:
+        name = "toy"
+
+    types = np.array(["LB3c", "LB3c", "MN9", "LB3c", "LB3d"], dtype=object)
+    sides = np.array(["L", "right", "L", "R", "L"], dtype=object)
+    assert S.inputs_for("lb3c_both", C, types, sides).tolist() == [0, 1, 3]
+    assert S.inputs_for("lb3c_L", C, types, sides).tolist() == [0]
+    assert S.inputs_for("lb3c_R", C, types, sides).tolist() == [1, 3]
+    with pytest.raises(ValueError):
+        S.inputs_for("lb3d", C, types, sides)
