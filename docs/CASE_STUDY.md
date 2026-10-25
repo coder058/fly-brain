@@ -308,7 +308,12 @@ digit.
   histamine neurons; they are Kenyon cells and photoreceptors respectively. The coincidence
   never reached the report.
 
-Why the transferred model is so excitable is explored post hoc in the [report](../reports/EXP_W1_SUGAR.md) (synapse scale, the sign of histamine, silencing the shared interneuron).
+Why is the transferred model so excitable? Post hoc, with the same seeds: scaling the
+synaptic weight by MaleCNS's extra synapses per neuron halves the spread (to ~11,000 neurons,
+still 22× FlyWire); making histamine inhibitory changes nothing; silencing the interneuron on
+the shortest sugar → MN9 path removes only 3–13% of MN9's drive in either connectome. So
+the circuit is redundant, and the excitability is only partly calibration. The rest is an open
+question, stated as such in the [report](../reports/EXP_W1_SUGAR.md).
 
 ## What I would tell a reviewer
 

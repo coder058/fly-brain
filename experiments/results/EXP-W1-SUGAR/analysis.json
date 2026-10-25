@@ -622,5 +622,83 @@
   "n_shared_active": 3653,
   "spearman": 0.09823615842252827,
   "p": 2.6853289844844715e-09
- }
+ },
+ "posthoc": [
+  {
+   "label": "lb3c_both@200 silence CB0573",
+   "connectome": "FlyWire 630",
+   "mn9_mean": 78.36666666666666,
+   "mn9_each": [
+    78.36666666666666
+   ],
+   "active_neurons": 477,
+   "w_syn": 0.275
+  },
+  {
+   "label": "lb3c_both@200 silence GNG043",
+   "connectome": "MaleCNS v1.0",
+   "mn9_mean": 83.25,
+   "mn9_each": [
+    138.7,
+    27.8
+   ],
+   "active_neurons": 20457,
+   "w_syn": 0.275
+  },
+  {
+   "label": "lb3c_both@200 silence DNge031",
+   "connectome": "MaleCNS v1.0",
+   "mn9_mean": 108.96666666666667,
+   "mn9_each": [
+    174.5,
+    43.43333333333333
+   ],
+   "active_neurons": 20511,
+   "w_syn": 0.275
+  },
+  {
+   "label": "lb3c_both@0 w_syn x 0.590",
+   "connectome": "MaleCNS v1.0",
+   "mn9_mean": 0.0,
+   "mn9_each": [
+    0.0,
+    0.0
+   ],
+   "active_neurons": 0,
+   "w_syn": 0.16232091690544415
+  },
+  {
+   "label": "lb3c_both@200 w_syn x 0.590",
+   "connectome": "MaleCNS v1.0",
+   "mn9_mean": 38.81666666666667,
+   "mn9_each": [
+    77.63333333333334,
+    0.0
+   ],
+   "active_neurons": 10957,
+   "w_syn": 0.16232091690544415
+  },
+  {
+   "label": "lb3c_both@0 histamine inhibitory",
+   "connectome": "MaleCNS v1.0",
+   "mn9_mean": 0.0,
+   "mn9_each": [
+    0.0,
+    0.0
+   ],
+   "active_neurons": 0,
+   "w_syn": 0.275
+  },
+  {
+   "label": "lb3c_both@200 histamine inhibitory",
+   "connectome": "MaleCNS v1.0",
+   "mn9_mean": 81.16666666666667,
+   "mn9_each": [
+    137.06666666666666,
+    25.266666666666666
+   ],
+   "active_neurons": 20810,
+   "w_syn": 0.275
+  }
+ ]
 }

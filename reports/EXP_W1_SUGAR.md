@@ -101,7 +101,34 @@ Candidate explanations, each tested with the same model and seeds
 - **Bottleneck.** Silencing the shared interneuron (FlyWire CB0573; MaleCNS GNG043, and the
   other two-hop candidate DNge031) asks how much of MN9's drive runs through it.
 
-*Results of these post-hoc runs are added when they finish.*
+Artifact: `sugar_posthoc_20261025T155922Z_09d1f4c.json` (same seeds, 30 trials, 200 Hz).
+
+| condition | MN9 (MN9_L, MN9_R) | neurons that fire |
+|---|---|---|
+| FlyWire, baseline | 80.5 | 488 |
+| FlyWire, CB0573 silenced | 78.4 | 477 |
+| MaleCNS, baseline | 95.4 (156.9, 33.9) | 20,559 |
+| MaleCNS, GNG043 (= CB0573) silenced | 83.2 (138.7, 27.8) | 20,457 |
+| MaleCNS, DNge031 silenced | 109.0 (174.5, 43.4) | 20,511 |
+| MaleCNS, `w_syn` × 206/349 | 38.8 (77.6, 0.0) | 10,957 |
+| MaleCNS, histamine inhibitory | 81.2 (137.1, 25.3) | 20,810 |
+
+All 0 Hz controls stay silent. Reading:
+
+- **No single bottleneck.** The interneuron both connectomes put on the shortest
+  LB3c → MN9 path carries only a small share of MN9's drive (−3% in FlyWire, −13% in
+  MaleCNS when silenced). Silencing the GABAergic DNge031 *raises* MN9 (+14%), as an
+  inhibitory input should. MN9 is driven through many parallel routes in both datasets.
+- **Synapse scale explains about half of the spread, not all of it.** Scaling the weight
+  by the ratio of median input synapses halves the active population (20,559 → 10,957) and
+  MN9 (38.8 Hz; MN9_R falls silent) — still 22× FlyWire's spread.
+- **Histamine's sign does not matter here** (81.2 Hz, 20,810 neurons): almost all
+  histaminergic neurons are in the optic lobe, which this stimulus never reaches.
+
+So the excess excitability of the transferred model is only partly a calibration issue, and
+its remaining cause is open. Candidates not tested here: the attached nerve cord (≈ 2,450 of
+its intrinsic neurons are recruited), denser recurrent excitation among central-brain local
+neurons in MaleCNS, and transmitter-prediction differences between the two pipelines.
 
 ## What it can and cannot show
 
