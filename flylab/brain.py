@@ -156,3 +156,125 @@ def shiu_sign(nt: str) -> int:
     """Shiu et al. sign rule, verified on their FlyWire 630 table: GABA and glutamate are
     inhibitory, every other transmitter (incl. dopamine, serotonin, octopamine) excitatory."""
     return -1 if str(nt).lower() in ("gaba", "glutamate") else 1
+
+
+def _simulate_one(model: "BrainModel", exc, rate, exc2, rate2, W, seed, steps,
+                  poisson_events=None, record_spike_times=False):
+    """Single-trial kernel that only touches neurons away from rest.
+
+    A neuron at exactly (v_0, g = 0, not refractory) and not Poisson-driven stays there until
+    a synaptic event reaches it, so it can be skipped. Neurons rejoin the active set when an
+    event arrives and leave it once |v - v_0| and |g| fall below 1e-12 mV outside their
+    refractory window (they are then set exactly to rest). Equivalent to the batched kernel
+    and to Brian 2 in the tests.
+    """
+    p = model.params
+    n = model.n
+    a, b, c = model._a, model._b, model._c
+    v0, vth, vrst = p["v_0"], p["v_th"], p["v_rst"]
+    rng = np.random.default_rng(seed)
+    exc = np.asarray(exc, dtype=np.int64)
+    exc2 = np.asarray(exc2, dtype=np.int64)
+    driven = np.union1d(exc, exc2)
+    v = np.full(n, v0)
+    g = np.zeros(n)
+    refr_steps = np.full(n, model.refractory_steps, dtype=np.int64)
+    refr_steps[driven] = 0
+    lastspike = np.full(n, -(10 ** 9), dtype=np.int64)
+    not_refr = np.ones(n, dtype=bool)
+    in_active = np.zeros(n, dtype=bool)
+    in_active[driven] = True
+    A = driven.copy()
+    indptr, indices, data = W.indptr, W.indices, W.data
+    ring = [None] * (model.delay_steps + 1)
+    counts = np.zeros(n, dtype=np.int32)
+    times = [] if record_spike_times else None
+    kick = p["w_syn"] * p["f_poi"]
+    p1 = rate * p["dt"] * 1e-3
+    p2 = rate2 * p["dt"] * 1e-3
+    eps = 1e-12
+    for t in range(steps):
+        # groups
+        nr = not_refr[A]
+        vA, gA = v[A], g[A]
+        v[A] = np.where(nr, v0 + a * (vA - v0) + c * gA, vA)
+        g[A] = np.where(nr, b * gA, gA)
+        # thresholds (neurons outside A are at rest and not refractory)
+        nrA = (t - lastspike[A]) >= refr_steps[A]
+        not_refr[A] = nrA
+        spk = A[(v[A] > vth) & nrA]
+        # synapses
+        due = ring[t % len(ring)]
+        if due is not None and len(due):
+            starts, ends = indptr[due], indptr[due + 1]
+            lens = ends - starts
+            idx = np.repeat(starts - np.cumsum(np.r_[0, lens[:-1]]), lens) + np.arange(lens.sum())
+            rows = indices[idx]
+            add = np.bincount(rows, weights=data[idx], minlength=0)
+            hit = np.flatnonzero(add)
+            g[hit] += add[hit] * not_refr[hit]
+            new = hit[~in_active[hit]]
+            if len(new):
+                in_active[new] = True
+                A = np.concatenate([A, new])
+        if len(exc) and (p1 > 0 or poisson_events is not None):
+            ev = poisson_events[t] if poisson_events is not None else rng.random(len(exc)) < p1
+            v[exc] += kick * ev
+        if len(exc2) and p2 > 0:
+            v[exc2] += kick * (rng.random(len(exc2)) < p2)
+        # resets
+        slot = (t + model.delay_steps) % len(ring)
+        if len(spk):
+            v[spk] = vrst
+            g[spk] = 0.0
+            lastspike[spk] = t
+            not_refr[spk] = False
+            counts[spk] += 1
+            if times is not None:
+                times.append((t, spk.copy()))
+        ring[slot] = spk if len(spk) else None
+        # shrink the active set every 50 steps
+        if t % 50 == 49:
+            rest = (np.abs(v[A] - v0) < eps) & (np.abs(g[A]) < eps) & not_refr[A] \
+                & ((t - lastspike[A]) >= refr_steps[A]) & ~np.isin(A, driven)
+            if rest.any():
+                gone = A[rest]
+                v[gone] = v0
+                g[gone] = 0.0
+                in_active[gone] = False
+                A = A[~rest]
+    return counts, times
+
+
+def _trial_worker(args):
+    model, exc, rate, exc2, rate2, W, seed, steps = args
+    return _simulate_one(model, exc, rate, exc2, rate2, W, seed, steps)[0]
+
+
+def run_trials(model: BrainModel, exc, n_trials: int | None = None, rate: float | None = None,
+               exc2=(), rate2: float | None = None, silence=(), seed: int = 0,
+               t_run: float | None = None, workers: int = 1) -> np.ndarray:
+    """Fast path: independent single-trial kernels, optionally across processes.
+
+    Trial k uses RNG seed (seed, k). Returns spike counts of shape (n, n_trials)."""
+    import multiprocessing as mp
+
+    p = model.params
+    B = int(n_trials or p["n_run"])
+    steps = int(round((t_run or p["t_run"]) / p["dt"]))
+    rate = p["r_poi"] if rate is None else rate
+    rate2 = p["r_poi2"] if rate2 is None else rate2
+    W = model._W
+    if len(silence):
+        keep = np.ones(model.n)
+        keep[np.asarray(silence, dtype=np.int64)] = 0.0
+        W = (W @ sparse.diags(keep)).tocsc()
+    W = W.tocsc()
+    W.sort_indices()
+    jobs = [(model, exc, rate, exc2, rate2, W, [seed, k], steps) for k in range(B)]
+    if workers > 1:
+        with mp.get_context("fork").Pool(workers) as pool:
+            cols = pool.map(_trial_worker, jobs)
+    else:
+        cols = [_trial_worker(j) for j in jobs]
+    return np.stack(cols, axis=1)

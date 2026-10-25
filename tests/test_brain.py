@@ -124,3 +124,32 @@ def test_spike_times_identical_to_brian2(net_seed, ev_seed, density):
     ours = sorted((int(r), int(t)) for t, rows, _ in times for r in rows)
     assert len(ref) > 50
     assert ours == ref
+
+
+@pytest.mark.parametrize("net_seed", [0, 4])
+def test_fast_kernel_matches_batched_kernel(net_seed):
+    from flylab.brain import _simulate_one
+
+    W = _random_net(n=60, p=0.2, seed=net_seed)
+    m = BrainModel(W)
+    steps = 2000
+    exc = np.array([0, 1, 2])
+    ev = np.random.default_rng(net_seed).random((steps, 3, 1)) < 0.02
+    _, t_batch = m.simulate(exc, n_trials=1, t_run=steps * 0.1, record_spike_times=True,
+                            poisson_events=ev)
+    Wc = m._W.tocsc()
+    Wc.sort_indices()
+    _, t_fast = _simulate_one(m, exc, 0.0, np.array([], dtype=np.int64), 0.0, Wc, 0, steps,
+                              poisson_events=ev[:, :, 0], record_spike_times=True)
+    a = sorted((int(r), int(t)) for t, rows, _ in t_batch for r in rows)
+    b = sorted((int(r), int(t)) for t, rows in t_fast for r in rows)
+    assert len(a) > 50 and a == b
+
+
+def test_run_trials_is_reproducible_and_parallel_safe():
+    from flylab.brain import run_trials
+
+    m = BrainModel(_random_net(n=50, p=0.2, seed=2))
+    c1 = run_trials(m, [0, 1], n_trials=3, rate=150.0, seed=9, t_run=100.0, workers=1)
+    c2 = run_trials(m, [0, 1], n_trials=3, rate=150.0, seed=9, t_run=100.0, workers=2)
+    assert c1.shape == (50, 3) and (c1 == c2).all() and c1.sum() > 0
