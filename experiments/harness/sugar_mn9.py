@@ -122,6 +122,16 @@ def main(argv=None):
     res = {"experiment": "EXP-W1-SUGAR", "label": args.label, "provenance": started,
            "connectome": c.name, "connectome_meta": c.meta, "settings": vars(args) | {"out_dir": str(args.out_dir)},
            "mn9_index": mn9.tolist(), "conditions": {}}
+    args.out_dir.mkdir(parents=True, exist_ok=True)
+    stamp = started["utc"][:19].replace("-", "").replace(":", "")
+    path = args.out_dir / f"sugar_{args.label}_{stamp}Z_{started['git_rev']}.json"
+    res["complete"] = False
+
+    def checkpoint():
+        # Written after every condition: a run killed part-way (as the first attempt was, by a
+        # 2-hour job limit) keeps every finished condition. `complete` marks a finished run.
+        path.write_text(json.dumps(res, indent=1) + "\n")
+
     model = BrainModel(c.W)
     for inp in args.inputs.split(","):
         exc = inputs_for(inp, c, types, sides)
@@ -143,6 +153,7 @@ def main(argv=None):
             print(f"{c.name} {key}: n_in={len(exc)} MN9 {mn9_trials.mean():.1f} Hz "
                   f"(each {np.round(counts[mn9].mean(axis=1), 1).tolist()}) active "
                   f"{int((per_neuron > 0).sum())} [{time.time() - t0:.0f}s]", flush=True)
+            checkpoint()
         for d in range(args.null_draws if inp == args.inputs.split(",")[0] else 0):
             C = c.W.tocoo()
             keep = C.row != C.col
@@ -157,10 +168,9 @@ def main(argv=None):
                 "mn9_trials": mn9_trials.tolist(), "mn9_mean": float(mn9_trials.mean()),
                 "active_neurons": int((counts.mean(axis=1) > 0).sum())}
             print(f"  null {d}: MN9 {mn9_trials.mean():.1f} Hz", flush=True)
-    args.out_dir.mkdir(parents=True, exist_ok=True)
-    stamp = started["utc"][:19].replace("-", "").replace(":", "")
-    path = args.out_dir / f"sugar_{args.label}_{stamp}Z_{started['git_rev']}.json"
-    path.write_text(json.dumps(res, indent=1) + "\n")
+            checkpoint()
+    res["complete"] = True
+    checkpoint()
     print("WROTE", path)
 
 

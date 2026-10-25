@@ -68,3 +68,14 @@ circuit, robust to a different animal and reconstruction, under the same simple 
 would not validate the model's dynamics beyond what Shiu et al. tested in flies. A failure
 would mean the prediction is sensitive to reconstruction or annotation differences, which is
 itself worth knowing before trusting single-connectome model predictions.
+
+## Execution note (added 2026-10-25, before any rerun)
+
+The first execution of the MaleCNS command (started 11:30 UTC at `4e0550e`) was stopped by
+the session's 2-hour job limit after 14 of its 18 conditions; the runner wrote results only at
+the end, so its per-trial data were lost and only the console log survives
+(`lb3c_both`: 0 → 51.7 → 72.2 → 83.6 → 95.4 Hz at 0–200 Hz; nulls 0.0, 0.0, 0.0 Hz). The runner
+now checkpoints after every condition; nothing else changed. The same commands are rerun with
+the same seeds, split into three jobs that each fit the limit (MaleCNS `lb3c_both` + nulls;
+MaleCNS `lb3c_L,lb3c_R`; FlyWire). Because every trial is seeded, the rerun must reproduce the
+logged means exactly; any difference is reported.
