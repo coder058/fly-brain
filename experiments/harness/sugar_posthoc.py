@@ -7,11 +7,10 @@
 2. Synaptic-scale sensitivity. w_syn = 0.275 mV was tuned on FlyWire. MaleCNS reports 1.69x
    more input synapses per neuron (median 349 vs 206), and the transferred model activates
    ~20,000 neurons where FlyWire activates ~450. Rerun MaleCNS with w_syn scaled by 206/349.
-3. Histamine sign. FlyWire's transmitter classifier has no histamine class (its ~5,900
-   "dopamine" neurons match MaleCNS's ~5,900 histamine neurons in number), and Shiu et al.'s
-   rule makes both excitatory. Histamine gates chloride channels in flies, and MaleCNS calls
-   the shared interneuron GNG043 histaminergic (FlyWire: CB0573, "dopamine"). Rerun MaleCNS
-   with histamine inhibitory.
+3. Histamine sign. FlyWire's transmitter classifier has no histamine class and Shiu et al.'s
+   rule makes histamine excitatory, but it gates chloride channels in flies. In MaleCNS it is
+   almost only photoreceptors and optic-lobe cells, plus the shared interneuron GNG043
+   (FlyWire: CB0573, "dopamine"). Rerun MaleCNS with histamine inhibitory.
 """
 from __future__ import annotations
 
