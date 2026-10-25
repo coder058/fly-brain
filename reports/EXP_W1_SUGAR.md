@@ -101,7 +101,7 @@ Candidate explanations, each tested with the same model and seeds
 - **Bottleneck.** Silencing the shared interneuron (FlyWire CB0573; MaleCNS GNG043, and the
   other two-hop candidate DNge031) asks how much of MN9's drive runs through it.
 
-POSTHOC_TABLE
+*Results of these post-hoc runs are added when they finish.*
 
 ## What it can and cannot show
 

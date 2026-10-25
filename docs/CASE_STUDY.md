@@ -252,6 +252,64 @@ That changes how to read Rounds 2–7. The same instrument that said "not suppor
 degree-ranked slices sees a large, unanimous effect where the biology says it should. The E1
 negative is a statement about those slices and that task, not a blind spot.
 
+## Round 9: from slices to the whole brain — first, prove the simulator
+
+Everything so far used 500-neuron slices and a model of my own. The obvious objection: a
+"whole-brain" claim needs a whole brain, and a model someone else has already tested against
+real flies. Shiu et al. (Nature 2024) published exactly that — a leaky integrate-and-fire
+model of all 127,400 FlyWire neurons, written in Brian 2 — and confirmed several of its
+predictions with optogenetics.
+
+Before using it on new data I re-implemented it ([`flylab/brain.py`](../flylab/brain.py),
+vectorised, 2.3× faster than a dense kernel through active-set updates) and demanded exact
+equality, not "similar curves". A test writes their equations directly in Brian 2 and checks
+that every spike falls on the same 0.1 ms step. It did not at first, and the two differences
+were Brian 2 semantics the paper does not spell out: the refractory flag a step uses is the
+one computed at the *previous* step's threshold, and synaptic input arriving during
+refractoriness is dropped, not queued. With both fixed, all spikes match on three random
+signed networks.
+
+Then the real check: their repository ships their own simulation outputs. On their FlyWire
+table, same inputs, my implementation gives MN9 92.5 Hz (published 93.3), 450 active neurons
+(published 448), per-neuron correlation 0.99985, and 49 of the top 50 responders. Checking
+their inputs on the way, I found that 5 of their 21 "sugar" neurons are annotated as high-salt
+(LB3d) in the later FlyWire release — not an error I can prove, but a reason to define my own
+input by cell type. ([validation](../reports/SIMULATOR_VALIDATION.md))
+
+## Round 10: does a published prediction survive a second fly?
+
+The model's best-known prediction: sugar-sensing neurons drive MN9, the motor neuron of
+proboscis extension. If that is a property of the fly's circuit and not of one
+reconstruction, it should hold on MaleCNS — another animal, the other sex, another lab, and a
+nerve cord attached. I preregistered the test (input = LB3c, the sugar GRN type in both
+datasets; replicate if MN9's 95% CI at 200 Hz is above 10 Hz and MN9 is silent without input),
+plus a new control: whole-brain rewirings that keep every neuron's in/out-degree, outgoing
+weights and transmitter sign, on all 25.6 M edges (a vectorised configuration-model null).
+
+The first run was killed by a 2-hour job limit after 14 of 18 conditions, and the runner only
+wrote results at the end. I logged the printed means in the protocol *before* rerunning, added
+per-condition checkpoints, and reran with the same seeds: every logged mean came back to the
+digit.
+
+**Result: replicates.** MN9 95.4 Hz [91.5, 99.3]; 0 Hz without input; monotone dose response;
+**0.0 Hz on all three rewirings.** Then the same treatment every earlier "win" got:
+
+- *How far does it spread?* ~20,500 neurons fire in MaleCNS, ~490 in FlyWire. Antennal-lobe
+  and mushroom-body neurons run near the model's ceiling. The pathway is there, but in a
+  near-global excitation the FlyWire model never shows.
+- *Why is MN9_L 5× MN9_R whichever side I stimulate?* MN9_R has 556 input synapses to MN9_L's
+  6,012 and is labelled "hard to trace": a reconstruction artifact, so the laterality endpoint
+  says nothing about biology.
+- *Why do only 4 of FlyWire's top 30 responder types appear?* Because my endpoint matched
+  types by name, and the two datasets name gustatory-zone cells differently (CB0573 in
+  FlyWire is GNG043 in MaleCNS). Matched through MaleCNS's own `flywireType` column: 30 of 30
+  fire. I report both, and say which one was preregistered.
+- I also caught myself writing that FlyWire's ~5,900 "dopamine" neurons were MaleCNS's ~5,900
+  histamine neurons; they are Kenyon cells and photoreceptors respectively. The coincidence
+  never reached the report.
+
+Why the transferred model is so excitable is explored post hoc in the [report](../reports/EXP_W1_SUGAR.md) (synapse scale, the sign of histamine, silencing the shared interneuron).
+
 ## What I would tell a reviewer
 
 - **The interesting skill here is not the simulator.** It is noticing that a result is too
@@ -268,6 +326,10 @@ negative is a statement about those slices and that task, not a blind spot.
 - **Show your instrument can say yes.** A negative only means something if the same
   pipeline detects a real effect where one is expected. The head-direction circuit is that
   check.
+- **Validate against the original, to the spike.** "Looks the same" would have hidden two
+  semantic differences from Brian 2; an exact-equality test found them in an afternoon.
+- **A replication is a result to audit, not a finish line.** The MaleCNS "yes" came with a
+  40× difference in spread, a half-traced motor neuron and a name-matching endpoint of my own.
 - **Preregistration is cheap, and it has to include when to stop.** A Markdown file and a
   commit timestamp turned each post-hoc fix into a test that could fail — and the last one
   said in advance that it was the last one.
@@ -284,6 +346,9 @@ negative is a statement about those slices and that task, not a blind spot.
   comparison is between graphs as signal *carriers*, not as memories or computers.
 - A negative here is about this probe. It does not show connectome wiring is useless — a task
   that needs recurrent memory, or slices chosen by anatomy rather than degree, could differ.
+- The whole-brain model is Shiu et al.'s, unchanged and tuned on FlyWire. On MaleCNS it is
+  far more excitable than on FlyWire; the replication is of a pathway's presence and its
+  dependence on wiring, not of its selectivity or of realistic dynamics.
 - Nothing here says anything about fly intelligence or biological computation.
 
 ## Repo pointers
@@ -293,6 +358,8 @@ negative is a statement about those slices and that task, not a blind spot.
 | one-command tour on real data | `python -m flylab.demo` |
 | preregistered 2×2 | [`experiments/results/EXP-E1-OP/protocol.md`](../experiments/results/EXP-E1-OP/protocol.md) |
 | follow-ups | [`EXP_E1_DALE.md`](../reports/EXP_E1_DALE.md) · [`EXP_E1_REPL.md`](../reports/EXP_E1_REPL.md) · [`EXP_E1_MATCH.md`](../reports/EXP_E1_MATCH.md) |
+| whole-brain model, validation | [`flylab/brain.py`](../flylab/brain.py) · [`SIMULATOR_VALIDATION.md`](../reports/SIMULATOR_VALIDATION.md) |
+| cross-connectome replication | [`EXP_W1_SUGAR.md`](../reports/EXP_W1_SUGAR.md) · [`sugar_mn9.py`](../experiments/harness/sugar_mn9.py) |
 | head-direction circuit | [`EXP_E2_HD.md`](../reports/EXP_E2_HD.md) · [`hd_memory.py`](../experiments/harness/hd_memory.py) |
 | runner for both | [`experiments/harness/e1_operating_point.py`](../experiments/harness/e1_operating_point.py) |
 | nulls (and the bug history) | [`flylab/nulls.py`](../flylab/nulls.py) |
