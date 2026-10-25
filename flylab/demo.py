@@ -37,6 +37,7 @@ FIG_DIR = ROOT / "figures"
 E1_OP_DIR = ROOT / "experiments" / "results" / "EXP-E1-OP"
 E1_DALE_DIR = ROOT / "experiments" / "results" / "EXP-E1-DALE"
 E2_HD_DIR = ROOT / "experiments" / "results" / "EXP-E2-HD"
+SHIU_REPRO_DIR = ROOT / "experiments" / "results" / "SHIU-REPRO"
 TARGET_RATE = 0.002
 
 # Reference categorical palette, light mode (validated slots 1-3) + neutral for baselines.
@@ -408,6 +409,42 @@ def step_hd(plt):
     plt.close(fig)
 
 
+def step_shiu_repro(plt):
+    header(9, "Whole-brain model: reproduces Shiu et al. (Nature 2024) on FlyWire")
+    files = sorted(SHIU_REPRO_DIR.glob("shiu_repro_*.json"))
+    if not files:
+        print("  no reproduction result committed yet")
+        return
+    res = json.loads(files[-1].read_text())
+    fig, axes = plt.subplots(1, 2, figsize=(9.2, 4.2), sharex=True, sharey=True)
+    for ax, (key, c) in zip(axes, sorted(res["conditions"].items(), key=lambda kv: -int(kv[0])),
+                            strict=True):
+        o = np.array(c["per_neuron"]["ours"])
+        r = np.array(c["per_neuron"]["reference"])
+        print(f"  sugar GRNs at {key} Hz: MN9 {c['mn9_ours_hz']:.1f} Hz (published {c['mn9_reference_hz']:.1f});"
+              f" {len(o)} neurons, r = {np.corrcoef(o, r)[0, 1]:.4f}")
+        lim = max(o.max(), r.max()) * 1.15
+        ax.plot([0.03, lim], [0.03, lim], color=GRID, linewidth=1.2, zorder=1)
+        floor = 1 / 30  # one spike in 30 trials; zero rates are drawn here
+        ax.scatter(np.maximum(r, floor), np.maximum(o, floor), s=12, color=C_CONN, alpha=0.6,
+                   linewidth=0, zorder=2)
+        mn9 = c["per_neuron"]["flywire_id"].index(720575940660219265)
+        ax.scatter([r[mn9]], [o[mn9]], s=60, color=C_DP, edgecolor=SURFACE,
+                   linewidth=1.5, zorder=3)
+        ax.annotate(f"MN9  {o[mn9]:.1f} vs {r[mn9]:.1f} Hz", (r[mn9], o[mn9]), xytext=(-8, 10),
+                    textcoords="offset points", ha="right", fontsize=9, color=INK)
+        ax.set_xscale("log")
+        ax.set_yscale("log")
+        ax.set_title(f"sugar GRNs at {key} Hz   (r = {np.corrcoef(o, r)[0, 1]:.4f})", fontsize=10.5)
+        ax.set_xlabel("published (Brian 2), Hz  (zeros drawn at 1/30)")
+    axes[0].set_ylabel("flylab.brain, Hz")
+    fig.suptitle("Every responding neuron in the FlyWire brain: this simulator vs the published model",
+                 fontsize=11.5, fontweight="bold", x=0.02, ha="left")
+    fig.tight_layout()
+    fig.savefig(FIG_DIR / "fig7_shiu_reproduction.png")
+    plt.close(fig)
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser(description="Fly Lab tour on real MaleCNS data")
     ap.add_argument("--quick", action="store_true", help="fewer seeds and trials (CI)")
@@ -429,6 +466,7 @@ def main(argv=None):
     step_result(plt)
     step_dale(plt)
     step_hd(plt)
+    step_shiu_repro(plt)
     print(f"\nfigures written to {FIG_DIR.relative_to(ROOT)}/")
 
 

@@ -58,7 +58,6 @@ def load_flywire_630(shiu_dir: Path = SHIU_DIR) -> Connectome:
 
 
 def load_malecns_shiu_signs() -> Connectome:
-    import pandas as pd
     import pyarrow.feather as feather
 
     from flylab.brain import shiu_sign
