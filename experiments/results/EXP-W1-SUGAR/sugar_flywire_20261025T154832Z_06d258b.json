@@ -1,0 +1,78 @@
+{
+ "experiment": "EXP-W1-SUGAR",
+ "label": "flywire",
+ "provenance": {
+  "utc": "2026-10-25T15:48:32+00:00",
+  "git_rev": "06d258b",
+  "harness_sha256": "50197ee4c310d807",
+  "config_sha256": "ef2f8d0fd5ad5f1c",
+  "runner_sha256": "5ac4ae209dda5368"
+ },
+ "connectome": "FlyWire 630",
+ "connectome_meta": {
+  "n_neurons": 127400,
+  "n_edges": 14687178,
+  "synapses": 52793639
+ },
+ "settings": {
+  "connectome": "flywire",
+  "inputs": "lb3c_both,shiu21",
+  "rates": "0,50,100,150,200",
+  "trials": 30,
+  "null_draws": 0,
+  "seed": 7000,
+  "workers": 4,
+  "label": "flywire",
+  "out_dir": "/home/user/fly-brain/experiments/results/EXP-W1-SUGAR"
+ },
+ "mn9_index": [
+  127193
+ ],
+ "conditions": {
+  "lb3c_both@0": {
+   "input": "lb3c_both",
+   "n_inputs": 30,
+   "rate_hz": 0.0,
+   "mn9_trials": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "mn9_each": [
+    0.0
+   ],
+   "mn9_mean": 0.0,
+   "active_neurons": 0,
+   "type_rates": null,
+   "seconds": 15.4
+  }
+ },
+ "complete": false
+}
