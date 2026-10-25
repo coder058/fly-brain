@@ -153,3 +153,11 @@ def test_run_trials_is_reproducible_and_parallel_safe():
     c1 = run_trials(m, [0, 1], n_trials=3, rate=150.0, seed=9, t_run=100.0, workers=1)
     c2 = run_trials(m, [0, 1], n_trials=3, rate=150.0, seed=9, t_run=100.0, workers=2)
     assert c1.shape == (50, 3) and (c1 == c2).all() and c1.sum() > 0
+
+
+def test_shiu_sign_rule_and_override():
+    from flylab.brain import shiu_sign
+
+    assert [shiu_sign(x) for x in ("GABA", "glutamate", "acetylcholine", "histamine", "unclear")] == \
+        [-1, -1, 1, 1, 1]
+    assert shiu_sign("histamine", ("gaba", "glutamate", "histamine")) == -1

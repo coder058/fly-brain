@@ -57,10 +57,13 @@ def load_flywire_630(shiu_dir: Path = SHIU_DIR) -> Connectome:
                        "synapses": int(np.abs(con["Excitatory x Connectivity"]).sum())})
 
 
-def load_malecns_shiu_signs() -> Connectome:
+def load_malecns_shiu_signs(inhibitory=None) -> Connectome:
+    """`inhibitory`: transmitters given sign -1 (default: Shiu et al.'s GABA and glutamate)."""
     import pyarrow.feather as feather
 
-    from flylab.brain import shiu_sign
+    from flylab.brain import SHIU_INHIBITORY, shiu_sign
+
+    inhibitory = SHIU_INHIBITORY if inhibitory is None else tuple(inhibitory)
     from flylab.graph import GRAPH_DIR, load_graph
 
     g = load_graph()
@@ -68,10 +71,11 @@ def load_malecns_shiu_signs() -> Connectome:
                             columns=["body", "ground_truth", "consensus_nt"]).to_pandas()
     gt = nt["ground_truth"].where(nt["ground_truth"].notna() & (nt["ground_truth"].astype(str) != ""),
                                   nt["consensus_nt"])
-    sign_by_body = dict(zip(nt["body"].to_numpy(np.int64), (shiu_sign(x) for x in gt), strict=True))
+    sign_by_body = dict(zip(nt["body"].to_numpy(np.int64), (shiu_sign(x, inhibitory) for x in gt), strict=True))
     signs = np.array([sign_by_body.get(int(b), 1) for b in g.body_ids], dtype=np.float64)
     W = sparse.csr_matrix((g.weight.astype(np.float64) * signs[g.src], (g.dst, g.src)),
                           shape=(g.n, g.n))
     meta = {"n_neurons": g.n, "n_edges": int(W.nnz), "synapses": int(g.weight.sum()),
-            "inhibitory_neurons": int((signs < 0).sum()), "graph_dir": str(GRAPH_DIR)}
+            "inhibitory_neurons": int((signs < 0).sum()), "inhibitory_transmitters": list(inhibitory),
+            "graph_dir": str(GRAPH_DIR)}
     return Connectome("MaleCNS v1.0", W, np.asarray(g.body_ids, dtype=np.int64), meta)

@@ -152,10 +152,14 @@ class BrainModel:
         return counts.mean(axis=1) / ((t_run or self.params["t_run"]) * 1e-3)
 
 
-def shiu_sign(nt: str) -> int:
+SHIU_INHIBITORY = ("gaba", "glutamate")
+
+
+def shiu_sign(nt: str, inhibitory=SHIU_INHIBITORY) -> int:
     """Shiu et al. sign rule, verified on their FlyWire 630 table: GABA and glutamate are
-    inhibitory, every other transmitter (incl. dopamine, serotonin, octopamine) excitatory."""
-    return -1 if str(nt).lower() in ("gaba", "glutamate") else 1
+    inhibitory, every other transmitter (incl. dopamine, serotonin, octopamine) excitatory.
+    `inhibitory` overrides the set, e.g. to add histamine (absent from FlyWire's classifier)."""
+    return -1 if str(nt).lower() in inhibitory else 1
 
 
 def _simulate_one(model: "BrainModel", exc, rate, exc2, rate2, W, seed, steps,

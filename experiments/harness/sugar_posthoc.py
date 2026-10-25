@@ -7,6 +7,11 @@
 2. Synaptic-scale sensitivity. w_syn = 0.275 mV was tuned on FlyWire. MaleCNS reports 1.69x
    more input synapses per neuron (median 349 vs 206), and the transferred model activates
    ~20,000 neurons where FlyWire activates ~450. Rerun MaleCNS with w_syn scaled by 206/349.
+3. Histamine sign. FlyWire's transmitter classifier has no histamine class (its ~5,900
+   "dopamine" neurons match MaleCNS's ~5,900 histamine neurons in number), and Shiu et al.'s
+   rule makes both excitatory. Histamine gates chloride channels in flies, and MaleCNS calls
+   the shared interneuron GNG043 histaminergic (FlyWire: CB0573, "dopamine"). Rerun MaleCNS
+   with histamine inhibitory.
 """
 from __future__ import annotations
 
@@ -79,6 +84,11 @@ def main(argv=None):
     for r in (0.0, 200.0):
         rows.append(run(mc, mt, ms, f"lb3c_both@{int(r)} w_syn x {SCALE:.3f}", exc, r,
                         w_syn=DEFAULTS["w_syn"] * SCALE, workers=args.workers))
+    del mc
+    mh = load_malecns_shiu_signs(inhibitory=("gaba", "glutamate", "histamine"))
+    for r in (0.0, 200.0):
+        rows.append(run(mh, mt, ms, f"lb3c_both@{int(r)} histamine inhibitory", exc, r,
+                        workers=args.workers))
     out = {"experiment": "EXP-W1-SUGAR", "label": "posthoc", "preregistered": False,
            "provenance": started, "rows": rows}
     args.out_dir.mkdir(parents=True, exist_ok=True)

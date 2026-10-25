@@ -1,0 +1,82 @@
+{
+ "experiment": "EXP-W1-SUGAR",
+ "label": "malecns-lateral",
+ "provenance": {
+  "utc": "2026-10-25T14:31:56+00:00",
+  "git_rev": "1b37138",
+  "harness_sha256": "50197ee4c310d807",
+  "config_sha256": "ef2f8d0fd5ad5f1c",
+  "runner_sha256": "5ac4ae209dda5368"
+ },
+ "connectome": "MaleCNS v1.0",
+ "connectome_meta": {
+  "n_neurons": 165122,
+  "n_edges": 25563197,
+  "synapses": 124025048,
+  "inhibitory_neurons": 51351,
+  "graph_dir": "/home/user/fly-brain/data/derived/graph"
+ },
+ "settings": {
+  "connectome": "malecns",
+  "inputs": "lb3c_L,lb3c_R",
+  "rates": "0,50,100,150,200",
+  "trials": 30,
+  "null_draws": 0,
+  "seed": 7000,
+  "workers": 4,
+  "label": "malecns-lateral",
+  "out_dir": "/home/user/fly-brain/experiments/results/EXP-W1-SUGAR"
+ },
+ "mn9_index": [
+  306,
+  6365
+ ],
+ "conditions": {
+  "lb3c_L@0": {
+   "input": "lb3c_L",
+   "n_inputs": 12,
+   "rate_hz": 0.0,
+   "mn9_trials": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "mn9_each": [
+    0.0,
+    0.0
+   ],
+   "mn9_mean": 0.0,
+   "active_neurons": 0,
+   "type_rates": null,
+   "seconds": 28.5
+  }
+ },
+ "complete": false
+}
