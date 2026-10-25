@@ -182,6 +182,52 @@ def block_preserving_null(
     return sparse.csr_matrix((w, (dst, src)), shape=(n, n)), diag  # (post, pre)
 
 
+def fast_dale_degree_null(src, dst, signed_w, n: int, rng: np.random.Generator,
+                          max_rounds: int = 200) -> tuple[sparse.csr_matrix, dict]:
+    """Vectorised degree-preserving null for whole-brain graphs (tens of millions of edges).
+
+    Configuration-model rewiring: every edge slot keeps its presynaptic neuron and its weight
+    (so out-degree, out-strength and Dale's law are kept), and the postsynaptic endpoints are
+    randomly permuted across all slots (so every neuron keeps its in-degree). Self-loops and
+    duplicate (pre, post) pairs created by the permutation are re-drawn by permuting their
+    targets with randomly chosen other slots until none remain. Unlike the double-edge swap
+    this is a single uniform draw, not a Markov chain, and it runs in seconds on 25 M edges.
+    """
+    src = np.asarray(src, dtype=np.int64)
+    dst = np.asarray(dst, dtype=np.int64).copy()
+    w = np.asarray(signed_w, dtype=np.float32)
+    m = len(src)
+    out0, in0 = np.bincount(src, minlength=n), np.bincount(dst, minlength=n)
+    dst = dst[rng.permutation(m)]
+    rounds = 0
+    while True:
+        key = src * n + dst
+        order = np.argsort(key, kind="stable")
+        dup = np.zeros(m, dtype=bool)
+        dup[order[1:][key[order[1:]] == key[order[:-1]]]] = True
+        bad = np.flatnonzero(dup | (src == dst))
+        if len(bad) == 0 or rounds >= max_rounds:
+            break
+        # Shuffle targets within (bad slots + as many random slots): a true permutation, so
+        # in-degrees are untouched. (A pairwise swap with repeated partners is not.)
+        pool = np.unique(np.concatenate([bad, rng.integers(0, m, size=len(bad))]))
+        dst[pool] = dst[pool][rng.permutation(len(pool))]
+        rounds += 1
+    out1, in1 = np.bincount(src, minlength=n), np.bincount(dst, minlength=n)
+    key = src * n + dst
+    diag = {
+        "n_edges": int(m), "repair_rounds": rounds,
+        "self_loops": int((src == dst).sum()),
+        "duplicate_edges": int(m - len(np.unique(key))),
+        "out_degree_preserved": bool(np.array_equal(out0, out1)),
+        "in_degree_preserved": bool(np.array_equal(in0, in1)),
+    }
+    if diag["self_loops"] or diag["duplicate_edges"] or not (
+            diag["out_degree_preserved"] and diag["in_degree_preserved"]):
+        raise RuntimeError(f"fast null failed to reach a simple graph: {diag}")
+    return sparse.csr_matrix((w, (dst, src)), shape=(n, n)), diag
+
+
 def ring_lattice(n: int, nnz: int, rng: np.random.Generator, excitatory_only: bool = True,
                  w_lo: float = 1.0, w_hi: float = 10.0) -> sparse.csr_matrix:
     """Directed ring lattice: i -> i+1 .. i+k (mod n). A delay line, so it has obvious

@@ -143,3 +143,22 @@ def test_dale_null_keeps_presynaptic_sign_and_out_strength():
             # legacy convention, kept bit-for-bit so historical results reproduce
             assert mixed > 400 and in_kept and not out_kept
     assert _mixed_sign_sources(sl.src, sl.signed_weight) == 0
+
+
+def test_fast_dale_degree_null_preserves_degrees_dale_and_out_strength():
+    from flylab.nulls import fast_dale_degree_null
+    from flylab.slice import load_slice
+
+    sl = load_slice()
+    keep = sl.src != sl.dst  # the fast null needs a simple input graph
+    src, dst, w = sl.src[keep], sl.dst[keep], sl.signed_weight[keep]
+    A, diag = fast_dale_degree_null(src, dst, w, sl.n, np.random.default_rng(0))
+    C = A.tocoo()
+    assert diag["self_loops"] == 0 and diag["duplicate_edges"] == 0
+    assert np.array_equal(np.bincount(C.col, minlength=sl.n), np.bincount(src, minlength=sl.n))
+    assert np.array_equal(np.bincount(C.row, minlength=sl.n), np.bincount(dst, minlength=sl.n))
+    assert np.allclose(np.bincount(C.col, C.data, sl.n), np.bincount(src, w, sl.n))
+    mixed = sum(len(np.unique(np.sign(C.data[(C.col == s) & (C.data != 0)]))) > 1 for s in np.unique(C.col))
+    assert mixed == 0
+    same = set(zip(C.col.tolist(), C.row.tolist(), strict=True)) & set(zip(src.tolist(), dst.tolist(), strict=True))
+    assert len(same) / len(src) < 0.5  # actually rewired
