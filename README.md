@@ -1,6 +1,6 @@
 # Fly Lab
 
-**Does the fruit fly's wiring diagram compute anything a random one wouldn't? Six
+**Does the fruit fly's wiring diagram compute anything a random one wouldn't? Seven
 preregistered experiments on two connectomes (MaleCNS, 165,122 neurons; FlyWire, 127,400): a "no"
 for generic wiring, a clear "yes" where anatomy predicts one, and a published whole-brain model
 prediction replicated on an independent connectome — with the audits that kept each answer
@@ -30,6 +30,13 @@ to **0.0 Hz**. Then I audited the win: on MaleCNS the same model excites ~20,500
 instead of ~490, one of the two MN9s is an incompletely traced reconstruction, and one of my
 own endpoints matched cell types by name when the two datasets name them differently. All
 three are in the report, next to the verdict. → [EXP-W1-SUGAR](reports/EXP_W1_SUGAR.md)
+
+**2b. …and it still holds when the runaway is removed.** A second preregistered test turned
+MaleCNS down with one global gain, calibrated only on how many neurons fire, never on MN9.
+MN9 still fires (**25.3 Hz [24.5, 26.1]**, 0 Hz on rewired graphs), and 22 of FlyWire's top 30
+responder types fire too, most at FlyWire-like rates. The quantitative fit is poor (higher
+threshold, 25 vs 80 Hz), and the calibration overshot on fresh seeds: under this model MaleCNS
+sits on a knife-edge. → [EXP-W2-CALIB](reports/EXP_W2_CALIB.md)
 
 **3. Before that: the generic question, answered "no".** Turning hub-selected 500-neuron
 slices of MaleCNS into reservoirs, I asked whether real wiring carries a temporal signal better
@@ -95,6 +102,7 @@ python scripts/build_graph.py --out-dir data/derived/graph_check
 | same, three whole-brain Dale-preserving rewirings | MN9 **0.0 / 0.0 / 0.0 Hz** — the pathway is in the wiring |
 | FlyWire's 30 strongest responder types, matched through MaleCNS's `flywireType` (post hoc) | **30 / 30 fire** in MaleCNS (by name only, as preregistered: 4 / 30) |
 | how far activity spreads, 200 Hz | MaleCNS ~20,500 neurons vs FlyWire ~490: the transferred model is much more excitable |
+| **EXP-W2-CALIB** (preregistered): MaleCNS with every weight × 0.50, calibrated on spread only | **MN9 25.3 Hz [24.5, 26.1]**; rewired ×3: 0.0 Hz; 22/30 FlyWire top types fire; spread overshoots on new seeds (1,576 vs 446 neurons/trial) |
 
 Reproduce: `bash scripts/fetch_shiu_flywire.sh` (Shiu et al.'s FlyWire table, not
 redistributed here), then the commands in the [protocol](experiments/results/EXP-W1-SUGAR/protocol.md)
@@ -169,8 +177,8 @@ the map makes neurons that encode the same position converge on shared targets.
 |---|---|
 | [`flylab/brain.py`](flylab/brain.py), [`connectomes.py`](flylab/connectomes.py) | whole-brain LIF model (Shiu et al.), batched and active-set kernels; FlyWire 630 and MaleCNS loaders |
 | [`flylab/`](flylab) | library: graph loading, LIF dynamics, nulls (degree, Dale, map-shuffling block null), spectral gain, bundled slices and circuit, the demo |
-| [`experiments/harness/`](experiments/harness) | runners: [`e1_operating_point.py`](experiments/harness/e1_operating_point.py) (all E1 experiments), [`hd_memory.py`](experiments/harness/hd_memory.py) (EXP-E2-HD), [`shiu_reproduction.py`](experiments/harness/shiu_reproduction.py), [`sugar_mn9.py`](experiments/harness/sugar_mn9.py) + [`sugar_analysis.py`](experiments/harness/sugar_analysis.py) (EXP-W1-SUGAR) |
-| [`experiments/results/`](experiments/results) | append-only results with their protocols (`EXP-E1-OP`, `-DALE`, `-REPL`, `-MATCH`, `EXP-E2-HD`, `SHIU-REPRO`, `EXP-W1-SUGAR`) |
+| [`experiments/harness/`](experiments/harness) | runners: [`e1_operating_point.py`](experiments/harness/e1_operating_point.py) (all E1 experiments), [`hd_memory.py`](experiments/harness/hd_memory.py) (EXP-E2-HD), [`shiu_reproduction.py`](experiments/harness/shiu_reproduction.py), [`sugar_mn9.py`](experiments/harness/sugar_mn9.py) + [`sugar_analysis.py`](experiments/harness/sugar_analysis.py) (EXP-W1-SUGAR), [`sugar_calibrated.py`](experiments/harness/sugar_calibrated.py) (EXP-W2-CALIB) |
+| [`experiments/results/`](experiments/results) | append-only results with their protocols (`EXP-E1-OP`, `-DALE`, `-REPL`, `-MATCH`, `EXP-E2-HD`, `SHIU-REPRO`, `EXP-W1-SUGAR`, `EXP-W2-CALIB`) |
 | [`reports/`](reports) | audits, errata and one report per experiment |
 | [`tests/`](tests) | unit tests for nulls (both weight conventions), leakage, liveness, determinism, slices and the runner |
 | [`RESEARCH_LEDGER.yaml`](RESEARCH_LEDGER.yaml) · [`SCIENTIFIC_CLAIMS.md`](SCIENTIFIC_CLAIMS.md) | every experiment ID and what may be claimed from it |

@@ -7,7 +7,7 @@
   "config_sha256": "ef2f8d0fd5ad5f1c",
   "runner_sha256": "3c2bd4ce883779e1"
  },
- "complete": false,
+ "complete": true,
  "settings": {
   "rates": "0,50,100,150,200",
   "trials": 30,
@@ -12091,6 +12091,53 @@
    ],
    "mn9_mean": 0.0,
    "active_neurons": 124
+  },
+  "lb3c_both@200/dale_null2": {
+   "input": "lb3c_both",
+   "rate_hz": 200.0,
+   "null_draw": 2,
+   "null_diag": {
+    "n_edges": 25563096,
+    "repair_rounds": 12,
+    "self_loops": 0,
+    "duplicate_edges": 0,
+    "out_degree_preserved": true,
+    "in_degree_preserved": true
+   },
+   "mn9_trials": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "mn9_mean": 0.0,
+   "active_neurons": 158
   }
  },
  "flywire_reference_active_per_trial": 445.75,

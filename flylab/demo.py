@@ -39,6 +39,7 @@ E1_DALE_DIR = ROOT / "experiments" / "results" / "EXP-E1-DALE"
 E2_HD_DIR = ROOT / "experiments" / "results" / "EXP-E2-HD"
 SHIU_REPRO_DIR = ROOT / "experiments" / "results" / "SHIU-REPRO"
 W1_SUGAR_DIR = ROOT / "experiments" / "results" / "EXP-W1-SUGAR"
+W2_CALIB_DIR = ROOT / "experiments" / "results" / "EXP-W2-CALIB"
 TARGET_RATE = 0.002
 
 # Reference categorical palette, light mode (validated slots 1-3) + neutral for baselines.
@@ -507,6 +508,60 @@ def step_sugar(plt):
     plt.close(fig)
 
 
+def step_calib(plt):
+    header(11, "Calibrated: MaleCNS made only as excitable as FlyWire (EXP-W2-CALIB)")
+    runs = [json.loads(p.read_text()) for p in sorted(W2_CALIB_DIR.glob("calib_*.json"))]
+    runs = [r for r in runs if r.get("complete")]
+    if not runs:
+        print("  results not committed yet")
+        return
+    cal = runs[-1]
+    hist = sorted(cal["calibration"]["history"], key=lambda h: h["scale"])
+    target, scale = cal["flywire_reference_active_per_trial"], cal["calibration"]["scale"]
+    fig, (ax, bx) = plt.subplots(1, 2, figsize=(10, 4.1), gridspec_kw={"width_ratios": [1, 1.25]})
+    ax.plot([h["scale"] for h in hist], [h["active_per_trial"] for h in hist], color=C_CONN,
+            linewidth=2, marker="o", markersize=6, markeredgecolor=SURFACE, markeredgewidth=1.5)
+    ax.axhline(target, color=C_ER, linewidth=1.5, linestyle="--")
+    ax.text(0.17, target * 1.12, f"FlyWire: {target:.0f} neurons / trial", color=C_ER, fontsize=9)
+    top = [c for c in cal["conditions"].values() if c["rate_hz"] == 200 and "null_draw" not in c][0]
+    ax.scatter([scale], [top["active_per_trial"]], marker="D", s=50, color=INK, zorder=4)
+    ax.annotate("same gain, 30 new trials", (scale, top["active_per_trial"]),
+                xytext=(0.22, top["active_per_trial"] * 0.9), fontsize=8.5, color=INK_2,
+                arrowprops={"arrowstyle": "-", "color": MUTED})
+    ax.set_yscale("log")
+    ax.set_xlabel("gain on every MaleCNS synapse")
+    ax.set_ylabel("neurons that fire per trial (200 Hz sugar)")
+    ax.set_xlim(0.14, 0.53)
+    ax.set_title("Calibration looks at activity, never at MN9", fontsize=11)
+    pts = sorted((c["rate_hz"], c["mn9_mean"]) for c in cal["conditions"].values() if "null_draw" not in c)
+    series = [(pts, C_CONN, f"MaleCNS, gain {scale:.2f} (preregistered test)", "-")]
+    mc = [json.loads(p.read_text()) for p in sorted(W1_SUGAR_DIR.glob("sugar_malecns-both_*.json"))]
+    fw = [json.loads(p.read_text()) for p in sorted(W1_SUGAR_DIR.glob("sugar_flywire_*.json"))]
+    for res, color, label in ((mc, MUTED, "MaleCNS, gain 1 (EXP-W1-SUGAR)"),
+                              (fw, C_ER, "FlyWire (Shiu et al.'s model)")):
+        if res:
+            series.append((sorted((c["rate_hz"], c["mn9_mean"]) for c in res[-1]["conditions"].values()
+                                  if c["input"] == "lb3c_both" and "null_draw" not in c),
+                           color, label, "--" if color == MUTED else "-"))
+    for p_, color, label, ls in series:
+        bx.plot([a for a, _ in p_], [b for _, b in p_], color=color, linestyle=ls, linewidth=2,
+                marker="o", markersize=5, markeredgecolor=SURFACE, markeredgewidth=1.2, label=label)
+    nulls = [c["mn9_mean"] for c in cal["conditions"].values() if "null_draw" in c]
+    bx.scatter([200 + 6 * (k - 1) for k in range(len(nulls))], nulls, marker="X", s=60, color=C_DP,
+               zorder=4, label="calibrated MaleCNS, rewired (×3)")
+    bx.set_xlabel("sugar GRN (LB3c) stimulation, Hz")
+    bx.set_ylabel("MN9 firing rate, Hz")
+    bx.set_title("MN9 still fires — later, and less", fontsize=11)
+    bx.legend(frameon=False, fontsize=8.3, loc="upper left")
+    print(f"  calibrated gain {scale:.4f}; MN9 " + ", ".join(f"{int(a)} Hz -> {b:.1f}" for a, b in pts)
+          + f"; nulls {nulls}")
+    fig.suptitle("Does sugar → MN9 survive when MaleCNS is no more excitable than FlyWire?",
+                 fontsize=12, fontweight="bold", x=0.02, ha="left")
+    fig.tight_layout()
+    fig.savefig(FIG_DIR / "fig9_calibrated.png")
+    plt.close(fig)
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser(description="Fly Lab tour on real MaleCNS data")
     ap.add_argument("--quick", action="store_true", help="fewer seeds and trials (CI)")
@@ -530,6 +585,7 @@ def main(argv=None):
     step_hd(plt)
     step_shiu_repro(plt)
     step_sugar(plt)
+    step_calib(plt)
     print(f"\nfigures written to {FIG_DIR.relative_to(ROOT)}/")
 
 

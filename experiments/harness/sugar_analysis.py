@@ -114,6 +114,31 @@ def rerun_check(mc: dict) -> dict:
             "identical": all(got.get(r) == v for r, v in LOGGED_FIRST_RUN.items())}
 
 
+def analyse_calib(directory: Path = ROOT / "experiments/results/EXP-W2-CALIB") -> dict | None:
+    """EXP-W2-CALIB endpoints (protocol in that directory)."""
+    runs = [json.loads(p.read_text()) for p in sorted(directory.glob("calib_*.json"))]
+    runs = [r for r in runs if r.get("complete")]
+    fw = latest("flywire")
+    if not runs or fw is None:
+        return None
+    cal = runs[-1]
+    top = curve(cal, "lb3c_both")[-1]
+    out = {"experiment": "EXP-W2-CALIB", "scale": cal["calibration"]["scale"],
+           "flywire_reference_active_per_trial": cal["flywire_reference_active_per_trial"],
+           "calibration": cal["calibration"]["history"],
+           "primary": primary(cal) | {"verdict": None},
+           "dose_response": dose_response(cal, "lb3c_both"), "nulls": nulls(cal),
+           "spread_200hz": {"active_any_trial": top["active_neurons"],
+                            "active_per_trial": top["active_per_trial"]},
+           "overlap_by_flywire_type": overlap_by_flywire_type(fw, cal)}
+    p = out["primary"]
+    lo, hi = p["ci95"]
+    p["verdict"] = ("survives calibration" if lo > 10 and p["zero_hz_mean"] < 2 else
+                    "does not survive" if hi < 10 else "inconclusive")
+    (directory / "analysis.json").write_text(json.dumps(out, indent=1) + "\n")
+    return out
+
+
 def main(argv=None) -> int:
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--dir", type=Path, default=RESULTS)
@@ -165,6 +190,15 @@ def main(argv=None) -> int:
               f"({o['n_mapped']} mapped); Spearman over {o['n_shared_active']} types {o['spearman']:.2f}")
     for r in out.get("posthoc", []):
         print(f"post hoc {r['connectome']} {r['label']}: MN9 {r['mn9_mean']:.1f} active {r['active_neurons']}")
+    cal = analyse_calib() if args.dir == RESULTS else None
+    if cal:
+        p, o = cal["primary"], cal["overlap_by_flywire_type"]
+        print(f"EXP-W2-CALIB s={cal['scale']:.4f}: MN9 {p['mn9_mean']:.1f} [{p['ci95'][0]:.1f}, "
+              f"{p['ci95'][1]:.1f}], 0 Hz {p['zero_hz_mean']:.1f} -> {p['verdict']}; dose "
+              f"{np.round(cal['dose_response']['mn9'], 1).tolist()} rho {cal['dose_response']['spearman']:.2f}; "
+              f"nulls {cal['nulls']['null_means']} (wiring: {cal['nulls']['pathway_depends_on_wiring']}); "
+              f"spread {cal['spread_200hz']}; overlap {o['n_hits']}/{o['top_k']}, rho {o['spearman']:.2f} "
+              f"over {o['n_shared_active']}")
     return 0
 
 

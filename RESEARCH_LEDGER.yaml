@@ -974,6 +974,28 @@ experiments:
       laterality: uninterpretable (MN9_R 556 vs MN9_L 6,012 input synapses, "RT Hard to trace")
     caveat: ~20,500 MaleCNS neurons fire vs ~490 in FlyWire; the transferred model is far more excitable
     invalid_statement: The sugar pathway is equally selective in MaleCNS / the model's dynamics are validated on MaleCNS.
+  - id: EXP-W2-CALIB
+    status: CLOSED_CONFIRMATORY
+    claim_ready: true
+    protocol: experiments/results/EXP-W2-CALIB/protocol.md
+    protocol_commit: bfc8f59  # pushed 2026-10-25T16:44:35Z; run started 16:44:42Z
+    runner: experiments/harness/sugar_calibrated.py
+    analysis: experiments/harness/sugar_analysis.py (analyse_calib)
+    report: reports/EXP_W2_CALIB.md
+    artifact: experiments/results/EXP-W2-CALIB/calib_20261025T164442Z_bfc8f59.json
+    seeds: calibration (9000, k); confirmation (7100, k); nulls (81000, d)
+    calibration: {scale: 0.5008, target_active_per_trial: 445.8, achieved_on_calibration_trials: 376.5}
+    primary:
+      malecns_calibrated_lb3c_both_200hz_mn9: {mean: 25.3, ci95: [24.5, 26.1], n: 30}
+      zero_input_mn9: 0.0
+      verdict: survives calibration
+    secondary:
+      dose_response_mn9: [0.0, 0.0, 0.9, 12.9, 25.3]
+      dale_degree_nulls_mn9: [0.0, 0.0, 0.0]
+      overlap_by_flywireType_top30: 22
+      spearman_all_types: 0.04
+      spread_200hz_active_per_trial: 1576  # calibration did not hold on new seeds (target 446)
+    invalid_statement: The model reproduces FlyWire's MN9 rates or thresholds on MaleCNS / one gain calibrates MaleCNS.
 tests:
   previous_pytest: "58 passed (2026-09-15, .venv/bin/python -m pytest -q)"
   current: "74 passed (2026-09-16, .venv/bin/python -m pytest -q)"

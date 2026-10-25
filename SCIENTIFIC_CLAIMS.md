@@ -1,5 +1,12 @@
 # Scientific claims — Fly Lab
 
+**25 October 2026 — EXP-W2-CALIB (preregistered, confirmatory):** with every MaleCNS weight
+scaled by 0.5008 (chosen only to match FlyWire's spread), sugar input at 200 Hz still drives
+MN9 at **25.3 Hz [24.5, 26.1]** (0.0 Hz without input; 0.0 Hz on three rewirings): **SURVIVES
+CALIBRATION**. Claim-ready for the persistence of the pathway at near-FlyWire excitability.
+Not claim-ready: quantitative agreement (25 vs 80 Hz; silent at 50 Hz) or a stable calibration
+(1,576 neurons per trial on new seeds against a 446 target). Report: `reports/EXP_W2_CALIB.md`.
+
 **25 October 2026 — EXP-W1-SUGAR (preregistered, confirmatory), whole-brain model on a second
 connectome:** with Shiu et al.'s model unchanged (re-implementation spike-for-spike equal to
 Brian 2; their published FlyWire simulations reproduced, r = 0.9998), activating the 23 LB3c

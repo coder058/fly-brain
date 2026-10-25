@@ -315,6 +315,26 @@ the shortest sugar → MN9 path removes only 3–13% of MN9's drive in either co
 the circuit is redundant, and the excitability is only partly calibration. The rest is an open
 question, stated as such in the [report](../reports/EXP_W1_SUGAR.md).
 
+## Round 11: take the runaway away and ask again
+
+If the MaleCNS replication only appears when half the central brain is firing, it is not the
+same prediction. So I preregistered one more test: multiply every MaleCNS weight by one gain,
+chosen by bisection so that 200 Hz sugar input recruits as many neurons per trial as on
+FlyWire — a calibration that looks at spread and never at MN9 — then rerun on fresh seeds.
+
+The calibration curve was the first surprise: activity rises gently with the gain up to about
+0.5, then jumps fivefold between 0.496 and 0.506. Under this model MaleCNS sits on a
+knife-edge. The bisection landed at 0.5008 (376 neurons per trial against FlyWire's 446).
+
+**Result: the pathway survives.** MN9 fires at 25.3 Hz [24.5, 26.1] at 200 Hz, 0 Hz without
+input, 0 Hz on three rewirings at the same gain; 22 of FlyWire's top 30 responder types fire,
+most at rates close to FlyWire's. And the audit, again, before the headline: the calibration
+did not hold on the 30 new trials at 200 Hz (1,576 neurons per trial, 3.5× the target); MN9
+is silent at 50 Hz where FlyWire's fires; it reaches 25 Hz, not 80; the incompletely traced
+MN9_R never fires; and the global ranking of cell types is no more FlyWire-like than before.
+What replicates is the existence and wiring-dependence of the drive, not its numbers.
+([report](../reports/EXP_W2_CALIB.md))
+
 ## What I would tell a reviewer
 
 - **The interesting skill here is not the simulator.** It is noticing that a result is too
@@ -364,7 +384,7 @@ question, stated as such in the [report](../reports/EXP_W1_SUGAR.md).
 | preregistered 2×2 | [`experiments/results/EXP-E1-OP/protocol.md`](../experiments/results/EXP-E1-OP/protocol.md) |
 | follow-ups | [`EXP_E1_DALE.md`](../reports/EXP_E1_DALE.md) · [`EXP_E1_REPL.md`](../reports/EXP_E1_REPL.md) · [`EXP_E1_MATCH.md`](../reports/EXP_E1_MATCH.md) |
 | whole-brain model, validation | [`flylab/brain.py`](../flylab/brain.py) · [`SIMULATOR_VALIDATION.md`](../reports/SIMULATOR_VALIDATION.md) |
-| cross-connectome replication | [`EXP_W1_SUGAR.md`](../reports/EXP_W1_SUGAR.md) · [`sugar_mn9.py`](../experiments/harness/sugar_mn9.py) |
+| cross-connectome replication | [`EXP_W1_SUGAR.md`](../reports/EXP_W1_SUGAR.md) · [`EXP_W2_CALIB.md`](../reports/EXP_W2_CALIB.md) · [`sugar_mn9.py`](../experiments/harness/sugar_mn9.py) |
 | head-direction circuit | [`EXP_E2_HD.md`](../reports/EXP_E2_HD.md) · [`hd_memory.py`](../experiments/harness/hd_memory.py) |
 | runner for both | [`experiments/harness/e1_operating_point.py`](../experiments/harness/e1_operating_point.py) |
 | nulls (and the bug history) | [`flylab/nulls.py`](../flylab/nulls.py) |
