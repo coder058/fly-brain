@@ -38,6 +38,7 @@ E1_OP_DIR = ROOT / "experiments" / "results" / "EXP-E1-OP"
 E1_DALE_DIR = ROOT / "experiments" / "results" / "EXP-E1-DALE"
 E2_HD_DIR = ROOT / "experiments" / "results" / "EXP-E2-HD"
 SHIU_REPRO_DIR = ROOT / "experiments" / "results" / "SHIU-REPRO"
+W1_SUGAR_DIR = ROOT / "experiments" / "results" / "EXP-W1-SUGAR"
 TARGET_RATE = 0.002
 
 # Reference categorical palette, light mode (validated slots 1-3) + neutral for baselines.
@@ -445,6 +446,60 @@ def step_shiu_repro(plt):
     plt.close(fig)
 
 
+def step_sugar(plt):
+    header(10, "Cross-connectome replication: sugar GRNs -> MN9 on MaleCNS (EXP-W1-SUGAR)")
+    from scipy import stats
+
+    mc = sorted(W1_SUGAR_DIR.glob("sugar_malecns_*.json"))
+    fw = sorted(W1_SUGAR_DIR.glob("sugar_flywire_*.json"))
+    if not mc or not fw:
+        print("  results not committed yet")
+        return
+    mc, fw = json.loads(mc[-1].read_text()), json.loads(fw[-1].read_text())
+
+    def curve(res, inp):
+        pts = sorted((c["rate_hz"], np.array(c["mn9_trials"]), c["active_neurons"])
+                     for k, c in res["conditions"].items()
+                     if c["input"] == inp and "null_draw" not in c)
+        return pts
+
+    fig, (ax, bx) = plt.subplots(1, 2, figsize=(10, 4.1), gridspec_kw={"width_ratios": [1.45, 1]})
+    series = [(mc, "lb3c_both", C_CONN, "MaleCNS (male, brain + nerve cord)"),
+              (fw, "lb3c_both", C_ER, "FlyWire (female brain; Shiu et al.)")]
+    for res, inp, color, label in series:
+        pts = curve(res, inp)
+        x = np.array([p[0] for p in pts])
+        m = np.array([p[1].mean() for p in pts])
+        h = np.array([stats.t.ppf(0.975, len(p[1]) - 1) * p[1].std(ddof=1) / np.sqrt(len(p[1]))
+                      if p[1].std() > 0 else 0 for p in pts])
+        ax.plot(x, m, color=color, linewidth=2, marker="o", markersize=6, label=label, zorder=3,
+                markeredgecolor=SURFACE, markeredgewidth=1.5)
+        ax.fill_between(x, m - h, m + h, color=color, alpha=0.15, linewidth=0)
+        bx.plot(x, [p[2] for p in pts], color=color, linewidth=2, marker="o", markersize=6,
+                markeredgecolor=SURFACE, markeredgewidth=1.5, label=label)
+        print(f"  {label}: MN9 " + ", ".join(f"{int(a)} Hz -> {b:.1f}" for a, b in zip(x, m, strict=True)))
+    nulls = [c for c in mc["conditions"].values() if "null_draw" in c]
+    if nulls:
+        ax.scatter([200 + 6 * (k - 1) for k in range(len(nulls))], [c["mn9_mean"] for c in nulls],
+                   marker="X", s=70, color=C_DP, zorder=4,
+                   label="MaleCNS rewired (degrees, weights, Dale kept)")
+        print("  MaleCNS whole-brain Dale nulls at 200 Hz: MN9 "
+              + ", ".join(f"{c['mn9_mean']:.1f}" for c in nulls))
+    ax.set_xlabel("sugar GRN (LB3c) stimulation, Hz")
+    ax.set_ylabel("MN9 firing rate, Hz (mean ± 95% CI)")
+    ax.set_title("Proboscis motor neuron MN9", fontsize=11)
+    ax.legend(frameon=False, fontsize=8.8, loc="upper left")
+    bx.set_yscale("log")
+    bx.set_xlabel("sugar GRN (LB3c) stimulation, Hz")
+    bx.set_ylabel("neurons that fire at all")
+    bx.set_title("How far the activity spreads", fontsize=11)
+    fig.suptitle("Shiu et al.'s sugar → MN9 prediction on a second connectome",
+                 fontsize=12, fontweight="bold", x=0.02, ha="left")
+    fig.tight_layout()
+    fig.savefig(FIG_DIR / "fig8_sugar_mn9.png")
+    plt.close(fig)
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser(description="Fly Lab tour on real MaleCNS data")
     ap.add_argument("--quick", action="store_true", help="fewer seeds and trials (CI)")
@@ -467,6 +522,7 @@ def main(argv=None):
     step_dale(plt)
     step_hd(plt)
     step_shiu_repro(plt)
+    step_sugar(plt)
     print(f"\nfigures written to {FIG_DIR.relative_to(ROOT)}/")
 
 
