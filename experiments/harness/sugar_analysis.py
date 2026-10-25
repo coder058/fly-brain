@@ -70,6 +70,35 @@ def overlap(fw: dict, mc: dict, k: int = 30) -> dict:
             "n_shared_active": len(shared), "spearman": float(rho), "p": float(p)}
 
 
+def overlap_by_flywire_type(fw: dict, mc: dict, k: int = 30) -> dict:
+    """POST HOC (not preregistered). The preregistered overlap matches type *names*, but most
+    FlyWire types in the gustatory zone are named CB0xxx while MaleCNS names the same cells
+    GNGxxx and records the correspondence in `flywireType`. Here each FlyWire type gets the
+    neuron-weighted mean rate of the MaleCNS types annotated with it."""
+    import pyarrow.feather as feather
+
+    ft = curve(fw, "lb3c_both")[-1]["type_rates"]
+    mt = curve(mc, "lb3c_both")[-1]["type_rates"]
+    n = feather.read_table(ROOT / "data/derived/graph/neurons.feather",
+                           columns=["type", "flywireType"]).to_pandas().dropna()
+    acc: dict[str, list[float]] = {}
+    for (fwt, t), cnt in n.groupby(["flywireType", "type"]).size().items():
+        if t in mt:
+            for x in str(fwt).split(","):
+                a = acc.setdefault(x.strip(), [0.0, 0])
+                a[0] += mt[t] * cnt
+                a[1] += cnt
+    mapped = {key: a[0] / a[1] for key, a in acc.items() if a[1]}
+    top = sorted(ft, key=ft.get, reverse=True)[:k]
+    shared = [t for t in ft if t in mapped and (ft[t] > 0 or mapped[t] > 0)]
+    rho, p = stats.spearmanr([ft[t] for t in shared], [mapped[t] for t in shared])
+    return {"preregistered": False, "top_k": k,
+            "flywire_top": [[t, ft[t], mapped.get(t)] for t in top],
+            "n_mapped": sum(t in mapped for t in top),
+            "n_hits": sum(mapped.get(t, 0.0) > 1.0 for t in top),
+            "n_shared_active": len(shared), "spearman": float(rho), "p": float(p)}
+
+
 def nulls(mc: dict) -> dict:
     draws = [c for c in mc["conditions"].values() if "null_draw" in c]
     _, lo, _ = t_ci(curve(mc, "lb3c_both")[-1]["mn9_trials"])
@@ -101,6 +130,8 @@ def main(argv=None) -> int:
         out["flywire"] = {inp: dose_response(fw, inp) for inp in ("lb3c_both", "shiu21")
                           if curve(fw, inp)}
         out["overlap"] = overlap(fw, mc)
+        if (ROOT / "data/derived/graph/neurons.feather").exists():
+            out["overlap_by_flywire_type_posthoc"] = overlap_by_flywire_type(fw, mc)
     posthoc = sorted(args.dir.glob("sugar_posthoc_*.json"))
     if posthoc:
         out["posthoc"] = [{k: r[k] for k in ("label", "connectome", "mn9_mean", "mn9_each",
@@ -128,6 +159,10 @@ def main(argv=None) -> int:
         print(f"overlap: {o['n_hits']}/{o['top_k']} FlyWire top types active >1 Hz in MaleCNS; "
               f"absent {o['top_absent_in_malecns']}; Spearman over {o['n_shared_active']} "
               f"shared types {o['spearman']:.2f}")
+    if "overlap_by_flywire_type_posthoc" in out:
+        o = out["overlap_by_flywire_type_posthoc"]
+        print(f"POST HOC overlap via flywireType: {o['n_hits']}/{o['top_k']} active >1 Hz "
+              f"({o['n_mapped']} mapped); Spearman over {o['n_shared_active']} types {o['spearman']:.2f}")
     for r in out.get("posthoc", []):
         print(f"post hoc {r['connectome']} {r['label']}: MN9 {r['mn9_mean']:.1f} active {r['active_neurons']}")
     return 0
