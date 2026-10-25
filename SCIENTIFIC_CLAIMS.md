@@ -1,5 +1,14 @@
 # Scientific claims — Fly Lab
 
+**25 October 2026 — EXP-W1-SUGAR (preregistered, confirmatory), whole-brain model on a second
+connectome:** with Shiu et al.'s model unchanged (re-implementation spike-for-spike equal to
+Brian 2; their published FlyWire simulations reproduced, r = 0.9998), activating the 23 LB3c
+sugar GRNs of MaleCNS at 200 Hz drives MN9 at **95.4 Hz [91.5, 99.3]** (0.0 Hz without input):
+**REPLICATES**. Three whole-brain Dale-preserving degree nulls give 0.0 Hz. Status:
+**MEASURED, CLAIM-READY** for the presence of the pathway and its dependence on wiring.
+**Not** claim-ready: selectivity (≈ 20,500 neurons fire vs ≈ 490 in FlyWire) or laterality
+(MN9_R incompletely traced). Report: `reports/EXP_W1_SUGAR.md`.
+
 **23 October 2026 — EXP-E2-HD (preregistered, confirmatory), head-direction circuit:**
 five steps after a position pulse, connectome − topography-shuffled null = **+0.143
 [+0.135, +0.151]**, 24/24 seeds (connectome 0.984, null 0.841, chance 0.125); connectome −

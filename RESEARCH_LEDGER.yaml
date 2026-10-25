@@ -937,6 +937,43 @@ experiments:
       delay60_connectome_minus_topography_null: {mean: -0.000, ci95: [-0.016, 0.016], n: 24}
     calibration: no_network produced no measurement at any delay
     invalid_statement: The fly head-direction circuit stores heading in this model / ring-attractor memory was shown.
+  - id: SHIU-REPRO
+    status: CLOSED_VALIDATION
+    claim_ready: true
+    runner: experiments/harness/shiu_reproduction.py
+    report: reports/SIMULATOR_VALIDATION.md
+    result:
+      sugar200: {mn9_ours: 92.5, mn9_published: 93.3, active_ours: 450, active_published: 448, pearson_r: 0.99985, top50_shared: 49}
+      sugar100: {mn9_ours: 67.5, mn9_published: 67.0, pearson_r: 0.99978, top50_shared: 50}
+    brian2_equivalence: tests/test_brain.py (spike-for-spike, 3 random signed networks)
+  - id: EXP-W1-SUGAR
+    status: CLOSED_CONFIRMATORY
+    claim_ready: true
+    protocol: experiments/results/EXP-W1-SUGAR/protocol.md
+    protocol_commit: 4e0550e  # pushed 2026-10-25T11:29:44Z; first run killed by job limit, rerun with same seeds (execution note, b55a2b4)
+    runner: experiments/harness/sugar_mn9.py
+    analysis: experiments/harness/sugar_analysis.py
+    report: reports/EXP_W1_SUGAR.md
+    artifacts:
+      - experiments/results/EXP-W1-SUGAR/sugar_malecns-both_20261025T133056Z_b55a2b4.json
+      - experiments/results/EXP-W1-SUGAR/sugar_malecns-lateral_20261025T143156Z_1b37138.json
+      - experiments/results/EXP-W1-SUGAR/sugar_flywire_20261025T154832Z_06d258b.json
+    seeds: trial k -> (7000, k); nulls -> (80000, d)
+    primary:
+      malecns_lb3c_both_200hz_mn9: {mean: 95.4, ci95: [91.5, 99.3], n: 30}
+      zero_input_mn9: 0.0
+      verdict: replicates
+    secondary:
+      dose_response_spearman: 1.0
+      dale_degree_nulls_mn9: [0.0, 0.0, 0.0]
+      pathway_depends_on_wiring: true
+      flywire_lb3c_both_200hz_mn9: 80.5
+      flywire_shiu21_200hz_mn9: 93.1
+      overlap_by_name_top30: 4   # preregistered; names differ between datasets
+      overlap_by_flywireType_top30_posthoc: 30
+      laterality: uninterpretable (MN9_R 556 vs MN9_L 6,012 input synapses, "RT Hard to trace")
+    caveat: ~20,500 MaleCNS neurons fire vs ~490 in FlyWire; the transferred model is far more excitable
+    invalid_statement: The sugar pathway is equally selective in MaleCNS / the model's dynamics are validated on MaleCNS.
 tests:
   previous_pytest: "58 passed (2026-09-15, .venv/bin/python -m pytest -q)"
   current: "74 passed (2026-09-16, .venv/bin/python -m pytest -q)"
