@@ -17,5 +17,43 @@
   "out_dir": "/home/user/fly-brain/experiments/results/EXP-W2-CALIB"
  },
  "conditions": {},
- "flywire_reference_active_per_trial": 445.75
+ "flywire_reference_active_per_trial": 445.75,
+ "calibration": {
+  "history": [
+   {
+    "scale": 0.17175564037317667,
+    "active_per_trial": 43.0
+   },
+   {
+    "scale": 0.31833288837343565,
+    "active_per_trial": 93.75
+   },
+   {
+    "scale": 0.4333778999214508,
+    "active_per_trial": 193.25
+   },
+   {
+    "scale": 0.5056609149950745,
+    "active_per_trial": 1882.5
+   },
+   {
+    "scale": 0.46812633488506566,
+    "active_per_trial": 265.5
+   },
+   {
+    "scale": 0.48653179837629623,
+    "active_per_trial": 306.0
+   },
+   {
+    "scale": 0.4960041475039872,
+    "active_per_trial": 338.0
+   },
+   {
+    "scale": 0.500809256172665,
+    "active_per_trial": 376.5
+   }
+  ],
+  "scale": 0.500809256172665,
+  "target": 445.75
+ }
 }
