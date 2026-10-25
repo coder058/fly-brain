@@ -478,14 +478,17 @@ def step_sugar(plt):
         ax.plot(x, m, color=color, linewidth=2, marker="o", markersize=6, label=label, zorder=3,
                 markeredgecolor=SURFACE, markeredgewidth=1.5)
         ax.fill_between(x, m - h, m + h, color=color, alpha=0.15, linewidth=0)
-        bx.plot(x, [p[2] for p in pts], color=color, linewidth=2, marker="o", markersize=6,
-                markeredgecolor=SURFACE, markeredgewidth=1.5, label=label)
+        on = x > 0  # nothing fires at 0 Hz; a log axis cannot show it
+        bx.plot(x[on], [p[2] for p, o in zip(pts, on, strict=True) if o], color=color, linewidth=2,
+                marker="o", markersize=6, markeredgecolor=SURFACE, markeredgewidth=1.5, label=label)
         print(f"  {label}: MN9 " + ", ".join(f"{int(a)} Hz -> {b:.1f}" for a, b in zip(x, m, strict=True)))
     nulls = [c for c in mc["conditions"].values() if "null_draw" in c]
     if nulls:
         ax.scatter([200 + 6 * (k - 1) for k in range(len(nulls))], [c["mn9_mean"] for c in nulls],
                    marker="X", s=70, color=C_DP, zorder=4,
                    label="MaleCNS rewired (degrees, weights, Dale kept)")
+        bx.scatter([200 + 6 * (k - 1) for k in range(len(nulls))], [c["active_neurons"] for c in nulls],
+                   marker="X", s=70, color=C_DP, zorder=4)
         print("  MaleCNS whole-brain Dale nulls at 200 Hz: MN9 "
               + ", ".join(f"{c['mn9_mean']:.1f}" for c in nulls))
     ax.set_xlabel("sugar GRN (LB3c) stimulation, Hz")
@@ -493,6 +496,7 @@ def step_sugar(plt):
     ax.set_title("Proboscis motor neuron MN9", fontsize=11)
     ax.legend(frameon=False, fontsize=8.8, loc="upper left")
     bx.set_yscale("log")
+    bx.set_xlim(-10, 215)
     bx.set_xlabel("sugar GRN (LB3c) stimulation, Hz")
     bx.set_ylabel("neurons that fire at all")
     bx.set_title("How far the activity spreads", fontsize=11)
