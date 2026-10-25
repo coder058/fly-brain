@@ -450,12 +450,15 @@ def step_sugar(plt):
     header(10, "Cross-connectome replication: sugar GRNs -> MN9 on MaleCNS (EXP-W1-SUGAR)")
     from scipy import stats
 
-    mc = sorted(W1_SUGAR_DIR.glob("sugar_malecns_*.json"))
-    fw = sorted(W1_SUGAR_DIR.glob("sugar_flywire_*.json"))
-    if not mc or not fw:
+    def latest(label):
+        done = [json.loads(p.read_text()) for p in sorted(W1_SUGAR_DIR.glob(f"sugar_{label}_*.json"))]
+        done = [r for r in done if r.get("complete")]
+        return done[-1] if done else None
+
+    mc, fw = latest("malecns-both"), latest("flywire")
+    if mc is None or fw is None:
         print("  results not committed yet")
         return
-    mc, fw = json.loads(mc[-1].read_text()), json.loads(fw[-1].read_text())
 
     def curve(res, inp):
         pts = sorted((c["rate_hz"], np.array(c["mn9_trials"]), c["active_neurons"])
