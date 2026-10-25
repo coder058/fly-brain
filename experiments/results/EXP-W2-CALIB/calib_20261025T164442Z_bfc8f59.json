@@ -1,0 +1,21 @@
+{
+ "experiment": "EXP-W2-CALIB",
+ "provenance": {
+  "utc": "2026-10-25T16:44:42+00:00",
+  "git_rev": "bfc8f59",
+  "harness_sha256": "50197ee4c310d807",
+  "config_sha256": "ef2f8d0fd5ad5f1c",
+  "runner_sha256": "3c2bd4ce883779e1"
+ },
+ "complete": false,
+ "settings": {
+  "rates": "0,50,100,150,200",
+  "trials": 30,
+  "calib_trials": 4,
+  "null_draws": 3,
+  "workers": 4,
+  "out_dir": "/home/user/fly-brain/experiments/results/EXP-W2-CALIB"
+ },
+ "conditions": {},
+ "flywire_reference_active_per_trial": 445.75
+}
